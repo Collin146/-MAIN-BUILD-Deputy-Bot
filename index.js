@@ -33,6 +33,7 @@ bot.on('guildMemberAdd', member => {
     // or send it with an embed:
     let embed = new Discord.RichEmbed()
       .setTitle("A new user has joined!")
+      .setColor("#00f4ef")
       .setDescription(`Welcome ${member}, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
       .setImage('https://cdn.discordapp.com/attachments/461540254441144326/542114903767515150/Screenshot_2019-01-03_at_13.15.28.png');
     welcomechannel.send({embed});
