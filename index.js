@@ -31,7 +31,14 @@ bot.on("guildMemberAdd", async member => {
     console.log(`${member.id} joined the server.`);
 
     let welcomechannel = member.guild.channels.find(`name`, "welcome");
-    welcomechannel.send(`Welcome ${member} to Global Roleplay™ PS4, the best Roleplay community for PS4!`);
+    let sicon = message.guild.iconURL;
+    let welcomeembed = new Discord.RichEmbed()
+    .setDescription("A new user has joined!")
+    .setColor("#00f4f4")
+    .addField(`Welcome ${member} To Global Roleplay™ PS4, the best Roleplay Community for PS4`)
+    .attachFile("https://cdn.discordapp.com/attachments/461540254441144326/542114903767515150/Screenshot_2019-01-03_at_13.15.28.png");
+
+    return welcomechannel.send(welcomeembed);
 });
 
 bot.on("guildMemberRemove", async member => {
