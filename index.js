@@ -27,19 +27,16 @@ jsfile.forEach((f, i) =>{
 
 });
 
-bot.on("guildMemberAdd", async member => {
-    console.log(`${member.id} joined the server.`);
-
-    let welcomechannel = member.guild.channels.find(`name`, "welcome");
-    let sicon = message.guild.iconURL;
-    let welcomeembed = new Discord.RichEmbed()
-    .setDescription("A new user has joined!")
-    .setColor("#00f4f4")
-    .addField(`Welcome ${member} To Global Roleplay™ PS4, the best Roleplay Community for PS4`)
-    .attachFile("https://cdn.discordapp.com/attachments/461540254441144326/542114903767515150/Screenshot_2019-01-03_at_13.15.28.png");
-
-    return welcomechannel.send(welcomeembed);
-});
+bot.on('guildMemberAdd', member => {
+    channel: welcome
+    // channel: the channel you want to send the welcome message in
+    // or send it with an embed:
+    let embed = new Discord.RichEmbed()
+      .setTitle("A new user has joined!")
+      .setDescription(`Welcome ${member}, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
+      .setImage('https://cdn.discordapp.com/attachments/461540254441144326/542114903767515150/Screenshot_2019-01-03_at_13.15.28.png');
+    channel.send({embed});
+  });
 
 bot.on("guildMemberRemove", async member => {
     console.log(`${member.id} left the server.`);
