@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
-const moment = require("moment");
-require("moment-duration-format");
+
+module.exports.run = async (bot, message, args) => { 
+
 const status = {
   online: "Online",
   idle: "Idle",
@@ -47,3 +48,8 @@ exports.help = {
   description: "Gets userinfo from a mention or id",
   usage: "userinfo <mention> or <id>"
 };
+}
+
+module.exports.help = {
+    name: "userinfo"
+  }
