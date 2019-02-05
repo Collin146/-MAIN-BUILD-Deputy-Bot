@@ -9,7 +9,6 @@ const status = {
   offline: "Offline/Invisible"
 };
 const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
-exports.run = (bot, msg, args) => {
   const member = msg.mentions.members.first() || msg.guild.members.get(args[0]) || msg.member;
   if (!userinfo) return msg.reply("Please provide a vaild Mention or USER ID");
   if (member.user.bot === true) {
@@ -45,7 +44,6 @@ exports.help = {
   description: "Gets userinfo from a mention or id",
   usage: "userinfo <mention> or <id>"
 };
-}
 
 module.exports.help = {
     name: "userinfo"
