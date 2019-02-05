@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
 
 if (message.content.startsWith(prefix + "userinfo"))
-    let member = message.mentions.users.first() || message.author;
+    let member = message.mentions.users.first(message.mentions.users.first() || message.guild.members.get(args[0]));
     let userembed = new Discord.RichEmbed()
         .setColor(message.guild.member(member).highestRole.color)
         .setThumbnail(member.displayAvatarURL)
