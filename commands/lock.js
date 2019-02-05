@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 {
-    const type = channel.type === 'text' ? 'SEND_MESSAGES' : 'CONNECT';
+    const type = channel === 'text' ? 'SEND_MESSAGES' : 'CONNECT';
     await overwritePermissions.channel(channel.guild.defaultRole, { [type]: false });
     if (message.channel.permissionsFor(message.guild.me).has('SEND_MESSAGES') === false) return true;
     return message.send('This channel is locked.');
