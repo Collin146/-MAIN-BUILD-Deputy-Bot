@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-    const member = msg.mentions.members.first() || message.guild.members.get(args[0]) || message.member;
+    const member = message.mentions.members.first() || message.guild.members.get(args[0]) || message.member;
     const embed = new Discord.MessageEmbed()
     .setColor(randomColor)
     .setThumbnail(`${member.user.displayAvatarURL()}`)
