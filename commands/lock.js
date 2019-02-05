@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-
     bot.on(message, [channel = message.channel]); {
     const type = channel.type === 'text' ? 'SEND_MESSAGES' : 'CONNECT';
     await channel.overwritePermissions(channel.guild.defaultRole, { [type]: false });
