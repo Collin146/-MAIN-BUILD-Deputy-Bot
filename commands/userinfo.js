@@ -9,9 +9,9 @@ const status = {
   offline: "Offline/Invisible"
 };
 const randomColor = "#000000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); });
-exports.run = (client, msg, args) => {
+exports.run = (bot, msg, args) => {
   const member = msg.mentions.members.first() || msg.guild.members.get(args[0]) || msg.member;
-  if (!member) return msg.reply("Please provide a vaild Mention or USER ID");
+  if (!userinfo) return msg.reply("Please provide a vaild Mention or USER ID");
   let bot;
   if (member.user.bot === true) {
     bot = "Yes";
