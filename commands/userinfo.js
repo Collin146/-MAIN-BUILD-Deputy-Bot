@@ -4,7 +4,6 @@ module.exports.run = async (bot, message, args) => {
     let userembed = new Discord.RichEmbed()
     .setDescription("User Information")
     .setColor("#ff6a00")
-    .setThumbnail(bicon)
     .addField("User Name", username)
     .addField("User Tag", tag)
     .addField("User ID", ID)
