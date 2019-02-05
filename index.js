@@ -40,10 +40,10 @@ bot.on('guildMemberAdd', member => {
   });
 
 bot.on("guildMemberRemove", async member => {
-    console.log(`${username} left the server.`);
+    console.log(`${member} left the server.`);
 
     let welcomechannel = member.guild.channels.find(`name`, "left-members");
-    welcomechannel.send(`${username} has left the server.`);
+    welcomechannel.send(`${member} has left the server.`);
 });
 
 
