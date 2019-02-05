@@ -31,9 +31,7 @@ exports.run = (bot, msg, args) => {
     .addField("Joined At", `${moment.utc(member.joinedAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`, true)
     .addField("Created At", `${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`, true);
 
-  msg.channel.send({
-    embed
-  });
+  msg.channel.send({embed});
 };
 
 exports.conf = {
