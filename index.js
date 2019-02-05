@@ -82,7 +82,7 @@ bot.on("message", async message => {
 
 });
 
-if(message.content.startsWith(prefix + "userinfo")) {
+if(cmd === `{$prefix}userinfo`){
     let member = message.mentions.users.first() || message.author;
     let userembed = new Discord.RichEmbed()
         .setColor(message.guild.member(member).highestRole.color)
