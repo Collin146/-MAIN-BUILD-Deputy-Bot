@@ -19,9 +19,9 @@ module.exports.run = async (bot, message, args) => {
         .addField("Game:", message.guild.member(member).presence.game ? message.guild.member(member).presence.game.name : "Not Playing", true) // the ? and : are like an if statement if (msg.guild.member(member).presence.game ) { msg.guild.member(member).presence.game.name } else "Not Playing"
         .addField("Nickname:", message.guild.member(member).nickname ? message.guild.member(member).nickname : "None", true )
         .addField("Last Messsage:", member.lastMessage, true)
+        .addField(`Account Ceated On`, message.user.createdAt, true)
+        .addField(`User Joined On`, message.member.joinedAt, true)
         .addField(`Roles:`, message.guild.member(member).roles.map(s => s).join(" | "), true)
-        .addField(`Account Ceated On`, message.member.createdAt, true)
-        .addField(`User Joined On`, message.member.joinedAt,true)
 
         message.channel.send(userembed);
 }
