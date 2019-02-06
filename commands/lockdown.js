@@ -3,7 +3,6 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
-if (cmd === `${prefix}lockdown`) {
     if (message.member.hasPermission("ADMINISTRATOR")) {
      if (!client.lockit) client.lockit = [];
     let time = args.join(' ');
@@ -39,7 +38,6 @@ if (cmd === `${prefix}lockdown`) {
     }
     }
    }
-}
 
 module.exports.help = {
     name: "lockdown"
