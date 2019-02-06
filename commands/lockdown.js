@@ -18,9 +18,7 @@ module.exports.run = async (bot, message, args) => {
     
 
     if (message.member.hasPermission("ADMINISTRATOR")) {
-    let time = args.join(' ');
     let validUnlocks = ['release', 'unlock'];
-    if (!time) return message.reply('You must set a duration for the lockdown in either hours, minutes or seconds');{
       message.channel.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: null
       }).then(() => {
@@ -30,10 +28,11 @@ module.exports.run = async (bot, message, args) => {
       }).catch(error => {
         console.log(error);
       });
+     } else {
       message.channel.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: false
       }).then(() => {
-        message.channel.sendMessage(`Channel locked down for ${ms(ms(time), { long:true })}`).then(() => {
+        message.channel.sendMessage(`Channel locked down. { long:true })}`).then(() => {
    
           client.lockit[message.channel.id] = setTimeout(() => {
             message.channel.overwritePermissions(message.guild.id, {
