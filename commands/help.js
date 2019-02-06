@@ -23,7 +23,9 @@ let modembed = new Discord.RichEmbed()
 .addField("!prefix <new prefix>", "This changes the prefix to the desired one.")
 .addField("!clear <amount>", "This deletes the given amount of messages at once.")
 .addField("!tempmute <user> <time length>", "This temporarily mutes the mentioned user for the given amount of time.")
-.addField("!say <any word or sentence>", "This makes the bot say the given word or sentence.");
+.addField("!say <any word or sentence>", "This makes the bot say the given word or sentence.")
+.addField("!lockdown", "Locks the channel that you typed this in.")
+.addField("!userinfo <user>", "Shows you information about the mentioned user.");
 try{
     await message.author.send(modembed);
     message.react("👍");
