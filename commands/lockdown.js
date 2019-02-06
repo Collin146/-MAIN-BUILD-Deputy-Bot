@@ -18,7 +18,11 @@ module.exports.run = async (bot, message, args) => {
     
 
     if (message.member.hasPermission("ADMINISTRATOR")) {
+         if (!bot.lockit) bot.lockit = [];
+         let time = args.join(' ');
     let validUnlocks = ['release', 'unlock'];
+    if (!time) return message.reply('You must set a duration for the lockdown in either hours, minutes or seconds');
+    if (validUnlocks.includes(time)) {
       message.channel.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: null
       }).then(() => {
@@ -47,6 +51,7 @@ module.exports.run = async (bot, message, args) => {
       });
     }
     }
+}
 
 module.exports.help = {
     name: "lockdown"
