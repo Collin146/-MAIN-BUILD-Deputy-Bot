@@ -82,7 +82,7 @@ bot.on("message", async message => {
 
 });
 
-if (command === "lockdown") {
+if (cmd === `${prefix)lockdown {
     if (message.member.hasPermission("ADMINISTRATOR")) {
      if (!client.lockit) client.lockit = [];
     let time = args.join(' ');
