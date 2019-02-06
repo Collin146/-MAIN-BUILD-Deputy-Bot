@@ -4,7 +4,6 @@ const errors = require("../utils/errors.js");
 module.exports.run = async (bot, message, args) => { 
 
     if (message.member.hasPermission("ADMINISTRATOR")) {
-     if (!client.lockit) client.lockit = [];
     let time = args.join(' ');
     let validUnlocks = ['release', 'unlock'];
     if (!time) return message.reply('You must set a duration for the lockdown in either hours, minutes or seconds');
