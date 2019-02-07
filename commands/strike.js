@@ -11,10 +11,10 @@ let member = message.mentions.members.first();
 // or the person who made the command: let member = message.member;
 
 // Add the role!
-member.addRole(role).catch(console.error);
+message.member.addRole(role).catch(console.error);
 
 // Remove a role!
-member.removeRole(role).catch(console.error);
+message.member.removeRole(role).catch(console.error);
 }
 
 
