@@ -62,6 +62,7 @@ let strikeEmbed = new Discord.RichEmbed()
 .setColor("#ff0c00")
 .addField("Striked User", `<@${tostrike.id}>`)
 .addField("Strike Type", "Strike 1")
+.addField("Total Strikes", (strikes))
 .addField("Length & Reason", kReason); //add reason before able to use this.
 
 await (tostrike.addRole(strikerole.id), (kReason));
