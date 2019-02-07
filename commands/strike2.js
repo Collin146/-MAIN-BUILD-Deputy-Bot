@@ -17,8 +17,6 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-//!tempmute @user 1s/m/h/d
-
 let tostrike = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!tostrike) return message.reply("Couldn't find that user.");
 let kReason = args.join(" ").slice(22);
