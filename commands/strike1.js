@@ -52,7 +52,7 @@ let strikeEmbed = new Discord.RichEmbed()
 .addField("Strike Type", "Strike 1")
 .addField("Reason", kReason); //add reason before able to use this.
 
-await (tostrike.addRole(strikerole.id), (kReason));
+await (tostrike.addRole(strikerole.id) || (kReason));
 message.reply(strikeEmbed);
 
 setTimeout(function(){
