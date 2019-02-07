@@ -45,7 +45,7 @@ let striketime = args[1];
 if(!striketime) return message.reply("You didn't specify a time!");
 
 await(tostrike.addRole(strikerole.id));
-message.reply(`<@${tostrike.id}> has been muted for ${ms(ms(striketime))}`);
+message.reply(`<@${tostrike.id}> has been striked for ${ms(ms(striketime))}`);
 
 setTimeout(function(){
     tostrike.removeRole(strikerole.id);
