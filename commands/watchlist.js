@@ -31,7 +31,7 @@ if (!strikerole){
     try{
         strikerole = await message.guild.createRole({
             name: "Watchlist",
-            color: "#000000",
+            color: "#d48787",
             permissions: []
         })
         message.guild.channels.forEach(async (channel, id) => {
