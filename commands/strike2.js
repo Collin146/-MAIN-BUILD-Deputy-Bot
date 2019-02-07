@@ -7,13 +7,13 @@ module.exports.run = async (bot, message, args) => {
 
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
     if(args[0] === "help"){
-        message.reply("Usage: !strike1 <user> <time length> <reason>");
+        message.reply("Usage: !strike2 <user> <time length> <reason>");
         return;
     }
     
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
     if(args[0] == "help"){
-        message.reply("Usage: !strike1 <user> <time length> <reason>");
+        message.reply("Usage: !strike2 <user> <time length> <reason>");
         return;
     }
 
