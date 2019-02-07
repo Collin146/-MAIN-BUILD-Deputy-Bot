@@ -25,10 +25,10 @@ let modembed = new Discord.RichEmbed()
 .addField("!say <any word or sentence>", "This makes the bot say the given word or sentence.")
 .addField("!lockdown", "Locks the channel that this is typed in.")
 .addFieldd("!lockdown unlock", "Unlocks the channel that this is typed in. Channel must locked first!")
-.addField("!userinfo <user>", "Shows you information about the mentioned user.");
+.addField("!userinfo <user>", "Shows you information about the mentioned user.")
 .addField("!strike1 <user> <time length> <reason>", "This gives the mentioned user Strike 1.")
 .addField("!strike2 <user> <time length> <reason>", "This gives the mentioned user Strike 2.")
-.addField("!watchlist <user> <time length> <reason>", "This gives the mentioned user Watchlist.")
+.addField("!watchlist <user> <time length> <reason>", "This gives the mentioned user Watchlist.");
 try{
     await message.author.send(modembed);
     message.react("👍");
