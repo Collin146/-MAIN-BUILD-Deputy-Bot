@@ -63,7 +63,7 @@ setTimeout(function(){
 }, ms(striketime));
 
 let DMembed = new Discord.RichEmbed()
-.setTitle("You have been striked in", guild.name)
+.setTitle("You have been striked in Global Roleplay™ PS4")
 .setColor("#ff0c00")
 .addField("Strike Type", "Strike 1")
 .addField("Length & Reason", kReason);
