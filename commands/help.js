@@ -19,7 +19,6 @@ let modembed = new Discord.RichEmbed()
 .addField("!ban <user> <reason>", "This bans the user that is mentioned.") //PUT CLEAR, PREFIX, TEMPMUTE IF VIDEO DOESN'T
 .addField("!kick <user> <reason>", "This kicks the user that is mentioned.")
 .addField("!warn <user> <reason>", "This warns the user that is mentioned.")
-.addField("!warnlevel <user>", "This shows how many times the mentioned user has been warned in total.")
 .addField("!prefix <new prefix>", "This changes the prefix to the desired one.")
 .addField("!clear <amount>", "This deletes the given amount of messages at once.")
 .addField("!tempmute <user> <time length>", "This temporarily mutes the mentioned user for the given amount of time.")
@@ -27,6 +26,9 @@ let modembed = new Discord.RichEmbed()
 .addField("!lockdown", "Locks the channel that this is typed in.")
 .addFieldd("!lockdown unlock", "Unlocks the channel that this is typed in. Channel must locked first!")
 .addField("!userinfo <user>", "Shows you information about the mentioned user.");
+.addField("!strike1 <user> <time length> <reason>", "This gives the mentioned user Strike 1.")
+.addField("!strike2 <user> <time length> <reason>", "This gives the mentioned user Strike 2.")
+.addField("!watchlist <user> <time length> <reason>", "This gives the mentioned user Watchlist.")
 try{
     await message.author.send(modembed);
     message.react("👍");
