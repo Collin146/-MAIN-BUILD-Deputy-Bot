@@ -42,7 +42,7 @@ if (!strikerole){
 }
 //end of create role
 let striketime = args[1];
-if(!striketiime) return message.reply("You didn't specify a time!");
+if(!striketime) return message.reply("You didn't specify a time!");
 
 await(tostrike.addRole(strikerole.id));
 message.reply(`<@${tostrike.id}> has been muted for ${ms(ms(striketime))}`);
