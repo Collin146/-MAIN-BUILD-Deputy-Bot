@@ -24,15 +24,15 @@ if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send
 if(strike1.hasPermission("MANAGE_MESSAGES")) return message.reply("You cannot mute a Moderator or higher");
 let strikerole = message.guild.roles.find(`name`, "Strike 1");
 let reason = args.join(" ").slice(22);
-if (!muterole){
+if (!strikerole){
     try{
-        muterole = await message.guild.createRole({
+        strikerole = await message.guild.createRole({
             name: "Strike 1",
             color: "#000000",
             permissions: []
         })
         message.guild.channels.forEach(async (channel, id) => {
-            await channel.overwritePermissions(muterole, {
+            await channel.overwritePermissions(strikerole, {
             });
         });
 
@@ -48,7 +48,7 @@ await(strike1.addRole(strike1.id));
 message.reply(`<@${strike1.id}> has been striked for ${ms(ms(striketime))}`);
 
 setTimeout(function(){
-    tomute.removeRole(strikerole.id);
+    strike1.removeRole(strikerole.id);
     message.channel.send(`<@${strike1}.id}> has been removed from Strike 1!`);
 }, ms(striketime));
 
