@@ -45,8 +45,7 @@ let striketime = args[1];
 if(!striketime) return message.reply("You didn't specify a time!");
 
 let strikeEmbed = new Discord.RichEmbed()
-.setDescription("Striked")
-.setAuthor(message.author.username)
+.setTitle("A user has been striked!")
 .setColor("#ff0c00")
 .addField("Striked User", `<@${tostrike.id}>`)
 .addField("Strike Type", "Strike 1")
