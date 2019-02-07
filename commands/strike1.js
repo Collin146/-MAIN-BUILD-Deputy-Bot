@@ -68,7 +68,7 @@ let DMembed = new Discord.RichEmbed()
 .addField("Strike Type", "Strike 1")
 .addField("Length & Reason", kReason);
 
-message.createDM.send.tostrike.id(DMembed);
+message.createDM.sendMessage.tostrike.id(DMembed);
 
 //end of module
 }
