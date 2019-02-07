@@ -6,13 +6,13 @@ module.exports.run = async (bot, message, args) => {
 
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
     if(args[0] === "help"){
-        message.reply("Usage: !tempmute <user> <time>");
+        message.reply("Usage: !strike1 <user> <time length> <reason>");
         return;
     }
     
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
     if(args[0] == "help"){
-        message.reply("Usage: !tempmute <user> <time length>");
+        message.reply("Usage: !strike1 <user> <time length> <reason>");
         return;
     }
 
@@ -24,6 +24,16 @@ let kReason = args.join(" ").slice(22);
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 if(tostrike.hasPermission("MANAGE_MESSAGES")) return message.reply("You cannot mute a Moderator or higher");
 let strikerole = message.guild.roles.find(`name`, "Strike 1");
+if(!tostrike[tostrike.id]) strikes[tostrike.id] = {
+    strikes: 0
+  };
+
+  strikes[tostrike.id].strikes++;
+
+  fs.writeFile("./strikes.json", JSON.stringify(strikes), (err) => {
+    if (err) console.log(err)
+  });
+
 //start of create role
 if (!strikerole){
     try{
