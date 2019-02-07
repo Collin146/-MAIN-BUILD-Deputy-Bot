@@ -67,8 +67,8 @@ let DMembed = new Discord.RichEmbed()
 .setColor("#ff0c00")
 .addField("Strike Type", "Strike 1")
 .addField("Length & Reason", kReason);
-
-message.createDM.tostrike.id(DMembed);
+ 
+member.send(DMembed)
 
 //end of module
 }
