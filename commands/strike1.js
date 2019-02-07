@@ -24,6 +24,22 @@ if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send
 if(strike1.hasPermission("MANAGE_MESSAGES")) return message.reply("You cannot mute a Moderator or higher");
 let strikerole = message.guild.roles.find(`name`, "Strike 1");
 let reason = args.join(" ").slice(22);
+if (!muterole){
+    try{
+        muterole = await message.guild.createRole({
+            name: "Strike 1",
+            color: "#000000",
+            permissions: []
+        })
+        message.guild.channels.forEach(async (channel, id) => {
+            await channel.overwritePermissions(muterole, {
+            });
+        });
+
+    }catch(e){
+        console.log(e.stack);
+    }
+}
 
 let striketime = args[1];
 if(!striketime) return message.reply("You didn't specify a time!");
