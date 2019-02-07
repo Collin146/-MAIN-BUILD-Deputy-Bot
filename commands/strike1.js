@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const ms = require("ms");
-let strikes = JSON.parse(fs.readFileSync("./strikes.json", "utf8"));
 const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
@@ -48,22 +47,11 @@ if (!strikerole){
 let striketime = args[1];
 if(!striketime) return message.reply("You didn't specify a time!");
 
-if(!tostrike[tostrike.id]) strikes[tostrike.id] = {
-    strikes: 0
-  };
-
-  strikes[tostrike.id].strikes++;
-
-  fs.writeFile("./strikes.json", JSON.stringify(strikes), (err) => {
-    if (err) console.log(err)
-  });
-
 let strikeEmbed = new Discord.RichEmbed()
 .setTitle("A user has been striked!")
 .setColor("#ff0c00")
 .addField("Striked User", `<@${tostrike.id}>`)
 .addField("Strike Type", "Strike 1")
-.addField("Total Strikes", strikes[tostrike.id].strikes)
 .addField("Length & Reason", kReason); //add reason before able to use this.
 
 await (tostrike.addRole(strikerole.id), (kReason));
