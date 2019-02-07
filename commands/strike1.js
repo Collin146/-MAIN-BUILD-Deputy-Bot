@@ -44,14 +44,6 @@ if (!strikerole){
 let striketime = args[1];
 if(!striketime) return message.reply("You didn't specify a time!");
 
-await(tostrike.addRole(strikerole.id));
-message.reply(strikeEmbed);
-
-setTimeout(function(){
-    tostrike.removeRole(strikerole.id);
-    message.channel.send(`<@${tostrike.id}> has been removed from Strike 1!`);
-}, ms(striketime));
-
 let strikeEmbed = new Discord.RichEmbed()
 .setDescription("Striked")
 .setAuthor(message.author.username)
@@ -59,6 +51,14 @@ let strikeEmbed = new Discord.RichEmbed()
 .addField("Striked User", `<@${tostrike.id}>`)
 .addField("Strike Type", "Strike 1")
 //.addField("Reason", reason); //add reason before able to use this.
+
+await(tostrike.addRole(strikerole.id));
+message.reply(strikeEmbed);
+
+setTimeout(function(){
+    tostrike.removeRole(strikerole.id);
+    message.channel.send(`<@${tostrike.id}> has been removed from Strike 1!`);
+}, ms(striketime));
 
 //end of module
 }
