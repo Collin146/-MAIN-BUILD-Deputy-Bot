@@ -48,6 +48,16 @@ if (!strikerole){
 let striketime = args[1];
 if(!striketime) return message.reply("You didn't specify a time!");
 
+if(!tostrike[tostrike.id]) strikes[tostrike.id] = {
+    strikes: 0
+  };
+
+  strikes[tostrike.id].strikes++;
+
+  fs.writeFile("./strikes.json", JSON.stringify(strikes), (err) => {
+    if (err) console.log(err)
+  });
+
 let strikeEmbed = new Discord.RichEmbed()
 .setTitle("A user has been striked!")
 .setColor("#ff0c00")
@@ -63,18 +73,6 @@ setTimeout(function(){
     tostrike.removeRole(strikerole.id);
     message.channel.send(`<@${tostrike.id}> has been removed from Strike 1!`);
 }, ms(striketime));
-
-
-if(!tostrike[tostrike.id]) strikes[tostrike.id] = {
-    strikes: 0
-  };
-
-  strikes[tostrike.id].strikes++;
-
-  fs.writeFile("./strikes.json", JSON.stringify(strikes), (err) => {
-    if (err) console.log(err)
-  });
-
 
 //end of module
 }
