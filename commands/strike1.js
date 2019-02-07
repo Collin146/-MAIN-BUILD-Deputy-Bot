@@ -62,6 +62,14 @@ setTimeout(function(){
     message.channel.send(`<@${tostrike.id}> has been removed from Strike 1!`);
 }, ms(striketime));
 
+let DMembed = new Discord.RichEmbed()
+.setTitle("You have been striked in", guild.name)
+.setColor("#ff0c00")
+.addField("Strike Type", "Strike 1")
+.addField("Length & Reason", kReason);
+
+message.createDM.send.tostrike.id(DMembed);
+
 //end of module
 }
 
