@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const ms = require("ms");
+const member = tostrike
 const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
