@@ -1,8 +1,6 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-    
-    //!help
 
 let helpembed = new Discord.RichEmbed()
 .setDescription("Commands Help Menu")
