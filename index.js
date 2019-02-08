@@ -46,6 +46,30 @@ bot.on("guildMemberRemove", async member => {
     welcomechannel.send(`${member} has left the server.`);
 });
 
+//bot spam prevention
+
+const authors = [];
+var warned = [];
+var banned = [];
+var messagelog = [];
+
+/**
+ * Add simple spam protection to your discord server.
+ * @param  {Bot} bot - The discord.js CLient/bot
+ * @param  {object} options - Optional (Custom configuarion options)
+ * @return {[type]}         [description]
+ */
+module.exports = function (bot, options) {
+  // Set options
+  const warnBuffer = (options && options.warnBuffer) || 3;
+  const interval = (options && options.interval) || 5000;
+  const warningMessage = (options && options.warningMessage) || "Stop spamming or you will be muted!";
+  const maxDuplicatesWarning = (options && options. maxDuplicatesWarning || 7);
+  const exemptRoles = (options && options.exemptRoles) || []
+  const exemptUsers = (options && options.exemptUsers) || []
+}
+
+//bot spam prevention end
 
 bot.on("ready", async () => {
  console.log(`${bot.user.username} is online!`);
