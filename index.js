@@ -50,7 +50,6 @@ bot.on("guildMemberRemove", async member => {
 
 const authors = [];
 var warned = [];
-var banned = [];
 var messagelog = [];
 
 /**
@@ -63,11 +62,63 @@ module.exports = function (bot, options) {
   // Set options
   const warnBuffer = (options && options.warnBuffer) || 3;
   const interval = (options && options.interval) || 5000;
-  const warningMessage = (options && options.warningMessage) || "Stop spamming or you will be muted!";
+  const warningMessage = (options && options.warningMessage) || "Stopm spamming or you will be muted.";
   const maxDuplicatesWarning = (options && options. maxDuplicatesWarning || 7);
-  const exemptRoles = (options && options.exemptRoles) || []
+  const deleteMessagesAfterBanForPastDays = (options && options.deleteMessagesAfterBanForPastDays || 7);
+  const exemptRoles = (options && options.exemptRoles) || ["Staff Team"]
   const exemptUsers = (options && options.exemptUsers) || []
+
+  bot.on("message", msg => {
+ 
+
+    // Return immediately if user is exempt
+    if(msg.member && msg.member.roles.some(r => exemptRoles.includes(r.name))) return;
+    if(exemptUsers.includes(msg.author.tag)) return;
+
+    if ( (msg.author.id != bot.user.id) && msg.channel.guild) {
+      var now = Math.floor(Date.now());
+      authors.push({
+        "time": now,
+        "author": msg.author.id
+      });
+      messagelog.push({
+        "message": msg.content,
+        "author": msg.author.id
+      });
+
+      // Check how many times the same message has been sent.
+      var msgMatch = 0;
+      for (var i = 0; i < messagelog.length; i++) {
+        if (messagelog[i].message == msg.content && (messagelog[i].author == msg.author.id) && (msg.author.id !== bot.user.id)) {
+          msgMatch++;
+        }
+      }
+      // Check matched count
+      if (msgMatch == maxDuplicatesWarning && !warned.includes(msg.author.id)) {
+        warn(msg, msg.author.id);
+      }
+
+      var matched = 0;
+
+      for (var i = 0; i < authors.length; i++) {
+        if (authors[i].time > now - interval) {
+          matched++;
+          if (matched == warnBuffer && !warned.includes(msg.author.id)) {
+            warn(msg, msg.author.id);
+          }
+        }
+        else if (authors[i].time < now - interval) {
+          authors.splice(i);
+          warned.splice(warned.indexOf(authors[i]));
+        }
+        if (messagelog.length >= 200) {
+          messagelog.shift();
+        }
+      }
+    }
+  });
 }
+ 
 
 //bot spam prevention end
 
