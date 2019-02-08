@@ -50,6 +50,7 @@ bot.on("guildMemberRemove", async member => {
 
 const authors = [];
 var warned = [];
+var banned = [];
 var messagelog = [];
 
 /**
@@ -61,15 +62,20 @@ var messagelog = [];
 module.exports = function (bot, options) {
   // Set options
   const warnBuffer = (options && options.warnBuffer) || 3;
-  const interval = (options && options.interval) || 5000;
-  const warningMessage = (options && options.warningMessage) || "Stopm spamming or you will be muted.";
+  const maxBuffer = (options && options.maxBuffer) || 5;
+  const interval = (options && options.interval) || 1000;
+  const warningMessage = (options && options.warningMessage) || "stop spamming or I'll whack your head off.";
+  const banMessage = (options && options.banMessage) || "has been banned for spamming, anyone else?";
   const maxDuplicatesWarning = (options && options. maxDuplicatesWarning || 7);
+  const maxDuplicatesBan = (options && options. maxDuplicatesBan || 10);
   const deleteMessagesAfterBanForPastDays = (options && options.deleteMessagesAfterBanForPastDays || 7);
-  const exemptRoles = (options && options.exemptRoles) || ["Staff Team"]
+  const exemptRoles = (options && options.exemptRoles) || []
   const exemptUsers = (options && options.exemptUsers) || []
 
   bot.on("message", msg => {
- 
+
+    // bots don't ban do they?
+    if (msg.author.bot) return;
 
     // Return immediately if user is exempt
     if(msg.member && msg.member.roles.some(r => exemptRoles.includes(r.name))) return;
@@ -97,6 +103,9 @@ module.exports = function (bot, options) {
       if (msgMatch == maxDuplicatesWarning && !warned.includes(msg.author.id)) {
         warn(msg, msg.author.id);
       }
+      if (msgMatch == maxDuplicatesBan && !banned.includes(msg.author.id)) {
+        ban(msg, msg.author.id);
+      }
 
       var matched = 0;
 
@@ -106,19 +115,24 @@ module.exports = function (bot, options) {
           if (matched == warnBuffer && !warned.includes(msg.author.id)) {
             warn(msg, msg.author.id);
           }
+          else if (matched == maxBuffer) {
+            if (!banned.includes(msg.author.id)) {
+              ban(msg, msg.author.id);
+            }
+          }
         }
         else if (authors[i].time < now - interval) {
           authors.splice(i);
           warned.splice(warned.indexOf(authors[i]));
+          banned.splice(warned.indexOf(authors[i]));
         }
         if (messagelog.length >= 200) {
           messagelog.shift();
         }
       }
     }
-  });
-}
- 
+  })
+};
 
 //bot spam prevention end
 
