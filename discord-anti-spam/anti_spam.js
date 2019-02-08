@@ -13,7 +13,7 @@ module.exports = function (bot, options) {
   // Set options
   const warnBuffer = (options && options.warnBuffer) || 3;
   const maxBuffer = (options && options.maxBuffer) || 5;
-  const interval = (options && options.interval) || 1000;
+  const interval = (options && options.interval) || 10000;
   const warningMessage = (options && options.warningMessage) || "stop spamming or I'll whack your head off.";
   const banMessage = (options && options.banMessage) || "has been banned for spamming, anyone else?";
   const maxDuplicatesWarning = (options && options. maxDuplicatesWarning || 7);
