@@ -63,7 +63,7 @@ module.exports = function (bot, options) {
   // Set options
   const warnBuffer = (options && options.warnBuffer) || 3;
   const maxBuffer = (options && options.maxBuffer) || 5;
-  const interval = (options && options.interval) || 10000;
+  const interval = (options && options.interval) || 1000;
   const warningMessage = (options && options.warningMessage) || "stop spamming or I'll whack your head off.";
   const banMessage = (options && options.banMessage) || "has been banned for spamming, anyone else?";
   const maxDuplicatesWarning = (options && options. maxDuplicatesWarning || 7);
@@ -131,8 +131,46 @@ module.exports = function (bot, options) {
         }
       }
     }
-  })
-};
+  });
+
+  /**
+   * Warn a user
+   * @param  {Object} msg
+   * @param  {string} userid userid
+   */
+  function warn(msg, userid) {
+    warned.push(msg.author.id);
+    msg.channel.send(msg.author + " " + warningMessage);
+  }
+
+  /**
+   * Ban a user by the user id
+   * @param  {Object} msg
+   * @param  {string} userid userid
+   * @return {boolean} True or False
+   */
+  function ban(msg, userid) {
+    for (var i = 0; i < messagelog.length; i++) {
+      if (messagelog[i].author == msg.author.id) {
+        messagelog.splice(i);
+      }
+    }
+
+    banned.push(msg.author.id);
+
+    var user = msg.channel.guild.members.find(member => member.user.id === msg.author.id);
+    if (user) {
+      user.ban(deleteMessagesAfterBanForPastDays).then((member) => {
+        msg.channel.send(msg.author + " " +banMessage);
+        return true;
+     }).catch(() => {
+        msg.channel.send("insufficient permission to kick " + msg.author + " for spamming.");
+        return false;
+     });
+    }
+  }
+
+}
 
 //bot spam prevention end
 
