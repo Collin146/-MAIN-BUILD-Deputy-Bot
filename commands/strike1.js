@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-//!tempmute @user 1s/m/h/d
+//!strike1 @user 1s/m/h/d reason
 
 let tostrike = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!tostrike) return message.reply("Couldn't find that user.");
@@ -61,7 +61,7 @@ message.reply(strikeEmbed);
 setTimeout(function(){
     tostrike.removeRole(strikerole.id);
     message.channel.send(`<@${tostrike.id}> has been removed from Strike 1!`);
-}, ms(striketime));
+}, (striketime));
 
 let DMembed = new Discord.RichEmbed()
 .setTitle("You have been striked in Global Roleplay™ PS4")
