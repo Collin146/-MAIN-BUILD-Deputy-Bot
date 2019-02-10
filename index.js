@@ -46,7 +46,6 @@ bot.on("guildMemberRemove", async member => {
     welcomechannel.send(`${member} has left the server.`);
 });
 
-
 bot.on("ready", async () => {
  console.log(`${bot.user.username} is online!`);
  bot.user.setActivity("!help | prefix !");
@@ -58,15 +57,15 @@ bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
 
-   let prefix = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+   let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
 
-     if(!prefix[message.guild.id]){
-      prefix[message.guild.id] = {
-          prefix: botconfig.prefix
+     if(!prefixes[message.guild.id]){
+      prefixes[message.guild.id] = {
+          prefixes: botconfig.prefix
       };
    }
 
-    
+    let prefix = prefixes[message.guild.id].prefixes;
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
