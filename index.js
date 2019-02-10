@@ -52,34 +52,5 @@ bot.on("ready", async () => {
 
 });
 
-bot.on("message", async message => {
-
-    if(message.author.bot) return;
-    if(message.channel.type === "dm") return;
-
-   let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
-
-     if(!prefixes[message.guild.id]){
-      prefixes[message.guild.id] = {
-          prefixes: botconfig.prefix
-      };
-   }
-
-    let prefix = prefixes[message.guild.id].prefixes;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0];
-    let args = messageArray.slice(1);
-    let commandfile = bot.commands.get(cmd.slice(prefix.length));
-    if(commandfile) commandfile.run(bot,message,args);
-
-    
-    if(cmd === `${prefix}hello`){
-        return message.channel.send("hello whats up?");
-    }
-
-
-});
-
-
 bot.login(botconfig.token);
 
