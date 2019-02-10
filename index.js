@@ -80,7 +80,7 @@ bot.on("message", async message => {
         return message.channel.send("hello whats up?");
     }
 
-
+      }
 });
 
 
