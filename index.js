@@ -55,6 +55,7 @@ bot.on("ready", async () => {
 bot.on("message", message => {
     const prefixes = ['!'];
     let prefix = false;
+    let args = prefixes
     for(const thisPrefix of prefixes) {
       if(message.content.startsWith(thisPrefix)) prefix = thisPrefix;
     }
