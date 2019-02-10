@@ -66,8 +66,10 @@ bot.on("message", async message => {
    }
 
     let prefix = prefixes[message.guild.id].prefixes;
-          if(prefix == cmd.slice(0,1)){
+    if(prefix == cmd.slice(0,1)){
     let commandFile = Bot.commands.get(cmd.slice(prefix.length));
+    if(commandFile) commandFile.run(Bot,message,args);
+  };
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
@@ -76,8 +78,7 @@ bot.on("message", async message => {
 
     
     if(cmd === `${prefix}hello`){
-        return message.channel.send("hello whats up?");
-    }
+        return message.channel.send("hello whats up?")
 
       }
 });
