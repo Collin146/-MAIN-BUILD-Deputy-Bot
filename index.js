@@ -63,9 +63,9 @@ bot.on("message", async message => {
     if(message.channel.type === "dm") return;
 
 
-     if(!prefixes[message.guild.id]){
-      prefixes[message.guild.id] = {
-          prefixes: botconfig.prefix
+     if(!prefix[message.guild.id]){
+      prefix[message.guild.id] = {
+          prefix: botconfig.prefix
       };
    }
     if(commandfile) commandfile.run(bot,message,args);
