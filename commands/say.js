@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message) => {
     var prefix = settings.prefix;
     const args = message.content.split(" ");
     const command = args.shift().slice(settings.prefix.length);
