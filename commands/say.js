@@ -15,8 +15,7 @@ let botmessage = args.join(" ");
 message.delete().catch();
 message.channel.send(botmessage);
 }
-
+}
 module.exports.help = {
     name: "say"
-}
 }
