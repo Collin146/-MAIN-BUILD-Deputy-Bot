@@ -72,8 +72,8 @@ bot.on("message", async message => {
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot,message,args);
      if(prefix == cmd.slice(0,1)){
-        let commandFile = Bot.commands.get(cmd.slice(prefix.length));
-        if(commandFile) commandFile.run(Bot,message,args);
+        let commandFile = bot.commands.get(cmd.slice(prefix.length));
+        if(commandFile) commandFile.run(bot, message, args);
       };
 
     
