@@ -59,13 +59,6 @@ bot.on("message", message => {
       if(message.content.startsWith(thisPrefix)) prefix = thisPrefix;
     }
     if(!prefix) return;
-  
-
-    if(cmd === `${prefix}hello`){
-        return message.channel.send("hello whats up?");
-    }
-
-
 });
 
 
