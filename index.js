@@ -52,5 +52,32 @@ bot.on("ready", async () => {
 
 });
 
+bot.on("message", async message => {
+
+    const settings = require("./Botconfig.json");
+    var prefix = settings.prefix;
+    const args = message.content.split(" ");
+    const command = args.shift().slice(settings.prefix.length);
+
+    if(message.author.bot) return;
+    if(message.channel.type === "dm") return;
+
+
+     if(!prefixes[message.guild.id]){
+      prefixes[message.guild.id] = {
+          prefixes: botconfig.prefix
+      };
+   }
+    if(commandfile) commandfile.run(bot,message,args);
+
+    
+    if(cmd === `${prefix}hello`){
+        return message.channel.send("hello whats up?");
+    }
+
+
+});
+
+
 bot.login(botconfig.token);
 
