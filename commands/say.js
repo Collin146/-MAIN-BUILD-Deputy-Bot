@@ -8,7 +8,7 @@ module.exports = message => {
 //!say hi
 //hi
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("You don't have permission to do that.");
-let botmessage = args.join(" ");
+let botmessage = prefix.join(" ");
 message.delete().catch();
 message.channel.send(botmessage);
 }
