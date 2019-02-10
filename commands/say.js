@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const settings = require("../Botconfig.json");
 
-module.exports.run = async (bot, message) => {
+module.exports = message => {
     var prefix = settings.prefix;
     const args = message.content.split(" ");
     const command = args.shift().slice(settings.prefix.length);
