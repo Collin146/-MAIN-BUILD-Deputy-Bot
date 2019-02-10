@@ -68,7 +68,7 @@ bot.on("message", async message => {
           prefix: botconfig.prefix
       };
    }
-    let commandfile = bot.commands.get(cmd.slice(prefix.length));
+    let commandfile = bot.commands.get(cmd.slice(settings.prefix.length));
     if(commandfile) commandfile.run(bot,message,args);
 
     
