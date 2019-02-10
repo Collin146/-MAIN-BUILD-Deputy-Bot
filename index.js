@@ -71,12 +71,6 @@ bot.on("message", async message => {
     let commandfile = bot.commands.get(args.slice(settings.prefix.length));
     if(commandfile) commandfile.run(bot,message,args);
 
-    
-    if(cmd === `${prefix}hello`){
-        return message.channel.send("hello whats up?");
-    }
-
-
 });
 
 
