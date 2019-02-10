@@ -61,7 +61,7 @@ message.reply(strikeEmbed);
 setTimeout(function(){
     tostrike.removeRole(strikerole.id);
     message.channel.send(`<@${tostrike.id}> has been removed from Strike 1!`);
-}, (striketime));
+}, ms(striketime));
 
 let DMembed = new Discord.RichEmbed()
 .setTitle("You have been striked in Global Roleplay™ PS4")
