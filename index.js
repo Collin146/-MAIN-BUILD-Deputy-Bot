@@ -53,9 +53,6 @@ bot.on("ready", async () => {
 });
 
 bot.on("message", async message => {
-      if(prefix == cmd.slice(0,1)){
-    let commandFile = Bot.commands.get(cmd.slice(prefix.length));
-
 
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
@@ -69,6 +66,8 @@ bot.on("message", async message => {
    }
 
     let prefix = prefixes[message.guild.id].prefixes;
+          if(prefix == cmd.slice(0,1)){
+    let commandFile = Bot.commands.get(cmd.slice(prefix.length));
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
