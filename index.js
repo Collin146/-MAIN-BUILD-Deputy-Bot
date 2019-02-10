@@ -58,16 +58,16 @@ bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
 
-   let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+   let prefix = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
 
-     if(!prefixes[message.guild.id]){
-      prefixes[message.guild.id] = {
-          prefixes: botconfig.prefix
+     if(!prefix[message.guild.id]){
+      prefix[message.guild.id] = {
+          prefix: botconfig.prefix
       };
    }
 
     
-    let prefix = prefixes[message.guild.id].prefixes;
+    let prefix = prefix[message.guild.id].prefix;
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
