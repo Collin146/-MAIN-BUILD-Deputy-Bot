@@ -23,8 +23,6 @@ const logs = message.guild.channels.find(channel => channel.name === "logs");
     logs.send(`A message was deleted in ${message.channel.name} by ${user}`);
   }
 
-
-
 module.exports.help = {
     name: "deletedmessageslog"
 }
