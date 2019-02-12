@@ -19,10 +19,10 @@ module.exports.run = async (bot, message, args) => {
     let botembed = new Discord.RichEmbed()
     .setColor("#00faff")
     .addField("@everyone")
-    .addField('\u200B', '\u200B', inline)
+    .addBlankField[1]
     .addField("**Session On**")
     .addField(sessiontime)
-    .addField('\u200B', '\u200B', inline)
+    .addBlankField[1]
     .addField("**Say yes to attend**")
     .addField("(if you say yes or maybe and dont show up without a valid reason, you will receive a strike)")
     return message.channel.send(botembed);
