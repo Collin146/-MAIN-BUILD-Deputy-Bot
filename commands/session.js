@@ -18,13 +18,13 @@ module.exports.run = async (bot, message, args) => {
     let sessiontime = args.join(" ");
     let botembed = new Discord.RichEmbed()
     .setColor("#00faff")
-    .addField("@everyone")
+    .addField("@everyone", " ")
     .addBlankField(true)
-    .addField("**Session On**")
+    .addField("**Session On**", " ")
     .addField(sessiontime)
     .addBlankField(true)
-    .addField("**Say yes to attend**")
-    .addField("(if you say yes or maybe and dont show up without a valid reason, you will receive a strike)")
+    .addField("**Say yes to attend**", " ")
+    .addField("(if you say yes or maybe and dont show up without a valid reason, you will receive a strike)", " ")
     return message.channel.send(botembed);
 
 }
