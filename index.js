@@ -111,8 +111,8 @@ bot.on("messageDelete", async msg => {
 //Channel Created Log Start
 //----
 
-bot.on("channelCreate", channel => {
-    let logs = await msg.guild.fetchAuditLogs({type: 10});
+bot.on("channelCreate", async channel => {
+    let logs = await channel.guild.fetchAuditLogs({type: 10});
     let entry = logs.entries.first();
   
     let CCembed = new Discord.RichEmbed()
