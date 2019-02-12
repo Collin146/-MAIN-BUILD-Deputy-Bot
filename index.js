@@ -118,8 +118,8 @@ bot.on("channelCreate", async msg => {
     let CCembed = new Discord.RichEmbed()
       .setTitle("**CHANNEL CREATED**")
       .setColor("#55ea10")
-      .addField("Channel ID", msg.channel.id, true)
-      .addField("Channel Type", msg.channel.type, true)
+      .addField("Channel ID", channel.id, true)
+      .addField("Channel Type", channel.type, true)
   
     let channel = msg.guild.channels.find(x => x.name === 'modlog');
     channel.send({CCembed});
