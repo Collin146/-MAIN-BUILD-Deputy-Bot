@@ -118,8 +118,7 @@ bot.on("channelCreate", async msg => {
     let CCembed = new Discord.RichEmbed()
       .setTitle("**CHANNEL CREATED**")
       .setColor("#55ea10")
-      .addField("Creator", msg.channel.client, true)
-      .addField("Channel Created At", msg.channel.createdTimestamp, true)
+      .addField("Channel Created At", msg.channel.createdTimestamp)
       .addField("Channel ID", msg.channel.id, true)
       .addField("Channel Type", msg.channel.type, true)
   
