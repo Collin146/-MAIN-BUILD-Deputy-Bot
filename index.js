@@ -105,7 +105,8 @@ bot.on("messageDelete", async msg => {
 //----
 
 
-setTimeout(function() {
+bot.on("message", async  => {
+setTimeout(function()
     var giveEmbed = new Discord.RichEmbed();
 giveEmbed.setDescription(item);
 var embedSent = await message.channel.send(giveEmbed);
