@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
+const ms = require("ms");
 
 fs.readdir("./commands/", (err, files) => {
 
@@ -134,6 +135,6 @@ setTimeout(function() {
     haveHas = "have";
   }
   message.channel.send(`${winnerMsg} ${haveHas} won ${item}`);
-}, time * 1000); //--conversting seconds into miliseconds
+}, ms(time) * 1000); //--conversting seconds into miliseconds
 
 bot.login(botconfig.token);
