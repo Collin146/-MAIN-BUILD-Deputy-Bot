@@ -96,8 +96,6 @@ bot.on("messageDelete", async msg => {
       .addField("Author", msg.author.tag, true)
       .addField("Channel", msg.channel, true)
       .addField("Message", msg.content)
-      .addField("Executor", entry.executor)
-      .addField("Reason", entry.reason || "Unspecified")
       .setFooter(`Message ID: ${msg.id} | Author ID: ${msg.author.id}`);
   
     let channel = msg.guild.channels.find(x => x.name === 'deleted-messages-log');
