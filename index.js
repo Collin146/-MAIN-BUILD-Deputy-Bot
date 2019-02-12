@@ -73,11 +73,7 @@ bot.on("message", async message => {
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot,message,args);
     if(!message.content.startsWith(prefix))return;
-
-    
-    if(cmd === `${prefix}hello`){
-        return message.channel.send("hello whats up?");
-    }
+        
     }
 
 });
@@ -111,7 +107,7 @@ bot.on("messageDelete", async msg => {
 //Channel Created Log Start
 //----
 
-bot.on("channelCreate", async msg => {
+bot.on("channelCreate", async channel => {
     let logs = await channel.guild.fetchAuditLogs({type: 10});
     let entry = logs.entries.first();
   
