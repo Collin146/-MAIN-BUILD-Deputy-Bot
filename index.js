@@ -1,7 +1,7 @@
 const botconfig = require("./Botconfig.json");
 const Discord = require("discord.js");
 const fs = require("fs");
-const antispam = require('discord-anti-spam'); // Requiring this module.
+const antispam = require("discord-anti-spam"); // Requiring this module.
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 const ms = require("ms");
