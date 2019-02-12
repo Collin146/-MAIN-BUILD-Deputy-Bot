@@ -3,6 +3,7 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
+console.log("yup")
 const logs = message.guild.channels.find(channel => channel.name === "logs");
     if (message.guild.me.hasPermission('MANAGE_CHANNELS') && !logs) {
       message.guild.createChannel('logs', 'text');
