@@ -86,7 +86,7 @@ bot.on("message", async message => {
 //Deleted Messages Log Start
 //----
 
-client.on('messageDelete', async (message) => {
+bot.on('messageDelete', async (message) => {
     const logs = message.guild.channels.find(channel => channel.name === "logs");
     if (message.guild.me.hasPermission('MANAGE_CHANNELS') && !logs) {
       message.guild.createChannel('logs', 'deleted-messages-log');
