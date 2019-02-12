@@ -104,7 +104,11 @@ bot.on("messageDelete", async msg => {
 //Deleted Messages Log End
 //----
 
+
 setTimeout(function() {
+    var giveEmbed = new Discord.RichEmbed();
+giveEmbed.setDescription(item);
+var embedSent = await message.channel.send(giveEmbed);
   var peopleReacted = embedSent.reactions.get("🎉").users;
   var winners = [];
 
