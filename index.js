@@ -83,27 +83,48 @@ bot.on("message", async message => {
 //Deleted Messages Log Start
 //----
 
-bot.on("messageDelete", async msg => {
-    let logs = await msg.guild.fetchAuditLogs({type: 72});
-    let entry = logs.entries.first();
+// bot.on("messageDelete", async msg => {
+//     let logs = await msg.guild.fetchAuditLogs({type: 72});
+//     let entry = logs.entries.first();
   
-    let embed = new Discord.RichEmbed()
-      .setTitle("**DELETED MESSAGE**")
-      .setColor("#fc3c3c")
-      .addField("Author", msg.author.tag, true)
-      .addField("Channel", msg.channel, true)
-      .addField("Message", msg.content)
-      .addField("Executor", entry.executor)
-      .setFooter(`Message ID: ${msg.id} | Author ID: ${msg.author.id}`);
+//     let embed = new Discord.RichEmbed()
+//       .setTitle("**DELETED MESSAGE**")
+//       .setColor("#fc3c3c")
+//       .addField("Author", msg.author.tag, true)
+//       .addField("Channel", msg.channel, true)
+//       .addField("Message", msg.content)
+//       .addField("Executor", entry.executor)
+//       .setFooter(`Message ID: ${msg.id} | Author ID: ${msg.author.id}`);
   
-    let channel = msg.guild.channels.find(x => x.name === 'deleted-messages-log');
-    channel.send({embed});
-  });
+//     let channel = msg.guild.channels.find(x => x.name === 'deleted-messages-log');
+//     channel.send({embed});
+//   });
 
 //----
 //Deleted Messages Log Start
 //----
 
+//----
+//Channel Created Log Start
+//----
+
+bot.on("channelCreate", async  => {
+    let logs = await msg.guild.fetchAuditLogs({type: 10});
+    let entry = logs.entries.first();
+  
+    let CCembed = new Discord.RichEmbed()
+      .setTitle("**CHANNEL CREATED**")
+      .setColor("#55ea10")
+      .addField("Channel ID", msg.channel.id, true)
+      .addField("Channel Type", msg.channel.type, true)
+  
+    let channel = msg.guild.channels.find(x => x.name === 'modlog');
+    channel.send({CCembed});
+  });
+
+//----
+//Channel Created Log End
+//----
 
 const antispam = require('discord-anti-spam'); // Requiring this module.
 const client = new Discord.Client();
