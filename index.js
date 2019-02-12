@@ -1,6 +1,7 @@
 const botconfig = require("./Botconfig.json");
 const Discord = require("discord.js");
 const fs = require("fs");
+const antispam = require('discord-anti-spam'); // Requiring this module.
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 const ms = require("ms");
@@ -104,30 +105,7 @@ bot.on("message", async message => {
 //Deleted Messages Log Start
 //----
 
-//----
-//Channel Created Log Start
-//----
 
-bot.on("channelCreate", async  => {
-    let logs = await msg.guild.fetchAuditLogs({type: 10});
-    let entry = logs.entries.first();
-  
-    let CCembed = new Discord.RichEmbed()
-      .setTitle("**CHANNEL CREATED**")
-      .setColor("#55ea10")
-      .addField("Channel ID", msg.channel.id, true)
-      .addField("Channel Type", msg.channel.type, true)
-  
-    let channel = msg.guild.channels.find(x => x.name === 'modlog');
-    channel.send({CCembed});
-  });
-
-//----
-//Channel Created Log End
-//----
-
-const antispam = require('discord-anti-spam'); // Requiring this module.
-const client = new Discord.Client();
  
 bot.on('ready', () => {
   // Module Configuration Constructor
