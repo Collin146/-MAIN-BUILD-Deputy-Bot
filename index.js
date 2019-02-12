@@ -103,28 +103,6 @@ bot.on("messageDelete", async msg => {
 //Deleted Messages Log End
 //----
 
-//----
-//Channel Created Log Start
-//----
-
-bot.on("channelCreate", async channel => {
-    let logs = await channel.guild.fetchAuditLogs({type: 10});
-    let entry = logs.entries.first();
-  
-    let CCembed = new Discord.RichEmbed()
-      .setTitle("**CHANNEL CREATED**")
-      .setColor("#55ea10")
-      .addField("Channel ID", channel.id, true)
-      .addField("Channel Type", channel.type, true)
-  
-    let channel = msg.guild.channels.find(x => x.name === 'modlog');
-    channel.send({CCembed});
-  });
-
-//----
-//Channel Created Log End
-//----
-
 
 
 bot.login(botconfig.token);
