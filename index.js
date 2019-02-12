@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
-const time = require("ms");
+const ms = require("ms");
 
 fs.readdir("./commands/", (err, files) => {
 
@@ -74,7 +74,7 @@ bot.on("message", async message => {
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot,message,args);
     if(!message.content.startsWith(prefix))return;
-        
+
     }
 
 });
@@ -93,16 +93,65 @@ bot.on("messageDelete", async msg => {
       .addField("Author", msg.author.tag, true)
       .addField("Channel", msg.channel, true)
       .addField("Message", msg.content)
+      .addField("Executor", entry.executor)
       .setFooter(`Message ID: ${msg.id} | Author ID: ${msg.author.id}`);
   
     let channel = msg.guild.channels.find(x => x.name === 'deleted-messages-log');
     channel.send({embed});
   });
 
+//----
+//Deleted Messages Log Start
+//----
 
 //----
-//Deleted Messages Log End
+//Channel Created Log Start
 //----
+
+bot.on("channelCreate", async  => {
+    let logs = await msg.guild.fetchAuditLogs({type: 10});
+    let entry = logs.entries.first();
+  
+    let CCembed = new Discord.RichEmbed()
+      .setTitle("**CHANNEL CREATED**")
+      .setColor("#55ea10")
+      .addField("Channel ID", msg.channel.id, true)
+      .addField("Channel Type", msg.channel.type, true)
+  
+    let channel = msg.guild.channels.find(x => x.name === 'modlog');
+    channel.send({CCembed});
+  });
+
+//----
+//Channel Created Log End
+//----
+
+const antispam = require('discord-anti-spam'); // Requiring this module.
+const client = new Discord.Client();
+ 
+bot.on('ready', () => {
+  // Module Configuration Constructor
+   antispam(client, {
+        warnBuffer: 3, // Maximum ammount of messages allowed to send in the interval time before getting warned.
+        maxBuffer: 5, // Maximum amount of messages allowed to send in the interval time before getting banned.
+        interval: 2000, // Amount of time in ms users can send the maxim amount of messages(maxBuffer) before getting banned. 
+        warningMessage: "please stop spamming!", // Message users receive when warned. (message starts with '@User, ' so you only need to input continue of it.) 
+        banMessage: "has been hit by ban hammer for spamming!", // Message sent in chat when user is banned. (message starts with '@User, ' so you only need to input continue of it.) 
+        maxDuplicatesWarning: 7,// Maximum amount of duplicate messages a user can send in a timespan before getting warned.
+        maxDuplicatesBan: 10, // Maximum amount of duplicate messages a user can send in a timespan before getting banned.
+        deleteMessagesAfterBanForPastDays: 7, // Deletes the message history of the banned user in x days.
+        exemptRoles: ["Moderator"], // Name of roles (case sensitive) that are exempt from spam filter.
+        exemptUsers: ["MrAugu#9016"] // The Discord tags of the users (e.g: MrAugu#9016) (case sensitive) that are exempt from spam filter.
+      });
+      
+  // Rest of your code
+});
+ 
+client.on('message', msg => {
+  client.emit('checkMessage', msg); // This runs the filter on any message bot receives in any guilds.
+  
+  // Rest of your code
+})
 
 
 bot.login(botconfig.token);
