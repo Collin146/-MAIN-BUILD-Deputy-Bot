@@ -105,41 +105,4 @@ bot.on("messageDelete", async msg => {
 //----
 
 
-bot.on("message", async  => {
-setTimeout(function()
-    let giveEmbed = new Discord.RichEmbed();
-giveEmbed.setDescription(item);
-let embedSent = await message.channel.send(giveEmbed);
-  let peopleReacted = embedSent.reactions.get("🎉").users;
-  let winners = [];
-
-  // Checks if fewer people reacted than the winnerCount allows users to win
-  if (peopleReacted.length >= winnerCount) {
-    winners = peopleReacted;
-  } else {
-    // Gets as many random users from the peopleReacted as winnerCount allows users to win
-    for (let i = 0; i < winnerCount; i++){
-      let index = Math.floor(Math.random() * peopleReacted.length);
-      winners.push(peopleReacted[index]);
-      // After adding a user to winners, remove that item from the array to prevent him from winning multiple times
-      peopleReacted.splice(index, 1);
-    }
-  }
-
-  let winnerMsg = "User(s) ";
-  for (let i = 0; i < winners.length; i++){
-    // Add each winner to the winnerMsg
-    winnerMsg += (winners[i].toString() + ", ");
-  }
-
-  let haveHas;
-  if (winners.length === 1){
-    haveHas = "has";
-  }
-  else {
-    haveHas = "have";
-  }
-  message.channel.send(`${winnerMsg} ${haveHas} won ${item}`);
-}, time * 1000); //--conversting seconds into miliseconds
-
 bot.login(botconfig.token);
