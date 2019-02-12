@@ -111,7 +111,7 @@ bot.on("messageDelete", async msg => {
 //Channel Created Log Start
 //----
 
-bot.on("channelCreate", async channel => {
+bot.on("channelCreate", channel => {
     let logs = await msg.guild.fetchAuditLogs({type: 10});
     let entry = logs.entries.first();
   
