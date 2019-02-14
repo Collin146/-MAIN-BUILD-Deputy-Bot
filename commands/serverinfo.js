@@ -6,19 +6,13 @@ module.exports.run = async (bot, message, args) => {
     .setDescription("Server Information")
     .setColor("#ff6a00")
     .setThumbnail(sicon)
-    .addField("Server Name", message.guild.name)
-    .addBlankField(true)
-    .addField("Created On", message.guild.createdAt)
-    .addBlankField(true)
-    .addField("Created By", message.guild.owner)
-    .addBlankField(true)
-    .addField("You Joined", message.member.joinedAt)
-    .addBlankField(true)
-    .addField("Total Members", message.guild.memberCount)
-    .addBlankField(true)
-    .addField("Region", message.guild.region)
-    .addBlankField(true)
-    .addField("Invite Link", "https://discord.gg/VqXfwn8");
+    .addField("Server Name", message.guild.name, true)
+    .addField("Created On", message.guild.createdAt, true)
+    .addField("Created By", message.guild.owner, true)
+    .addField("You Joined", message.member.joinedAt, true)
+    .addField("Total Members", message.guild.memberCount,true)
+    .addField("Region", message.guild.region,true)
+    .addField("Invite Link", "https://discord.gg/VqXfwn8", true);
 
     return message.channel.send(serverembed);
 
@@ -28,6 +22,3 @@ module.exports.help = {
     name: "serverinfo"
 
 }
-
-
-
