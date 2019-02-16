@@ -46,7 +46,6 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
       if (bool == true) return;
 
       if (!role) return message.channel.send("Please create a role called **Staff Team** to use tickets. ") //Als support rank er niet is
-      let bicon = client.user.displayAvatarURL; //De icoon van de bot
       let usericon = author.user.displayAvatarURL;
       const ticketEmbed = new discord.RichEmbed()
       .setAuthor("New ticket!", usericon)
