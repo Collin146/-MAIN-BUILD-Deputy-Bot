@@ -32,7 +32,7 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
 
             let dongembed = new discord.RichEmbed()
             .setColor("RED")
-            .setAuthor("Error", bicon)
+            .setAuthor("Error")
             .setDescription("<:xcross:504361310385995798> You already have a open ticket!")
             message.channel.send(dongembed);
 
@@ -61,9 +61,9 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
       ticketchannel.send(ticketEmbed);
 
       geluktEmbed = new discord.RichEmbed()
-      .setAuthor("Your ticket has been created!", bicon)
+      .setAuthor("Your ticket has been created!")
       .setColor("GREEN")
-      .setAuthor("Done", bicon)
+      .setAuthor("Done")
       .setDescription(`You succesfully created a ticket. This has been sent to the Staff Team!`)
 
       message.channel.send(geluktEmbed);
