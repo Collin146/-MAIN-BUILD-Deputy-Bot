@@ -46,48 +46,31 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
       if (bool == true) return;
 
       if (!role) return message.channel.send("Please create a role called **Staff Team** to use tickets. ") //Als support rank er niet is
-  message.guild.createChannel("!ticket-" + userName, "text").then(c => {//Wat permissies voor de rolls
-      c.overwritePermissions(role, {
-          SEND_MESSAGES: true,
-          READ_MESSAGES: true
-      });
-      c.overwritePermissions(role2, {
-          SEND_MESSAGES: false,
-          READ_MESSAGES: false
-      });
-      c.overwritePermissions(message.author, {
-          SEND_MESSAGES: true,
-          READ_MESSAGES: true
-      });
       let bicon = client.user.displayAvatarURL; //De icoon van de bot
+      let usericon = author.user.displayAvatarURL;
       const ticketEmbed = new discord.RichEmbed()
-      .setAuthor("New ticket!", bicon)
+      .setAuthor("New ticket!", usericon)
       .addField("Ticket creator", `**${message.author}**`, true)
       .addField("Reason", `**${onderwerp}**`)
       .setThumbnail(`${message.author.avatarURL}`)
       .setColor("GREEN")
-      .setDescription("Please wait for a staffmember to join your ticket. If you dont get any reaction within 3 hours. You can tag @support rank. We will reply to this ticket as soon as possible.", true)
       .setTimestamp()
-      .setFooter("Ticket created on:", bicon);
-      c.send({ embed: ticketEmbed });
+      .setFooter("Ticket created on:");
+      
+      let ticketchannel = message.guild.channels.find(`name`, "meetings");
+      if(!ticketchannel) return message.reply("Couldn't find channel");
 
-      c.setTopic(`Ticket creator ${message.author}`) //De beschrijving van de channel
-
-      const categoryId = "1111111111111111"; //Category ID plaats het binnen de "11111"
-      c.setParent(categoryId) // Zet kanaal in category.
+      ticketchannel.send(ticketEmbed);
 
       geluktEmbed = new discord.RichEmbed()
-
       .setAuthor("Your ticket has been created!", bicon)
-    .setColor("GREEN")
+      .setColor("GREEN")
       .setAuthor("Done", bicon)
-      .setDescription(`You succesfully created a ticket. See #ticket-${message.author.username}${message.author.discriminator}`)
+      .setDescription(`You succesfully created a ticket. This has been sent to the Staff Team!`)
 
       message.channel.send(geluktEmbed);
       c.send("@Staff Team") .then(message => message.delete(100)); // De @everyone tag
       return;
-  }).catch(console.error);
-
 }
 module.exports.help = { //De export naar een echte CMD
     name: 'ticket' //Om de command aan te duiden dus bijvoorbeeld !help - !ticket etc.
