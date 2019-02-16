@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
     }
     
 
-    if (message.member.hasPermission("ADMINISTRATOR")) {
+    if (message.member.hasPermission("MANAGE_MESSAGES")) {
          if (!bot.lockit) bot.lockit = [];
          let time = args.join(' ');
     let validUnlocks = ['release', 'unlock'];
