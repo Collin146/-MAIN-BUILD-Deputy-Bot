@@ -67,7 +67,6 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
       .setDescription(`You succesfully created a ticket. This has been sent to the Staff Team!`)
 
       message.channel.send(geluktEmbed);
-      message.channel.send("@Staff Team");
       return;
 }
 module.exports.help = { //De export naar een echte CMD
