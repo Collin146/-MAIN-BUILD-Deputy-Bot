@@ -8,7 +8,8 @@ let helpembed = new Discord.RichEmbed()
 .addField("!botinfo", "This shows you the information about the bot.")
 .addField("!help", "This brings up the commands menu.")
 .addField("!report <user> <reason>", "This reports the mentioned user to staff. ALWAYS GIVE A REASON!")
-.addField("!serverinfo", "This shows you the information about the server.");
+.addField("!serverinfo", "This shows you the information about the server.")
+.addField("!ticket <reason>", "This creates a ticket and sends it to staff");
 
 message.channel.send(helpembed);
 
