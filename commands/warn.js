@@ -22,6 +22,7 @@ module.exports.run = async (bot, message, args) => {
   if(!wUser) return message.reply("Couldn't find that user.");
   if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("You can't warn a Moderator or higher.");
   let reason = args.join(" ").slice(22);
+  let mentioned = message.mentions.users.first();
 
   if(!warns[wUser.id]) warns[wUser.id] = {
     warns: 0
@@ -42,19 +43,18 @@ module.exports.run = async (bot, message, args) => {
 
   message.reply(WEmbed);
 
-  let warnEmbed = new Discord.RichEmbed()
-  .setDescription("A user has been warned!")
-  .setAuthor(message.author.username)
-  .setColor("#fc6400")
-  .addField("Warned User", `<@${wUser.id}>`)
-  .addField("Warned In", message.channel)
-  .addField("Number of Warnings", warns[wUser.id].warns)
-  .addField("Reason", reason);
+  let ModEmbed = new Discord.RichEmbed()
+  .setTitle("Warn command used!")
+  .setColor("RED")
+  .addField("Warned User", `<@${wUser.id}>`, true)
+  .addField("Warned In", message.channel, true)
+  .addField("Reason", reason, true)
+  .addField("Number of Warnings", warns[wUser.id].warns, true);
 
   let warnchannel = message.guild.channels.find(`name`, "modlog");
   if(!warnchannel) return message.reply("Couldn't find channel");
 
-  warnchannel.send(warnEmbed);
+  warnchannel.send(ModEmbed);
 
   let DMembed = new Discord.RichEmbed()
   .setTitle("You have been warned in Global Roleplay™ PS4")
@@ -87,3 +87,4 @@ mentioned.send(DMembed);
 module.exports.help = {
   name: "warn"
 }
+
