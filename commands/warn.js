@@ -49,8 +49,8 @@ module.exports.run = async (bot, message, args) => {
   .addField("Warned User", `<@${wUser.id}>`, true)
   .addField("Warned In", message.channel, true)
   .addField("Reason", reason, true)
-  .addField("Number of Warnings", warns[wUser.id].warns, true)
-  .addField("Warned By", message.author.username, true);
+  .addField("Warned By", message.author.username, true)
+  .addField("Number of Warnings", warns[wUser.id].warns, true);
 
   let warnchannel = message.guild.channels.find(`name`, "modlog");
   if(!warnchannel) return message.reply("Couldn't find channel");
