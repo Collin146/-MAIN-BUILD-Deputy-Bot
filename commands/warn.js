@@ -33,8 +33,17 @@ module.exports.run = async (bot, message, args) => {
     if (err) console.log(err)
   });
 
+  let WEmbed = new Discord.RichEmbed()
+  .setTitle("A user has been warned!")
+  .setColor("#ff0c00")
+  .addField("Punished User", `<@${tostrike.id}>`)
+  .addField("Punishment Type", "Warning")
+  .addField("Reason", reason)
+
+  message.reply(WEmbed);
+
   let warnEmbed = new Discord.RichEmbed()
-  .setDescription("Warns")
+  .setDescription("A user has been warned!")
   .setAuthor(message.author.username)
   .setColor("#fc6400")
   .addField("Warned User", `<@${wUser.id}>`)
@@ -46,6 +55,14 @@ module.exports.run = async (bot, message, args) => {
   if(!warnchannel) return message.reply("Couldn't find channel");
 
   warnchannel.send(warnEmbed);
+
+  let DMembed = new Discord.RichEmbed()
+  .setTitle("You have been warned in Global Roleplay™ PS4")
+  .setColor("#ff0c00")
+  .addField("Punishment Type", "Warning")
+  .addField("Reason", reason);
+ 
+mentioned.send(DMembed);
 
 //   if(warns[wUser.id].warns == 2){
 //     let muterole = message.guild.roles.find(`name`, "muted");
