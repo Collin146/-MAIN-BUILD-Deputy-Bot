@@ -67,7 +67,7 @@ let ModEmbed = new Discord.RichEmbed()
 .setColor("RED")
 .addField("Striked User", `<@${tostrike.id}>`, true)
 .addField("Striked In", message.channel, true)
-.addField("Reason", kReason, true)
+.addField("Length & Reason", kReason, true)
 .addField("Striked By", message.author.username, true);
 
 let warnchannel = message.guild.channels.find(`name`, "modlog");
