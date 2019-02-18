@@ -62,6 +62,19 @@ setTimeout(function(){
     message.channel.send(`<@${tostrike.id}> has been removed from Watchlist!`);
 }, ms(striketime));
 
+let ModEmbed = new Discord.RichEmbed()
+.setDescription("Watchlist command used!")
+.setAuthor(message.author.username)
+.setColor("#fc6400")
+.addField("Punished User", `<@${wUser.id}>`, true)
+.addField("Punished In", message.channel, true)
+.addField("Reason", kReason, true);
+
+let warnchannel = message.guild.channels.find(`name`, "modlog");
+if(!warnchannel) return message.reply("Couldn't find channel");
+
+warnchannel.send(ModEmbed);
+
 let DMembed = new Discord.RichEmbed()
 .setTitle("You have been punished in Global Roleplay™ PS4")
 .setColor("#ff0c00")
