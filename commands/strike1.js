@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-//!strike1 @user 1s/m/h/d reason
+//!tempmute @user 1s/m/h/d
 
 let tostrike = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!tostrike) return message.reply("Couldn't find that user.");
@@ -62,6 +62,19 @@ setTimeout(function(){
     tostrike.removeRole(strikerole.id);
     message.channel.send(`<@${tostrike.id}> has been removed from Strike 1!`);
 }, ms(striketime));
+
+let ModEmbed = new Discord.RichEmbed()
+.setTitle("Strike 1 command used!")
+.setColor("RED")
+.addField("Striked User", `<@${tostrike.id}>`, true)
+.addField("Striked In", message.channel, true)
+.addField("Length & Reason", kReason, true)
+.addField("Striked By", message.author.username, true);
+
+let warnchannel = message.guild.channels.find(`name`, "modlog");
+if(!warnchannel) return message.reply("Couldn't find channel");
+
+warnchannel.send(ModEmbed);
 
 let DMembed = new Discord.RichEmbed()
 .setTitle("You have been striked in Global Roleplay™ PS4")
