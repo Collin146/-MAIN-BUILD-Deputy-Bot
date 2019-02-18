@@ -27,11 +27,21 @@ module.exports.run = async (bot, message, args) => {
     .addField("Time", message.createdAt)
     .addField("Reason", bReason);
 
-    let incidentchannel = message.guild.channels.find(`name`, "modlog");
-    if(!incidentchannel) return message.channel.send("Can't find modlog channel.");
-
     message.guild.member(bUser).ban(bReason);
-    incidentchannel.send(banEmbed);
+    message.reply(banEmbed);
+
+    let ModEmbed = new Discord.RichEmbed()
+    .setTitle("Ban command used!")
+    .setColor("RED")
+    .addField("Banned User", `<@${bUser.id}>`, true)
+    .addField("Banned In", message.channel, true)
+    .addField("Reason", bReason, true)
+    .addField("Banned By", message.author.username, true);
+
+    let warnchannel = message.guild.channels.find(`name`, "modlog");
+    if(!warnchannel) return message.reply("Couldn't find channel");
+
+    warnchannel.send(ModEmbed);
 
 }
 
