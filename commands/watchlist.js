@@ -67,7 +67,8 @@ let ModEmbed = new Discord.RichEmbed()
 .setColor("RED")
 .addField("Punished User", `<@${tostrike.id}>`, true)
 .addField("Punished In", message.channel, true)
-.addField("Reason", kReason, true);
+.addField("Reason", kReason, true)
+.addField("Warned By", message.author.username, true);
 
 let warnchannel = message.guild.channels.find(`name`, "modlog");
 if(!warnchannel) return message.reply("Couldn't find channel");
