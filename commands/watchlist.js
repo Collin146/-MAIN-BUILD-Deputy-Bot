@@ -66,7 +66,7 @@ let ModEmbed = new Discord.RichEmbed()
 .setDescription("Watchlist command used!")
 .setAuthor(message.author.username)
 .setColor("#fc6400")
-.addField("Punished User", `<@${wUser.id}>`, true)
+.addField("Punished User", `<@${tostrike.id}>`, true)
 .addField("Punished In", message.channel, true)
 .addField("Reason", kReason, true);
 
