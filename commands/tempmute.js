@@ -54,6 +54,18 @@ setTimeout(function(){
     message.channel.send(`<@${tomute.id}> has been unmuted!`);
 }, ms(mutetime));
 
+let ModEmbed = new Discord.RichEmbed()
+.setTitle("Tempmute command used!")
+.setColor("RED")
+.addField("Muted User", `<@${tomute.id}>`, true)
+.addField("Muted In", message.channel, true)
+.addField("Length & Reason", mutetime, true)
+.addField("Striked By", message.author.username, true);
+
+let warnchannel = message.guild.channels.find(`name`, "modlog");
+if(!warnchannel) return message.reply("Couldn't find channel");
+
+warnchannel.send(ModEmbed);
 
 //end of module
 }
