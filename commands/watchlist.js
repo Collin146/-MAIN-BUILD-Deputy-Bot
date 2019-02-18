@@ -64,7 +64,7 @@ setTimeout(function(){
 
 let ModEmbed = new Discord.RichEmbed()
 .setTitle("Watchlist command used!")
-.setColor("#fc6400")
+.setColor("RED")
 .addField("Punished User", `<@${tostrike.id}>`, true)
 .addField("Punished In", message.channel, true)
 .addField("Reason", kReason, true);
