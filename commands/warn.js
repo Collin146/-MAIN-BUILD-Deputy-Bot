@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
   let WEmbed = new Discord.RichEmbed()
   .setTitle("A user has been warned!")
   .setColor("#ff0c00")
-  .addField("Punished User", `<@${tostrike.id}>`)
+  .addField("Punished User", `<@${wUser.id}>`)
   .addField("Punishment Type", "Warning")
   .addField("Reason", reason)
 
