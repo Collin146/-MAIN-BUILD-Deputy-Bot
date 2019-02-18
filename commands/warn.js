@@ -49,7 +49,8 @@ module.exports.run = async (bot, message, args) => {
   .addField("Warned User", `<@${wUser.id}>`, true)
   .addField("Warned In", message.channel, true)
   .addField("Reason", reason, true)
-  .addField("Number of Warnings", warns[wUser.id].warns, true);
+  .addField("Number of Warnings", warns[wUser.id].warns, true)
+  .addField("Warned By", message.author.username, true);
 
   let warnchannel = message.guild.channels.find(`name`, "modlog");
   if(!warnchannel) return message.reply("Couldn't find channel");
@@ -62,7 +63,7 @@ module.exports.run = async (bot, message, args) => {
   .addField("Punishment Type", "Warning")
   .addField("Reason", reason);
  
-mentioned.send(DMembed);
+  mentioned.send(DMembed);
 
 //   if(warns[wUser.id].warns == 2){
 //     let muterole = message.guild.roles.find(`name`, "muted");
