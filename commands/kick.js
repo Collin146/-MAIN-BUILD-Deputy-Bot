@@ -29,11 +29,21 @@ module.exports.run = async (bot, message, args) => {
     .addField("Time", message.createdAt)
     .addField("Reason", kReason);
 
-    let kickChannel = message.guild.channels.find(`name`, "modlog");
-    if(!kickChannel) return message.channel.send("Can't find modlog channel.");
-
     message.guild.member(kUser).kick(kReason);
-    kickChannel.send(kickEmbed);
+    message.reply(kickEmbed);
+
+    let ModEmbed = new Discord.RichEmbed()
+    .setTitle("Kick command used!")
+    .setColor("RED")
+    .addField("Kicked User", `<@${kUser.id}>`, true)
+    .addField("Kicked In", message.channel, true)
+    .addField("Reason", kReason, true)
+    .addField("Kicked By", message.author.username, true);
+
+    let warnchannel = message.guild.channels.find(`name`, "modlog");
+    if(!warnchannel) return message.reply("Couldn't find channel");
+
+    warnchannel.send(ModEmbed);
 
 }
 
