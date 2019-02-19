@@ -3,6 +3,18 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
+    let ModEmbed = new Discord.RichEmbed()
+    .setTitle("Clear command used!")
+    .setColor("RED")
+    .addField("Cleared In", message.channel, true)
+    .addField("Cleared By", message.author.username, true);
+
+    let warnchannel = message.guild.channels.find(`name`, "modlog");
+    if(!warnchannel) return message.reply("Couldn't find channel");
+
+    warnchannel.send(ModEmbed);
+
+
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
     if(args[0] === "help"){
         message.reply("Usage: !clear <amount>");
@@ -25,16 +37,6 @@ module.exports.run = async (bot, message, args) => {
 
     });
 }
-
-let ModEmbed = new Discord.RichEmbed()
-.setTitle("Clear command used!")
-.setColor("RED")
-.addField("Cleared By", message.author.username, true);
-
-let warnchannel = message.guild.channels.find(`name`, "modlog");
-if(!warnchannel) return message.reply("Couldn't find channel");
-
-warnchannel.send(ModEmbed);
 
 
 module.exports.help = {
