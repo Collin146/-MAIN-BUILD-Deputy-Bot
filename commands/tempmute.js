@@ -60,7 +60,9 @@ let ModEmbed = new Discord.RichEmbed()
 .addField("Muted User", `<@${tomute.id}>`, true)
 .addField("Muted In", message.channel, true)
 .addField("Length", mutetime, true)
-.addField("Muted By", message.author.username, true);
+.addField("Muted By", message.author.username, true)
+.setTimestamp()
+.setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
 let warnchannel = message.guild.channels.find(`name`, "modlog");
 if(!warnchannel) return message.reply("Couldn't find channel");
