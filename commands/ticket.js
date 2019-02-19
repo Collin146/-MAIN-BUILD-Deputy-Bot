@@ -53,7 +53,7 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
       .setThumbnail(`${message.author.avatarURL}`)
       .setColor("GREEN")
       .setTimestamp()
-      .setFooter("Ticket created on:");
+      .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
       
       let ticketchannel = message.guild.channels.find(`name`, "meetings");
       if(!ticketchannel) return message.reply("Couldn't find channel");
