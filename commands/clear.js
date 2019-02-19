@@ -7,7 +7,8 @@ module.exports.run = async (bot, message, args) => {
     .setTitle("Clear command used!")
     .setColor("RED")
     .addField("Cleared In", message.channel, true)
-    .addField("Cleared By", message.author.username, true);
+    .addField("Cleared By", message.author.username, true)
+    .addField("Cleared Amount", args, true);
 
     let warnchannel = message.guild.channels.find(`name`, "modlog");
     if(!warnchannel) return message.reply("Couldn't find channel");
