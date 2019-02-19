@@ -69,6 +69,7 @@ let ModEmbed = new Discord.RichEmbed()
 .addField("Striked In", message.channel, true)
 .addField("Length & Reason", kReason, true)
 .addField("Striked By", message.author.username, true)
+.setTimestamp()
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
 let warnchannel = message.guild.channels.find(`name`, "modlog");
