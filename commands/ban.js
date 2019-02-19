@@ -36,7 +36,9 @@ module.exports.run = async (bot, message, args) => {
     .addField("Banned User", `<@${bUser.id}>`, true)
     .addField("Banned In", message.channel, true)
     .addField("Reason", bReason, true)
-    .addField("Banned By", message.author.username, true);
+    .addField("Banned By", message.author.username, true)
+    .setTimestamp()
+    .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
     let warnchannel = message.guild.channels.find(`name`, "modlog");
     if(!warnchannel) return message.reply("Couldn't find channel");
