@@ -16,7 +16,6 @@ module.exports.run = async (bot, message, args) => {
         .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
         .addField("Reported By", `${message.author} with ID: ${message.author.id}`)
         .addField("Channel", message.channel)
-        .addField("Time", message.createdAt)
         .addField("Reason", reason)
         .setTimestamp()
         .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
