@@ -38,7 +38,9 @@ module.exports.run = async (bot, message, args) => {
     .addField("Kicked User", `<@${kUser.id}>`, true)
     .addField("Kicked In", message.channel, true)
     .addField("Reason", kReason, true)
-    .addField("Kicked By", message.author.username, true);
+    .addField("Kicked By", message.author.username, true)
+    .setTimestamp()
+    .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
     let warnchannel = message.guild.channels.find(`name`, "modlog");
     if(!warnchannel) return message.reply("Couldn't find channel");
