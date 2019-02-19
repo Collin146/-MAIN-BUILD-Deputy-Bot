@@ -68,7 +68,8 @@ let ModEmbed = new Discord.RichEmbed()
 .addField("Striked User", `<@${tostrike.id}>`, true)
 .addField("Striked In", message.channel, true)
 .addField("Length & Reason", kReason, true)
-.addField("Striked By", message.author.username, true);
+.addField("Striked By", message.author.username, true)
+.setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
 let warnchannel = message.guild.channels.find(`name`, "modlog");
 if(!warnchannel) return message.reply("Couldn't find channel");
@@ -89,4 +90,3 @@ mentioned.send(DMembed);
 module.exports.help = {
     name: "strike2"
 }
-
