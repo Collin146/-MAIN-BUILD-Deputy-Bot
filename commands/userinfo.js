@@ -1,11 +1,14 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
-module.exports.run = async (bot, message, client, args) => {
+module.exports.run = async (bot, message, args) => {
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
-    let botmessage = args(" ");
+    if(args[0] === "help"){
+        message.reply("Usage: !userinfo <user>");
+        return;
+    }
 
-    let member = message.mentions.users.first() || client.users.get(botmessage) || message.author;
+    let member = message.mentions.users.first() || message.author;
     let userembed = new Discord.RichEmbed()
         .setColor(message.guild.member(member).highestRole.color)
         .setThumbnail(member.displayAvatarURL)
@@ -26,3 +29,4 @@ module.exports.run = async (bot, message, client, args) => {
 module.exports.help = {
     name: "userinfo"
 }
+
