@@ -23,6 +23,7 @@ if(!tomute) return message.reply("Couldn't find that user.");
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("You cannot mute a Moderator or higher");
 let muterole = message.guild.roles.find(`name`, "Muted");
+let memberrole = message.guild.roles.find(`name`, "Member");
 //start of create role
 if (!muterole){
     try{
@@ -47,10 +48,12 @@ let mutetime = args[1];
 if(!mutetime) return message.reply("You didn't specify a time!");
 
 await(tomute.addRole(muterole.id));
+await(tomute.removeRole(memberrole.id));
 message.reply(`<@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
 
 setTimeout(function(){
     tomute.removeRole(muterole.id);
+    tomute.addRole(memberrole);
     message.channel.send(`<@${tomute.id}> has been unmuted!`);
 }, ms(mutetime));
 
