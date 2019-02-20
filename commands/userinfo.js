@@ -13,8 +13,8 @@ module.exports.run = async (bot, message, args) => {
         .setColor(message.guild.member(member).highestRole.color)
         .setThumbnail(member.displayAvatarURL)
         
-        .setTitle(`Here is ${member.tag}'s info.`)
-        .addField(`Name:`, member.tag, true)
+        .setTitle(`Here is ${member.username}'s info.`)
+        .addField(`Name:`, member.username, true)
         .addField(`ID:`, member.id, true)
         .addField(`Bot:`, member.bot ? "Yes" : "No", true)
         .addField("Game:", message.guild.member(member).presence.game ? message.guild.member(member).presence.game.name : "Not Playing", true) // the ? and : are like an if statement if (msg.guild.member(member).presence.game ) { msg.guild.member(member).presence.game.name } else "Not Playing"
