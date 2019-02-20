@@ -13,15 +13,15 @@ module.exports.run = async (bot, message, args) => {
         .setColor(message.guild.member(member).highestRole.color)
         .setThumbnail(member.displayAvatarURL)
         
-        .setTitle(`Here is ${member.usertag}'s info.`)
-        .addField(`Name:`, member.usertag, true)
+        .setTitle(`Here is ${member.tag}'s info.`)
+        .addField(`Name:`, member.tag, true)
         .addField(`ID:`, member.id, true)
         .addField(`Bot:`, member.bot ? "Yes" : "No", true)
         .addField("Game:", message.guild.member(member).presence.game ? message.guild.member(member).presence.game.name : "Not Playing", true) // the ? and : are like an if statement if (msg.guild.member(member).presence.game ) { msg.guild.member(member).presence.game.name } else "Not Playing"
         .addField("Nickname:", message.guild.member(member).nickname ? message.guild.member(member).nickname : "None", true )
         .addField("Last Messsage:", member.lastMessage, true)
         .addField(`User Joined On`, message.guild.member(member).joinedAt, true)
-        .addField(`User Created On`, member.createdAt)
+        .addField(`User Created On`, member.createdAt())
         .addField(`Roles:`, message.guild.member(member).roles.map(s => s).join(" | "), true)
 
         message.channel.send(userembed);
