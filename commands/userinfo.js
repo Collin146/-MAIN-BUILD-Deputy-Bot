@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-let member = message.mentions.users.first() || message.userid.users.first() || message.author;
+    let member = message.mentions.users.first() || bot.users.first() || message.author;
     let userembed = new Discord.RichEmbed()
         .setColor(message.guild.member(member).highestRole.color)
         .setThumbnail(member.displayAvatarURL)
