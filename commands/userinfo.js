@@ -4,7 +4,7 @@ const errors = require("../utils/errors.js");
 module.exports.run = async (bot, message, client, args) => {
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
 
-    let member = message.mentions.users.first() || message.client.users.id.first() || message.author;
+    let member = message.mentions.users.first() || message.client.user.id.first() || message.author;
     let userembed = new Discord.RichEmbed()
         .setColor(message.guild.member(member).highestRole.color)
         .setThumbnail(member.displayAvatarURL)
