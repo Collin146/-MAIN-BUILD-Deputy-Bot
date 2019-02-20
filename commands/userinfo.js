@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("Nickname:", message.guild.member(member).nickname ? message.guild.member(member).nickname : "None", true )
         .addField("Last Messsage:", member.lastMessage, true)
         .addField(`User Joined On`, message.guild.member(member).joinedAt, true)
-        .addField(`User Created On`, member.createdAt())
+        .addField(`User Created On`, message.guild.member.createdAt)
         .addField(`Roles:`, message.guild.member(member).roles.map(s => s).join(" | "), true)
 
         message.channel.send(userembed);
