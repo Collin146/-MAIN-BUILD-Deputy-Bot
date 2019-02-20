@@ -8,20 +8,20 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-    let member = message.mentions.users.first() || message.guild.members.get(args[0]) || message.author;
+    let x = message.mentions.members.first() || message.guild.members.get(args[0]) || message.guild.members.find(x => x.user.tag === args[0]) || message.guild.members.find(x => x.user.username === args[0]) || message.member;
     let userembed = new Discord.RichEmbed()
-        .setColor(message.guild.member(member).highestRole.color)
-        .setThumbnail(member.displayAvatarURL)
+        .setColor(message.guild.member(x).highestRole.color)
+        .setThumbnail(x.displayAvatarURL)
         
-        .setTitle(`Here is ${member.username}'s info.`)
-        .addField(`Name:`, member.username, true)
-        .addField(`ID:`, member.id, true)
-        .addField(`Bot:`, member.bot ? "Yes" : "No", true)
-        .addField("Game:", message.guild.member(member).presence.game ? message.guild.member(member).presence.game.name : "Not Playing", true) // the ? and : are like an if statement if (msg.guild.member(member).presence.game ) { msg.guild.member(member).presence.game.name } else "Not Playing"
-        .addField("Nickname:", message.guild.member(member).nickname ? message.guild.member(member).nickname : "None", true )
-        .addField("Last Messsage:", member.lastMessage, true)
-        .addField(`User Joined On`, message.guild.member(member).joinedAt, true)
-        .addField(`Roles:`, message.guild.member(member).roles.map(s => s).join(" | "), true)
+        .setTitle(`Here is ${x.username}'s info.`)
+        .addField(`Name:`, x.username, true)
+        .addField(`ID:`, x.id, true)
+        .addField(`Bot:`, x.bot ? "Yes" : "No", true)
+        .addField("Game:", message.guild.member(x).presence.game ? message.guild.member(x).presence.game.name : "Not Playing", true) // the ? and : are like an if statement if (msg.guild.member(member).presence.game ) { msg.guild.member(member).presence.game.name } else "Not Playing"
+        .addField("Nickname:", message.guild.member(x).nickname ? message.guild.member(x).nickname : "None", true )
+        .addField("Last Messsage:", x.lastMessage, true)
+        .addField(`User Joined On`, message.guild.member(x).joinedAt, true)
+        .addField(`Roles:`, message.guild.member(x).roles.map(s => s).join(" | "), true)
 
         message.channel.send(userembed);
 }
