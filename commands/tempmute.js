@@ -49,14 +49,14 @@ let mutetime = args[1];
 if(!mutetime) return message.reply("You didn't specify a time!");
 
 await(tomute.addRole(muterole.id));
-
+if (!memberrole) await(tomute.addRole(approle.id));
 await(tomute.removeRole(memberrole.id));
 message.reply(`<@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
 
 setTimeout(function(){
     tomute.removeRole(muterole.id);
     if (!memberrole) tomute.addRole(approle.id);
-    tomute.addRole(memberrole);
+    tomute.addRole(memberrole.id);
     message.channel.send(`<@${tomute.id}> has been unmuted!`);
 }, ms(mutetime));
 
