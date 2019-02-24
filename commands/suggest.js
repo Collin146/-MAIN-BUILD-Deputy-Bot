@@ -57,7 +57,9 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
       if(!ticketchannel) return message.reply("Couldn't find channel");
 
       ticketchannel.send(ticketEmbed);
-      message.react("❌, ➖, ✔");
+      message.react("❌");
+      message.react("➖");
+      message.react("✔");
 
       geluktEmbed = new discord.RichEmbed()
       .setAuthor("Your suggestion has been sent!")
