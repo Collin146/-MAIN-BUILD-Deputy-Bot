@@ -1,5 +1,4 @@
 const discord = require('discord.js'); //haal discord.js binnen
-const usicon = message.author.avatarURL
 
 module.exports.run = async (client, message, args, guild) => { //dingen definen
 
@@ -48,7 +47,7 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
 
       if (!role) return message.channel.send("Please create a role called **Staff Team** to use suggestions. ") //Als support rank er niet is
       const ticketEmbed = new discord.RichEmbed()
-      .setAuthor(usicon, message.author.username)
+      .setAuthor(message.author.avatarURL, message.author.username)
       .addField("Suggestion", `**${onderwerp}**`)
       .setColor("GREEN")
       .setTimestamp()
