@@ -45,7 +45,7 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
 
       if (!role) return message.channel.send("Please create a role called **Staff Team** to use suggestions. ") //Als support rank er niet is
       const ticketEmbed = new discord.RichEmbed()
-      .setAuthor(message.author.avatarURL, message.author.username)
+      .setAuthor(message.author.username)
       .addField("Suggestion", `**${onderwerp}**`)
       .setColor("GREEN")
       .setTimestamp()
