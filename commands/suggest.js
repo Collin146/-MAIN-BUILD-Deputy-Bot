@@ -54,7 +54,7 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
       let ticketchannel = message.guild.channels.find(`name`, "server-suggestions-staff-only");
       if(!ticketchannel) return message.reply("Couldn't find channel");
 
-      ticketchannel.send(ticketEmbed).then(m => message.react `❌`, `➖`, `✔`);
+      ticketchannel.send(ticketEmbed).then(m => message.react "❌", "➖", "✔");
 
       geluktEmbed = new discord.RichEmbed()
       .setAuthor("Your suggestion has been sent!")
