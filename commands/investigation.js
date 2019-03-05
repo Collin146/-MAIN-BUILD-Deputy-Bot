@@ -1,6 +1,4 @@
 const Discord = require("discord.js");
-const fs = require("fs");
-const ms = require("ms");
 const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
@@ -43,10 +41,10 @@ if(!warnchannel) return message.reply("Couldn't find channel");
 warnchannel.send(ModEmbed);
 
 //end of module
-}
 
 }
 
 module.exports.help = {
     name: "investigation"
 }
+
