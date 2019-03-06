@@ -23,7 +23,7 @@ let investrole = message.guild.roles.find(`name`, "Investigation");
 //let approle = message.guild.roles.find(`name`, "Applicant");
 //guildmember.setRoles(...)
 
-toinvest.setRoles();
+toinvest.setRoles()
 toinvest.addRole(investrole.id);
 
 let ModEmbed = new Discord.RichEmbed()
@@ -47,4 +47,3 @@ warnchannel.send(ModEmbed);
 module.exports.help = {
     name: "investigation"
 }
-
