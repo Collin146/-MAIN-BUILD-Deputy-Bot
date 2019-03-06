@@ -1,9 +1,10 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
-const check = bot.emojis.get("552879420172664842");
 
 module.exports.run = async (bot, message, args) => { 
 
+    const check = bot.emojis.get("552879420172664842");
+    
     if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
     if(args[0] === "help"){
         message.reply("Usage: !bcso <user>");
