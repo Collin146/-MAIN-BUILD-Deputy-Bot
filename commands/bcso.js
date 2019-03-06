@@ -46,6 +46,7 @@ let ModEmbed = new Discord.RichEmbed()
 let warnchannel = message.guild.channels.find(`name`, "modlog");
 if(!warnchannel) return message.reply("Couldn't find channel");
     
+message.delete().catch(O_o=>{});
 warnchannel.send(ModEmbed);
 
 //end of module
