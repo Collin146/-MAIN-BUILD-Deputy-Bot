@@ -17,7 +17,7 @@ if(message.member.hasPermission("MANAGE_MESSAGES")){
 let modembed = new Discord.RichEmbed()
 .setDescription("Staff Team Help Menu")
 .setColor("#00fff6")
-.setTitle("**---------Moderation Commands---------**")
+.setDescription("**---------Moderation Commands---------**")
 .addField("!ban <user> <reason>", "This bans the user that is mentioned.") //PUT CLEAR, PREFIX, TEMPMUTE IF VIDEO DOESN'T
 .addField("!kick <user> <reason>", "This kicks the user that is mentioned.")
 .addField("!warn <user> <reason>", "This warns the user that is mentioned.")
@@ -27,7 +27,7 @@ let modembed = new Discord.RichEmbed()
 .addField("!investigation <user>", "This removes all roles that a user has and adds the investigation role.")
 .addField("!tempmute <user> <time length>", "This temporarily mutes the mentioned user for the given amount of time.")
 .addBlankField(true)
-.setTitle("**---------Managing Commands---------**")
+.setDescription("**---------Managing Commands---------**")
 .addField("!say <any word or sentence>", "This makes the bot say the given word or sentence.")
 .addField("!prefix <new prefix>", "This changes the prefix to the desired one.")
 .addField("!clear <amount>", "This deletes the given amount of messages at once.")
@@ -53,4 +53,3 @@ try{
 module.exports.help = {
     name: "help"
 }
-
