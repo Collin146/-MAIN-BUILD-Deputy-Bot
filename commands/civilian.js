@@ -46,7 +46,7 @@ if(!warnchannel) return message.reply("Couldn't find channel");
     
 warnchannel.send(ModEmbed);
 
-geluktEmbed = new discord.RichEmbed()
+geluktEmbed = new Discord.RichEmbed()
       .setAuthor(`The roles of <@{tociv.id}> have been updated!`)
       .psetColor("GREEN")
       .setAuthor("✅ Done")
