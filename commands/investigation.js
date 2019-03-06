@@ -23,7 +23,7 @@ let investrole = message.guild.roles.find(`name`, "Investigation");
 //let approle = message.guild.roles.find(`name`, "Applicant");
 //guildmember.setRoles(...)
 
-toinvest.removeRoles;
+toinvest.removeRoles();
 toinvest.addRole(investrole.id);
 
 let ModEmbed = new Discord.RichEmbed()
