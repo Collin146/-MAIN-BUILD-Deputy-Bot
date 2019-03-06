@@ -46,8 +46,16 @@ let ModEmbed = new Discord.RichEmbed()
 let warnchannel = message.guild.channels.find(`name`, "modlog");
 if(!warnchannel) return message.reply("Couldn't find channel");
     
-message.delete().catch(O_o=>{});
 warnchannel.send(ModEmbed);
+
+geluktEmbed = new Discord.RichEmbed()
+      .setAuthor(`The roles have successfully been updated!`)
+      .setColor("GREEN")
+      .setAuthor("Done!")
+      .setDescription(`The roles of <@${tobcso.id}> have been updated!`)
+      .setFooter(`Mentioned User ID: ${tobcso.id}`);
+
+      message.channel.send(geluktEmbed);
 
 //end of module
 
