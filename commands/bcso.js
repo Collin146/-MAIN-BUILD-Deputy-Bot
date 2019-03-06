@@ -35,7 +35,7 @@ tobcso.addRole(probrole.id);
 tobcso.addRole(leorole.id);
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("Bcso command used!")
+.setTitle("BCSO command used!")
 .setColor("GREEN")
 .addField("User", `<@${tobcso.id}>`, true)
 .addField("Command Used In", message.channel, true)
