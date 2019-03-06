@@ -9,27 +9,33 @@ let helpembed = new Discord.RichEmbed()
 .addField("!help", "This brings up the commands menu.")
 .addField("!report <user> <reason>", "This reports the mentioned user to staff. ALWAYS GIVE A REASON!")
 .addField("!serverinfo", "This shows you the information about the server.")
-.addField("!ticket <reason>", "This creates a ticket and sends it to staff");
+.addField("!ticket <reason>", "This sends a ticket to the Staff Team with the reason you gave.");
 
 message.channel.send(helpembed);
 
 if(message.member.hasPermission("MANAGE_MESSAGES")){
 let modembed = new Discord.RichEmbed()
-.setDescription("Mod Help Menu")
+.setDescription("Staff Team Help Menu")
 .setColor("#00fff6")
+.addField("**---------Moderation Commands---------**")
 .addField("!ban <user> <reason>", "This bans the user that is mentioned.") //PUT CLEAR, PREFIX, TEMPMUTE IF VIDEO DOESN'T
 .addField("!kick <user> <reason>", "This kicks the user that is mentioned.")
 .addField("!warn <user> <reason>", "This warns the user that is mentioned.")
+.addField("!strike1 <user> <time length> <reason>", "This adds the Strike 1 role to the mentioned user and sends them a DM telling them that they have been striked.")
+.addField("!strike2 <user> <time length> <reason>", "This adds the Strike 2 role to the mentioned user and sends them a DM telling them that they have been striked.")
+.addField("!watchlist <user> <time length> <reason>", "This adds the Watchlist role to the mentioned user and sends them a DM telling them that they have been put on watchlist.")
+.addField("!investigation <user>", "This removes all roles that a user has and adds the investigation role.")
+.addField("!tempmute <user> <time length>", "This temporarily mutes the mentioned user for the given amount of time.")
+.addField("**---------Managing Commands---------**")
+.addField("!say <any word or sentence>", "This makes the bot say the given word or sentence.")
 .addField("!prefix <new prefix>", "This changes the prefix to the desired one.")
 .addField("!clear <amount>", "This deletes the given amount of messages at once.")
-.addField("!tempmute <user> <time length>", "This temporarily mutes the mentioned user for the given amount of time.")
-.addField("!say <any word or sentence>", "This makes the bot say the given word or sentence.")
-.addField("!lockdown", "Locks the channel that this is typed in.")
-.addField("!lockdown unlock", "Unlocks the channel that this is typed in. Channel must locked first!")
-.addField("!userinfo <user>", "Shows you information about the mentioned user.")
-.addField("!strike1 <user> <time length> <reason>", "This gives the mentioned user Strike 1.")
-.addField("!strike2 <user> <time length> <reason>", "This gives the mentioned user Strike 2.")
-.addField("!watchlist <user> <time length> <reason>", "This gives the mentioned user Watchlist.");
+.addField("!bcso <user>", "This adds the basic BCSO roles to the mentioned user.")
+.addField("!sahp <user>", "This adds the basic SAHP roles to the mentioned user.")
+.addField("!civilian <user>", "This adds the basic Civilian roles to the mentioned user.")
+.addField("!lockdown", "This overrides the channel it's send messages permission to off for everyone")
+.addField("!lockdown unlock", "This overrides the channel it's send messages permission to on for everyone")
+.addField("!userinfo <user>", "This shows the mentioned user his account information");
 try{
     await message.author.send(modembed);
     message.react("👍");
