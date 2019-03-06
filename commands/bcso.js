@@ -2,8 +2,6 @@ const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
-
-    const check = bot.emojis.get("552879420172664842");
     
     if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
     if(args[0] === "help"){
@@ -53,7 +51,7 @@ warnchannel.send(ModEmbed);
 geluktEmbed = new Discord.RichEmbed()
       .setAuthor(`The roles have successfully been updated!`)
       .setColor("GREEN")
-      .setAuthor("552879420172664842 Done!")
+      .setAuthor("Done!")
       .setDescription(`The roles of <@${tobcso.id}> have been updated!`)
       .setFooter(`Mentioned User ID: ${tobcso.id}`);
 
