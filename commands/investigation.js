@@ -23,8 +23,7 @@ let investrole = message.guild.roles.find(`name`, "Investigation");
 //let approle = message.guild.roles.find(`name`, "Applicant");
 //guildmember.setRoles(...)
 
-toinvest.removeRoles(toinvest.roles).then(console.log).catch(console.error);
-toinvest.addRole(investrole.id);
+toinvest.removeRoles(toinvest.roles);
 
 let ModEmbed = new Discord.RichEmbed()
 .setTitle("Investigation command used!")
@@ -38,6 +37,8 @@ let ModEmbed = new Discord.RichEmbed()
 let warnchannel = message.guild.channels.find(`name`, "modlog");
 if(!warnchannel) return message.reply("Couldn't find channel");
 
+toinvest.addRole(investrole.id);
+    
 warnchannel.send(ModEmbed);
 
 //end of module
