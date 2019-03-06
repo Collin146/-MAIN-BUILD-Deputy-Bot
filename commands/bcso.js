@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
-const check = client.emojis.get("552879420172664842");
+const check = bot.emojis.get("552879420172664842");
 
 module.exports.run = async (bot, message, args) => { 
 
