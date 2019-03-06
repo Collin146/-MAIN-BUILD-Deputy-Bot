@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
 
 let helpembed = new Discord.RichEmbed()
-.setDescription("Commands Help Menu")
+.setTitle("Commands Help Menu")
 .setColor("#00fff6")
 .addField("!botinfo", "This shows you the information about the bot.")
 .addField("!help", "This brings up the commands menu.")
@@ -15,7 +15,7 @@ message.channel.send(helpembed);
 
 if(message.member.hasPermission("MANAGE_MESSAGES")){
 let modembed = new Discord.RichEmbed()
-.setDescription("Staff Team Help Menu")
+.setTitle("Staff Team Help Menu")
 .setColor("#00fff6")
 .addField("**---------Moderation Commands---------**", "The basic moderation commands.")
 .addBlankField(true)
