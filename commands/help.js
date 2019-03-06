@@ -35,7 +35,7 @@ let modembed = new Discord.RichEmbed()
 .addField("!civilian <user>", "This adds the basic Civilian roles to the mentioned user.")
 .addField("!lockdown", "This overrides the channel it's send messages permission to off for everyone")
 .addField("!lockdown unlock", "This overrides the channel it's send messages permission to on for everyone")
-.addField("!userinfo <user>", "This shows the mentioned user his account information");
+.addField("!userinfo <user>", "This shows the mentioned user it's account information");
 try{
     await message.author.send(modembed);
     message.react("👍");
