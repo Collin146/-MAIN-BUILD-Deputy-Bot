@@ -48,7 +48,7 @@ warnchannel.send(ModEmbed);
 
 geluktEmbed = new Discord.RichEmbed()
       .setAuthor(`The roles of <@{tociv.id}> have been updated!`)
-      .psetColor("GREEN")
+      .setColor("GREEN")
       .setAuthor("✅ Done")
 
       message.channel.send(geluktEmbed);
