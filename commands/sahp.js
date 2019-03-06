@@ -48,6 +48,15 @@ if(!warnchannel) return message.reply("Couldn't find channel");
     
 warnchannel.send(ModEmbed);
 
+geluktEmbed = new Discord.RichEmbed()
+      .setAuthor(`The roles have successfully been updated!`)
+      .setColor("GREEN")
+      .setAuthor("Done!")
+      .setDescription(`The roles of <@${tosahp.id}> have been updated!`)
+      .setFooter(`Mentioned User ID: ${tosahp.id}`);
+
+      message.channel.send(geluktEmbed);
+
 //end of module
 
 }
