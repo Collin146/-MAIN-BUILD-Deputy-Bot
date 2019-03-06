@@ -46,12 +46,16 @@ let ModEmbed = new Discord.RichEmbed()
 let warnchannel = message.guild.channels.find(`name`, "modlog");
 if(!warnchannel) return message.reply("Couldn't find channel");
     
+if(message.content === "1779_check") {
+    const ayy = client.emojis.find(emoji => emoji.name === "1779_check");
+ }
+
 warnchannel.send(ModEmbed);
 
 geluktEmbed = new Discord.RichEmbed()
       .setAuthor(`The roles have successfully been updated!`)
       .setColor("GREEN")
-      .setAuthor("Done!")
+      .setAuthor("${ayy} Done!")
       .setDescription(`The roles of <@${tobcso.id}> have been updated!`)
       .setFooter(`Mentioned User ID: ${tobcso.id}`);
 
