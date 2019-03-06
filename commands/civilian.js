@@ -47,12 +47,12 @@ if(!warnchannel) return message.reply("Couldn't find channel");
 warnchannel.send(ModEmbed);
 
 geluktEmbed = new Discord.RichEmbed()
-      .setAuthor("Done!")
+      .setAuthor(`The roles of <@${tociv.id}> have been updated!`)
       .setColor("GREEN")
-      .setAuthor(`The roles of <@{tociv.id}> have been updated!`);
+      .setAuthor("Done!")
+      .setDescription(`The roles have successfully been updated!`)
 
       message.channel.send(geluktEmbed);
-      return;
 
 //end of module
 
