@@ -19,7 +19,8 @@ let toinvest = message.guild.member(message.mentions.users.first() || message.gu
 if(!toinvest) return message.reply("Couldn't find that user.");
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 let investrole = message.guild.roles.find(`name`, "Investigation");
-//let memrrole = message.guild.roles.find(`name`, "Member");
+if(toinvest.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot use this command on an admin!");
+//let memrrole = message.guild.roles.find(`name`, "ember");
 //let approle = message.guild.roles.find(`name`, "Applicant");
 //guildmember.setRoles(...)
 
