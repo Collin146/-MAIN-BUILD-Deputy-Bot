@@ -120,9 +120,6 @@ bot.on('channelCreate', async channel => {
     let ccchannel = msg.guild.channels.find(x => x.name === 'modlog');
     ccchannel.send({ccembed});
   });
-    console.log("Channel with ID: " + channel.id + " was just created");
-
-
 
 //-—
 //Channel Created Log Start
