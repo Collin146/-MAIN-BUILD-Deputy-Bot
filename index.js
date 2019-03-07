@@ -78,9 +78,9 @@ bot.on("message", async message => {
 
 });
 
-//----
+//-—
 //Deleted Messages Log Start
-//----
+//-—
 
 bot.on("messageDelete", async msg => {
     let logs = await msg.guild.fetchAuditLogs({type: 72});
@@ -98,13 +98,36 @@ bot.on("messageDelete", async msg => {
     channel.send({embed});
   });
 
-//----
+//-—
 //Deleted Messages Log Start
-//----
+//-—
 
-//----
+//—
 //Channel Created Log Start
-//----
+//—
+
+client.on('channelCreate', channel => {
+   let logs = await msg.guild.fetchAuditLogs({type: 10});
+    let entry = logs.entries.first();
+  
+    let ccembed = new Discord.RichEmbed()
+      .setTitle("**Channel Created!**")
+      .setColor("#GREEN")
+      .addField("Channel Name", channel.id, true)
+      .addField("Created At", channel.createdAt)
+      .setTimestamp()
+  
+    let channel = msg.guild.channels.find(x => x.name === 'modlog');
+    channel.send({ccembed});
+  });
+    console.log("Channel with ID: " + channel.id + " was just created");
+});
+
+
+
+//-—
+//Channel Created Log Start
+//-—
 
 // bot.on("channelCreate", async  => {
 //     let logs = await msg.guild.fetchAuditLogs({type: 10});
@@ -120,9 +143,9 @@ bot.on("messageDelete", async msg => {
 //     channel.send({CCembed});
 //   });
 
-//----
+//-—
 //Channel Created Log End
-//----
+//-—
 
 
 bot.login(botconfig.token);
