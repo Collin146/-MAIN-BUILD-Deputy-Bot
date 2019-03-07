@@ -114,7 +114,6 @@ bot.on('channelCreate', async msg => {
       .setTitle("**Channel Created!**")
       .setColor("#GREEN")
       .addField("Channel Name", msg.channel, true)
-      .addField("Created At", msg.channel.createdAt)
       .setTimestamp()
   
     let cchannel = msg.guild.channels.find(x => x.name === 'modlog');
