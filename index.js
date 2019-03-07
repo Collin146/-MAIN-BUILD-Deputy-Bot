@@ -121,7 +121,6 @@ client.on('channelCreate', async channel => {
     ccchannel.send({ccembed});
   });
     console.log("Channel with ID: " + channel.id + " was just created");
-});
 
 
 
