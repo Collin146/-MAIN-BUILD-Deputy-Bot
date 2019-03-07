@@ -107,7 +107,7 @@ bot.on("messageDelete", async msg => {
 //—
 
 bot.on('channelCreate', async channel => {
-   let logs = await msg.guild.fetchAuditLogs({type: 10});
+   let logs = await channel.guild.fetchAuditLogs({type: 10});
     let entry = logs.entries.first();
   
     let ccembed = new Discord.RichEmbed()
