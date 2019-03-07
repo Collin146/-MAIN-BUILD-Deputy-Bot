@@ -117,8 +117,8 @@ bot.on('channelCreate', async channel => {
       .addField("Created At", channel.createdAt)
       .setTimestamp()
   
-    let ccchannel = msg.guild.channels.find(x => x.name === 'modlog');
-    ccchannel.send({ccembed});
+    let ccchannel = message.guild.channels.find(`name`, "modlog");
+    ccchannel.send(ccembed);
   });
 
 //-—
