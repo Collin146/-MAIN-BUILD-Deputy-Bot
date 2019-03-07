@@ -106,7 +106,7 @@ bot.on("messageDelete", async msg => {
 //Channel Created Log Start
 //—
 
-bot.on("channelCreate", async (channel, guild, message) => {
+bot.on("channelCreate", async (channel, msg) => {
    let logs = await channel.guild.fetchAuditLogs({type: 10});
     let entry = logs.entries.first();
   
@@ -117,7 +117,7 @@ bot.on("channelCreate", async (channel, guild, message) => {
       .addField("Created At", channel.createdAt)
       .setTimestamp()
   
-    let ccchannel = message.guild.channels.find(`name`, "modlog");
+    let ccchannel = msg.guild.channels.find(`name`, "modlog");
     ccchannel.send(ccembed);
   });
 
