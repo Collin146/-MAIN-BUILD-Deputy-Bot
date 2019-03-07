@@ -117,8 +117,8 @@ client.on('channelCreate', async channel => {
       .addField("Created At", channel.createdAt)
       .setTimestamp()
   
-    let channel = msg.guild.channels.find(x => x.name === 'modlog');
-    channel.send({ccembed});
+    let ccchannel = msg.guild.channels.find(x => x.name === 'modlog');
+    ccchannel.send({ccembed});
   });
     console.log("Channel with ID: " + channel.id + " was just created");
 });
