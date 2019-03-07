@@ -113,8 +113,8 @@ bot.on('channelCreate', async msg => {
     let ccembed = new Discord.RichEmbed()
       .setTitle("**Channel Created!**")
       .setColor("#GREEN")
-      .addField("Channel Name", guild.channel.name, true)
-      .addField("Created At", channel.createdAt)
+      .addField("Channel Name", msg.channel.name, true)
+      .addField("Created At", msg.channel.createdAt)
       .setTimestamp()
   
     let cchannel = msg.guild.channels.find(x => x.name === 'modlog');
