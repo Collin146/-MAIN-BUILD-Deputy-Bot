@@ -48,7 +48,7 @@ bot.on("guildMemberRemove", async member => {
 
 bot.on("ready", async () => {
  console.log(`${bot.user.username} is online!`);
- bot.user.setActivity("v507.5 | !help | prefix !");
+ bot.user.setActivity("v508.5 | !help | prefix !");
 
 });
 
@@ -140,7 +140,7 @@ bot.on(`message`, async message => {
 //mention detection begin
 //--
 bot.on(`message`, async message => {
-    const bannedWords = [`@everyone` || `@member`]
+    const bannedWords = [`@everyone` || `@Member`]
     let weazelrole = message.guild.roles.find('name', 'Weazel News');    
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
