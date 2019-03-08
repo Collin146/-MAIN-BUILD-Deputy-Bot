@@ -48,7 +48,7 @@ bot.on("guildMemberRemove", async member => {
 
 bot.on("ready", async () => {
  console.log(`${bot.user.username} is online!`);
- bot.user.setActivity("v504 | !help | prefix !");
+ bot.user.setActivity("v506.5 | !help | prefix !");
 
 });
 
@@ -107,24 +107,29 @@ bot.on("messageDelete", async msg => {
 //--
 
 bot.on(`message`, async message => {
-    const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`, 'https://', 'http://', '.com/', '.com', 'www.', 'https://www.', 'http://www.']
-    try {
-        if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
-            if (message.author.id === message.guild.ownerID) return;
-            if (message.member.hasPermission("ADMINISTRATOR")) return;
-            await message.delete();
-            
-            let linkembed = new Discord.RichEmbed()
-            .setTitle("Notice!")
-            .setColor("RED")
-            .setDescription("Links are not allowed to be sent!")
-            .setFooter("Spamming links will result in a punishment!");
-           
-            await message.channel.send(linkembed);
+  const bannedWords = [`@everyone` || `@member`]
+  let weazelrole = message.guild.roles.find('name', 'Weazel News');    
+  try {
+      if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
+          if (message.author.id === message.guild.ownerID) return;
+          if (message.member.hasPermission("ADMINISTRATOR")) return;
+          if (command === "commandname"){
+            let allowedRole = message.guild.roles.find("name", "Weazel News");
+            if (message.member.roles.has(allowedRole.id)) return;
         }
-    } catch (e) {
-        console.log(e);
-    }
+          await message.delete();
+          
+          let linkembed = new Discord.RichEmbed()
+          .setTitle("Notice!")
+          .setColor("RED")
+          .setDescription("Do not mention everyone or member!")
+          .setFooter("Mention spam will result in a punishment!");
+         
+          await message.channel.send(linkembed);
+      }
+  } catch (e) {
+      console.log(e);
+  }
 });
 
  //--      
