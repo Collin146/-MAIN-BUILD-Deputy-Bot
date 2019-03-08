@@ -116,7 +116,7 @@ bot.on(`message`, async message => {
             let linkembed = new Discord.RichEmbed()
             .setTitle("Notice!")
             .setColor("RED")
-            .setDescription("**Links are not allowed to be sent!**")
+            .setDescription("Links are not allowed to be sent!")
             .setFooter("Spamming links will result in a punishment!");
            
             await message.channel.send(linkembed);
