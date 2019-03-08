@@ -128,7 +128,38 @@ bot.on(`message`, async message => {
 });
 
  //--      
-       
+ //Link Detection End  
+//--
+
+//--
+//mention detection begin
+//--
+bot.on(`message`, async message => {
+    const bannedWords = [`@everyone` || `@member`]
+    try {
+        if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
+            if (message.author.id === message.guild.ownerID) return;
+            if (message.member.hasPermission("ADMINISTRATOR")) return;
+            if (message.member.has("551527939217424394")) return;
+            await message.delete();
+            
+            let linkembed = new Discord.RichEmbed()
+            .setTitle("Notice!")
+            .setColor("RED")
+            .setDescription("")
+            .setFooter("Spamming links will result in a punishment!");
+           
+            await message.channel.send(linkembed);
+        }
+    } catch (e) {
+        console.log(e);
+    }
+});
+
+//--
+//mention detection end
+//--
+
 //—
 //Channel Created Log Start
 //—
