@@ -106,12 +106,18 @@ bot.on("messageDelete", async msg => {
 //Link Detection Start
 //--
 
-bot.on('message', (message) => { //whenever a message is sent
-  if (message.content.includes('discord.gg/'||'discordapp.com/invite/' || 'https://' || 'http://' || '.com' || 'https://google.com/')) { //if it contains a link
-    message.delete() //delete the message
-      .then(message.channel.send('Link Deleted:\n**Links are not allowed on this server!**'))
-  }
-})
+bot.on(`message`, async message => {
+    const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`, 'https://', 'http://', '.com/', '.com', 'www.', 'https://www.', 'http://www.']
+    try {
+        if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
+            if (message.author.id === message.guild.ownerID) return;
+            await message.delete();
+            await message.channel.send(`You cannot send invites to other Discord servers`);
+        }
+    } catch (e) {
+        console.log(e);
+    }
+};
 
 //—
 //Channel Created Log Start
