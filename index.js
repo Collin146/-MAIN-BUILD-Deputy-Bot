@@ -117,7 +117,7 @@ bot.on(`message`, async message => {
     } catch (e) {
         console.log(e);
     }
-};
+});
 
  //--      
        
