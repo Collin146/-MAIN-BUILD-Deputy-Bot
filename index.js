@@ -106,19 +106,19 @@ bot.on("messageDelete", async msg => {
 //Channel Created Log Start
 //—
 
-bot.on('channelCreate', async msg => {
-    let logs = await msg.guild.fetchAuditLogs({type: 10});
-    let entry = logs.entries.first();
-  
-    let ccembed = new Discord.RichEmbed()
-      .setTitle("**Channel Created!**")
-      .setColor("#GREEN")
-      .addField("Channel Name", msg.channel.content, true)
-      .setTimestamp()
-  
-    let cchannel = msg.guild.channels.find(x => x.name === 'modlog');
-    cchannel.send({ccembed});
-  });
+//bot.on('channelCreate', async msg => {
+ //   let logs = await msg.guild.fetchAuditLogs({type: 10});
+//    let entry = logs.entries.first();
+//  
+//    let ccembed = new Discord.RichEmbed()
+//      .setTitle("**Channel Created!**")
+ //     .setColor("#GREEN")
+ //     .addField("Channel Name", msg.channel.content, true)
+//      .setTimestamp()
+ // 
+//    let cchannel = msg.guild.channels.find(x => x.name === 'modlog');
+ //   cchannel.send({ccembed});
+ // });
 
 
 
