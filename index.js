@@ -111,6 +111,7 @@ bot.on(`message`, async message => {
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
             if (message.author.id === message.guild.ownerID) return;
+            if (message.member.hasPermission("ADMINISTRATOR")) return;
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
