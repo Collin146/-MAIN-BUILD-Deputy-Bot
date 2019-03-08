@@ -112,7 +112,13 @@ bot.on(`message`, async message => {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
             if (message.author.id === message.guild.ownerID) return;
             await message.delete();
-            await message.channel.send(`You cannot send invites to other Discord servers`);
+            
+            let linkembed = new Discord.RichEmbed()
+            .setTitle("Notice!")
+            .setDescription("Links are not allowed to be sent!")
+            .setFooter("Spamming links will result in a punishment!");
+           
+            await message.channel.send(linkembed);
         }
     } catch (e) {
         console.log(e);
