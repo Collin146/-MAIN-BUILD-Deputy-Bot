@@ -103,6 +103,17 @@ bot.on("messageDelete", async msg => {
 //-—
 
 //—
+//Link Detection Start
+//--
+
+bot.on('message', (message) => { //whenever a message is sent
+  if (message.content.includes('discord.gg/'||'discordapp.com/invite/' || 'https://' || 'http://')) { //if it contains a link
+    message.delete() //delete the message
+      .then(message.channel.send('Link Deleted:\n**Links are not allowed on this server!**'))
+  }
+})
+
+//—
 //Channel Created Log Start
 //—
 
