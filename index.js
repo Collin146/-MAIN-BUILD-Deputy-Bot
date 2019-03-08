@@ -48,7 +48,7 @@ bot.on("guildMemberRemove", async member => {
 
 bot.on("ready", async () => {
  console.log(`${bot.user.username} is online!`);
- bot.user.setActivity("v503 | !help | prefix !");
+ bot.user.setActivity("v504 | !help | prefix !");
 
 });
 
@@ -136,18 +136,19 @@ bot.on(`message`, async message => {
 //--
 bot.on(`message`, async message => {
     const bannedWords = [`@everyone` || `@member`]
+    let weazelrole = message.guild.roles.find('name', 'Weazel News');    
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
-            if (message.member.has("551527939217424394")) return;
+            if(message.member.roles.has(weazelrole) return;
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
             .setTitle("Notice!")
             .setColor("RED")
-            .setDescription("")
-            .setFooter("Spamming links will result in a punishment!");
+            .setDescription("Do not mention everyone or member!")
+            .setFooter("Mention spam will result in a punishment!");
            
             await message.channel.send(linkembed);
         }
