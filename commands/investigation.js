@@ -44,7 +44,7 @@ warnchannel.send(ModEmbed);
 
     geluktEmbed = new Discord.RichEmbed()
       .setAuthor(`The roles have successfully been updated!`)
-      .setColor("GREEN")
+      .setColor("ORANGE")
       .setAuthor("Done!")
       .setDescription(`The roles of <@${toinvest.id}> have been updated!`)
       .setFooter(`Mentioned User ID: ${toinvest.id}`);
