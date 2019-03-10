@@ -30,7 +30,6 @@ let modembed = new Discord.RichEmbed()
 .addBlankField(true)
 .addField("**---------Managing Commands---------**", "The basic managing commands.")
 .addBlankField(true)
-.addField("!say <any word or sentence>", "This makes the bot say the given word or sentence.")
 .addField("!prefix <new prefix>", "This changes the prefix to the desired one.")
 .addField("!clear <amount>", "This deletes the given amount of messages at once.")
 .addField("!bcso <user>", "This adds the basic BCSO roles to the mentioned user.")
@@ -38,7 +37,13 @@ let modembed = new Discord.RichEmbed()
 .addField("!civilian <user>", "This adds the basic Civilian roles to the mentioned user.")
 .addField("!lockdown", "This overrides the channel it's send messages permission to off for everyone")
 .addField("!lockdown unlock", "This overrides the channel it's send messages permission to on for everyone")
-.addField("!userinfo <user>", "This shows the mentioned user it's account information");
+.addField("!userinfo <user>", "This shows the mentioned user it's account information")
+.addBlankField(true)
+.addField("**---------Other Commands---------**", "The rest of the commands.")
+.addBlankField(true)
+.addField("!say <any word or sentence>", "This makes the bot say the given word or sentence.")
+.addField("!userinfo <user>", "This shows the mentioned user it's account information")
+.addField("!session <day> <time>", "This announces a session for the given day and time.");
 try{
     await message.author.send(modembed);
     message.react("👍");
