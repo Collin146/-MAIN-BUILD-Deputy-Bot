@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-    let pdttime = parseInt(args[0] - 7);
+    let pdttime = parseInt(args[1]);
     let edttime = (args[0] - 4);
     let cettime = (args[0] + 1);
     let mdttime = (args[0] - 6);
