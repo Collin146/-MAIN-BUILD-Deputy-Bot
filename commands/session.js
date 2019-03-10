@@ -14,12 +14,12 @@ module.exports.run = async (bot, message, args) => {
         message.reply("Usage: !sahp <user>");
         return;
     }
-
+let mentionrole = message.guild.roles.find(`name`, `everyone`);
 let day = args[0];
 let time = args[1];
 
 message.channel.send([
-    `<@453084913248370708>`,
+    `<@${mentionrole.id}>`,
     ` `,
     "**Session on**",
      `${day} **at** ${time} **PM GMT**`,
