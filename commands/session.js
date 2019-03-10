@@ -30,7 +30,6 @@ message.channel.send([
 
 }
 
-
 module.exports.help = {
     name: "session"
 }
