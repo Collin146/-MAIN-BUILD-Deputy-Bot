@@ -3,13 +3,13 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
-    if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
     if(args[0] === "help"){
         message.reply("Usage: !sahp <user>");
         return;
     }
     
-    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You don't have permission to do that.");
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
     if(args[0] == "help"){
         message.reply("Usage: !sahp <user>");
         return;
@@ -27,6 +27,8 @@ message.channel.send([
     "**Say yes to attend**",
     "(if you say yes or maybe and dont show up without a valid reason, you will receive a strike)"
   ].join('\n'))
+
+  message.delete().catch(O_o=>{});
 
 }
 
