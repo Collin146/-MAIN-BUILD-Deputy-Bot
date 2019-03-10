@@ -29,6 +29,19 @@ setTimeout(function(){
       ].join('\n'))
 }, ms(mutetime));
 
+let dmember = new Discord.RichEmbed()
+.setTitle("**Done!**")
+.setDescription(`I will post an announcement in ${message.channel} for briefing room in ${mutetime}.`)
+.setTimestamp();
+
+try{
+    await message.author.send(dmembed);
+}catch(e){
+    message.reply("Your DMs are locked. I cannot send you the mod commands.");
+
+ }
+ message.delete().catch(O_o=>{});
+
 }
 
 module.exports.help = {
