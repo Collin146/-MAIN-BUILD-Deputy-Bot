@@ -15,17 +15,22 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-let input = message.content;
-let command = input.substr(1).split(' ')[0];
-let args2 = command.substr( command.indexOf(' ') + 1 );
-let everyonerole = message.guild.roles.find('name', 'Member');
+let everyonerole = message.server.roles.get('name', 'everyone');
 let day = args[0];
 let time = args[1];
-args2 = args.split(',').map(elem => elem.trim());
 
+message.channel.send([
+    `@everyone`,
+    ` `,
+    `**Session on**`,
+     `${day} **at** ${time} **PM GMT**`,
+    ` `,
+    `**Say yes to attend**`
+    `(if you say yes or maybe and dont show up without a valid reason, you will receive a strike)`
+  ].join('\n'))
 
-    let(` <@${everyonerole}>,**Session On**, ${day} **at** ${time}, ,**Say yes to attend**,(if you say yes or maybe and dont show up without a valid reason, you will receive a strike)`) = args;
 }
+
 
 module.exports.help = {
     name: "session"
