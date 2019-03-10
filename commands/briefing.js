@@ -18,6 +18,8 @@ module.exports.run = async (bot, message, args) => {
 
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 let mentionrole = message.guild.roles.find(`name`, `Member`);
+let mutetime = args[1];
+if(!mutetime) return message.reply("You didn't specify a time!");
 
 setTimeout(function(){
     message.channel.send([
