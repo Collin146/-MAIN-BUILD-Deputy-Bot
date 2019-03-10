@@ -21,10 +21,10 @@ let time = args[1];
 message.channel.send([
     `@everyone`,
     ` `,
-    `**Session on**`,
-     `${day} **at** ${time} **PM GMT**`,
+    `Session on`,
+     `${day} at ${time} PM GMT`,
     ` `,
-    `**Say yes to attend**`
+    `Say yes to attend`
     `(if you say yes or maybe and dont show up without a valid reason, you will receive a strike)`
   ].join('\n'))
 
