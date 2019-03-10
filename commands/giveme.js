@@ -11,7 +11,6 @@ let bcsorole = message.guild.roles.find(`name`, "BCSO");
 let probrole = message.guild.roles.find(`name`, "BCSO Probationary");
 let leorole = message.guild.roles.find(`name`, "LEO");
 let nmrole = message.guild.roles.find(`name`, "New Member");
-if(tobcso.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot use this command on an admin!");
 //let memrrole = message.guild.roles.find(`name`, "ember");
 //let approle = message.guild.roles.find(`name`, "Applicant");
 //guildmember.setRoles(...)
