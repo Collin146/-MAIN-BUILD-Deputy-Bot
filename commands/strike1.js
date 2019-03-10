@@ -21,7 +21,8 @@ module.exports.run = async (bot, message, args) => {
 
 let tostrike = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!tostrike) return message.reply("Couldn't find that user.");
-let kReason = args.join(" ").slice(22);
+let kTime = args[0];
+let kReason = args[1]
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 if(tostrike.hasPermission("ADMINISTRATOR")) return message.reply("You cannot strike a Moderator or higher");
 let strikerole = message.guild.roles.find(`name`, "Strike 1");
@@ -53,9 +54,9 @@ let strikeEmbed = new Discord.RichEmbed()
 .setColor("#ff0c00")
 .addField("Striked User", `<@${tostrike.id}>`)
 .addField("Strike Type", "Strike 1")
-.addField("Length & Reason", kReason); //add reason before able to use this.
+.addField("Reason", kReason); //add reason before able to use this.
 
-await (tostrike.addRole(strikerole.id), (kReason));
+await (tostrike.addRole(strikerole.id), (kTime));
 message.reply(strikeEmbed);
 
 setTimeout(function(){
@@ -68,7 +69,7 @@ let ModEmbed = new Discord.RichEmbed()
 .setColor("RED")
 .addField("Striked User", `<@${tostrike.id}>`, true)
 .addField("Striked In", message.channel, true)
-.addField("Length & Reason", kReason, true)
+.addField("Reason", kReason, true)
 .addField("Striked By", message.author.username, true)
 .setTimestamp()
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
@@ -82,7 +83,7 @@ let DMembed = new Discord.RichEmbed()
 .setTitle("You have been striked in Global Roleplay™ PS4")
 .setColor("#ff0c00")
 .addField("Strike Type", "Strike 1")
-.addField("Length & Reason", kReason);
+.addField("Reason", kReason);
  
  mentioned.send(DMembed);
 
