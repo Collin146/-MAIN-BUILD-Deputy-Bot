@@ -37,6 +37,8 @@ let modembed = new Discord.RichEmbed()
 .addField("!lockdown", "This overrides the channel it's send messages permission to off for everyone")
 .addField("!lockdown unlock", "This overrides the channel it's send messages permission to on for everyone")
 .addField("!userinfo <user>", "This shows the mentioned user it's account information")
+
+let modembed2 = new Discord.RichEmbed()
 .addBlankField(true)
 .addField("**---------Other Commands---------**", "The rest of the commands.")
 .addField("!say <any word or sentence>", "This makes the bot say the given word or sentence.")
@@ -46,6 +48,7 @@ let modembed = new Discord.RichEmbed()
 .addField("!briefing <time until briefing>", "This will announce briefing when the given time has ended.");
 try{
     await message.author.send(modembed);
+    await message.author.send(modembed2);
     message.react("👍");
 }catch(e){
     message.reply("Your DMs are locked. I cannot send you the mod commands.");
@@ -53,9 +56,7 @@ try{
  }
 }
 
-
 }
-
 
 module.exports.help = {
     name: "help"
