@@ -15,11 +15,11 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-    let pdttime = parseInt(args[1]);
+    let pdttime = (args[0] - 7);
     let edttime = (args[0] - 4);
     let cettime = (args[0] + 1);
     let mdttime = (args[0] - 6);
-    let cdttime = (args[0] - 4);
+    let cdttime = (args[0] - 5);
     let arg2 = args[1];
     
     message.channel.send([
@@ -28,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
         `EDT: ${edttime}${arg2}`,
         `CET: ${cettime}${arg2}`,
         `MDT: ${mdttime}${arg2}`,
-        `EDT: ${cdttime}${arg2}`,
+        `CDT: ${cdttime}${arg2}`,
       ].join('\n'))
     
 
