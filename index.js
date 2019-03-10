@@ -48,7 +48,7 @@ bot.on("guildMemberRemove", async member => {
 
 bot.on("ready", async () => {
  console.log(`${bot.user.username} is online!`);
- bot.user.setActivity("v589.5 | !help | prefix !");
+ bot.user.setActivity("v590.7.2 | !help | prefix !");
 
 });
 
@@ -160,6 +160,34 @@ bot.on(`message`, async message => {
 
 //--
 //mention detection end
+//--
+
+//--
+//Banned Words Begin
+//--
+
+bot.on(`message`, async message => {
+    const bannedWords = [`nigger`, `nig`, `nogger`, `nagger`, `kanker`, `negro`, `negger`, `nigro`, `nignog`, `nig ger`, `nig  ger`, `ni99er`, `nog ger`, `n1gger`, `neger`, `nigga`, `nigge`, `n1gg3r`, `nigg3r`] 
+    try {
+        if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
+            if (message.author.id === message.guild.ownerID) return;
+            await message.delete();
+            
+            let linkembed = new Discord.RichEmbed()
+            .setTitle("Notice!")
+            .setColor("RED")
+            .setDescription("Those words are not allowed to be sent!")
+            .setFooter("Continuing on sending those words will result in a punishment!");
+           
+            await message.channel.send(linkembed);
+        }
+    } catch (e) {
+        console.log(e);
+    }
+});
+
+//--
+//Banned Words End
 //--
 
 //—
