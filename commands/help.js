@@ -41,7 +41,9 @@ let modembed = new Discord.RichEmbed()
 .addField("**---------Other Commands---------**", "The rest of the commands.")
 .addField("!say <any word or sentence>", "This makes the bot say the given word or sentence.")
 .addField("!userinfo <user>", "This shows the mentioned user it's account information")
-.addField("!session <day> <time>", "This announces a session for the given day and time.");
+.addField("!session <day> <time>", "This announces a session for the given day and time.")
+.addField("!training <day> <time>", "This announces a training session for the given day and time.")
+.addField("!briefing <time until briefing>", "This will announce briefing when the given time has ended.");
 try{
     await message.author.send(modembed);
     message.react("👍");
