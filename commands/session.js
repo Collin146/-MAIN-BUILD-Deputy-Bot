@@ -19,7 +19,7 @@ let day = args[0];
 let time = args[1];
 
 message.channel.send([
-    `<@&448153555514163200>`,
+    `<&487025249884569600>`,
     ` `,
     "**Session on**",
      `${day} **at** ${time} **PM GMT**`,
