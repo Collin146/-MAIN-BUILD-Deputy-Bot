@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
     let edttime = (args[0] - 4);
     let cettime = (args[0] + 1);
     let mdttime = (args[0] - 6);
-    let edttime = (args[0] - 4);
+    let cdttime = (args[0] - 4);
     
     message.channel.send([
         "**Other Timezones:**",
@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
         `EDT: ${edttime}`,
         `CET: ${cettime}`,
         `MDT: ${mdttime}`,
-        `EDT: ${edttime}`,
+        `EDT: ${cdttime}`,
       ].join('\n'))
     
 
