@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
         message.reply("Usage: !sahp <user>");
         return;
     }
-let mentionrole = message.guild.roles.find(`name`, `everyone`);
+let mentionrole = message.guild.roles.find(`name`, `Member`);
 let day = args[0];
 let time = args[1];
 
@@ -22,7 +22,7 @@ message.channel.send([
     `<@&${mentionrole.id}>`,
     ` `,
     "**Session on**",
-    "`${day}` **at** `${time}` **PM GMT**",
+    `${`day`} **at** ${`time`} **PM GMT**`,
     ` `,
     "**Say yes to attend**",
     "(if you say yes or maybe and dont show up without a valid reason, you will receive a strike)"
