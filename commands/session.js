@@ -15,6 +15,8 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
+let input = message.content;
+let command = input.substr(1).split(' ')[0];
 let args2 = command.substr( command.indexOf(' ') + 1 );
 let everyonerole = message.guild.roles.find('name', 'Member');
 let day = args[0];
