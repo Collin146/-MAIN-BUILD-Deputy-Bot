@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-let everyonerole = message.server.roles.get('name', 'everyone');
+let everyonerole = message.server.roles.get('name', 'Member');
 let day = args[0];
 let time = args[1];
 args = args.split(',').map(elem => elem.trim());
