@@ -29,6 +29,7 @@ jsfile.forEach((f, i) =>{
 
 bot.on('guildMemberAdd', member => {
     let welcomechannel = member.guild.channels.find(`name`, "welcome");
+    let backupchannel = member.guild.channels.find(`name`, "backup-users-joined');
     // channel: the channel you want to send the welcome message in
     // or send it with an embed:
     let embed = new Discord.RichEmbed()
@@ -37,6 +38,11 @@ bot.on('guildMemberAdd', member => {
       .setDescription(`Welcome ${member}, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
       .setImage('https://cdn.discordapp.com/attachments/461540254441144326/542114903767515150/Screenshot_2019-01-03_at_13.15.28.png');
     welcomechannel.send({embed});
+    
+    let backupembed = new Discord.RichEmbed()
+      .setTitle("member.user.tag joined.")
+      .setColor("#00f4ef");
+    backupchannel.send({backupembed});
   });
 
 bot.on("guildMemberRemove", async member => {
@@ -44,6 +50,11 @@ bot.on("guildMemberRemove", async member => {
 
     let welcomechannel = member.guild.channels.find(`name`, "left-members");
     welcomechannel.send(`${member} has left the server.`);
+    
+    let backupembed2 = new Discord.RichEmbed()
+      .setTitle("member.user.tag left.")
+      .setColor("#00f4ef");
+    backupchannel.send({backupembed2});
 });
 
 bot.on("ready", async () => {
