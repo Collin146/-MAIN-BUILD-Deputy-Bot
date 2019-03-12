@@ -40,8 +40,9 @@ bot.on('guildMemberAdd', member => {
     welcomechannel.send({embed});
     
     let backupembed = new Discord.RichEmbed()
-      .setTitle("member.user.tag joined.")
-      .setColor("#00f4ef");
+      .setTitle("member.user.tag")
+      .setColor("#00f4ef")
+      .setDescription("Has joined!");
     backupchannel.send({backupembed});
   });
 
@@ -53,8 +54,9 @@ bot.on("guildMemberRemove", async member => {
     welcomechannel.send(`${member} has left the server.`);
     
     let backupembed2 = new Discord.RichEmbed()
-      .setTitle("member.user.tag left.")
-      .setColor("#00f4ef");
+      .setTitle("member.user.tag")
+      .setColor("#00f4ef")
+      .setDescription("Has left.");
     backupchannel.send({backupembed2});
 });
 
