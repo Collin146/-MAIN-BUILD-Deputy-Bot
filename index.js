@@ -38,29 +38,18 @@ bot.on('guildMemberAdd', member => {
       .setDescription(`Welcome ${member}, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
       .setImage('https://cdn.discordapp.com/attachments/461540254441144326/542114903767515150/Screenshot_2019-01-03_at_13.15.28.png');
     welcomechannel.send({embed});
-    
-    let backupembed = new Discord.RichEmbed()
-     .setColor("#00f4ef")
-     .addField("member.user.tag", "Has joined!");
-    backupchannel.send({backupembed});
   });
 
 bot.on("guildMemberRemove", async member => {
     console.log(`${member} left the server.`);
 
     let welcomechannel = member.guild.channels.find(`name`, "left-members");
-    let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
     welcomechannel.send(`${member} has left the server.`);
-    
-    let backupembed2 = new Discord.RichEmbed()
-      .setColor("#00f4ef")
-      .addField("member.user.tag", "Has left!");
-    backupchannel.send({backupembed2});
 });
 
 bot.on("ready", async () => {
  console.log(`${bot.user.username} is online!`);
- bot.user.setActivity("v596.5.7 | !help | prefix !");
+ bot.user.setActivity("v608.8.7 | !help | prefix !");
 
 });
 
