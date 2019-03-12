@@ -29,7 +29,7 @@ jsfile.forEach((f, i) =>{
 
 bot.on('guildMemberAdd', member => {
     let welcomechannel = member.guild.channels.find(`name`, "welcome");
-    let backupchannel = member.guild.channels.find(`name`, "backup-users-joined');
+    let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
     // channel: the channel you want to send the welcome message in
     // or send it with an embed:
     let embed = new Discord.RichEmbed()
