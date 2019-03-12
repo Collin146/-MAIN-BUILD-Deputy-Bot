@@ -49,6 +49,7 @@ bot.on("guildMemberRemove", async member => {
     console.log(`${member} left the server.`);
 
     let welcomechannel = member.guild.channels.find(`name`, "left-members");
+    let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
     welcomechannel.send(`${member} has left the server.`);
     
     let backupembed2 = new Discord.RichEmbed()
