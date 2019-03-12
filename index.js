@@ -41,7 +41,7 @@ bot.on('guildMemberAdd', member => {
     
     let backupembed = new Discord.RichEmbed()
      .setColor("#00f4ef")
-     .addField(("member.user.tag", "Has joined!");
+     .addField("member.user.tag", "Has joined!");
     backupchannel.send({backupembed});
   });
 
@@ -54,7 +54,7 @@ bot.on("guildMemberRemove", async member => {
     
     let backupembed2 = new Discord.RichEmbed()
       .setColor("#00f4ef")
-      .addField(("member.user.tag", "Has left!");
+      .addField("member.user.tag", "Has left!");
     backupchannel.send({backupembed2});
 });
 
