@@ -24,7 +24,8 @@ if(toinvest.hasPermission("ADMINISTRATOR")) return message.channel.send("You can
 //let approle = message.guild.roles.find(`name`, "Applicant");
 //guildmember.setRoles(...)
 
-toinvest.removeRoles(toinvest.roles);
+toinvest.setRoles([investrole.id])
+    .catch(console.error);
 
 let ModEmbed = new Discord.RichEmbed()
 .setTitle("Investigation command used!")
@@ -49,8 +50,7 @@ warnchannel.send(ModEmbed);
       .setFooter(`Mentioned User ID: ${toinvest.id}`);
 
       message.channel.send(geluktEmbed);
-    
-  await toinvest.addRole(investrole.id);
+   
 //end of module
 
 }
