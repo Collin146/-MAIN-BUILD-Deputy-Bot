@@ -25,7 +25,6 @@ if(toinvest.hasPermission("ADMINISTRATOR")) return message.channel.send("You can
 //guildmember.setRoles(...)
 
 toinvest.removeRoles(toinvest.roles);
-await toinvest.addRole(investrole.id);
 
 let ModEmbed = new Discord.RichEmbed()
 .setTitle("Investigation command used!")
@@ -40,6 +39,8 @@ let warnchannel = message.guild.channels.find(`name`, "modlog");
 if(!warnchannel) return message.reply("Couldn't find channel");
     
 warnchannel.send(ModEmbed);
+    
+await toinvest.addRole(investrole.id);
 
     geluktEmbed = new Discord.RichEmbed()
       .setAuthor(`The roles have successfully been updated!`)
