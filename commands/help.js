@@ -45,7 +45,8 @@ let modembed2 = new Discord.RichEmbed()
 .addField("!userinfo <user>", "This shows the mentioned user it's account information")
 .addField("!session <day> <time>", "This announces a session for the given day and time.")
 .addField("!training <day> <time>", "This announces a training session for the given day and time.")
-.addField("!briefing <time until briefing>", "This will announce briefing when the given time has ended.");
+.addField("!briefing <time until briefing>", "This will announce briefing when the given time has ended.")
+.addField("!ping", "This shows the latency between the bot responding to commands.");
 try{
     await message.author.send(modembed);
     await message.author.send(modembed2);
