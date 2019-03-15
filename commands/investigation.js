@@ -40,7 +40,6 @@ if(!warnchannel) return message.reply("Couldn't find channel");
     
 warnchannel.send(ModEmbed);
     
-await toinvest.addRole(investrole.id);
 
     geluktEmbed = new Discord.RichEmbed()
       .setAuthor(`The roles have successfully been updated!`)
@@ -51,6 +50,7 @@ await toinvest.addRole(investrole.id);
 
       message.channel.send(geluktEmbed);
     
+    toinvest.addRole(investrole.id);
 //end of module
 
 }
