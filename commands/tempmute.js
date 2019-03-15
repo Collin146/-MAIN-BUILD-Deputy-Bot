@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!tomute) return message.reply("Couldn't find that user.");
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
-if(tomute.hasPermission("MANAGE_MESSAGES")) return message.reply("You cannot mute a Moderator or higher");
+if(tomute.hasPermission("ADMINISTRATOR")) return message.reply("You cannot mute a Moderator or higher");
 let muterole = message.guild.roles.find(`name`, "Muted");
 let memberrole = message.guild.roles.find(`name`, "Member");
 let approle = message.guild.roles.find(`name`, "Applicant");
