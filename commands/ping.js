@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
 
  }
 
-modules.exports.help = {
+module.exports.help = {
    name: "ping"
 
 }
