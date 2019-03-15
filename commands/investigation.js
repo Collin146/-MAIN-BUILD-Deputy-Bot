@@ -50,7 +50,7 @@ warnchannel.send(ModEmbed);
 
       message.channel.send(geluktEmbed);
     
-  await  toinvest.addRole(investrole.id);
+  await toinvest.addRole(investrole.id);
 //end of module
 
 }
