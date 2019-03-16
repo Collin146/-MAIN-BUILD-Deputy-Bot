@@ -22,5 +22,5 @@ message.reply("If you are looking for \'Mutual Combat\' type !mutual combat.")
 }
 
 module.exports.help = {
-    name: "mutual combat"
+    name: "mutual"
 }
