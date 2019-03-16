@@ -14,6 +14,7 @@ let intimembed = new Discord.RichEmbed()
 
 message.channel.send(intimembed);
 
+    return;
 }
 
 }
