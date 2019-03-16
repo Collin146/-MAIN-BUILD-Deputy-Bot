@@ -3,6 +3,8 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
+    if(args[0] === "with"){
+
 let intimembed = new Discord.RichEmbed()
 .setTitle("**Assault With A Deadly Weapon (1)03 Info**")
 .setColor("BLACK")
@@ -12,6 +14,7 @@ let intimembed = new Discord.RichEmbed()
 
 message.channel.send(intimembed);
 
+    }
 }
 
 module.exports.help = {
