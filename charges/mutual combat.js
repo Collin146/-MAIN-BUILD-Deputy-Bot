@@ -3,6 +3,8 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
+if(args[0] === "combat"){
+
 let intimembed = new Discord.RichEmbed()
 .setTitle("**Mutual Combat (1)04 Info**")
 .setColor("BLACK")
@@ -11,6 +13,8 @@ let intimembed = new Discord.RichEmbed()
 .addField("Information", "A person who engages in mutual combat with another individual in an area accessible to the public, or in public view, regardless of the consent of the individuals involved.");
 
 message.channel.send(intimembed);
+
+}
 
 }
 
