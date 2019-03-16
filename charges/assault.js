@@ -2,10 +2,6 @@ const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
-   
-    if(args[0] === "with"){
-        return;
-    }
     
 let intimembed = new Discord.RichEmbed()
 .setTitle("**Assault (1)02 Info**")
