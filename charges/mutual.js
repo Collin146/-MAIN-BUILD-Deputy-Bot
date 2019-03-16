@@ -17,7 +17,7 @@ message.channel.send(intimembed);
 return;
 }
 
-message.reply("If you are looking for \'Mutual Combat\' type !mutual combat.")
+message.reply("If you are looking for \'Mutual Combat\' type: !mutual combat.")
 
 }
 
