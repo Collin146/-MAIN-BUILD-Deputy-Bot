@@ -20,7 +20,14 @@ jsfile.forEach((f, i) =>{
     let props = require(`./commands/${f}`);
     console.log(`${f} loaded!`);
     bot.commands.set(props.help.name, props);
-
+    
+    jsfile.forEach((f, i) =>{
+        let props = require(`../charges/${f}`);
+        console.log(`${f} loaded!`);
+        bot.commands.set(props.help.name, props);
+    
+    
+    });
 
 });
 
