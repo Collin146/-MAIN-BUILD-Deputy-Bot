@@ -23,6 +23,29 @@ jsfile.forEach((f, i) =>{
 
 });
 
+function walk(dir, callback) {
+    fs.readdir(dir, function(err, files) {
+        if (err) throw err;
+        files.forEach(function(file) {
+            console.log(`Loading a total of ${files.length} commands.`);
+            const filepath = path.join(dir, file);
+            fs.stat(filepath, function(err,stats) {
+                if (stats.isDirectory()) {
+                    walk(filepath, callback);
+                } else if (stats.isFile() && file.endsWith('.js')) {
+                    let props = require(`./${filepath}`);
+                    console.log(`Loading Command: ${props.help.name} ✔`);
+                    bot.commands.set(props.help.name, props);
+                    props.conf.aliases.forEach(alias => {
+                    bot.aliases.set(alias, props.help.name);
+                  });
+                }
+            });
+        });
+    });
+}
+walk(`./commands/`)
+
 });
 
 bot.on('guildMemberAdd', member => {
