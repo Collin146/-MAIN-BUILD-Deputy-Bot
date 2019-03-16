@@ -14,8 +14,10 @@ let intimembed = new Discord.RichEmbed()
 
 message.channel.send(intimembed);
 
-    return;
+return;
 }
+
+message.reply("If you are looking for \'Mutual Combat\' type !mutual combat.")
 
 }
 
