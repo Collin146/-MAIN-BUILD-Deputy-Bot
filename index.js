@@ -24,7 +24,7 @@ jsfile.forEach((f, i) =>{
 });
     
         jsfile.forEach((f, i) =>{
-        let props = require(`../charges/${f}`);
+        let props = require(`./charges/${f}`);
         console.log(`${f} loaded!`);
         bot.commands.set(props.help.name, props);
     
