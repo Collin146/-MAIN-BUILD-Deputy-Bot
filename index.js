@@ -4,7 +4,7 @@ const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
-fs.readdir("./commands/", (err, files) => {
+fs.readdir("./commands/", "../charges/", (err, files) => {
 
 if(err) console.log(err);
 
@@ -18,8 +18,10 @@ if(jsfile.length <= 0){
 
 jsfile.forEach((f, i) =>{
     let props = require(`./commands/${f}`);
+    let props2 = require(`../charges/${f}`);
     console.log(`${f} loaded!`);
     bot.commands.set(props.help.name, props);
+    bot.commands.set(props2.help.name, props2);
 
 });
 
