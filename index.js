@@ -25,6 +25,27 @@ jsfile.forEach((f, i) =>{
 
 });
 
+fs.readdir("./charges/", (err, files) => {
+
+    if(err) console.log(err);
+    
+    let jsfile = files.filter(f => f.split(".").pop() === "js")
+    if(jsfile.length <= 0){
+        console.log("Couldn't find commands.");
+        return;
+    
+    
+    }
+    
+    jsfile.forEach((f, i) =>{
+        let props2= require(`./charges/${f}`);
+        console.log(`${f} loaded!`);
+        bot.commands.set(props2.help.name, props2);
+    
+    });
+    
+    });
+
 bot.on('guildMemberAdd', member => {
     let welcomechannel = member.guild.channels.find(`name`, "welcome");
     let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
