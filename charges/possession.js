@@ -17,7 +17,7 @@ let argembed = new Discord.RichEmbed()
   return; 
   }
 
-  message.channel.reply("If you are looking for \'Possession of Burglary Tools\' type: !possession of burglary tools")
+  message.reply("If you are looking for \'Possession of Burglary Tools\' type: !possession of burglary tools")
 
   
 
