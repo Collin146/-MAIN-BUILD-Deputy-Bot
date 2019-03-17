@@ -8,7 +8,7 @@ if(args[0] === "1"){
 let intimembed = new Discord.RichEmbed()
 .setTitle("**Title 1 - Crimes Against The Person**")
 .setDescription("These are all of the Title 1 charges & commands to get the information about them.")
-.setColor("WHITE")
+.setColor("ffffff")
 .addField("Intimidation", "!intimidation", true)
 .addField("Assault", "!assault", true)
 .addField("Assault With A Deadly Weapon", "!assault with a deadly weapon", true)
