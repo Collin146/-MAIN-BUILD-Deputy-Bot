@@ -28,7 +28,7 @@ message.channel.send(intimembed);
 return;
 }
 
-message.reply("If you are looking for \'Attempted Murder\' type: !attempted murder.")
+message.reply("If you are looking for a title type: !title <title number>. Check: !titles to look up all of the title numbers.")
 
 }
 
