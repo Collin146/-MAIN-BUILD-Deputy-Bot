@@ -31,7 +31,7 @@ let argembed = new Discord.RichEmbed()
       return; 
       }
 
-  message.channel.reply("If you are looking for \'Sexual Assault\' type: !sexual assault. If you are looking for \'Sexual Battery\' type: !sexual battery")
+  message.reply("If you are looking for \'Sexual Assault\' type: !sexual assault. If you are looking for \'Sexual Battery\' type: !sexual battery")
 
   
 
