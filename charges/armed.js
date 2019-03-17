@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
   if(args[0] === "robbery"){
 
 let argembed = new Discord.RichEmbed()
-  .setTitle("Armed Robbery (2)07 Info**")
+  .setTitle("**Armed Robbery (2)07 Info**")
   .setColor("BLACK")
   .addField("Type of Punishment", "Felony")
   .addField("Punishment(s)", "7 Minutes in prison")
