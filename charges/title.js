@@ -33,6 +33,7 @@ if(args[0] === "2"){
     let intim2embed = new Discord.RichEmbed()
     .setTitle("**Title 2 - Crimes Against Property And Criminal Profiteering**")
     .setDescription("These are all of the Title 2 charges & commands to get the information about them.")
+    .setColor("ffffff")
     .addField("Arson (2)01", "!arson")
     .addField("Trespassing (2)02", "!trespassing")
     .addField("Trespassing within a Restricted Zone (2)03", "!trespassing within a restricted zone")
