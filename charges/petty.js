@@ -17,7 +17,7 @@ let argembed = new Discord.RichEmbed()
   return; 
   }
 
-  message.channel.reply("If you are looking for \'Petty Theft\' type: !petty theft")
+  message.reply("If you are looking for \'Petty Theft\' type: !petty theft")
 
   
 
