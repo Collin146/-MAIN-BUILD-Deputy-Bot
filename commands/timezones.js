@@ -104,6 +104,8 @@ message.channel.send([
    return;
     }
     
+    message.delete().catch(O_o=>{});
+
 }
 
 
