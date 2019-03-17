@@ -28,6 +28,34 @@ message.channel.send(intimembed);
 return;
 }
 
+if(args[0] === "2"){
+
+    let intim2embed = new Discord.RichEmbed()
+    .setTitle("**Title 2 - Crimes Against Property And Criminal Profiteering**")
+    .setDescription("These are all of the Title 2 charges & commands to get the information about them.")
+    .addField("Arson (2)01", "!arson")
+    .addField("Trespassing (2)02", "!trespassing")
+    .addField("Trespassing within a Restricted Zone (2)03", "!trespassing within a restricted zone")
+    .addField("Burglary (2)04", "!burglary")
+    .addField("Possession Of Burglary Tools (2)05", "!possession of burglary tools")
+    .addField("Robbery (2)06", "!robbery")
+    .addField("Armed Robbery (2)07", "!armed robbery")
+    .addField("Petty Theft (2)08", "!petty theft")
+    .addField("Theft (2)09", "!theft")
+    .addField("Grand Theft (2)10", "!grand theft")
+    .addField("Grand Theft Auto (2)11", "!grand theft auto")
+    .addField("Grand Theft Of A Firearm (2)12", "!grand theft of a firearm")
+    .addField("Receiving Stolen Property (2)13", "!receiving stolen property")
+    .addField("Extortion (2)14", "!extortion")
+    .addField("Forgery (2)15", "!forgery")
+    .addField("Fraud (2)16", "!fraud")
+    .addField("Vandalism (2)17", "!vandalism");
+
+    message.channel.send(intim2embed);
+    
+    return;
+    }
+
 message.reply("If you are looking for a title type: !title <title number>. Check: !titles to look up all of the title numbers.")
 
 }
