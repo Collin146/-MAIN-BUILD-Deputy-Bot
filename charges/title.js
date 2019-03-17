@@ -57,6 +57,28 @@ if(args[0] === "2"){
     return;
     }
 
+    if(args[0] === "3"){
+
+        let intim3embed = new Discord.RichEmbed()
+        .setTitle("**Title 3 - Crimes Against Public Decency**")
+        .setDescription("These are all of the Title 3 charges & commands to get the information about them.")
+        .setColor("ffffff")
+        .addField("Lewd Or Dissolute Conduct In Public (3)01", "!lewd or dissolute conduct in public")
+        .addField("Indecent Exposure (3)02", "!indecent exposure")
+        .addField("Prostitution (3)03", "!prostitution")
+        .addField("Solicitation of Prostitution (3)04", "!solicitation of prostitution")
+        .addField("Pandering / Pimping", "!pandering / pimping")
+        .addField("Sexual Assault (3)06", "!sexual assault")
+        .addField("Sexual Battery (3)07", "!sexual battery")
+        .addField("Rape (3)08", "!rape")
+        .addField("Statutory Rape (3)09", "!statutory rape")
+        .addField("Stalking (3)10", "!stalking"); 
+
+        message.channel.send(intim3embed)
+        
+        return;
+    }
+
 message.reply("If you are looking for a title type: !title <title number>. Check: !titles to look up all of the title numbers.")
 
 }
