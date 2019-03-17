@@ -17,7 +17,7 @@ let argembed = new Discord.RichEmbed()
   return; 
   }
 
-  message.channel.reply("If you are looking for \'Receiving Stolen Property\' type: !receiving stolen property");
+  message.reply("If you are looking for \'Receiving Stolen Property\' type: !receiving stolen property");
 
   
 
