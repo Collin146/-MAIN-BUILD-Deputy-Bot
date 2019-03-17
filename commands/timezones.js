@@ -28,6 +28,8 @@ message.channel.send([
     "CDT: 1:30 PM"
    ].join('\n'))
         
+   message.delete().catch(O_o=>{});
+
    return;
     }
 
@@ -41,7 +43,9 @@ message.channel.send([
     "MDT: 1:00 PM",
     "CDT: 2:00 PM"
    ].join('\n'))
-                
+        
+   message.delete().catch(O_o=>{});
+
    return;
     }
 
@@ -59,6 +63,8 @@ message.channel.send([
     "CDT: 2:30 PM"
    ].join('\n'))
 
+   message.delete().catch(O_o=>{});
+
   return;
     }
 
@@ -73,6 +79,8 @@ message.channel.send([
     "CDT: 3:00 PM"
    ].join('\n'))
         
+   message.delete().catch(O_o=>{});
+
    return;
     }
 
@@ -86,7 +94,9 @@ message.channel.send([
     "MDT: 2:30 PM",
     "CDT: 3:30 PM"
    ].join('\n'))
-                
+         
+   message.delete().catch(O_o=>{});
+
    return;
     }
 
@@ -100,12 +110,12 @@ message.channel.send([
     "MDT: 3:00 PM",
     "CDT: 4:00 PM"
    ].join('\n'))
-                        
+           
+   message.delete().catch(O_o=>{});
+
    return;
     }
     
-    message.delete().catch(O_o=>{});
-
 }
 
 
