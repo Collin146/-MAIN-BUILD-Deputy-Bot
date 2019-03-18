@@ -17,7 +17,7 @@ let argembed = new Discord.RichEmbed()
   return; 
   }
 
-  if(args[2] === "Office"){
+  if(args[2] === "office"){
 
     let arg2embed = new Discord.RichEmbed()
       .setTitle("**Corruption Of Public Office (4)23 Info**")
