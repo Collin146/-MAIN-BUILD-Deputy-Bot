@@ -17,7 +17,21 @@ message.channel.send(intimembed);
 return;
 }
 
-message.reply("If you are looking for \'False Imprisonment\' type: !false imprisonment.")
+if(args[0] === "information"){
+
+    let intimembed = new Discord.RichEmbed()
+    .setTitle("**False Information To A Government Employee (4)06 Info**")
+    .setColor("BLACK")
+    .addField("Type of Punishment", "Misdemeanor")
+    .addField("Punishment(s)", "3 Minutes in prison.")
+    .addField("Information", "A person who provides false information or details to a peace officer during the course of a criminal investigation or lawful detainment. A person who provides false information or details to a government employee during the course of an investigation. A person who provides false information or details to a member of the Senate of the State of San Andreas during the course of an investigation or hearing. A person who provides false information or details against another person(s) in a police report or other legal document. This charge cannot stack with (4)08. Perjury.");
+    
+    message.channel.send(intimembed);
+    
+    return;
+    }
+
+message.reply("If you are looking for \'False Imprisonment\' type: !false imprisonment. If you are looking for \'False Information To A Government Employee\' type: !false information to a government employee.")
 
 }
 
