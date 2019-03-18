@@ -17,7 +17,21 @@ message.channel.send(intimembed);
 return;
 }
 
-message.reply("If you are looking for \'Contempt of Court\' type: !contempt of court.")
+if (args[1] === "senate"){
+
+    let intim2embed = new Discord.RichEmbed()
+    .setTitle("**Contempt of Senate (4)24 Info**")
+    .setColor("BLACK")
+    .addField("Type of Punishment", "Misdemeanor")
+    .addField("Punishment(s)", "2 Minutes in prison.")
+    .addField("Information", "Decorum would mean internationally or unintentionally interrupting or making any loud noise while the Senate is in process.");
+    
+    message.channel.send(intim2embed);
+    
+    return;
+    }
+
+message.reply("If you are looking for \'Contempt of Court\' type: !contempt of court. If you are looking for \'Contempt of Senate\' type: !contempt of senate.")
 
 }
 
