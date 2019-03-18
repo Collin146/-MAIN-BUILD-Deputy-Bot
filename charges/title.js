@@ -79,6 +79,42 @@ if(args[0] === "2"){
         return;
     }
 
+    if(args[0] === "4"){
+
+        let intim4embed = new Discord.RichEmbed()
+        .setTitle("**Title 4 - Crimes Against Public Justice**")
+        .setDescription("These are all of the Title 4 charges & commands to get the information about them.")
+        .setColor("ffffff")
+        .addField("Bribery (4)01", "!bribery")
+        .addField("Failure To Pay A Fine (4)02", "!failure to pay a fine")
+        .addField("Contempt Of Court (4)03", "!contempt of court")
+        .addField("Subpoena Violation (4)04", "!subpoena violation")
+        .addField("Dissuading A Witness Or Victim (4)05", "!dissuading a victim")
+        .addField("False Information To A Government Employee (4)06", "!false information to a government employee")
+        .addField("Filing A False Complaint (4)07", "!filing a false complaint")
+        .addField("Perjury (4)08", "!perjury")
+        .addField("Failure To Identify To A Peace Officer (4)09", "!failure to identify to a peace officer")
+        .addField("Impersonation Of A Government Employee (4)10", "!impersonation of a government employee")
+        .addField("Obstruction Of A Government Employee (4)11", "!obstruction of a government employee")
+        .addField("Resisting A Peace Officer (4)12", "!resisting a peace officer")
+        .addField("Escape From Custody (4)13", "!escape from custody")
+        .addField("Escape (4)14", "!escape")
+        .addField("Prisoner Breakout (4)15", "!prisoner breakout")
+        .addField("Tampering With Evidence (4)16", "!tampering with evidence")
+        .addField("Human Trafficking (4)17", "!human trafficking")
+        .addField("Misuse Of A Government Hotline (4)18", "!misuse of a government hotline")
+        .addField("Introduction Of Contraband (4)19", "!introduction of contraband")
+        .addField("Violation Of Parole Or Probation (4)20", "!violation of parole or probation")
+        .addField("Voter Fraud / Voter Pandering (4)21", "!voter fraud / voter pandering")
+        .addField("Corruption Of Public Duty (4)22", "!corruption of public duty")
+        .addField("Corruption Of Public Office (4)23", "!corruption of public office")
+        .addField("Contempt of Senate (4)24", "!contempt of senate");
+
+        message.channel.send(intim3embed);
+    
+        return;
+    }
+
 message.reply("If you are looking for a title type: !title <title number>. Check: !titles to look up all of the title numbers.")
 
 }
