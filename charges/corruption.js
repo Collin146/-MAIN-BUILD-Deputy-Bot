@@ -17,7 +17,21 @@ let argembed = new Discord.RichEmbed()
   return; 
   }
 
-message.reply("If you are looking for \'Corruption Of Public Duty\' type: !corruption of public duty");
+  if(args[2] === "Office"){
+
+    let arg2embed = new Discord.RichEmbed()
+      .setTitle("**Corruption Of Public Office (4)23 Info**")
+      .setColor("BLACK")
+      .addField("Type of Punishment", "Felony")
+      .addField("Punishment(s)", "7 Minutes in prison")
+      .addField("Information", "A person who acts outside the interests of the public good, public justice, or duties of those in public office.");
+    
+      message.channel.send(arg2embed);
+    
+      return; 
+      }
+
+message.reply("If you are looking for \'Corruption Of Public Duty\' type: !corruption of public duty. If you are looking for \'Corruption Of Public Office\' type: !corruption of public office");
 
 }
 
