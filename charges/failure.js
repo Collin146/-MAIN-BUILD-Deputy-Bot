@@ -17,7 +17,7 @@ message.channel.send(intimembed);
 return;
 }
 
-if(args[1] === "indentify"){
+if(args[1] === "identify"){
 
     let intimembed = new Discord.RichEmbed()
     .setTitle("**Failure To Identify To A Peace Officer (4)09 Info**")
