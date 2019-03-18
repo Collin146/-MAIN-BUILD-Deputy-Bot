@@ -110,7 +110,7 @@ if(args[0] === "2"){
         .addField("Corruption Of Public Office (4)23", "!corruption of public office")
         .addField("Contempt of Senate (4)24", "!contempt of senate");
 
-        message.channel.send(intim3embed);
+        message.channel.send(intim4embed);
     
         return;
     }
