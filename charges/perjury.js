@@ -15,5 +15,5 @@ message.channel.send(intimembed);
 }
 
 module.exports.help = {
-    name: "pergury"
+    name: "perjury"
 }
