@@ -16,7 +16,13 @@ if(args[1] === "custody"){
     return;
     }
 
-message.reply("If you are looking for \'Escape From Custody\' type: !escape from custody");
+    let intim2embed = new Discord.RichEmbed()
+    .setTitle("**Escape (4)14 Info**")
+    .setColor("BLACK")
+    .addField("Type of Punishment", "Felony")
+    .addField("Punishment(s)", "6 Minutes in prison.")
+    .addField("Information", "Any person arrested, booked, charged, or convicted of any crime who thereafter escapes from a county or city jail, prison, community service, or custody of a Correctional or Parole Officer.");
+    message.channel.send(intim2embed);
 
 }
 
