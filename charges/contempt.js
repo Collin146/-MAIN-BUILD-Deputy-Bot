@@ -22,5 +22,5 @@ message.reply("If you are looking for \'Contempt of Court\' type: !contempt of c
 }
 
 module.exports.help = {
-    name: "contemp"
+    name: "contempt"
 }
