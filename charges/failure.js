@@ -3,7 +3,7 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
-    if(args[3] === "flight"){
+    if(args[2] === "flight"){
 
         let intim4embed = new Discord.RichEmbed()
         .setTitle("**Failure To Adhere To Flight Protocols (8)12 Info**")
@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
         return;
         }
 
-    if(args[3] === "atc"){
+    if(args[2] === "atc"){
 
         let intim3embed = new Discord.RichEmbed()
         .setTitle("**Failure To Adhere To ATC Protocols (8)11 Info**")
