@@ -58,8 +58,9 @@ let argembed = new Discord.RichEmbed()
 
   return; 
   }
-
-  message.reply("If you are looking for \'Possession of Burglary Tools\' type: !possession of burglary tools")
+//Possession Of Drug Paraphernalia
+//Possession Of A Controlled Substance With Intent To Sell
+  message.reply("If you are looking for \'Possession of Burglary Tools\' type: !possession of burglary tools. If you are looking for \'Possession Of A Controlled Substance With Intent To Sell\' type: !possession of a controlled substance with intent to sell. If you are looking for \'Possession Of Drug Paraphernalia\' type: !possession of drug paraphernalia.");
 
   
 
