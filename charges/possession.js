@@ -86,9 +86,23 @@ let argembed = new Discord.RichEmbed()
 
   return; 
   }
+
+  if(args[1] === "child"){
+
+    let argem5bed = new Discord.RichEmbed()
+      .setTitle("**Possession Of Child Pornography (7)05 Info**")
+      .setColor("BLACK")
+      .addField("Type of Punishment", "Felony")
+      .addField("Punishment(s)", "8 Minutes in prison")
+      .addField("Information", "Every person who knowingly possesses imagery, film, video, storage devices that hold content of a person under the age of 18 engaging or simulating sexual conduct.");
+    
+      message.channel.send(argem5bed);
+    
+      return; 
+      }
 //Possession Of Drug Paraphernalia
 //Possession Of A Controlled Substance With Intent To Sell
-  message.reply("If you are looking for \'Possession of Burglary Tools\' type: !possession of burglary tools. If you are looking for \'Possession Of A Controlled Substance With Intent To Sell\' type: !possession of a controlled substance with intent to sell. If you are looking for \'Possession Of Drug Paraphernalia\' type: !possession of drug paraphernalia. If you are looking for \'Possession of Marjiuana \' type: !possession of marijuana.");
+  message.reply("If you are looking for \'Possession of Burglary Tools\' type: !possession of burglary tools. If you are looking for \'Possession Of A Controlled Substance With Intent To Sell\' type: !possession of a controlled substance with intent to sell. If you are looking for \'Possession Of Drug Paraphernalia\' type: !possession of drug paraphernalia. If you are looking for \'Possession of Marjiuana \' type: !possession of marijuana. If you are looking for \'Possession Of Child Pornography\' type: !possession of child pornography.");
 
 }
 
