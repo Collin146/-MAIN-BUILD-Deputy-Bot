@@ -17,7 +17,21 @@ message.channel.send(intimembed);
 return;
 }
 
-message.reply("If you are looking for \'Sale Of A Controlled Substance\' type: !sale of a controlled substance.");
+if(args[1] === "alcohol"){
+
+    let intim2embed = new Discord.RichEmbed()
+    .setTitle("**Sale Of Alcohol To A Minor (7)03 Info**")
+    .setColor("BLACK")
+    .addField("Type of Punishment", "Misdemeanor")
+    .addField("Punishment(s)", "3 Minutes in prison.")
+    .addField("Information", "A person who willfully and knowingly sells alcohol to a minor under the age of 21.");
+    
+    message.channel.send(intim2embed);
+    
+    return;
+    }
+
+message.reply("If you are looking for \'Sale Of A Controlled Substance\' type: !sale of a controlled substance. If you are looking for \'Sale Of Alcohol To A Minor\' type: !sale of alcohol to a minor.");
 
 }
 
