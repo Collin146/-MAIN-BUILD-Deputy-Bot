@@ -59,6 +59,20 @@ module.exports.run = async (bot, message, args) => {
           return; 
           }
 
+          if(args[1] === "marijuana"){
+
+            let arg5embed = new Discord.RichEmbed()
+              .setTitle("**Possession Of Marijuana (6)11 Info**")
+              .setColor("BLACK")
+              .addField("Type of Punishment", "Infraction")
+              .addField("Punishment(s)", "$950")
+              .addField("Information", "A person who is found to be in posession of Marijuana shall be charged with one of the three offences depending on the amount listed below: 6.0 grams or less - (6)12 Posession of Marijuana, Between 7.0 grams to 27.0 grams - (6)01 Possession of Controlled Substance. 28.0 grams and more - (6)02 Posession of a Controlled Substance with Intent to Sell.");
+            
+              message.channel.send(arg5embed);
+            
+              return; 
+              }
+
   if(args[1] === "burglary"){
 
 let argembed = new Discord.RichEmbed()
