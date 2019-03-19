@@ -17,20 +17,6 @@ module.exports.run = async (bot, message, args) => {
       return; 
       }
 
-      if(args[2] === "drug"){
-
-        let arg4embed = new Discord.RichEmbed()
-          .setTitle("**Possession Of Drug Paraphernalia (6)03 Info**")
-          .setColor("BLACK")
-          .addField("Type of Punishment", "Infraction")
-          .addField("Punishment(s)", "$780")
-          .addField("Information", "A person who willingly possesses a device or mechanism used exclusively for the processing or consumption of an illegal controlled substance.");
-        
-          message.channel.send(arg4embed);
-        
-          return; 
-          }
-
   if(args[2] === "controlled"){
 
     let arg2embed = new Discord.RichEmbed()
@@ -44,6 +30,20 @@ module.exports.run = async (bot, message, args) => {
     
       return; 
       }
+
+      if(args[1] === "drug"){
+
+        let arg4embed = new Discord.RichEmbed()
+          .setTitle("**Possession Of Drug Paraphernalia (6)03 Info**")
+          .setColor("BLACK")
+          .addField("Type of Punishment", "Infraction")
+          .addField("Punishment(s)", "$780")
+          .addField("Information", "A person who willingly possesses a device or mechanism used exclusively for the processing or consumption of an illegal controlled substance.");
+        
+          message.channel.send(arg4embed);
+        
+          return; 
+          }
 
   if(args[1] === "burglary"){
 
