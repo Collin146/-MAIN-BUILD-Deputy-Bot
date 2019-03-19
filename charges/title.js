@@ -115,6 +115,24 @@ if(args[0] === "2"){
         return;
     }
 
+    if(args[0] === "5"){
+
+        let intim5embed = new Discord.RichEmbed()
+        .setTitle("**Title 5 - Crimes Against Public Peace**")
+        .setDescription("These are all of the Title 5 charges & commands to get the information about them.")
+        .setColor("ffffff")
+        .addField("Disturbing The Peace (5)01", "!disturbing the peace")
+        .addField("Unlawful Assembly (5)02", "!unlawful assembly")
+        .addField("Incitement To Riot (5)03", "!incitement to riot")
+        .addField("Vigilantism (5)04", "!vigilantism")
+        .addField("Terrorism (5)05", "!terrorism");
+
+        message.channel.send(intim5embed);
+
+        return;
+    }
+
+
 message.reply("If you are looking for a title type: !title <title number>. Check: !titles to look up all of the title numbers.")
 
 }
