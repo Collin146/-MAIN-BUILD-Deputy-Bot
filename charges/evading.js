@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     if(args[4] === "aircraft"){
 
         let intim5embed = new Discord.RichEmbed()
-        .setTitle("**Evading A Peace Officer --- aircraft (8)06 Info**")
+        .setTitle("**Evading A Peace Officer --- Aircraft (8)06 Info**")
         .setColor("BLACK")
         .addField("Type of Punishment", "Felony")
         .addField("Punishment(s)", "9 Minutes in prison")
