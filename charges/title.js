@@ -158,7 +158,7 @@ if(args[0] === "2"){
     if(args[0] === "7"){
 
         let intim7embed = new Discord.RichEmbed()
-        .setTitle("**Title 7 - Crimes Against Public Health And Safety**")
+        .setTitle("**Title 7 - Crimes Against State Dependents**")
         .setDescription("These are all of the Title 7 charges & commands to get the information about them.")
         .setColor("ffffff")
         .addField("Animal Abuse / Cruelty (7)01", "!animal abuse / cruelty")
@@ -168,6 +168,31 @@ if(args[0] === "2"){
         .addField("Possession Of Child Pornography (7)05", "!possession of child pornography");
 
         message.channel.send(intim7embed);
+
+        return;
+    }
+
+    if(args[0] === "8"){
+
+        let intim8embed = new Discord.RichEmbed()
+        .setTitle("**Title 8 - Vehicular Offenses**")
+        .setDescription("These are all of the Title 8 charges & commands to get the information about them.")
+        .setColor("ffffff")
+        .addField("Driving With A Suspended License (8)01", "!driving with a suspended license")
+        .addField("Evading A Peace Officer (8)02", "!evading a peace officer")
+        .addField("Evading A Peace Officer --- High Performance Vehicle (8)03", "!evading a peace officer --- high performance vehicle")
+        .addField("Evading A Peace Officer --- Oversized Vehicle (8)04", "!evading a peace officer --- oversized vehicle")
+        .addField("Evading A Peace Officer --- Naval Vessel (8)05", "!evading a peace officer --- naval vessel")
+        .addField("Evading A Peace Officer --- Aircraft (8)06", "!evading a peace officer --- aircraft")
+        .addField("Flying Without A Pilot's License (8)07", "!flying without a pilot's license")
+        .addField("Hit And Run (8)08", "!hit and run")
+        .addField("Reckless Operation Of An Aircraft (8)09", "!reckless operation of an aircraft")
+        .addField("Reckless Operation Of An Off-Road Or Naval Vehicle (8)10", "!reckless operation of an off-road or naval vehicle")
+        .addField("Failure To Adhere ATC Protocols (8)11", "!failure to adhere atc protocols")
+        .addField("Failure To Adhere Flight Protocols (8)12", "!failure to adhere flight protocols")
+        .addField("Restricted Airspace Violation (8)13", "!restricted airspace violation");
+
+        message.channel.send(intim8embed);
 
         return;
     }
