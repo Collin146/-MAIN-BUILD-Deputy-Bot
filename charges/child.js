@@ -24,5 +24,5 @@ let argembed = new Discord.RichEmbed()
 }
 
 module.exports.help = {
-    name: "animal"
+    name: "child"
 }
