@@ -31,6 +31,20 @@ module.exports.run = async (bot, message, args) => {
       return; 
       }
 
+      if(args[2] === "open"){
+
+        let arg5embed = new Discord.RichEmbed()
+          .setTitle("**Possession Of An Open Container (6)07 Info**")
+          .setColor("BLACK")
+          .addField("Type of Punishment", "Infraction")
+          .addField("Punishment(s)", "$650")
+          .addField("Information", "A person who possesses an visible and open container of alcohol in a public place or in a motor vehicle.");
+        
+          message.channel.send(arg5embed);
+        
+          return; 
+          }
+
       if(args[1] === "drug"){
 
         let arg4embed = new Discord.RichEmbed()
@@ -61,8 +75,6 @@ let argembed = new Discord.RichEmbed()
 //Possession Of Drug Paraphernalia
 //Possession Of A Controlled Substance With Intent To Sell
   message.reply("If you are looking for \'Possession of Burglary Tools\' type: !possession of burglary tools. If you are looking for \'Possession Of A Controlled Substance With Intent To Sell\' type: !possession of a controlled substance with intent to sell. If you are looking for \'Possession Of Drug Paraphernalia\' type: !possession of drug paraphernalia.");
-
-  
 
 }
 
