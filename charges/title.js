@@ -155,6 +155,23 @@ if(args[0] === "2"){
         return;
     }
 
+    if(args[0] === "7"){
+
+        let intim7embed = new Discord.RichEmbed()
+        .setTitle("**Title 7 - Crimes Against Public Health And Safety**")
+        .setDescription("These are all of the Title 7 charges & commands to get the information about them.")
+        .setColor("ffffff")
+        .addField("Animal Abuse / Cruelty (7)01", "!animal abuse / cruelty")
+        .addField("Child Abuse (7)02", "!child abuse")
+        .addField("Sale Of Alcohol To A Minor (7)03", "!sale of alcohol to a minor")
+        .addField("Minor Alcohol Violation (7)04", "!minor alcohol violation")
+        .addField("Possession Of Child Pornography (7)05", "!possession of child pornography");
+
+        message.channel.send(intim7embed);
+
+        return;
+    }
+
 message.reply("If you are looking for a title type: !title <title number>. Check: !titles to look up all of the title numbers.")
 
 }
