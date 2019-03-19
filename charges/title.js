@@ -132,6 +132,28 @@ if(args[0] === "2"){
         return;
     }
 
+    if(args[0] === "6"){
+
+        let intim6embed = new Discord.RichEmbed()
+        .setTitle("**Title 6 - Crimes Against Public Health And Safety**")
+        .setDescription("These are all of the Title 6 charges & commands to get the information about them.")
+        .setColor("ffffff")
+        .addField("Possession Of A Controlled Substance (6)01", "!possession of a controlled substance")
+        .addField("Possession Of A Controlled Substance With Intent To Sell (6)02", "!possession of a controlled substance with intent to sell")
+        .addField("Possession Of Drug Paraphernalia (6)03", "!possession of drug paraphernalia")
+        .addField("Maintaining A Place For The Purpose Of Distribution (6)04", "maintaining a place for the purpose of distribution")
+        .addField("Manufacture Of A Controlled Substance (6)05", "!manufacture of a controlled substance")
+        .addField("Sale Of A Controlled Substance (6)06", "!sale of a controlled substance")
+        .addField("Possession Of An Open Container (6)07", "!possession of an open container")
+        .addField("Public Intoxication (6)08", "!public intoxication")
+        .addField("Under The Influence Of A Controlled Substance (6)09", "!under the influence of a controlled substance")
+        .addField("Facial Obstruction While Committing A Crime (6)10", "!facial obstruction while committing a crime")
+        .addField("Possession Of Marijuana (6)11", "!possession of marijuana");
+        
+        message.channel.send(intim6embed);
+
+        return;
+    }
 
 message.reply("If you are looking for a title type: !title <title number>. Check: !titles to look up all of the title numbers.")
 
