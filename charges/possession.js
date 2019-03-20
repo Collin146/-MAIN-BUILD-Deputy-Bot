@@ -31,6 +31,62 @@ module.exports.run = async (bot, message, args) => {
       return; 
       }
 
+      if(args[2] === "prohibited"){
+
+        let arg6embed = new Discord.RichEmbed()
+          .setTitle("**Possession Of A Prohibited Weapon (9)01 Info**")
+          .setColor("BLACK")
+          .addField("Type of Punishment", "Misdemeanor")
+          .addField("Punishment(s)", "3 Minutes in prison")
+          .addField("Information", "A civilian who possesses any prohibited weapon that is illegal in possession or not considered part of any legal weapon type. Prohibited Weapons include; A blade or improvised blade over three inches in length that can be used as a cutting, slashing or stabbing weapon, whether or not concealed; Brass Knuckles of any variety capable of being worn on the fingers of the hand and used as an offensive weapon, whether or not concealed;Baton or Nightstick possessed without a PF, GC, or CCW issued by the LSPD Firearms Licensing Division, whether or not concealed.");
+        
+          message.channel.send(arg6embed);
+        
+          return; 
+          }
+
+          if(args[2] === "unlicensed"){
+
+            let arg7embed = new Discord.RichEmbed()
+              .setTitle("**Possession Of An Unlicensed Firearm (9)02 Info**")
+              .setColor("BLACK")
+              .addField("Type of Punishment", "Misdemeanor")
+              .addField("Punishment(s)", "3 Minutes in prison")
+              .addField("Information", "A civilian who carries a legal, but unlicensed weapon on their person, in their vehicle, place of business, or other facility without proper permits. A person who knowingly and willingly allows another person to carry a weapon on their person, in their vehicle, place of business, or other facility without proper permits.");
+            
+              message.channel.send(arg7embed);
+            
+              return; 
+              }
+
+              if(args[2] === "illegal"){
+
+                let arg8embed = new Discord.RichEmbed()
+                  .setTitle("**Possession Of An Illegal Firearm (9)03 Info**")
+                  .setColor("BLACK")
+                  .addField("Type of Punishment", "Felony")
+                  .addField("Punishment(s)", "5 Minutes in prison")
+                  .addField("Information", "A civilian who possesses any firearm that is illegal in possession or not considered part of any legal weapon type. A person who possesses a firearm that contains illegal modifications in its design including, but not limited to, fully automatic firearms, magazine extensions, and silencers.");
+                
+                  message.channel.send(arg8embed);
+                
+                  return; 
+                  }
+
+                  if(args[2] === "assault"){
+
+                    let arg9embed = new Discord.RichEmbed()
+                      .setTitle("**Possession Of An Assault Weapon (9)04 Info**")
+                      .setColor("BLACK")
+                      .addField("Type of Punishment", "Felony")
+                      .addField("Punishment(s)", "6 Minutes in prison")
+                      .addField("Information", "A civilian who possesses an illegal firearm which uses high-velocity, high-caliber, or specialized ammunition including, but not limited to, FMJ ammunition or HEIAP bullets.");
+                    
+                      message.channel.send(arg9embed);
+                    
+                      return; 
+                      }
+
       if(args[2] === "open"){
 
         let arg5embed = new Discord.RichEmbed()
@@ -102,7 +158,21 @@ let argembed = new Discord.RichEmbed()
       }
 //Possession Of Drug Paraphernalia
 //Possession Of A Controlled Substance With Intent To Sell
-  message.reply("If you are looking for \'Possession of Burglary Tools\' type: !possession of burglary tools. If you are looking for \'Possession Of A Controlled Substance With Intent To Sell\' type: !possession of a controlled substance with intent to sell. If you are looking for \'Possession Of Drug Paraphernalia\' type: !possession of drug paraphernalia. If you are looking for \'Possession of Marjiuana \' type: !possession of marijuana. If you are looking for \'Possession Of Child Pornography\' type: !possession of child pornography.");
+
+let replyembed = new Discord.RichEmbed()
+.setTitle("**Search Results**")
+.addField("Possession Of Burglary Tools, !possession of burglary tools")
+.addField("Possession Of A Controlled Substance", "Possession of a controlled substance")
+.addField("Possession Of A Controlled Substance With Intent To Sell", "!possession of a controlled substance with intent to sell")
+.addField("Possession Of Drug Paraphernalia", "!possession of drug paraphernalia")
+.addField("Possession Of Marijuana", "!possession of marijuana")
+.addField("Possession Of Child Pornography", "!possession of child pornography")
+.addField("Possession Of A Prohibited Weapon", "!possession of a prohibited weapon")
+.addField("Possession Of An Unlicensed Firearm", "!possession of an unlicensed firearm")
+.addField("Possession Of An Illegal Firearm", "!possession of an illegal firearm")
+.addField("Possession Of An Assault Weapon", "!possession of an assault weapon");
+
+message.channel.send(replyembed);
 
 }
 
