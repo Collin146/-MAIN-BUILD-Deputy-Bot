@@ -222,6 +222,27 @@ if(args[0] === "2"){
         return;
     }
 
+    if(args[0] === "10"){
+
+        let intim10embed = new Discord.RichEmbed()
+        .setTitle("**Title 10 - Sentencing Enhancements**")
+        .setDescription("These are all of the Title 10 charges & commands to get the information about them.")
+        .setColor("ffffff")
+        .addField("Attempt (10)01", "!attempt")
+        .addField("Conspiracy (10)02", "!conspiracy")
+        .addField("Soliciting (10)03", "!soliciting")
+        .addField("Government Worker Clause (10)04", "!government worker clause")
+        .addField("Plea Bargaining / Police Compliance Clause (10)05", "!plea bargaining / police compliance clause")
+        .addField("Three-Strikes Vehicle Policy (10)06", "!three-strikes vehicle policy")
+        .addField("Criminal Accomplice Clause (10)07", "!criminal accomplice clause")
+        .addField("Accessory After The Fact (10)08", "!accessory after the fact")
+        .addField("Gang Crimes Clause (10)09", "!gang crimes clause");
+
+        message.channel.send(intim10embed)
+
+        return;
+    }
+
 message.reply("If you are looking for a title type: !title <title number>. Check: !titles to look up all of the title numbers.")
 
 }
