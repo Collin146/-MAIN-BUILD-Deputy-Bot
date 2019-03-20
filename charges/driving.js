@@ -31,6 +31,20 @@ message.channel.send(intimembed);
 return;
 }
 
+if(args[2] === "valid"){
+
+    let intim5embed = new Discord.RichEmbed()
+    .setTitle("**Driving Without A Valid License (11)14 Info**")
+    .setColor("BLACK")
+    .addField("Type of Punishment", "Misdemeanor")
+    .addField("Punishment(s)", "3 Minutes in prison.")
+    .addField("Information", "A person operating a motor vehicle without carrying a valid driver's license. A person who refuses to show or provide a driver's license to a peace officer while operating a motor vehicle. A person operating a motor vehicle without a valid, unexpired permit or license. A person operating a motor vehicle under the age of 16.");
+    
+    message.channel.send(intim5embed);
+    
+    return;
+    }
+
 if(args[1] === "impaired"){
 
     let intim2embed = new Discord.RichEmbed()
@@ -45,7 +59,14 @@ if(args[1] === "impaired"){
     return;
     }
 
-message.reply("If you are looking for \'Driving With A Suspended License\' type: !driving with a suspended license. If you are looking for \'Driving While Impaired\' type: !driving while impaired. If you are looking for \'Driving Under The Influence\' type: !driving under the influence.")
+let helpembed = new Discord.RichEmbed()
+.setTitle("**Search Results**")
+.addField("Driving With A Suspended License", "!driving with a suspended license")
+.addField("Driving While Impaired", "!driving while impaired")
+.addField("Driving Under The Influence", "!driving under the influence")
+.addField("Driving Without A Valid License", "!driving without a valid license");
+
+message.channel.send(helpembed);
 
 }
 
