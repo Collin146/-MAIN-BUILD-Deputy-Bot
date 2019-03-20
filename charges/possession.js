@@ -161,7 +161,7 @@ let argembed = new Discord.RichEmbed()
 
 let replyembed = new Discord.RichEmbed()
 .setTitle("**Search Results**")
-.addField("Possession Of Burglary Tools, !possession of burglary tools")
+.addField("Possession Of Burglary Tools", "!possession of burglary tools")
 .addField("Possession Of A Controlled Substance", "Possession of a controlled substance")
 .addField("Possession Of A Controlled Substance With Intent To Sell", "!possession of a controlled substance with intent to sell")
 .addField("Possession Of Drug Paraphernalia", "!possession of drug paraphernalia")
