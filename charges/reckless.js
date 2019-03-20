@@ -45,7 +45,7 @@ let argembed = new Discord.RichEmbed()
   return; 
   }
 
-  message.reply("If you are looking for \'Reckess Operation Of An Aircraft\' type: !reckless operation of an aircraft. If you are looking for \'Reckess driving.");
+  message.reply("If you are looking for \'Reckess Operation Of An Aircraft\' type: !reckless operation of an aircraft. If you are looking for \'Reckess Operation Of An Off-Road Or Naval Vehicle\' type: !reckless operation of an off-road or naval vehicle. If you are looking for \'Reckess Driving\' type: !reckless driving.");
 
 }
 
