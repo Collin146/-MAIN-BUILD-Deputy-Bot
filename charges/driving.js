@@ -45,7 +45,7 @@ if(args[1] === "impaired"){
     return;
     }
 
-message.reply("If you are looking for \'Driving With A Suspended License\' type: !driving with a suspended license")
+message.reply("If you are looking for \'Driving With A Suspended License\' type: !driving with a suspended license. If you are looking for \'Driving While Impaired\' type: !driving while impaired. If you are looking for \'Driving Under The Influence\' type: !driving under the influence.")
 
 }
 
