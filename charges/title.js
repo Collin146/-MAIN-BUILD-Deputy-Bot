@@ -243,6 +243,37 @@ if(args[0] === "2"){
         return;
     }
 
+    if(args[0] === "11"){
+
+        let intim11embed = new Discord.RichEmbed()
+        .setTitle("**Title 11 - Road Law**")
+        .setDescription("These are all of the Title 11 charges & commands to get the information about them.")
+        .setColor("ffffff")
+        .addField("Failure To Abide To A Traffic Control Device (11)01", "!failure to abide to a traffic control device")
+        .addField("Yield Violation (11)02", "!yield violation")
+        .addField("Parking Violation (11)03", "!parkin violation")
+        .addField("Reckless Driving (11)04", "!reckless driving")
+        .addField("Vehicular Endangerment (11)05", "!vehicular endangerment")
+        .addField("Vehicular Noise Violation (11)06", "!vehicular noise violation")
+        .addField("Illegal Nitrous Oxide Possession (11)07", "!illegal nitrous oxide possession")
+        .addField("Illegal Usage Of Hydraulics (11)08", "!illegal usage of hydraulics")
+        .addField("Driving While Impaired (DWI) (11)09", "!driving while impaired")
+        .addField("Driving Under The Influence (DUI) (11)10", "!driving under the influence")
+        .addField("Registration Violation (11)11", "!registration violation")
+        .addField("Unsafe Usage Of A Bicycle (11)12", "!unsafe usage of a bicycle")
+        .addField("Street Racing (11)13", "!street racing")
+        .addField("Driving Without A Valid License (11)14", "!driving without a valid license")
+        .addField("Jaywalking (11)15", "!jaywalking")
+        .addField("Illegal Parking Of An Aircraft (11)16", "!illegal parking of an aircraft")
+        .addField("Tinted Windows (11)17", "!tinted windows")
+        .addField("Unlawful Transport Of Persons In A Cargo Area (11)18", "!unlawful transport of persons in a cargo area")
+        .addField("Fire Hydrant Parking Restriction (11)19", "!fire hydrant parking restriction");
+
+        message.channel.send(intim11embed);
+
+        return;
+    }
+
 message.reply("If you are looking for a title type: !title <title number>. Check: !titles to look up all of the title numbers.")
 
 }
