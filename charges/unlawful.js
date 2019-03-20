@@ -3,6 +3,20 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
+    if(args[2] === "persons"){
+
+        let intim2embed = new Discord.RichEmbed()
+        .setTitle("**Unlawful Transport Of Persons In A Cargo Area (11)18 Info**")
+        .setColor("BLACK")
+        .addField("Type of Punishment", "Infraction")
+        .addField("Punishment(s)", "$1,050")
+        .addField("Information", "A person who, while driving a pickup truck or flatbed motor truck transports any number of person(s) in or on the back of the vehicle, or in any area of the vehicle intended to transport cargo");
+        
+        message.channel.send(intim2embed);
+        
+        return;
+        }
+
 if(args[0] === "assembly"){
 
 let intimembed = new Discord.RichEmbed()
@@ -17,7 +31,7 @@ message.channel.send(intimembed);
 return;
 }
 
-message.reply("If you are looking for \'Unlawful Assembly\' type: !unlawful assembly")
+message.reply("If you are looking for \'Unlawful Assembly\' type: !unlawful assembly. If you are looking for \'Unlawful Transport Of Persons In A Cargo Area\' type: !unlawful transport of persons in a cargo area.")
 
 }
 
