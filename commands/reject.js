@@ -22,7 +22,7 @@ let rUser = message.guild.member(message.mentions.users.first() || message.guild
 
     
 let rejectembed = new Discord.RichEmbed()
-.setTitle(`Your application for ${message.guild.name }has been rejected!`
+.setTitle(`Your application for ${message.guild.name }has been rejected!`)
 .addField("Reason", kReason)
 .addField("What To Do", "You can re apply through filling out the application form. Make sure you improve on the things you did wrong in the first try. Otherwise it will be rejected again.")
 .setTimestamp();
