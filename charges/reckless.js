@@ -17,6 +17,20 @@ module.exports.run = async (bot, message, args) => {
           return; 
           }
 
+          if(args[0] === "driving"){
+
+            let arg3embed = new Discord.RichEmbed()
+              .setTitle("**Reckless Driving (11)04 Info**")
+              .setColor("BLACK")
+              .addField("Type of Punishment", "Infraction")
+              .addField("Punishment(s)", "$1,000")
+              .addField("Information", "A person who demonstrates careless or general disregard for the safety of themselves or others while operating a vehicle, such as (but not limited to): Driving on a unpopulated sidewalk, pedestrian passageway, or plaza. Meandering between lanes of traffic erratically. Demonstrating poor control of the vehicle or driving decisions.");
+
+              message.channel.send(arg3embed);
+            
+              return; 
+              }
+
   if(args[0] === "operation"){
 
 let argembed = new Discord.RichEmbed()
@@ -31,7 +45,7 @@ let argembed = new Discord.RichEmbed()
   return; 
   }
 
-  message.reply("If you are looking for \'Reckess Operation Of An Aircraft\' type: !reckless operation of an aircraft. If you are looking for \'Reckess Operation Of An Off-Road Or Naval Vehicle\' type: !reckless operation of an off-road or naval vehicle");
+  message.reply("If you are looking for \'Reckess Operation Of An Aircraft\' type: !reckless operation of an aircraft. If you are looking for \'Reckess driving.");
 
 }
 
