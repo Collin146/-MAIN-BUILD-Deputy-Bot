@@ -73,8 +73,6 @@ if(args[1] === "identify"){
     return;
     }
 
-message.reply("If you are looking for \'Failure To Adhere Flight Protocols\' type: !failure to adhere flight protocols.")
-
 let helpembed = new Discord.RichEmbed()
 .setTitle("**Search Results**")
 .addField("Failure To Pay A Fine", "!failure to pay a fine")
@@ -82,6 +80,8 @@ let helpembed = new Discord.RichEmbed()
 .addField("Failure To Adhere ATC Protocols", "!failure to adhere atc protocols")
 .addField("Failure To Adhere Flight Protocols", "!failure to adhere flight protocols")
 .addField("Failure To Abide A Traffic Control Device", "!failure to abide a traffic control device");
+
+message.channel.send(helpembed);
 
 }
 
