@@ -1,0 +1,5 @@
+require 'discordrb'
+require 'yaml'
+
+CONFIG = YAML.load_file('config.yaml')
+bot = Discordrb::Bot.new token: CONFIG['token']
