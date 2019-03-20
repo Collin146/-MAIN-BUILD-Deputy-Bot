@@ -101,6 +101,20 @@ module.exports.run = async (bot, message, args) => {
           return; 
           }
 
+          if(args[2] === "explosive"){
+
+            let arg9embed = new Discord.RichEmbed()
+              .setTitle("**Possession Of An Explosive Device (9)06 Info**")
+              .setColor("BLACK")
+              .addField("Type of Punishment", "Felony")
+              .addField("Punishment(s)", "8 Minutes in prison")
+              .addField("Information", "A civilian who possesses any manufactured or improvised device or equipment which is made from explosive and/or highly flammable liquid, gas or solid materials.");
+            
+              message.channel.send(arg9embed);
+            
+              return; 
+              }
+
       if(args[1] === "drug"){
 
         let arg4embed = new Discord.RichEmbed()
@@ -143,6 +157,34 @@ let argembed = new Discord.RichEmbed()
   return; 
   }
 
+  if(args[1] === "weaponry"){
+
+    let arg10embed = new Discord.RichEmbed()
+      .setTitle("**Possession Of Weaponry With Intent To Sell (9)08 Info**")
+      .setColor("BLACK")
+      .addField("Type of Punishment", "Felony")
+      .addField("Punishment(s)", "7 Minutes in prison")
+      .addField("Information", "A person who is in possession of more than 5 full weapons or weapon components in any combination or amount with the intent to distribute, deliver, or sell.");
+    
+      message.channel.send(arg10embed);
+    
+      return; 
+      }
+
+      if(args[2] === "devices"){
+
+        let arg11embed = new Discord.RichEmbed()
+          .setTitle("**Possession Of Explosice Devices With Intent To Sell (9)09 Info**")
+          .setColor("BLACK")
+          .addField("Type of Punishment", "Felony")
+          .addField("Punishment(s)", "8 Minutes in prison")
+          .addField("Information", "A person who is in possession of more than 3 explosive devices or explosive device materials in any combination with the intent to distribute, deliver, or sell.");
+        
+          message.channel.send(arg11embed);
+        
+          return; 
+          }
+
   if(args[1] === "child"){
 
     let argem5bed = new Discord.RichEmbed()
@@ -170,7 +212,10 @@ let replyembed = new Discord.RichEmbed()
 .addField("Possession Of A Prohibited Weapon", "!possession of a prohibited weapon")
 .addField("Possession Of An Unlicensed Firearm", "!possession of an unlicensed firearm")
 .addField("Possession Of An Illegal Firearm", "!possession of an illegal firearm")
-.addField("Possession Of An Assault Weapon", "!possession of an assault weapon");
+.addField("Possession Of An Assault Weapon", "!possession of an assault weapon")
+.addField("Possession Of An Explosive Device", "!possession of an explosive device")
+.addField("Possession Of Weaponry With Intent To Sell", "!possession of weaponry with intent to sell")
+.addField("Possession Of Explosive Devices With Intent To Sell", "!possession of explosive devices with intent to sell")
 
 message.channel.send(replyembed);
 
