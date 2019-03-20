@@ -13,6 +13,7 @@ let argembed = new Discord.RichEmbed()
   message.channel.send(argembed);
 
 let arg2embed = new Discord.RichEmbed()
+.setColor("BLACK")
 .addField("Information (2/2)", "cooperativeness of the suspect, or other criteria to decide the time within The LSPD and LSSD may set internal policies to dictate how officers should follow Imprisonment & Punishment Criteria, so long as it does not violate the minimum and maximum punishment policies stated in this Penal Code. Each bullet number in a penal code entry refers to an applicable charge for each entry. Violating any one of the descriptions is a violation of the penal code entry. (( Persons who roleplay without a sound mind will still, in any case, be arrested and charged for the crime they commit. Technically they’d be delivered to an appropriate institution in-character but are dropped off to the local county or state jail before being sent there. They would not be placed with the regular prison population. ))")
 .setFooter("Note: This was split up in two messages due to the max amount of words in a message.");
 
