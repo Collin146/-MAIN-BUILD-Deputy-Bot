@@ -28,6 +28,14 @@ let rejectembed = new Discord.RichEmbed()
 .setTimestamp();
 
 rUser.send(rejectembed);
+    
+    geluktEmbed = new Discord.RichEmbed()
+      .setColor("GREEN")
+      .setAuthor("Done!")
+      .setDescription(`A message has been sent to <@${rUser.id}>!`)
+      .setFooter(`Mentioned User ID: ${rUser.id}`);
+
+      message.channel.send(geluktEmbed);
 
 let ModEmbed = new Discord.RichEmbed()
 .setTitle("Reject command used!")
