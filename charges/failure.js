@@ -31,6 +31,20 @@ module.exports.run = async (bot, message, args) => {
         return;
         }
 
+        if(args[1] === "abide"){
+
+            let intime3mbed = new Discord.RichEmbed()
+            .setTitle("**Failure To Abide To A Traffic Control Device (11)01 Info**")
+            .setColor("BLACK")
+            .addField("Type of Punishment", "Infraction")
+            .addField("Punishment(s)", "$950")
+            .addField("Information", "A driver who fails to follow the instructions of a traffic control device, including: Fails to come to a FULL stop at “Stop Points”, noted as white or yellow lines at the edge of every intersection or with appropriate signage. Crossing a double yellow line when not enter or leaving a parking lot or private driveway. Ignoring clearly visible signage, whether permanent or temporary, used to direct or control traffic in any way. Ignoring the instruction or direction of a peace officer or construction worker at a road works site. A driver who fails to appropriately drive on the right properly with the flow of traffic, except in cases of emergency routes or private paths.");
+            
+            message.channel.send(intime3mbed);
+            
+            return;
+            }
+
 if(args[1] === "pay"){
 
 let intimembed = new Discord.RichEmbed()
@@ -59,7 +73,15 @@ if(args[1] === "identify"){
     return;
     }
 
-message.reply("If you are looking for \'Failure To Pay A Fine\' type: !failure to pay a fine. If you are looking for \'Failure To Identify To A Peace Officer\' type: !failure to identify to a peace officer. If you are looking for \'Failure To Adhere ATC Protocols\' type: !failure to adhere atc protocols. If you are looking for \'Failure To Adhere Flight Protocols\' type: !failure to adhere flight protocols.")
+message.reply("If you are looking for \'Failure To Adhere Flight Protocols\' type: !failure to adhere flight protocols.")
+
+let helpembed = new Discord.RichEmbed()
+.setTitle("**Search Results**")
+.addField("Failure To Pay A Fine", "!failure to pay a fine")
+.addField("Failure To Identify To A Peace Officer", "!failure to identify to a peace officer")
+.addField("Failure To Adhere ATC Protocols", "!failure to adhere atc protocols")
+.addField("Failure To Adhere Flight Protocols", "!failure to adhere flight protocols")
+.addField("Failure To Abide A Traffic Control Device", "!failure to abide a traffic control device");
 
 }
 
