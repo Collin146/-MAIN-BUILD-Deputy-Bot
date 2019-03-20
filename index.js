@@ -1,4 +1,5 @@
 const botconfig = require("./Botconfig.json");
+const config = require("./config.json");
 const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
@@ -17,7 +18,7 @@ if(jsfile.length <= 0){
 }
 
 jsfile.forEach((f, i) =>{
-    let props = require(`./commands/${f}`);
+    let props = require(`./commands/${f}`);(
     console.log(`${f} loaded!`);
     bot.commands.set(props.help.name, props);
 
@@ -255,4 +256,4 @@ bot.on(`message`, async message => {
 //-—
 
 
-bot.login(botconfig.token);
+bot.login(config.token);
