@@ -197,6 +197,31 @@ if(args[0] === "2"){
         return;
     }
 
+    if(args[0] === "9"){
+
+        let intim9embed = new Discord.RichEmbed()
+        .setTitle("**Title 9 - Control Of Deadly Weapons And Equipment**")
+        .setDescription("These are all of the Title 9 charges & commands to get the information about them.")
+        .setColor("ffffff")
+        .addField("Possession Of A Prohibited Weapon (9)01", "!possession of a prohibited weapon")
+        .addField("Possession Of An Unlicensed Firearm (9)02", "!possession of an unlicensed firearm")
+        .addField("Possession Of An Illegal Firearm (9)03", "!possession of an illegal firearm")
+        .addField("Possession Of An Assault Weapon (9)04", "!possession of an assault weapon")
+        .addField("Unlicensed Distribution Of A Weapon (9)05", "!unlicensed distritbution of a weapon")
+        .addField("Possession Of An Explosive Device (9)06", "!possession of an explosive device")
+        .addField("Manufacture Or Possession Of An Improvised Device (9)07", "!manufacture or possession of an improvised device")
+        .addField("Possession Of Weaponry With Intent To Sell (9)08", "!possession of weaponry with intent to sell")
+        .addField("Possession Of Explosive Devices With Intent To Sell (9)09", "!possession of explosive devices with intent to sell")
+        .addField("Brandishing A Firearm (9)10", "!brandishing a firearm")
+        .addField("Weapons Discharge Violation (9)11", "!weapons discharge violation")
+        .addField("Drive-By Shooting (9)12", "!drive-by shooting")
+        .addField("CCW / PF Violation (9)13", "!ccw / pf violation");
+
+        message.channel.send(intim9embed);
+
+        return;
+    }
+
 message.reply("If you are looking for a title type: !title <title number>. Check: !titles to look up all of the title numbers.")
 
 }
