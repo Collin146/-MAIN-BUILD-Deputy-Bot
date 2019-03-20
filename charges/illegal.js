@@ -17,7 +17,21 @@ message.channel.send(intimembed);
 return;
 }
 
-message.reply("If you are looking for \'Illegal Nitrous Oxide Possession\' type: !illegal nitrous oxide possession.")
+if(args[0] === "usage"){
+
+    let intimembed = new Discord.RichEmbed()
+    .setTitle("**Illegal Usage Of Hydraulics (11)08 Info**")
+    .setColor("BLACK")
+    .addField("Type of Punishment", "Infraction")
+    .addField("Punishment(s)", "$850")
+    .addField("Information", "A person driving a vehicle that uses hydraulic equipment while in motion or on a public street, road, or highway. This excludes vehicles with hydraulic equipment permitted exclusively for business and equipment purposes, such as a forklift in motion");
+    
+    message.channel.send(intimembed);
+    
+    return;
+    }
+
+message.reply("If you are looking for \'Illegal Nitrous Oxide Possession\' type: !illegal nitrous oxide possession. If you are looking for \'Illegal Usage Of Hydraulics\' type: !illegal usage of hydraulics")
 
 }
 
