@@ -27,8 +27,21 @@ let argembed = new Discord.RichEmbed()
       return; 
       }
     
+      if(args[0] === "fire"){
 
-message.reply("If you are looking for \'Criminal Accomplice Clause\' type: !criminal accomplice clause. If you are looking for \'Criminal Fines\' type: !criminal fines.");
+        let argembed = new Discord.RichEmbed()
+          .setTitle("**Criminal Fire Code Violation (13)07 Info**")
+          .setColor("BLACK")
+          .addField("Type of Punishment", "Misdemeanor")
+          .addField("Punishment(s)", "4 Minutes in prison")
+          .addField("Information", "A facility manager or property owner who, through willful ignorance, criminal negligence, or intentional ignorance of a fire marshal violates a provision of the Fire Code and fails to amend that violation in a timely manner. A person who disrupts, removes, defaces, or affects any official postings or notices issued by a fire marshal.");
+        
+          message.channel.send(argembed);
+        
+          return; 
+          }
+
+message.reply("If you are looking for \'Criminal Accomplice Clause\' type: !criminal accomplice clause. If you are looking for \'Criminal Fines\' type: !criminal fines. If you are looking for \'Criminal Fire Code Violation\' type: !criminal fire code violation.");
 
 }
 
