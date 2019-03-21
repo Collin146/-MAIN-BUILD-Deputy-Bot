@@ -35,7 +35,7 @@ tobcso.addRole(probrole.id);
 tobcso.addRole(leorole.id);
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("BCSO command used!")
+.setTitle("**BCSO command used!**")
 .setColor("GREEN")
 .addField("User", `<@${tobcso.id}>`, true)
 .addField("Command Used In", message.channel, true)
@@ -49,9 +49,8 @@ if(!warnchannel) return message.reply("Couldn't find channel");
 warnchannel.send(ModEmbed);
 
 geluktEmbed = new Discord.RichEmbed()
-      .setAuthor(`The roles have successfully been updated!`)
       .setColor("GREEN")
-      .setAuthor("Done!")
+      .setTitle("**Done!**")
       .setDescription(`The roles of <@${tobcso.id}> have been updated!`)
       .setFooter(`Mentioned User ID: ${tobcso.id}`);
 
