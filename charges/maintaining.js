@@ -17,7 +17,20 @@ message.channel.send(intimembed);
 return;
 }
 
-message.reply("If you are looking for \'Maintaining A Place For The Purpose Of Distribution\' type: !maintaining a place for the purpose of distribution.");
+if(args[0] === "lanes"){
+
+    let intim2embed = new Discord.RichEmbed()
+    .setTitle("**Maintaining Lanes (11.5)04 Info**")
+    .setColor("BLACK")
+    .addField("Type of Punishment", "Infraction")
+    .addField("Punishment(s)", "$234");
+    
+    message.channel.send(intim2embed);
+    
+    return;
+    }
+
+message.reply("If you are looking for \'Maintaining A Place For The Purpose Of Distribution\' type: !maintaining a place for the purpose of distribution. If you are looking for \'Maintaining Lanes\' type: !maintaining lanes.");
 
 }
 
