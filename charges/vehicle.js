@@ -10,6 +10,7 @@ let intimembed = new Discord.RichEmbed()
 .setColor("BLACK")
 .addField("Type of Punishment", "Infraction")
 .addField("Punishment(s)", "$150")
+.addField("Information", "Neon, The non permitted colours include Blue, Red and Orange. Headlights but be limited to Yellow Or White ");
 
 message.channel.send(intimembed);
 
