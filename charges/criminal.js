@@ -41,7 +41,21 @@ let argembed = new Discord.RichEmbed()
           return; 
           }
 
-message.reply("If you are looking for \'Criminal Accomplice Clause\' type: !criminal accomplice clause. If you are looking for \'Criminal Fines\' type: !criminal fines. If you are looking for \'Criminal Fire Code Violation\' type: !criminal fire code violation.");
+          if(args[0] === "business"){
+
+            let argembed = new Discord.RichEmbed()
+              .setTitle("**Criminal Business Operations (13)10 Info**")
+              .setColor("BLACK")
+              .addField("Type of Punishment", "Misdemeanor")
+              .addField("Punishment(s)", "3 Minutes in prison")
+              .addField("Information", "Any person who willfully fails to pay a fine issued and notified by the Bureau of Licensing within seven days without a lawful excuse, even if the fine is paid in full after that time is guilty of a misdemeanor. Those convicted under this section shall be punished by imprisonment for 45 minutes and the appropriation of all due fines. This charge is issued in lieu of (4)02. Failure To Pay A Fine when the fine is related to the Bureau of Licensing and exceeds the seven day payment period.");
+            
+              message.channel.send(argembed);
+            
+              return; 
+              }
+
+message.reply("If you are looking for \'Criminal Accomplice Clause\' type: !criminal accomplice clause. If you are looking for \'Criminal Fines\' type: !criminal fines. If you are looking for \'Criminal Fire Code Violation\' type: !criminal fire code violation. If you are looking for \'Criminal Business Operations\' type: !criminal business operations.");
 
 }
 
