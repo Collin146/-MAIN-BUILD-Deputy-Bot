@@ -87,6 +87,19 @@ if(args[1] === "identify"){
         return;
         }
 
+        if(args[1] === "sign"){
+
+            let intim6embed = new Discord.RichEmbed()
+            .setTitle("**Failure To Sign A Citation (11.5)25 Info**")
+            .setColor("BLACK")
+            .addField("Type of Punishment", "Misdemeanor")
+            .addField("Punishment(s)", "2 Minutes in prison & $1,000");
+            
+            message.channel.send(intim6embed);
+            
+            return;
+            }
+
 let helpembed = new Discord.RichEmbed()
 .setTitle("**Search Results**")
 .addField("Failure To Pay A Fine", "!failure to pay a fine")
@@ -94,7 +107,8 @@ let helpembed = new Discord.RichEmbed()
 .addField("Failure To Adhere ATC Protocols", "!failure to adhere atc protocols")
 .addField("Failure To Adhere Flight Protocols", "!failure to adhere flight protocols")
 .addField("Failure To Abide A Traffic Control Device", "!failure to abide a traffic control device")
-.addField("Failure To Comply With Fire Code Orders", "!failure to comply with fire code orders");
+.addField("Failure To Comply With Fire Code Orders", "!failure to comply with fire code orders")
+.addField("Failure To Sign A Citation", "!failure to sign a citation")
 
 message.channel.send(helpembed);
 
