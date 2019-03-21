@@ -313,7 +313,7 @@ if(args[0] === "2"){
 
         let intim13embed = new Discord.RichEmbed()
         .setTitle("**Title 13 - State Code Violations**")
-        .setDescription("These are all of the Title 12 charges & commands to get the information about them.")
+        .setDescription("These are all of the Title 13 charges & commands to get the information about them.")
         .setColor("ffffff")
         .addField("Tax Evasion (13)01", "!tax evasion")
         .addField("Laundering Of Money Instruments (13)02", "!laundering of money instruments")
