@@ -20,17 +20,24 @@ module.exports.run = async (bot, message, args) => {
     let kReason = args.join(" ").slice(22);
     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot kick a Moderator or higher.");
 
-    let kickEmbed = new Discord.RichEmbed()
-    .setDescription("A user has been kicked")
-    .setColor("#ff6a00")
-    .addField("Kicked User", `${kUser} with ID: ${kUser.id}`)
-    .addField("Kicked By", `<@${message.author.id}> with ID: ${message.author.id}`)
-    .addField("Kicked In", message.channel)
-    .addField("Time", message.createdAt)
-    .addField("Reason", kReason);
+geluktEmbed = new Discord.RichEmbed()
+      .setColor("ORANGE")
+      .setAuthor("Done!")
+      .setDescription(`<@${kUser.id}> has been banned!`)
+      .setFooter(`Mentioned User ID: ${kUser.id}`);
+
+
+    //let kickEmbed = new Discord.RichEmbed()
+    //.setDescription("A user has been kicked")
+    //.setColor("#ff6a00")
+    //.addField("Kicked User", `${kUser} with ID: ${kUser.id}`)
+    //.addField("Kicked By", `<@${message.author.id}> with ID: ${message.author.id}`)
+    //.addField("Kicked In", message.channel)
+    //.addField("Time", message.createdAt)
+    //.addField("Reason", kReason);
 
     message.guild.member(kUser).kick(kReason);
-    message.reply(kickEmbed);
+    message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
     .setTitle("Kick command used!")
