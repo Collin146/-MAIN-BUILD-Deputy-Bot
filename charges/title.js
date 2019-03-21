@@ -274,6 +274,41 @@ if(args[0] === "2"){
         return;
     }
 
+    //11,05
+    //11,05
+    //11,05
+    //11,05
+
+    if(args[0] === "12"){
+
+        let intim12embed = new Discord.RichEmbed()
+        .setTitle("**Title 12 - Code Policy**")
+        .setDescription("These are all of the Title 12 charges & commands to get the information about them.")
+        .setColor("ffffff")
+        .addField("Mistake Of Fact (12)01", "!mistake of fact")
+        .addField("Involuntary Intoxication (12)02", "!involuntary intoxication")
+        .addField("Private Defense, Self Defense, Castle Doctrine, And Defense Of Others (12)03", "!private defense, self defense, castle doctrine, and defense of others")
+        .addField("Necessity (12)04", "!necessity")
+        .addField("Entrapment (12)05", "!entrapment")
+        .addField("Duress (12)06", "!duress")
+        .addField("Parole Exclusions (12)07", "!parole exclusions")
+        .addField("Suspicion Policy (12)08", "!suspicion policy")
+        .addField("Officer Discretion (12)09", "!officer discretion")
+        .addField("Good Samaritan Clause (12)10", "!good samaritan clause")
+        .addField("Imprisonment & Punishment Criteria (12)11", "!imprisonment & punishment criteria")
+        .addField("Maximum Imprisonment (12)12", "!maximum imprisonment")
+        .addField("Wiretapping, CCTV & Videotaping Policy (12)13", "!wiretapping, cctv & videotaping policy")
+        .addField("Police Exigency & Hot Pursuit Policy (12)14", "!police exigency & hot pursuit policy")
+        .addField("Probable Cause & Plain View Policy (12)15", "!probable cause & plain view policy")
+        .addField("Criminal Fines (12)16", "!criminal fines")
+        .addField("Repeat Offender Clause (12)17", "!repeat offender clause")
+        .addField("Immunity (12)18", "!immunity");
+
+        message.channel.send(intim12embed);
+
+        return;
+    }
+
 message.reply("If you are looking for a title type: !title <title number>. Check: !titles to look up all of the title numbers.")
 
 }
