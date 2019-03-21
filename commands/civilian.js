@@ -33,7 +33,7 @@ tociv.addRole(civilianrole.id);
 tociv.addRole(civ1role.id);
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("Civilian command used!")
+.setTitle("**Civilian command used!**")
 .setColor("GREEN")
 .addField("User", `<@${tociv.id}>`, true)
 .addField("Command Used In", message.channel, true)
@@ -47,9 +47,8 @@ if(!warnchannel) return message.reply("Couldn't find channel");
 warnchannel.send(ModEmbed);
 
 geluktEmbed = new Discord.RichEmbed()
-      .setAuthor(`The roles have successfully been updated!`)
       .setColor("GREEN")
-      .setAuthor("Done!")
+      .setTitle("**Done!**")
       .setDescription(`The roles of <@${tociv.id}> have been updated!`)
       .setFooter(`Mentioned User ID: ${tociv.id}`);
 
