@@ -11,8 +11,6 @@ let intimembed = new Discord.RichEmbed()
 
 message.channel.send(intimembed);
 
-message.reply("If you are looking for \'turning\' type: !turning.")
-
 }
 
 module.exports.help = {
