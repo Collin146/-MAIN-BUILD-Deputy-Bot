@@ -40,7 +40,7 @@ geluktEmbed = new Discord.RichEmbed()
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
-    .setTitle("Kick command used!")
+    .setTitle("**Kick command used!**")
     .setColor("RED")
     .addField("Kicked User", `<@${kUser.id}>`, true)
     .addField("Kicked In", message.channel, true)
