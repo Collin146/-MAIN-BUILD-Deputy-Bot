@@ -73,13 +73,28 @@ if(args[1] === "identify"){
     return;
     }
 
+    if(args[1] === "comply"){
+
+        let intim5embed = new Discord.RichEmbed()
+        .setTitle("**Failure To Comply With Fire Code Orders (13)08 Info**")
+        .setColor("BLACK")
+        .addField("Type of Punishment", "Infraction")
+        .addField("Punishment(s)", "$600")
+        .addField("Information", "A person who fails to comply with a fire marshal’s orders to bring a facility up to the standards of the Fire Code.");
+        
+        message.channel.send(intim5embed);
+        
+        return;
+        }
+
 let helpembed = new Discord.RichEmbed()
 .setTitle("**Search Results**")
 .addField("Failure To Pay A Fine", "!failure to pay a fine")
 .addField("Failure To Identify To A Peace Officer", "!failure to identify to a peace officer")
 .addField("Failure To Adhere ATC Protocols", "!failure to adhere atc protocols")
 .addField("Failure To Adhere Flight Protocols", "!failure to adhere flight protocols")
-.addField("Failure To Abide A Traffic Control Device", "!failure to abide a traffic control device");
+.addField("Failure To Abide A Traffic Control Device", "!failure to abide a traffic control device")
+.addField("Failure To Comply With Fire Code Orders", "!failure to comply with fire code orders");
 
 message.channel.send(helpembed);
 
