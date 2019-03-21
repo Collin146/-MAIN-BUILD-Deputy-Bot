@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
         let intim2embed = new Discord.RichEmbed()
         .setTitle("**Speeding Over 100 MPH (11.5)09 Info**")
         .setColor("BLACK")
-        .addField("Type of Punishment", "infraction")
+        .addField("Type of Punishment", "Infraction")
         .addField("Punishment(s)", "$880 & License Suspension For 7 Days");
         
         message.channel.send(intim2embed);
@@ -21,7 +21,7 @@ if(args[0] === "1-15"){
 let intimembed = new Discord.RichEmbed()
 .setTitle("**Speeding 1-15 MPH Over (11.5)10 Info**")
 .setColor("BLACK")
-.addField("Type of Punishment", "infraction")
+.addField("Type of Punishment", "Infraction")
 .addField("Punishment(s)", "$280");
 
 message.channel.send(intimembed);
@@ -34,7 +34,7 @@ if(args[0] === "16-25"){
     let intim3embed = new Discord.RichEmbed()
     .setTitle("**Speeding 16-25 MPH Over (11.5)11 Info**")
     .setColor("BLACK")
-    .addField("Type of Punishment", "infraction")
+    .addField("Type of Punishment", "Infraction")
     .addField("Punishment(s)", "$360");
     
     message.channel.send(intim3embed);
@@ -47,7 +47,7 @@ if(args[0] === "16-25"){
         let intim4embed = new Discord.RichEmbed()
         .setTitle("**Speeding 26+ (11.5)12 Info**")
         .setColor("BLACK")
-        .addField("Type of Punishment", "infraction")
+        .addField("Type of Punishment", "Infraction")
         .addField("Punishment(s)", "$480");
         
         message.channel.send(intim4embed);
