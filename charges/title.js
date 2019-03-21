@@ -274,6 +274,43 @@ if(args[0] === "2"){
         return;
     }
 
+    if(args[0] === "11.5"){
+
+        let intim115embed = new Discord.RichEmbed()
+        .setTitle("**Title 11.5 - Road Law Extensive**")
+        .setDescription("These are all of the Title 11.5 charges & commands to get the information about them.")
+        .setColor("ffffff")
+        .addField("Traffic Signals - Responsibility At A Green Light (11.5)01", "!traffic signals - responsibility at a green light")
+        .addField("Traffic Signals - Responsibility At A Red Light (11.5)02", "!traffic signals - responsibility at a red light")
+        .addField("Driving On The Right Side (11.5)03", "!driving on the right side")
+        .addField("Maintaining Lanes (11.5)04", "!maintaining lanes")
+        .addField("Following Distance (11.5)05", "!following distance")
+        .addField("Right Of Way (11.5)06", "!right of way")
+        .addField("Right Of Way Emergancy Vehicles (11.5)07", "!right of way emergancy vehicles")
+        .addField("Turning (11.5)08", "!turning")
+        .addField("Speeding Over 100 MPH (11.5)09", "!speeding over 100 mph")
+        .addField("Speeding 1-15 MPH Over (11.5)10", "!speeding 1-15 mph over")
+        .addField("Speeding 16-25 MPH Over (11.5)11", "!speeding 16-25 mph over")
+        .addField("Speeding 26+ (11.5)12", "!speeding 26+")
+        .addField("Unreasonably Slow / Stopped (11.5)13", "!unreasonably slow / stopped")
+        .addField("Stop Signs (11.5)14", "!stop signs")
+        .addField("Throwing Objects (11.5)15", "!throwing objects")
+        .addField("Vehicle Lights (11.5)16", "!vehicle lights")
+        .addField("Road Rage (11.5)17", "!road rage")
+        .addField("Helmet Law (11.5)18", "!helmet law")
+        .addField("Unsecured Load (11.5)19", "!unsecured load")
+        .addField("Visible Plate (11.5)20", "!visible plate")
+        .addField("Unnecessary Use Of Horn (11.5)21", "!unnecessary use of horn")
+        .addField("Window Tint (11.5)22", "!window tint")
+        .addField("Operating A Vehicle With Open Doors (11.5)23", "!operating a vehicle with open doors")
+        .addField("Driving On Shoulder/Emergancy Lane (11.5)24", "!driving on shoulder/emergancy lane")
+        .addField("Failure To Sign A Citation (11.5)25", "!failure to sign a citation");
+
+        message.channel.send(intim115embed);
+
+        return;
+    }
+
     //11,05
     //11,05
     //11,05
