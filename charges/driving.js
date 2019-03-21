@@ -73,6 +73,19 @@ if(args[1] === "impaired"){
     return;
     }
 
+    if(args[1] === "shoulder"){
+
+        let intim6embed = new Discord.RichEmbed()
+        .setTitle("**Driving On Shoulder/Emergancy Lane (11.5)24 Info**")
+        .setColor("BLACK")
+        .addField("Type of Punishment", "Infraction")
+        .addField("Punishment(s)", "$350");
+        
+        message.channel.send(intim6embed);
+        
+        return;
+        }
+
 let helpembed = new Discord.RichEmbed()
 .setTitle("**Search Results**")
 .addField("Driving With A Suspended License", "!driving with a suspended license")
@@ -80,6 +93,7 @@ let helpembed = new Discord.RichEmbed()
 .addField("Driving Under The Influence", "!driving under the influence")
 .addField("Driving Without A Valid License", "!driving without a valid license")
 .addField("Driving On The Right Side (11.5)03", "!driving on the right side")
+.addField("Driving On Shoulder/Emergancy Lane", "!driving on shoulder/emergancy lane");
 
 message.channel.send(helpembed);
 
