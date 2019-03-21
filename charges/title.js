@@ -309,6 +309,29 @@ if(args[0] === "2"){
         return;
     }
 
+    if(args[0] === "13"){
+
+        let intim13embed = new Discord.RichEmbed()
+        .setTitle("**Title 13 - State Code Violations**")
+        .setDescription("These are all of the Title 12 charges & commands to get the information about them.")
+        .setColor("ffffff")
+        .addField("Tax Evasion (13)01", "!tax evasion")
+        .addField("Laundering Of Money Instruments (13)02", "!laundering of money instruments")
+        .addField("Gambling License Violation (13)03", "!gambling license violation")
+        .addField("Medical Practice Violation (13)04", "!medical practice violation")
+        .addField("Legal Practice Violation (13)05", "!legal practice violation")
+        .addField("Construction And Maintenance Code Violation (13)06", "!construction and maintenance violation")
+        .addField("Criminal Fire Code Violation (13)07", "!criminal fire code violation")
+        .addField("Failure To Comply With Fire Code Orders (13)08", "!failure to comply with fire code orders")
+        .addField("Wiretapping Violation (13)09", "!wiretapping violation")
+        .addField("Criminal Business Operations (13)10", "!crimina business operations")
+        .addField("Corporate Hijacking (13)11", "!corporate hijacking");
+
+        message.channel.send(intim13embed);
+
+        return;
+    }
+
 message.reply("If you are looking for a title type: !title <title number>. Check: !titles to look up all of the title numbers.")
 
 }
