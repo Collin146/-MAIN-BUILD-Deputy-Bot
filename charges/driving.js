@@ -3,6 +3,20 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
+    if(args[2] === "right"){
+
+        let intim5embed = new Discord.RichEmbed()
+        .setTitle("**Driving On The Right Side (11.5)03 Info**")
+        .setColor("BLACK")
+        .addField("Type of Punishment", "Infraction")
+        .addField("Punishment(s)", "$234")
+        .addField("Information", "This accounts for driving into oncoming traffic, Not to be stacked with reckless driving.");
+        
+        message.channel.send(intim5embed);
+        
+        return;
+        }
+
     if(args[2] === "influence"){
 
         let intim3embed = new Discord.RichEmbed()
@@ -64,7 +78,8 @@ let helpembed = new Discord.RichEmbed()
 .addField("Driving With A Suspended License", "!driving with a suspended license")
 .addField("Driving While Impaired", "!driving while impaired")
 .addField("Driving Under The Influence", "!driving under the influence")
-.addField("Driving Without A Valid License", "!driving without a valid license");
+.addField("Driving Without A Valid License", "!driving without a valid license")
+.addField("Driving On The Right Side (11.5)03", "!driving on the right side")
 
 message.channel.send(helpembed);
 
