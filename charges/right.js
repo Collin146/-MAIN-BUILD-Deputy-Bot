@@ -3,6 +3,19 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
+    if(args[2] === "emergency"){
+
+        let intim2embed = new Discord.RichEmbed()
+        .setTitle("**Right Of Way Emergancy Vehicles (11.5)07 Info**")
+        .setColor("BLACK")
+        .addField("Type of Punishment", "infraction")
+        .addField("Punishment(s)", "$490");
+        
+        message.channel.send(intim2embed);
+        
+        return;
+        }
+
 if(args[1] === "way"){
 
 let intimembed = new Discord.RichEmbed()
@@ -16,7 +29,7 @@ message.channel.send(intimembed);
 return;
 }
 
-message.reply("If you are looking for \'Right Of Way\' type: !right of way.")
+message.reply("If you are looking for \'Right Of Way\' type: !right of way. If you are looking for \'Right Of Way Emergancy Vehicles\' type: !right of way emergancy vehicles.")
 
 }
 
