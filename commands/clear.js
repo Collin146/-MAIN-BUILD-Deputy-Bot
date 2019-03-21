@@ -4,7 +4,7 @@ const errors = require("../utils/errors.js");
 module.exports.run = async (bot, message, args) => { 
 
     let ModEmbed = new Discord.RichEmbed()
-    .setTitle("Clear command used!")
+    .setTitle("**Clear command used!**")
     .setColor("RED")
     .addField("Cleared In", message.channel, true)
     .addField("Cleared By", message.author.username, true)
