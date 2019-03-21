@@ -28,7 +28,7 @@ toinvest.setRoles([investrole.id])
     .catch(console.error);
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("Investigation command used!")
+.setTitle("**Investigation command used!**")
 .setColor("RED")
 .addField("Used On", `<@${toinvest.id}>`, true)
 .addField("Command Used In", message.channel, true)
@@ -43,9 +43,8 @@ warnchannel.send(ModEmbed);
     
 
     geluktEmbed = new Discord.RichEmbed()
-      .setAuthor(`The roles have successfully been updated!`)
       .setColor("ORANGE")
-      .setAuthor("Done!")
+      .setTitle("**Done!**")
       .setDescription(`The roles of <@${toinvest.id}> have been updated!`)
       .setFooter(`Mentioned User ID: ${toinvest.id}`);
 
