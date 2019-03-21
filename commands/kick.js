@@ -22,8 +22,8 @@ module.exports.run = async (bot, message, args) => {
 
 geluktEmbed = new Discord.RichEmbed()
       .setColor("ORANGE")
-      .setAuthor("Done!")
-      .setDescription(`<@${kUser.id}> has been banned!`)
+      .setTitle("**Done!**")
+      .setDescription(`<@${kUser.id}> has been kicked!`)
       .setFooter(`Mentioned User ID: ${kUser.id}`);
 
 
