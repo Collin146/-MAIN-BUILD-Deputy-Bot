@@ -3,7 +3,7 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
-    if(args[2] === "emergency"){
+    if(args[2] === "emergancy"){
 
         let intim2embed = new Discord.RichEmbed()
         .setTitle("**Right Of Way Emergancy Vehicles (11.5)07 Info**")
