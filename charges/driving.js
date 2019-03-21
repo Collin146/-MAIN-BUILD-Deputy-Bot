@@ -73,7 +73,7 @@ if(args[1] === "impaired"){
     return;
     }
 
-    if(args[1] === "shoulder"){
+    if(args[1] === "shoulder/emergancy"){
 
         let intim6embed = new Discord.RichEmbed()
         .setTitle("**Driving On Shoulder/Emergancy Lane (11.5)24 Info**")
