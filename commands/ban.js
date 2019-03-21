@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
 
 geluktEmbed = new Discord.RichEmbed()
       .setColor("ORANGE")
-      .setAuthor("Done!")
+      .setTitle("**Done!**")
       .setDescription(`<@${bUser.id}> has been banned!`)
       .setFooter(`Mentioned User ID: ${bUser.id}`);
 
@@ -38,7 +38,7 @@ geluktEmbed = new Discord.RichEmbed()
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
-    .setTitle("Ban command used!")
+    .setTitle("**Ban command used!**")
     .setColor("RED")
     .addField("Banned User", `<@${bUser.id}>`, true)
     .addField("Banned In", message.channel, true)
