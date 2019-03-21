@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
         let intim2embed = new Discord.RichEmbed()
         .setTitle("**Right Of Way Emergancy Vehicles (11.5)07 Info**")
         .setColor("BLACK")
-        .addField("Type of Punishment", "infraction")
+        .addField("Type of Punishment", "Infraction")
         .addField("Punishment(s)", "$490");
         
         message.channel.send(intim2embed);
@@ -21,7 +21,7 @@ if(args[1] === "way"){
 let intimembed = new Discord.RichEmbed()
 .setTitle("**Right Of Way (11.5)06 Info**")
 .setColor("BLACK")
-.addField("Type of Punishment", "infraction")
+.addField("Type of Punishment", "Infraction")
 .addField("Punishment(s)", "$234");
 
 message.channel.send(intimembed);
