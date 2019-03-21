@@ -18,17 +18,24 @@ module.exports.run = async (bot, message, args) => {
     let bReason = args.join(" ").slice(22);
     if(bUser.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot ban an Admin.");
 
-    let banEmbed = new Discord.RichEmbed()
-    .setDescription("A user has been banned")
-    .setColor("#ff6a00")
-    .addField("Banned User", `${bUser} with ID: ${bUser.id}`)
-    .addField("Banned By", `<@${message.author.id}> with ID: ${message.author.id}`)
-    .addField("Banned In", message.channel)
-    .addField("Time", message.createdAt)
-    .addField("Reason", bReason);
+geluktEmbed = new Discord.RichEmbed()
+      .setColor("ORANGE")
+      .setAuthor("Done!")
+      .setDescription(`<@${bUser.id}> has been banned!`)
+      .setFooter(`Mentioned User ID: ${bUser.id}`);
+
+
+   // let banEmbed = new Discord.RichEmbed()
+   // .setDescription("A user has been banned")
+   // .setColor("#ff6a00")
+   // .addField("Banned User", `${bUser} with ID: ${bUser.id}`)
+   // .addField("Banned By", `<@${message.author.id}> with ID: ${message.author.id}`)
+   // .addField("Banned In", message.channel)
+   // .addField("Time", message.createdAt)
+   // .addField("Reason", bReason);
 
     message.guild.member(bUser).ban(bReason);
-    message.reply(banEmbed);
+    message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
     .setTitle("Ban command used!")
