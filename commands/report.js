@@ -40,6 +40,7 @@ try{
     await message.author.send(dmembed);
 }catch(e){
     message.reply("Your DMs are locked. I cannot send you the mod commands.");
+}
 
 
 }
