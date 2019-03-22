@@ -35,7 +35,7 @@ tosahp.addRole(probrole.id);
 tosahp.addRole(leorole.id);
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("SAHP command used!")
+.setTitle("**SAHP command used!**")
 .setColor("GREEN")
 .addField("User", `<@${tosahp.id}>`, true)
 .addField("Command Used In", message.channel, true)
@@ -49,9 +49,8 @@ if(!warnchannel) return message.reply("Couldn't find channel");
 warnchannel.send(ModEmbed);
 
 geluktEmbed = new Discord.RichEmbed()
-      .setAuthor(`The roles have successfully been updated!`)
       .setColor("GREEN")
-      .setAuthor("Done!")
+      .setTitle("**Done!**")
       .setDescription(`The roles of <@${tosahp.id}> have been updated!`)
       .setFooter(`Mentioned User ID: ${tosahp.id}`);
 
