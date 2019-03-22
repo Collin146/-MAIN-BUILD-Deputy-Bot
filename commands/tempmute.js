@@ -59,7 +59,7 @@ setTimeout(function(){
 }, ms(mutetime));
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("Tempmute command used!")
+.setTitle("**Tempmute command used!**")
 .setColor("RED")
 .addField("Muted User", `<@${tomute.id}>`, true)
 .addField("Muted In", message.channel, true)
