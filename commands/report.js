@@ -8,22 +8,32 @@ module.exports.run = async (bot, message, args) => {
     }
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if(!rUser) return message.channel.send("Couldn't find user.");
+
+msg => msg.delete(5000)
+
         let reason = args.join(" ").slice(22);
 
+if (!reason) return message.channel.send("You need to give a reason") 
+
+msg => msg.delete(5000)
+
         let reportEmbed = new Discord.RichEmbed()
-        .setDescription("Reports")
-        .setColor("#ff6a00")
-        .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
-        .addField("Reported By", `${message.author} with ID: ${message.author.id}`)
+        .setTitle("**A user has been reported!**")
+        .setColor("ORANGE")
+        .addField("Reported User", `${rUser}`)
+        .addField("Reported By", `${message.author}`)
         .addField("Channel", message.channel)
         .addField("Reason", reason)
         .setTimestamp()
-        .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+        .setFooter(`Reported User ID: ${rUser.id} | Author ID: ${message.author.id}`);
 
         let reportschannel = message.guild.channels.find(`name`, "reports");
         if(!reportschannel) return message.channel.send("Couldn't find reports channel,");
 
-
+let dmembed = new Discord.RichEmbed()
+.setTitle("**Done!**")
+.setDescription(`${rUser} has been reported to the staff team of ${message.guild.name}.`);
+ 
         message.delete().catch(O_o=>{});
         reportschannel.send(reportEmbed);
 
