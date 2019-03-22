@@ -48,7 +48,7 @@ let striketime = args[1];
 if(!striketime) return message.reply("You didn't specify a time!");
 
 let strikeEmbed = new Discord.RichEmbed()
-.setTitle("A user has been Punished!")
+.setTitle("**A user has been Punished!**")
 .setColor("#ff0c00")
 .addField("Punished User", `<@${tostrike.id}>`)
 .addField("Punishment Type", "Watchlist")
@@ -63,7 +63,7 @@ setTimeout(function(){
 }, ms(striketime));
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("Watchlist command used!")
+.setTitle("**Watchlist command used!**")
 .setColor("RED")
 .addField("Punished User", `<@${tostrike.id}>`, true)
 .addField("Punished In", message.channel, true)
@@ -78,7 +78,7 @@ if(!warnchannel) return message.reply("Couldn't find channel");
 warnchannel.send(ModEmbed);
 
 let DMembed = new Discord.RichEmbed()
-.setTitle("You have been punished in Global Roleplay™ PS4")
+.setTitle("**You have been punished in ${message.guild.name}**")
 .setColor("#ff0c00")
 .addField("Punishment Type", "Watchlist")
 .addField("Length & Reason", kReason);
