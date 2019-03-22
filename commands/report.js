@@ -35,6 +35,7 @@ message.delete().catch(O_o=>{});
 
 let dmembed = new Discord.RichEmbed()
 .setTitle("**Done!**")
+.setColor("#00fff6")
 .setDescription(`${rUser} has been reported to the staff team of ${message.guild.name}.`);
 try{
     await message.author.send(dmembed);
