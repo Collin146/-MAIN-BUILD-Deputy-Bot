@@ -8,12 +8,12 @@ module.exports.run = async (bot, message, args) => {
     }
     message.delete().catch(O_o=>{});
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-        if(!rUser) return message.channel.send("Couldn't find that user").then(msg => msg.delete(5000));
+        if(!rUser) return message.reply("Couldn't find that user").then(msg => msg.delete(5000));
 
 let reason = args.join(" ").slice(22);
 
         message.delete().catch(O_o=>{});
-if (!reason) return message.channel.send(`Please give a reason.`).then(msg => msg.delete(5000));
+if (!reason) return message.reply(`Please give a reason.`).then(msg => msg.delete(5000));
 
 message.delete().catch(O_o=>{});
 
@@ -28,7 +28,7 @@ message.delete().catch(O_o=>{});
         .setFooter(`Reported User ID: ${rUser.id} | Author ID: ${message.author.id}`);
 
         let reportschannel = message.guild.channels.find(`name`, "reports");
-        if(!reportschannel) return message.channel.send("Couldn't find reports channel,");
+        if(!reportschannel) return message.reply("Couldn't find reports channel,");
 
 let dmembed = new Discord.RichEmbed()
 .setTitle("**Done!**")
