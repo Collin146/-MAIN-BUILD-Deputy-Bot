@@ -163,7 +163,6 @@ bot.on(`message`, async message => {
     let modchan = message.guild.channels.find(`name`, `modlog`);
     if (!weazelrole) return errchan.send("Weazel Role doesn't exist! (index.js, 161)");
     if (!errchan) return modchan.send("Error channel doesn't exist (bot-errors)");
-    return;
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
             if (message.author.id === message.guild.ownerID) return;
