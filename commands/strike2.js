@@ -48,7 +48,7 @@ let striketime = args[1];
 if(!striketime) return message.reply("You didn't specify a time!");
 
 let strikeEmbed = new Discord.RichEmbed()
-.setTitle("A user has been striked!")
+.setTitle("**A user has been striked!**")
 .setColor("#ff0c00")
 .addField("Striked User", `<@${tostrike.id}>`)
 .addField("Strike Type", "Strike 2")
@@ -63,7 +63,7 @@ setTimeout(function(){
 }, ms(striketime));
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("Strike 2 command used!")
+.setTitle("**Strike 2 command used!**")
 .setColor("RED")
 .addField("Striked User", `<@${tostrike.id}>`, true)
 .addField("Striked In", message.channel, true)
