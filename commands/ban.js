@@ -17,6 +17,7 @@ module.exports.run = async (bot, message, args) => {
     if(!bUser) return message.channel.send("Can't find user!");
     let bReason = args.join(" ").slice(22);
     if(bUser.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot ban an Admin.");
+    if(!bReason) return message.reply("Please give a reason.");
 
 geluktEmbed = new Discord.RichEmbed()
       .setColor("ORANGE")
@@ -56,6 +57,4 @@ geluktEmbed = new Discord.RichEmbed()
 
  module.exports.help = {
      name: "ban"
-
-
  }
