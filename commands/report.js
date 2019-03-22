@@ -36,8 +36,10 @@ message.delete().catch(O_o=>{});
 let dmembed = new Discord.RichEmbed()
 .setTitle("**Done!**")
 .setDescription(`${rUser} has been reported to the staff team of ${message.guild.name}.`);
- 
-rUser.send(dmembed);
+try{
+    await message.author.send(dmembed);
+}catch(e){
+    message.reply("Your DMs are locked. I cannot send you the mod commands.");
 
 
 }
