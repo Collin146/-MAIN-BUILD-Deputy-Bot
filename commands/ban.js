@@ -55,6 +55,7 @@ geluktEmbed = new Discord.RichEmbed()
 
     let dmembed =  new Discord.RichEmbed()
     .setTitle(`**You have been banned from ${message.guild.name}.**`)
+    .setColor("#00fff6")
     .addField("Reason:", bReason);
 
     bUser.send(dmembed);
