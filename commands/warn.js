@@ -35,7 +35,7 @@ module.exports.run = async (bot, message, args) => {
   });
 
   let WEmbed = new Discord.RichEmbed()
-  .setTitle("A user has been warned!")
+  .setTitle("**A user has been warned!**")
   .setColor("#ff0c00")
   .addField("Punished User", `<@${wUser.id}>`)
   .addField("Punishment Type", "Warning")
@@ -44,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
   message.reply(WEmbed);
 
   let ModEmbed = new Discord.RichEmbed()
-  .setTitle("Warn command used!")
+  .setTitle("**Warn command used!**")
   .setColor("RED")
   .addField("Warned User", `<@${wUser.id}>`, true)
   .addField("Warned In", message.channel, true)
@@ -60,7 +60,7 @@ module.exports.run = async (bot, message, args) => {
   warnchannel.send(ModEmbed);
 
   let DMembed = new Discord.RichEmbed()
-  .setTitle("You have been warned in Global Roleplay™ PS4")
+  .setTitle("**You have been warned in ${message.guild.name}**")
   .setColor("#ff0c00")
   .addField("Punishment Type", "Warning")
   .addField("Reason", reason);
