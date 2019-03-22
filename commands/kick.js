@@ -19,6 +19,7 @@ module.exports.run = async (bot, message, args) => {
     if(!kUser) return message.channel.send("Can't find user!");
     let kReason = args.join(" ").slice(22);
     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot kick a Moderator or higher.");
+    if(!kReason) return message.reply("Please give a reason.")
 
 geluktEmbed = new Discord.RichEmbed()
       .setColor("ORANGE")
@@ -53,6 +54,13 @@ geluktEmbed = new Discord.RichEmbed()
     if(!warnchannel) return message.reply("Couldn't find channel");
 
     warnchannel.send(ModEmbed);
+
+    let dmembed =  new Discord.RichEmbed()
+    .setTitle(`**You have been kicked from ${message.guild.name}.**`)
+    .setColor("#00fff6")
+    .addField("Reason:", kReason);
+
+    kUser.send(dmembed);
 
 }
 
