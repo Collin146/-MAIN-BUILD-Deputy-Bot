@@ -53,8 +53,15 @@ geluktEmbed = new Discord.RichEmbed()
 
     warnchannel.send(ModEmbed);
 
+    let dmembed =  new Discord.RichEmbed()
+    .setTitle(`**You have been banned from ${message.guild.name}.**`)
+    .addField("Reason:", bReason);
+
+    bUser.send(dmembed);
+
 }
 
  module.exports.help = {
      name: "ban"
+
  }
