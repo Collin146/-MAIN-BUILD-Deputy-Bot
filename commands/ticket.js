@@ -14,7 +14,7 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
 
 //Embed voor geen reden
   .setColor("RED")
-  .setAuthor("Error")
+  .setTitle("*gError**")
   .setDescription("Please input a valid reason!")
 
   if(!onderwerp) return message.channel.send(errorEmbed); //als er geen args zijn
@@ -32,7 +32,7 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
 
             let dongembed = new discord.RichEmbed()
             .setColor("RED")
-            .setAuthor("Error")
+            .setTitle("**Error**")
             .setDescription("<:xcross:504361310385995798> You already have a open ticket!")
             message.channel.send(dongembed);
 
@@ -47,7 +47,7 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
 
       if (!role) return message.channel.send("Please create a role called **Staff Team** to use tickets. ") //Als support rank er niet is
       const ticketEmbed = new discord.RichEmbed()
-      .setAuthor("New ticket!")
+      .setTitle("**New ticket!**")
       .addField("Ticket creator", `**${message.author}**`, true)
       .addField("Reason", `**${onderwerp}**`)
       .setThumbnail(`${message.author.avatarURL}`)
@@ -61,9 +61,8 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
       ticketchannel.send(ticketEmbed);
 
       geluktEmbed = new discord.RichEmbed()
-      .setAuthor("Your ticket has been created!")
       .setColor("GREEN")
-      .setAuthor("Done")
+      .setTitle("**Done**")
       .setDescription(`You succesfully created a ticket. This has been sent to the Staff Team!`)
 
       message.channel.send(geluktEmbed);
