@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
@@ -7,15 +7,16 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-        if(!rUser) return message.channel.send("Couldn't find user.");
-
+        if(!rUser) return message.channel.send("Couldn't find that user").then(msg => msg.delete(5000));
 msg => msg.delete(5000)
+
+message.delete().catch(O_o=>{});
 
         let reason = args.join(" ").slice(22);
 
-if (!reason) return message.channel.send("You need to give a reason") 
+if (!reason) return message.channel.send(`Please give a reason.`).then(msg => msg.delete(5000));
 
-msg => msg.delete(5000)
+message.delete().catch(O_o=>{});
 
         let reportEmbed = new Discord.RichEmbed()
         .setTitle("**A user has been reported!**")
