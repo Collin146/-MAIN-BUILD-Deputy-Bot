@@ -62,7 +62,7 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
 
       geluktEmbed = new discord.RichEmbed()
       .setColor("GREEN")
-      .setTitle("**Done**")
+      .setTitle("**Done!**")
       .setDescription(`You succesfully created a ticket. This has been sent to the Staff Team!`)
 
       message.channel.send(geluktEmbed);
