@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
         .setColor(message.guild.member(member).highestRole.color)
         .setThumbnail(member.displayAvatarURL)
         
-        .setTitle(`Here is ${member.username}'s info.`)
+        .setTitle(`**Here is ${member.username}'s information**`)
         .addField(`Name:`, member.username, true)
         .addField(`ID:`, member.id, true)
         .addField(`Bot:`, member.bot ? "Yes" : "No", true)
