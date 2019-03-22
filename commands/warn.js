@@ -60,7 +60,7 @@ module.exports.run = async (bot, message, args) => {
   warnchannel.send(ModEmbed);
 
   let DMembed = new Discord.RichEmbed()
-  .setTitle("**You have been warned in ${message.guild.name}**")
+  .setTitle(`**You have been warned in ${message.guild.name}**`)
   .setColor("#ff0c00")
   .addField("Punishment Type", "Warning")
   .addField("Reason", reason);
