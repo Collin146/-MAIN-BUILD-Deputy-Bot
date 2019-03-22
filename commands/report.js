@@ -30,12 +30,14 @@ message.delete().catch(O_o=>{});
         let reportschannel = message.guild.channels.find(`name`, "reports");
         if(!reportschannel) return message.reply("Couldn't find reports channel,");
 
+        message.delete().catch(O_o=>{});
+        reportschannel.send(reportEmbed);
+
 let dmembed = new Discord.RichEmbed()
 .setTitle("**Done!**")
 .setDescription(`${rUser} has been reported to the staff team of ${message.guild.name}.`);
  
-        message.delete().catch(O_o=>{});
-        reportschannel.send(reportEmbed);
+rUser.send(dmembed);
 
 
 }
