@@ -1,52 +1,50 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
-module.exports.run = async (bot, message, args) => { 
-
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
+module.exports.run = async (bot, message, args) => {
+    if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
     if(args[0] === "help"){
-        message.reply("Usage: !kick <user> <reason>");
+        message.reply("Usage: !ban <user> <reason>");
+        return;
+    }
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You don't have permission to do that.");
+    if(args[0] == "help"){
+        message.reply("Usage: !ban <user> <reason");
         return;
     }
 
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
-    if(args[0] == "help"){
-        message.reply("Usage: !kick <user> <reason>");
-        return;
-    }
-    
-    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!kUser) return message.channel.send("Can't find user!");
-    let kReason = args.join(" ").slice(22);
-    if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot kick a Moderator or higher.");
-    if(!kReason) return message.reply("Please give a reason.")
+    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!bUser) return message.channel.send("Can't find user!");
+    let bReason = args.join(" ").slice(22);
+    if(bUser.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot ban an Admin.");
+    if(!bReason) return message.reply("Please give a reason.");
 
 geluktEmbed = new Discord.RichEmbed()
       .setColor("ORANGE")
       .setTitle("**Done!**")
-      .setDescription(`<@${kUser.id}> has been kicked!`)
-      .setFooter(`Mentioned User ID: ${kUser.id}`);
+      .setDescription(`<@${bUser.id}> has been banned!`)
+      .setFooter(`Mentioned User ID: ${bUser.id}`);
 
 
-    //let kickEmbed = new Discord.RichEmbed()
-    //.setDescription("A user has been kicked")
-    //.setColor("#ff6a00")
-    //.addField("Kicked User", `${kUser} with ID: ${kUser.id}`)
-    //.addField("Kicked By", `<@${message.author.id}> with ID: ${message.author.id}`)
-    //.addField("Kicked In", message.channel)
-    //.addField("Time", message.createdAt)
-    //.addField("Reason", kReason);
+   // let banEmbed = new Discord.RichEmbed()
+   // .setDescription("A user has been banned")
+   // .setColor("#ff6a00")
+   // .addField("Banned User", `${bUser} with ID: ${bUser.id}`)
+   // .addField("Banned By", `<@${message.author.id}> with ID: ${message.author.id}`)
+   // .addField("Banned In", message.channel)
+   // .addField("Time", message.createdAt)
+   // .addField("Reason", bReason);
 
-    message.guild.member(kUser).kick(kReason);
+    message.guild.member(bUser).ban(bReason);
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
-    .setTitle("**Kick command used!**")
+    .setTitle("**Ban command used!**")
     .setColor("RED")
-    .addField("Kicked User", `<@${kUser.id}>`, true)
-    .addField("Kicked In", message.channel, true)
-    .addField("Reason", kReason, true)
-    .addField("Kicked By", message.author.username, true)
+    .addField("Banned User", `<@${bUser.id}>`, true)
+    .addField("Banned In", message.channel, true)
+    .addField("Reason", bReason, true)
+    .addField("Banned By", message.author.username, true)
     .setTimestamp()
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
@@ -56,16 +54,16 @@ geluktEmbed = new Discord.RichEmbed()
     warnchannel.send(ModEmbed);
 
     let dmembed =  new Discord.RichEmbed()
-    .setTitle(`**You have been kicked from ${message.guild.name}.**`)
+    .setTitle(`**You have been banned from ${message.guild.name}.**`)
     .setColor("#00fff6")
-    .addField("Reason:", kReason);
+    .addField("Reason:", bReason);
 
     bUser.send(dmembed);
 
-
 }
 
-module.exports.help = {
-    name: "kick"
+ module.exports.help = {
+     name: "ban"
 
-}
+
+ }
