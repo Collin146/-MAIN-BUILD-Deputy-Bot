@@ -78,7 +78,7 @@ if(!warnchannel) return message.reply("Couldn't find channel");
 warnchannel.send(ModEmbed);
 
 let DMembed = new Discord.RichEmbed()
-.setTitle("**You have been punished in ${message.guild.name}**")
+.setTitle(`**You have been punished in ${message.guild.name}**`)
 .setColor("#ff0c00")
 .addField("Punishment Type", "Watchlist")
 .addField("Length & Reason", kReason);
