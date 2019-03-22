@@ -79,7 +79,7 @@ if(!warnchannel) return message.reply("Couldn't find channel");
 warnchannel.send(ModEmbed);
 
 let DMembed = new Discord.RichEmbed()
-.setTitle("**You have been striked in ${message.guild.name}**")
+.setTitle(`**You have been striked in ${message.guild.name}**`)
 .setColor("#ff0c00")
 .addField("Strike Type", "Strike 1")
 .addField("Length & Reason", kReason);
