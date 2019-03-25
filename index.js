@@ -46,16 +46,21 @@ fs.readdir("./charges/", (err, files) => {
     
     });
 
-bot.on('guildMemberAdd', member => {
-    let welcomechannel = member.guild.channels.find(`name`, "welcome");
-    let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
-    // channel: the channel you want to send the welcome message in
-    // or send it with an embed:
+
+const rando_imgs = [
+'https://media.discordapp.net/attachments/540626663944355861/555452902936936459/Screenshot_2019-01-03_at_13.15.28.png',
+'https://media.discordapp.net/attachments/540626663944355861/555452202852941843/Grand_Theft_Auto_V_20190222234636.jpg',
+'https://media.discordapp.net/attachments/540626663944355861/555452108430901248/Grand_Theft_Auto_V_20190223000228.jpg',
+'https://media.discordapp.net/attachments/540626663944355861/555451714711453747/Grand_Theft_Auto_V_20181223003801.jpg',
+'https://media.discordapp.net/attachments/540626663944355861/555451678724194305/Grand_Theft_Auto_V_20181220213209.jpg',
+'https://media.discordapp.net/attachments/540626663944355861/555452668567486475/Grand_Theft_Auto_V_20181225223203.jpg',
+]
+
     let embed = new Discord.RichEmbed()
-      .setTitle("**A new user has joined!**")
+      .setTitle("A new user has joined!")
       .setColor("#00f4ef")
       .setDescription(`Welcome ${member}, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
-      .setImage('https://cdn.discordapp.com/attachments/461540254441144326/542114903767515150/Screenshot_2019-01-03_at_13.15.28.png');
+      .setImage`file: rando_imgs[Math.floor(Math.random() * rando_imgs.length)]`);
     welcomechannel.send({embed});
   });
 
