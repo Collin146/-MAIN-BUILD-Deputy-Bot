@@ -52,7 +52,7 @@ bot.on('guildMemberAdd', member => {
     // channel: the channel you want to send the welcome message in
     // or send it with an embed:
     let embed = new Discord.RichEmbed()
-      .setTitle("A new user has joined!")
+      .setTitle("**A new user has joined!**")
       .setColor("#00f4ef")
       .setDescription(`Welcome ${member}, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
       .setImage('https://cdn.discordapp.com/attachments/461540254441144326/542114903767515150/Screenshot_2019-01-03_at_13.15.28.png');
@@ -107,7 +107,7 @@ bot.on("messageDelete", async msg => {
     let entry = logs.entries.first();
   
     let embed = new Discord.RichEmbed()
-      .setTitle("**DELETED MESSAGE**")
+      .setTitle("**Deleted Message**")
       .setColor("#fc3c3c")
       .addField("Author", msg.author.tag, true)
       .addField("Channel", msg.channel, true)
@@ -137,7 +137,7 @@ bot.on(`message`, async message => {
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
-            .setTitle("Notice!")
+            .setTitle("**Notice!**")
             .setColor("RED")
             .setDescription("Links are not allowed to be sent!")
             .setFooter("Spamming links will result in a punishment!");
@@ -171,7 +171,7 @@ bot.on(`message`, async message => {
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
-            .setTitle("Notice!")
+            .setTitle("**Notice!**")
             .setColor("RED")
             .setDescription("Do not mention everyone or member!")
             .setFooter("Mention spam will result in a punishment!");
@@ -199,7 +199,7 @@ bot.on(`message`, async message => {
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
-            .setTitle("Notice!")
+            .setTitle("**Notice!**")
             .setColor("RED")
             .setDescription("Those words are not allowed to be sent!")
             .setFooter("Continuing on sending those words will result in a punishment!");
