@@ -27,6 +27,11 @@ if(tosahp.hasPermission("ADMINISTRATOR")) return message.channel.send("You canno
 //let memrrole = message.guild.roles.find(`name`, "ember");
 //let approle = message.guild.roles.find(`name`, "Applicant");
 //guildmember.setRoles(...)
+    
+   if(!memberrole) return message.reply("The role \'Member\' doesn't exist");
+   if(!sahprole) return message.reply("The role \'SAHP\' doesn't exist");
+   if(!probrole) return message.reply("The role \'SAHP Probationary\' doesn't exist");
+   if(!leorole) return message.reply("The role \'LEO\' doesn't exist");
 
 tosahp.removeRole(nmrole.id);
 tosahp.addRole(memberrole.id);
