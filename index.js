@@ -60,7 +60,7 @@ const rando_imgs = [
       .setTitle("A new user has joined!")
       .setColor("#00f4ef")
       .setDescription(`Welcome ${member}, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
-      .setImage`file: rando_imgs[Math.floor(Math.random() * rando_imgs.length)]`);
+      .setImage(`file: rando_imgs[Math.floor(Math.random() * rando_imgs.length)]`);
     welcomechannel.send({embed});
   });
 
