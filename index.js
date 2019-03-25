@@ -46,6 +46,10 @@ fs.readdir("./charges/", (err, files) => {
     
     });
 
+bot.on('guildMemberAdd', member => {
+    let welcomechannel = member.guild.channels.find(`name`, "welcome");
+    // channel: the channel you want to send the welcome message in
+    // or send it with an embed:
 
 const rando_imgs = [
 'https://media.discordapp.net/attachments/540626663944355861/555452902936936459/Screenshot_2019-01-03_at_13.15.28.png',
@@ -61,8 +65,6 @@ const rando_imgs = [
       .setColor("#00f4ef")
       .setDescription(`Welcome ${member}, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
       .setImage(`file: rando_imgs[Math.floor(Math.random() * rando_imgs.length)]`);
-
-let welcomechannel = message.guild.channels.find(`name`, "welcome");
     welcomechannel.send({embed});
   });
 
