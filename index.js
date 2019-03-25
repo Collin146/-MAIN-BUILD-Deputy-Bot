@@ -60,7 +60,7 @@ const rando_imgs = [
 'https://media.discordapp.net/attachments/540626663944355861/555452668567486475/Grand_Theft_Auto_V_20181225223203.jpg',
 ]
 
-const image = array[Math.floor(Math.random() * rando_imgs.length)];
+const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
 
     let embed = new Discord.RichEmbed()
       .setTitle("A new user has joined!")
