@@ -23,6 +23,7 @@ if(!tostrike) return message.reply("Couldn't find that user.");
 let kReason = args.join(" ").slice(22);
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 if(tostrike.hasPermission("ADMINISTRATOR")) return message.reply("You cannot watchlist a Moderator or higher");
+if (!kReason) return message.reply("Please give a reason");
 let strikerole = message.guild.roles.find(`name`, "Watchlist");
 let mentioned = message.mentions.users.first();
 
