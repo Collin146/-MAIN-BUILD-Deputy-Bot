@@ -63,7 +63,7 @@ const rando_imgs = [
 const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
 
     let embed = new Discord.RichEmbed()
-      .setTitle("A new user has joined!")
+      .setTitle("**A new user has joined!**")
       .setColor("#00f4ef")
       .setDescription(`Welcome ${member}, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
       .setImage(`${image}`);
