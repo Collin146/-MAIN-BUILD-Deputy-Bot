@@ -61,6 +61,8 @@ const rando_imgs = [
       .setColor("#00f4ef")
       .setDescription(`Welcome ${member}, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
       .setImage(`file: rando_imgs[Math.floor(Math.random() * rando_imgs.length)]`);
+
+let welcomechannel = message.guild.channels.find(`name`, "welcome");
     welcomechannel.send({embed});
   });
 
