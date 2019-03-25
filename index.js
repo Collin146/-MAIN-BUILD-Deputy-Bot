@@ -60,11 +60,13 @@ const rando_imgs = [
 'https://media.discordapp.net/attachments/540626663944355861/555452668567486475/Grand_Theft_Auto_V_20181225223203.jpg',
 ]
 
+const image = array[Math.floor(Math.random() * rando_imgs.length)];
+
     let embed = new Discord.RichEmbed()
       .setTitle("A new user has joined!")
       .setColor("#00f4ef")
       .setDescription(`Welcome ${member}, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
-      .setImage(`file: rando_imgs[Math.floor(Math.random() * rando_imgs.length)]`);
+      .setImage(`${image}`);
     welcomechannel.send({embed});
   });
 
