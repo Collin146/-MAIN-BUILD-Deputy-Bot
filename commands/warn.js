@@ -22,6 +22,7 @@ module.exports.run = async (bot, message, args) => {
   if(!wUser) return message.reply("Couldn't find that user.");
   if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("You can't warn a Moderator or higher.");
   let reason = args.join(" ").slice(22);
+  if (!reason) return message.reply("Please give a reason");
   let mentioned = message.mentions.users.first();
 
   if(!warns[wUser.id]) warns[wUser.id] = {
