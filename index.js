@@ -79,7 +79,7 @@ bot.on("guildMemberRemove", async member => {
 
 bot.on("ready", async () => {
  console.log(`${bot.user.username} is online!`);
- bot.user.setActivity("v973.5.7 | !help | prefix !");
+ bot.user.setActivity("v994.5.5 | !help | prefix !");
 
 });
 
