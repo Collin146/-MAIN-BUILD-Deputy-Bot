@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
 
 let helpembed = new Discord.RichEmbed()
-.setTitle("Commands Help Menu")
+.setTitle("**Commands Help Menu**")
 .setColor("#00fff6")
 .addField("!botinfo", "This shows you the information about the bot.")
 .addField("!help", "This brings up the commands menu.")
@@ -15,7 +15,7 @@ message.channel.send(helpembed);
 
 if(message.member.hasPermission("MANAGE_MESSAGES")){
 let modembed = new Discord.RichEmbed()
-.setTitle("Staff Team Help Menu")
+.setTitle("**Staff Team Help Menu**")
 .setColor("#00fff6")
 .addBlankField(true)
 .addField("**---------Moderation Commands---------**", "The basic moderation commands.")
@@ -37,6 +37,7 @@ let modembed = new Discord.RichEmbed()
 .addField("!lockdown", "This overrides the channel it's send messages permission to off for everyone")
 .addField("!lockdown unlock", "This overrides the channel it's send messages permission to on for everyone")
 .addField("!userinfo <user>", "This shows the mentioned user it's account information")
+.addField("!reject <user> <reason>", "This sends a DM to the mentioned user telling them that their application form was rejected and the reason why");
 
 let modembed2 = new Discord.RichEmbed()
 .addField("**---------Other Commands---------**", "The rest of the commands.")
