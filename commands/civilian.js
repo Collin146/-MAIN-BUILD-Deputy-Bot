@@ -26,6 +26,10 @@ if(tociv.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot
 //let memrrole = message.guild.roles.find(`name`, "ember");
 //let approle = message.guild.roles.find(`name`, "Applicant");
 //guildmember.setRoles(...)
+    
+   if(!memberrole) return message.reply("The role \'Member\' doesn't exist");
+   if(!civilianrole) return message.reply("The role \'Civilian\' doesn't exist");
+   if(!civ1role) return message.reply("The role \'Civ 1\' doesn't exist");
 
 tociv.removeRole(nmrole.id);
 tociv.addRole(memberrole.id);
