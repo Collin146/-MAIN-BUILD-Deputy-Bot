@@ -28,7 +28,7 @@ if(tobcso.hasPermission("ADMINISTRATOR")) return message.channel.send("You canno
 //let approle = message.guild.roles.find(`name`, "Applicant");
 //guildmember.setRoles(...)
 
-   if(!memberrole) return message.reply("The role \'member\' doesn't exist");
+   if(!memberrole) return message.reply("The role \'Member\' doesn't exist");
    if(!bcsorole) return message.reply("The role \'BCSO\' doesn't exist");
    if(!probrole) return message.reply("The role \'BCSO Probationary\' doesn't exist");
    if(!leorole) return message.reply("The role \'LEO\' doesn't exist");
