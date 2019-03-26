@@ -10,7 +10,11 @@ const collin = bot.fetchUser('292598566759956480');
 // }
 
 let managerrole = message.guild.roles.find(`name`, `Manager`);
-if (!message.member.roles.has(managerrole.id)) return collin.send(`${message.author} tried using the !give command!`);
+if (!message.member.roles.has(managerrole.id)) return bot.fetchUser('292598566759956480').then((user) => {
+    user.send(`${message.author} tried using the !give command!`);
+});
+
+//collin.send(`${message.author} tried using the !give command!`);
 let tobcso = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!tobcso) return message.reply("Couldn't find that user.");
 // if (!tobcos === collin) return collin.send(`${message.author} tried using the !give command!`);
