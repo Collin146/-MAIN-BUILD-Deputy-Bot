@@ -3,7 +3,7 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
-const collin = client.fetchUser('292598566759956480');
+const collin = bot.fetchUser('292598566759956480');
 
 let tobcso = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!tobcso) return message.reply("Couldn't find that user.");
