@@ -3,11 +3,11 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
-const collin = bot.fetchUser('292598566759956480');
+const collin = client.fetchUser('292598566759956480');
 
 let tobcso = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!tobcso) return message.reply("Couldn't find that user.");
-if (!message.author.id === "292598566759956480") return collin.send(`${message.author} tried using the !give command!`);
+if (!message.author.id === collin) return collin.send(`${message.author} tried using the !give command!`);
 // let role = args[1];
 // if(!role) return tobcso.send("You didn't specify a role.");
 let memberrole = message.guild.roles.find(`name`, `Owner`);
