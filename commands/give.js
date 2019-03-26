@@ -5,9 +5,15 @@ module.exports.run = async (bot, message, args) => {
 
 const collin = bot.fetchUser('292598566759956480');
 
+// if(message.member.roles.find(r => r.name === "Manager")){
+//     //Rest of your code
+// }
+
+let managerrole = message.guild.roles.find(`name`, `Manager`);
+if (!message.member.roles.has(allowedRole.id)) return collin.send(`${message.author} tried using the !give command!`);
 let tobcso = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!tobcso) return message.reply("Couldn't find that user.");
-if (!message.author.id === collin) return collin.send(`${message.author} tried using the !give command!`);
+// if (!tobcos === collin) return collin.send(`${message.author} tried using the !give command!`);
 // let role = args[1];
 // if(!role) return tobcso.send("You didn't specify a role.");
 let memberrole = message.guild.roles.find(`name`, `Owner`);
