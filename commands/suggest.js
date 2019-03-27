@@ -10,7 +10,7 @@ let sugembed = new Discord.RichEmbed()
 .setTitle("**New Suggestion!**")
 .setColor("GREEN")
 .setAuthor(`${message.author}`)
-.setDescription(`${kReason`)
+.setDescription(`${kReason}`)
 .setTimestamp()
 
 let warnchannel = message.guild.channels.find(`name`, "server-suggestions-staff-only");
