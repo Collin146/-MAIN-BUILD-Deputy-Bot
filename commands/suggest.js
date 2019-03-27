@@ -16,7 +16,7 @@ let warnchannel = message.guild.channels.find(`name`, "server-suggestions-staff-
 if(!warnchannel) return message.reply("Couldn't find channel");
 
 warnchannel.send(sugembed)
-.then(sentMessage => sentMessage.react('✔', '➖', '❌'))
+.then(sentMessage => sentMessage.react('✔'), sentMessage => sentMessage.react('➖'), sentMessage => sentMessage.react('❌'))
 // .then(sentMessage => sentMessage.react('➖'))
 // .then(sentMessage => sentMessage.react('❌'))
 .catch(() => console.error('Failed to react to msg.'));
