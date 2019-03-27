@@ -15,11 +15,16 @@ let sugembed = new Discord.RichEmbed()
 let warnchannel = message.guild.channels.find(`name`, "server-suggestions-staff-only"); 
 if(!warnchannel) return message.reply("Couldn't find channel");
 
-warnchannel.send(sugembed)
-.then(sentMessage => sentMessage.react('✔'), sentMessage => sentMessage.react('➖'), sentMessage => sentMessage.react('❌'))
-// .then(sentMessage => sentMessage.react('➖'))
-// .then(sentMessage => sentMessage.react('❌'))
-.catch(() => console.error('Failed to react to msg.'));
+const sentMessage =  await warnchannel.send(sugembed);
+sentMessage.react('✔');
+sentMessage.react('➖');
+sentMessage.react('❌');
+
+// warnchannel.send(sugembed)
+// .then(sentMessage => sentMessage.react('✔'))
+// // .then(sentMessage => sentMessage.react('➖'))
+// // .then(sentMessage => sentMessage.react('❌'))
+// .catch(() => console.error('Failed to react to msg.'));
 
 // warnchannel.send(sugembed).then(sentMessage => {
 // let emoji1 = message.guild.find(`name`, "heavy_check_mark");
