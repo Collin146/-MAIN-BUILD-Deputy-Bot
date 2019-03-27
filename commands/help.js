@@ -9,7 +9,9 @@ let helpembed = new Discord.RichEmbed()
 .addField("!help", "This brings up the commands menu.")
 .addField("!report <user> <reason>", "This reports the mentioned user to staff. ALWAYS GIVE A REASON!")
 .addField("!serverinfo", "This shows you the information about the server.")
-.addField("!ticket <reason>", "This sends a ticket to the Staff Team with the reason you gave.");
+.addField("!ticket <reason>", "This sends a ticket to the Staff Team with the reason you gave.")
+.addField("!suggest <your suggestion>", "This sends the suggestion you give to the Staff Team.")
+.addField("!invite", "This sends a message to the Staff Team telling them that you need an invite to the session that is active at that time.");
 
 message.channel.send(helpembed);
 
