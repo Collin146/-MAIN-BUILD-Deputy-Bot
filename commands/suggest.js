@@ -17,8 +17,8 @@ if(!warnchannel) return message.reply("Couldn't find channel");
 
 const sentMessage =  await warnchannel.send(sugembed);
 sentMessage.react('✔');
-sentMessage.react('➖');
-sentMessage.react('✖');
+await sentMessage.react('➖');
+await sentMessage.react('✖');
 
 // warnchannel.send(sugembed)
 // .then(sentMessage => sentMessage.react('✔'))
