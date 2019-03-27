@@ -32,7 +32,7 @@ let doneembed = new Discord.RichEmbed()
 .setColor("GREEN")
 .setDescription("Your suggestion has been sent to the Staff Team!");
 
-channel.send(doneembed);
+message.channel.send(doneembed);
 
 }
 
