@@ -3,7 +3,7 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
-let kReason = args.join(" ").slice(1);
+let kReason = args.join(" ").slice(0);
 if(!kReason) return message.reply("Please give a suggestion");
 
 let sugembed = new Discord.RichEmbed()
