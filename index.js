@@ -68,6 +68,14 @@ const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
       .setDescription(`Welcome ${member}, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
       .setImage(`${image}`);
     welcomechannel.send({embed});
+
+    let backupembed = new Discord.RichEmbed()
+     .setColor("#00f4ef")
+     .setAuthor(`${member.username}`, member.avatarURL)
+     .setDescription("Has just joined.");
+
+    let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
+    backupchannel.send({backupembed});
   });
 
 bot.on("guildMemberRemove", async member => {
