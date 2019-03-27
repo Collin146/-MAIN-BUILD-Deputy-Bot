@@ -75,7 +75,7 @@ const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
      .setDescription("Has just joined.");
 
     let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
-    backupchannel.send({backupembed});
+    backupchannel.send(backupembed);
   });
 
 bot.on("guildMemberRemove", async member => {
