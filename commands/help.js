@@ -49,6 +49,7 @@ let modembed2 = new Discord.RichEmbed()
 .addField("!session <day> <time>", "This announces a session for the given day and time.")
 .addField("!training <day> <time>", "This announces a training session for the given day and time.")
 .addField("!briefing <time until briefing>", "This will announce briefing when the given time has ended.")
+.addField("!r", "This mentions everyone and sends a reminder message in the channel that the command was used in.")
 .addField("!ping", "This shows the latency between the bot responding to commands.");
 try{
     await message.author.send(modembed);
