@@ -20,6 +20,8 @@ if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send
 let mentionrole = message.guild.roles.find(`name`, `Member`);
 let mutetime = args[0];
 if(!mutetime) return message.reply("You didn't specify a time!");
+const yes = bot.emojis.get("561106357131018273");
+const no = bot.emojis.get("561106624757104640");
 
 setTimeout(function(){
     message.channel.send([
@@ -30,7 +32,7 @@ setTimeout(function(){
 }, ms(mutetime));
 
 let dmembed = new Discord.RichEmbed()
-.setTitle("**Done!**")
+.setTitle(`${yes} **Done!**`)
 .setColor("#00fff6")
 .setDescription(`I will post an announcement in ${message.channel} for briefing room in ${mutetime}.`)
 .setTimestamp();
