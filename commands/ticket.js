@@ -10,8 +10,9 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
   const no = client.emojis.get("561106624757104640");
     
 //Embed voor geen reden
+  let errorEmbed = new Discord.RichEmbed()
   .setColor("RED")
-  .setTitle("**Error**")
+  .setTitle(`${no} **Error**`)
   .setDescription("Please input a valid reason!")
 
   if(!onderwerp) return message.channel.send(errorEmbed); //als er geen args zijn
