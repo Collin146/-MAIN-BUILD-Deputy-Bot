@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if(!rUser) return message.reply("Couldn't find that user").then(msg => msg.delete(5000));
 
-let reason = args.join(" ").slice(22);
+let reason = args.join(" ").slice(21);
 
         message.delete().catch(O_o=>{});
 if (!reason) return message.reply(`Please give a reason.`).then(msg => msg.delete(5000));
