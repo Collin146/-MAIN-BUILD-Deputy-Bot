@@ -23,6 +23,8 @@ let civilianrole = message.guild.roles.find(`name`, "Civilian");
 let civ1role = message.guild.roles.find(`name`, "Civ 1");
 let nmrole = message.guild.roles.find(`name`, "New Member");
 if(tociv.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot use this command on an admin!");
+const yes = bot.emojis.get("561106357131018273");
+const no = bot.emojis.get("561106624757104640");
 //let memrrole = message.guild.roles.find(`name`, "ember");
 //let approle = message.guild.roles.find(`name`, "Applicant");
 //guildmember.setRoles(...)
@@ -52,7 +54,7 @@ warnchannel.send(ModEmbed);
 
 geluktEmbed = new Discord.RichEmbed()
       .setColor("GREEN")
-      .setTitle("**Done!**")
+      .setTitle(`${yes} **Done!**`)
       .setDescription(`The roles of <@${tociv.id}> have been updated!`)
       .setFooter(`Mentioned User ID: ${tociv.id}`);
 
