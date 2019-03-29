@@ -20,6 +20,8 @@ if(!toinvest) return message.reply("Couldn't find that user.");
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 let investrole = message.guild.roles.find(`name`, "Investigation");
 if(toinvest.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot use this command on an admin!");
+const yes = bot.emojis.get("561106357131018273");
+const no = bot.emojis.get("561106624757104640");
 //let memrrole = message.guild.roles.find(`name`, "ember");
 //let approle = message.guild.roles.find(`name`, "Applicant");
 //guildmember.setRoles(...)
@@ -43,8 +45,8 @@ warnchannel.send(ModEmbed);
     
 
     geluktEmbed = new Discord.RichEmbed()
-      .setColor("ORANGE")
-      .setTitle("**Done!**")
+      .setColor("GREEN")
+      .setTitle(`${yes} **Done!**`)
       .setDescription(`The roles of <@${toinvest.id}> have been updated!`)
       .setFooter(`Mentioned User ID: ${toinvest.id}`);
 
