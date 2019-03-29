@@ -40,7 +40,7 @@ await sentMessage.react(no.id);
 // });
 
 let doneembed = new Discord.RichEmbed()
-.setTitle("**Done!**")
+.setTitle(`${yes} **Done!**`)
 .setColor("GREEN")
 .setDescription("Your suggestion has been sent to the Staff Team!");
 
