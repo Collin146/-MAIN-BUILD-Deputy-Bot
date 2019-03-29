@@ -5,6 +5,9 @@ module.exports.run = async (bot, message, args) => {
 
 let kReason = args.join(" ").slice(0);
 if(!kReason) return message.reply("Please give a suggestion");
+const yes = bot.emojis.get("561106357131018273");
+const no = bot.emojis.get("561106624757104640");
+const maybe = bot.emojis.get("561106761038299137");
 
 let sugembed = new Discord.RichEmbed()
 .setTitle("**New Suggestion!**")
@@ -16,9 +19,9 @@ let warnchannel = message.guild.channels.find(`name`, "server-suggestions-staff-
 if(!warnchannel) return message.reply("Couldn't find channel");
 
 const sentMessage =  await warnchannel.send(sugembed);
-await sentMessage.react("<:yes:561106357131018273>");
-await sentMessage.react("<:maybe:561106761038299137>");
-await sentMessage.react("<:no:561106624757104640>");
+await sentMessage.react(`${yes}`);
+await sentMessage.react(`${maybe}`);
+await sentMessage.react(`${no}`);
 
 // warnchannel.send(sugembed)
 // .then(sentMessage => sentMessage.react('✔'))
