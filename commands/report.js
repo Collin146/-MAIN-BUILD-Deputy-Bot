@@ -16,6 +16,9 @@ let reason = args.join(" ").slice(21);
 if (!reason) return message.reply(`Please give a reason.`).then(msg => msg.delete(5000));
 
 message.delete().catch(O_o=>{});
+    
+    const yes = bot.emojis.get("561106357131018273");
+    const no = bot.emojis.get("561106624757104640");
 
         let reportEmbed = new Discord.RichEmbed()
         .setTitle("**A user has been reported!**")
@@ -34,7 +37,7 @@ message.delete().catch(O_o=>{});
         reportschannel.send(reportEmbed);
 
 let dmembed = new Discord.RichEmbed()
-.setTitle("**Done!**")
+.setTitle(`${yes} **Done!**`)
 .setColor("#00fff6")
 .setDescription(`${rUser} has been reported to the staff team of ${message.guild.name}.`);
 try{
