@@ -20,6 +20,8 @@ let rUser = message.guild.member(message.mentions.users.first() || message.guild
     let kReason = args.join(" ").slice(21);
     if (!kReason) return message.reply("Please give a reason");
     if(rUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot reject a Moderator or higher.");
+    const yes = bot.emojis.get("561106357131018273");
+    const no = bot.emojis.get("561106624757104640");
 
     
 let rejectembed = new Discord.RichEmbed()
@@ -32,7 +34,7 @@ rUser.send(rejectembed);
     
     geluktEmbed = new Discord.RichEmbed()
       .setColor("GREEN")
-      .setTitle("**Done!**")
+      .setTitle(`${yes} **Done!**`)
       .setDescription(`A message has been sent to <@${rUser.id}>!`)
       .setFooter(`Mentioned User ID: ${rUser.id}`);
 
