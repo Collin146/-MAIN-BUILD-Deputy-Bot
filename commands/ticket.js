@@ -2,19 +2,16 @@ const discord = require('discord.js'); //haal discord.js binnen
 
 module.exports.run = async (client, message, args, guild) => { //dingen definen
 
-    //Onderwerp van de ticket
   let onderwerp = args.join(" ");
-
-  //Username van de persoon
-      var userName = message.author.username;
-
-      //Icon  van de bot
+  var userName = message.author.username;
   let bicon = client.user.displayAvatarURL;
   errorEmbed = new discord.RichEmbed() //Embed als er geen reden is binnenhalen
-
+  const yes = client.emojis.get("561106357131018273");
+  const no = client.emojis.get("561106624757104640");
+    
 //Embed voor geen reden
   .setColor("RED")
-  .setTitle("*gError**")
+  .setTitle("**Error**")
   .setDescription("Please input a valid reason!")
 
   if(!onderwerp) return message.channel.send(errorEmbed); //als er geen args zijn
@@ -32,7 +29,7 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
 
             let dongembed = new discord.RichEmbed()
             .setColor("RED")
-            .setTitle("**Error**")
+            .setTitle(`${no} **Error**`)
             .setDescription("<:xcross:504361310385995798> You already have a open ticket!")
             message.channel.send(dongembed);
 
@@ -62,7 +59,7 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
 
       geluktEmbed = new discord.RichEmbed()
       .setColor("GREEN")
-      .setTitle("**Done!**")
+      .setTitle(`${yes} **Done!**`)
       .setDescription(`You succesfully created a ticket. This has been sent to the Staff Team!`)
 
       message.channel.send(geluktEmbed);
