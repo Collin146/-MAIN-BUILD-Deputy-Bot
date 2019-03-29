@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => {
+    
     if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
     if(args[0] === "help"){
         message.reply("Usage: !ban <user> <reason>");
@@ -18,10 +19,12 @@ module.exports.run = async (bot, message, args) => {
     let bReason = args.join(" ").slice(21);
     if(bUser.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot ban an Admin.");
     if(!bReason) return message.reply("Please give a reason.");
+    const yes = bot.emojis.get("561106357131018273");
+    const no = bot.emojis.get("561106624757104640");
 
 geluktEmbed = new Discord.RichEmbed()
-      .setColor("ORANGE")
-      .setTitle("**Done!**")
+      .setColor("GREEN")
+      .setTitle(`${yes} **Done!**`)
       .setDescription(`<@${bUser.id}> has been banned!`)
       .setFooter(`Mentioned User ID: ${bUser.id}`);
 
