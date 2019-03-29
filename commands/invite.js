@@ -4,6 +4,8 @@ const errors = require("../utils/errors.js");
 module.exports.run = async (bot, message, args) => { 
 
 let mentionrole = message.guild.roles.find(`name`, `Staff Team`);
+const yes = bot.emojis.get("561106357131018273");
+const no = bot.emojis.get("561106624757104640");
 
 let invembed = new Discord.RichEmbed()
 .setTitle("**Invite Request!**")
@@ -18,7 +20,7 @@ warnchannel.send(`<@&${mentionrole.id}>`)
 await warnchannel.send(invembed);
 
 let doneembed = new Discord.RichEmbed()
-.setTitle("**Done!**")
+.setTitle(`${yes} **Done!**`)
 .setColor("GREEN")
 .setDescription("The Staff Team has been notified!")
 
