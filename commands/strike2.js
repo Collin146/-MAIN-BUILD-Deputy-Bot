@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
 
 let tostrike = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!tostrike) return message.reply("Couldn't find that user.");
-let kReason = args.join(" ").slice(22);
+let kReason = args.join(" ").slice(21);
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 if(tostrike.hasPermission("ADMINISTRATOR")) return message.reply("You cannot strike a Moderator or higher");
 let strikerole = message.guild.roles.find(`name`, "Strike 2");
