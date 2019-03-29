@@ -24,6 +24,8 @@ let probrole = message.guild.roles.find(`name`, "BCSO Probationary");
 let leorole = message.guild.roles.find(`name`, "LEO");
 let nmrole = message.guild.roles.find(`name`, "New Member");
 if(tobcso.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot use this command on an admin!");
+const yes = bot.emojis.get("561106357131018273");
+const no = bot.emojis.get("561106624757104640");
 //let memrrole = message.guild.roles.find(`name`, "ember");
 //let approle = message.guild.roles.find(`name`, "Applicant");
 //guildmember.setRoles(...)
@@ -55,7 +57,7 @@ warnchannel.send(ModEmbed);
 
 geluktEmbed = new Discord.RichEmbed()
       .setColor("GREEN")
-      .setTitle("**Done!**")
+      .setTitle(`${yes} **Done!**`)
       .setDescription(`The roles of <@${tobcso.id}> have been updated!`)
       .setFooter(`Mentioned User ID: ${tobcso.id}`);
 
