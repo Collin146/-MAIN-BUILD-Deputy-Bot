@@ -20,10 +20,12 @@ module.exports.run = async (bot, message, args) => {
     let kReason = args.join(" ").slice(21);
     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot kick a Moderator or higher.");
     if(!kReason) return message.reply("Please give a reason.")
+    const yes = bot.emojis.get("561106357131018273");
+    const no = bot.emojis.get("561106624757104640");
 
 geluktEmbed = new Discord.RichEmbed()
-      .setColor("ORANGE")
-      .setTitle("**Done!**")
+      .setColor("GREEN")
+      .setTitle(`${yes} **Done!**`)
       .setDescription(`<@${kUser.id}> has been kicked!`)
       .setFooter(`Mentioned User ID: ${kUser.id}`);
 
