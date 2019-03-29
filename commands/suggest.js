@@ -19,9 +19,9 @@ let warnchannel = message.guild.channels.find(`name`, "server-suggestions-staff-
 if(!warnchannel) return message.reply("Couldn't find channel");
 
 const sentMessage =  await warnchannel.send(sugembed);
-await sentMessage.react(`${yes}`);
-await sentMessage.react(`${maybe}`);
-await sentMessage.react(`${no}`);
+await sentMessage.react(yes.id);
+await sentMessage.react(maybe.id);
+await sentMessage.react(no.id);
 
 // warnchannel.send(sugembed)
 // .then(sentMessage => sentMessage.react('✔'))
