@@ -5,12 +5,11 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
   let onderwerp = args.join(" ");
   var userName = message.author.username;
   let bicon = client.user.displayAvatarURL;
-  errorEmbed = new discord.RichEmbed() //Embed als er geen reden is binnenhalen
   const yes = client.emojis.get("561106357131018273");
   const no = client.emojis.get("561106624757104640");
     
 //Embed voor geen reden
-  let errorEmbed = new Discord.RichEmbed()
+ let errorEmbed = new discord.RichEmbed()
   .setColor("RED")
   .setTitle(`${no} **Error**`)
   .setDescription("Please input a valid reason!")
