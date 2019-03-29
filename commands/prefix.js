@@ -19,6 +19,8 @@ module.exports.run = async (bot, message, args) => {
 
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("You don't have permission to do that.");
     if(!args[0] || args[0 == "help"]) return message.reply(`Usage: ${prefix}prefix <desired prefix here>`);
+    const yes = bot.emojis.get("561106357131018273");
+    const no = bot.emojis.get("561106624757104640");
 
     let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
 
@@ -32,7 +34,7 @@ module.exports.run = async (bot, message, args) => {
 
     let sEmbed = new Discord.RichEmbed()
     .setColor("#FF9900")
-    .setTitle("Prefix Set!")
+    .setTitle(`${yes} Prefix Set!`)
     .setDescription(`Set to ${args[0]}`);
 
     message.channel.send(sEmbed);
