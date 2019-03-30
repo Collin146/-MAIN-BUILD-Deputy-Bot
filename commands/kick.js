@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
     
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!kUser) return message.channel.send("Can't find user!");
-    let kReason = args.join(" ").slice(21);
+    let kReason = args.slice(1).join(" ");
     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot kick a Moderator or higher.");
     if(!kReason) return message.reply("Please give a reason.")
     const yes = bot.emojis.get("561106357131018273");
