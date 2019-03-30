@@ -21,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
   let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
   if(!wUser) return message.reply("Couldn't find that user.");
   if(wUser.hasPermission("MANAGE_MESSAGES")) return message.reply("You can't warn a Moderator or higher.");
-  let reason = args.join(" ").slice(21);
+  let reason = args.slice(1).join(" ");
   if (!reason) return message.reply("Please give a reason");
   let mentioned = message.mentions.users.first();
 
