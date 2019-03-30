@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
 
 let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!rUser) return message.channel.send("Can't find user!");
-    let kReason = args.join(" ").slice(args[1]);
+    let kReason = args.slice(1).join(" ");
     if (!kReason) return message.reply("Please give a reason");
     if(rUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot reject a Moderator or higher.");
     const yes = bot.emojis.get("561106357131018273");
