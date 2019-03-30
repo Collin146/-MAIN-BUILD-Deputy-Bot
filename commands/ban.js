@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
 
     let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!bUser) return message.channel.send("Can't find user!");
-    let bReason = args.join(" ").slice(21);
+    let bReason = args.slice(1).join(" ");
     if(bUser.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot ban an Admin.");
     if(!bReason) return message.reply("Please give a reason.");
     const yes = bot.emojis.get("561106357131018273");
