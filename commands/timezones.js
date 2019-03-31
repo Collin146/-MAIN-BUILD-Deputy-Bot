@@ -23,7 +23,7 @@ message.channel.send([
     "**Other Timezones:**",
     "PDT: 11:30 AM",
     "EDT: 2:30 PM",
-    "CET: 2:30 PM",
+    "CEST: 2:30 PM",
     "MDT: 12:30 PM",
     "CDT: 1:30 PM"
    ].join('\n'))
@@ -39,7 +39,7 @@ message.channel.send([
     "**Other Timezones:**",
     "PDT: 12:00 PM",
     "EDT: 3:00 PM",
-    "CET: 8:00 PM",
+    "CEST: 8:00 PM",
     "MDT: 1:00 PM",
     "CDT: 2:00 PM"
    ].join('\n'))
@@ -58,7 +58,7 @@ message.channel.send([
     "**Other Timezones:**",
     "PDT: 12:30 PM",
     "EDT: 3:30 PM",
-    "CET: 8:30 PM",
+    "CEST: 8:30 PM",
     "MDT: 1:30 PM",
     "CDT: 2:30 PM"
    ].join('\n'))
@@ -74,7 +74,7 @@ message.channel.send([
     "**Other Timezones:**",
     "PDT: 1:00 PM",
     "EDT: 4:00 PM",
-    "CET: 9:00 PM",
+    "CEST: 9:00 PM",
     "MDT: 2:00 PM",
     "CDT: 3:00 PM"
    ].join('\n'))
@@ -90,7 +90,7 @@ message.channel.send([
     "**Other Timezones:**",
     "PDT: 1:30 PM",
     "EDT: 4:30 PM",
-    "CET: 9:30 PM",
+    "CEST: 9:30 PM",
     "MDT: 2:30 PM",
     "CDT: 3:30 PM"
    ].join('\n'))
@@ -106,7 +106,7 @@ message.channel.send([
     "**Other Timezones:**",
     "PDT: 2:00 PM",
     "EDT: 5:00 PM",
-    "CET: 10:00 PM",
+    "CEST: 10:00 PM",
     "MDT: 3:00 PM",
     "CDT: 4:00 PM"
    ].join('\n'))
