@@ -69,13 +69,13 @@ const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
       .setImage(`${image}`);
     welcomechannel.send({embed});
 
-//     let backupembed = new Discord.RichEmbed()
-//      .setColor("#00f4ef")
-//      .setAuthor(`${member.username}`, member.avatarURL)
-//      .setDescription("Has just joined.");
+    let backupembed = new Discord.RichEmbed()
+    .setColor("#00f4ef")
+    .setAuthor(`${member.user}`, member.avatarURL)
+    .setDescription("Has just joined.");
 
-//     let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
-//     backupchannel.send(backupembed);
+    let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
+    backupchannel.send(backupembed);
   });
 
 bot.on("guildMemberRemove", async member => {
