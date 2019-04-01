@@ -16,7 +16,6 @@ module.exports.run = async (bot, message, args) => {
     }
 
 let reason = args.join(" ");
-if(!reason) return message.reply("Please provide the message that you want to send!");
 const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");
 
@@ -26,11 +25,11 @@ let dmembed = new Discord.RichEmbed()
 .setDescription(`${reason}`);
 
 message.guild.members.forEach(member => {
-if (member.id != bot.user.id && !member.user.bot) member.send(dmembed);
+      if (member.id != bot.user.id && !member.user.bot) member.send(dmembed);
     });
 
 let doneembed = new Discord.RichEmbed()
-.setTitle(`${yes.id} **Done!**`)
+.setTitle(`${yes} **Done!**`)
 .setColor("GREEN")
 .setDescription("A message has been sent to everyone in this server.");
 
@@ -39,6 +38,7 @@ message.channel.send(doneembed);
 let ModEmbed = new Discord.RichEmbed()
 .setTitle("Dm command used!")
 .setColor("RED")
+.addField("Message", `${reason}`)
 .addField("Command Used In", message.channel, true)
 .addField("Command Used By", message.author.username, true)
 .setTimestamp()
