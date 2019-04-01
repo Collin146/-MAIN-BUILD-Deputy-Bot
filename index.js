@@ -72,7 +72,7 @@ const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
     let memberTag = member.user.tag;
     
     let backupembed = new Discord.RichEmbed()
-    .setColor("#00f4ef")
+    .setColor("GREEN")
     .setAuthor(`${memberTag}`, member.avatarURL)
     .setDescription("Has just joined.");
 
@@ -85,6 +85,17 @@ bot.on("guildMemberRemove", async member => {
 
     let welcomechannel = member.guild.channels.find(`name`, "left-members");
     welcomechannel.send(`${member} has left the server.`);
+    
+    let memberTag = member.user.tag;
+    
+    let backupembed = new Discord.RichEmbed()
+    .setColor("RED")
+    .setAuthor(`${memberTag}`, member.avatarURL)
+    .setDescription("Has just left.");
+
+    let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
+    backupchannel.send(backupembed);
+
 });
 
 bot.on("ready", async () => {
