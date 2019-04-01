@@ -20,7 +20,7 @@ const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");
 
 let dmembed = new Discord.RichEmbed()
-.setTitle(`A message from ${message.guild.name}.`)
+.setTitle(`**A message from ${message.guild.name}.**`)
 .setColor("#00fff6")
 .setDescription(`${reason}`);
 
@@ -36,7 +36,7 @@ let doneembed = new Discord.RichEmbed()
 message.channel.send(doneembed);
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("Dm command used!")
+.setTitle("**Dm command used!**")
 .setColor("RED")
 .addField("Message", `${reason}`)
 .addField("Command Used In", message.channel, true)
