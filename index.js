@@ -69,9 +69,11 @@ const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
       .setImage(`${image}`);
     welcomechannel.send({embed});
 
+    let memberTag = member.user.tag;
+    
     let backupembed = new Discord.RichEmbed()
     .setColor("#00f4ef")
-    .setAuthor(`${member.user}`, member.avatarURL)
+    .setAuthor(`${memberTag}`, member.avatarURL)
     .setDescription("Has just joined.");
 
     let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
