@@ -12,6 +12,7 @@ module.exports.run =async (bot, message, args) => {
         
 const member = message.mentions.members.first() || message.guild.members.get(args[0]) || message.member;
 let target = message.mentions.users.first() || message.author
+const now = new Date(member.user.createdAt);
 
 if (member.user.bot === true) {
     bot = "Yes";
@@ -33,7 +34,7 @@ if (member.user.bot === true) {
                 .addField("Bot", `${bot}`, inline, true)
                 //.addField("Status", `${status[member.user.presence.status]}`, inline, true)
                 .addField("Playing", `${member.user.presence.game ? `${member.user.presence.game.name}` : "Not playing"}`,inline, true)
-                .addField("Joined Discord At", `${setTimestamp(member.user.createdAt)}`)
+                .addField("Joined Discord At", `${now}`)
                 // .setTimestamp(member.user.createdAt)
                 .addField(`Roles:`, message.guild.member(member).roles.map(s => s).join(" | "), true)
 
