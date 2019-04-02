@@ -4,10 +4,10 @@ module.exports.run =async (bot, message, args) => {
     let inline = true
     let resence = true
     const status = {
-        online: "<:online:562588221121232907>",
-        idle: "<:idle:562588270903427072>",
-        dnd: "<:dnd:562588318684938240>",
-        offline: "<:offline:562588687884484608>"
+        online: "<:Online:562636140302041109>",
+        idle: "<:Idle:562636980509474816>",
+        dnd: "<:Dnd:562637029624643622>",
+        offline: "<:Offline:562637080526716939>"
       }
         
 const member = message.mentions.members.first() || message.guild.members.get(args[0]) || message.member;
@@ -32,7 +32,7 @@ if (member.user.bot === true) {
                 //.addField("Status", `${status[member.user.presence.status]}`, inline, true)
                 .addField("Playing", `${member.user.presence.game ? `${member.user.presence.game.name}` : "Not playing"}`,inline, true)
                 .addField("Joined Discord At", member.user.createdAt)
-        .addField(`Roles:`, message.guild.member(member).roles.map(s => s).join(" | "), true)
+                .addField(`Roles:`, message.guild.member(member).roles.map(s => s).join(" | "), true)
 
             message.channel.send(embed);
     }
