@@ -13,7 +13,7 @@ module.exports.run =async (bot, message, args) => {
 const member = message.mentions.members.first() || message.guild.members.get(args[0]) || message.member;
 let target = message.mentions.users.first() || message.author
 const now = new Date(member.user.createdAt);
-var  mydate = new Date(form.startDate.value);
+var  mydate = new Date(member.user.createdAt.startDate.value);
 
 if (member.user.bot === true) {
     bot = "Yes";
