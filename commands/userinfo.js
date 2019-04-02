@@ -4,10 +4,10 @@ module.exports.run =async (bot, message, args) => {
     let inline = true
     let resence = true
     const status = {
-        online: "<:online:562588221121232907> Online",
-        idle: "<:idle:562588270903427072> Idle",
-        dnd: "<:dnd:562588318684938240> Do Not Disturb",
-        offline: "<:offline:562588687884484608> Offline/Invisible"
+        online: "<:online:562588221121232907>",
+        idle: "<:idle:562588270903427072>",
+        dnd: "<:dnd:562588318684938240>",
+        offline: "<:offline:562588687884484608>"
       }
         
 const member = message.mentions.members.first() || message.guild.members.get(args[0]) || message.member;
@@ -21,7 +21,8 @@ if (member.user.bot === true) {
 
             let embed = new Discord.RichEmbed()
                 //.setAuthor(member.user.username)
-.setTitle(`${status[member.user.presence.status]} **${member.user.tag}'s Information**`)
+.setTitle(`**Information About**`)
+.setDescription(`${status[member.user.presence.status]} **${member.user.tag}`)
                 .setThumbnail((target.displayAvatarURL))
                 .setColor(message.guild.member(member).highestRole.color)
                 .addField("Full Username", `${member.user.tag}`, inline)
