@@ -19,7 +19,7 @@ if (member.user.bot === true) {
     bot = "No";
   }
 
-  const time = setTimestamp(member.user.createdAt)
+  const time = message.setTimestamp(member.user.createdAt)
             let embed = new Discord.RichEmbed()
                 //.setAuthor(member.user.username)
                 .setTitle(`**Information About**`)
