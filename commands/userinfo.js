@@ -19,7 +19,8 @@ if (member.user.bot === true) {
     bot = "No";
   }
 
-  const time = message.setTimestamp(member.user.createdAt)
+//   const time = message.setTimestamp(member.user.createdAt)
+
             let embed = new Discord.RichEmbed()
                 //.setAuthor(member.user.username)
                 .setTitle(`**Information About**`)
@@ -32,7 +33,7 @@ if (member.user.bot === true) {
                 .addField("Bot", `${bot}`, inline, true)
                 //.addField("Status", `${status[member.user.presence.status]}`, inline, true)
                 .addField("Playing", `${member.user.presence.game ? `${member.user.presence.game.name}` : "Not playing"}`,inline, true)
-                .addField("Joined Discord At", `${time}`)
+                .addField("Joined Discord At", `${setTimestamp(member.user.createdAt)}`)
                 // .setTimestamp(member.user.createdAt)
                 .addField(`Roles:`, message.guild.member(member).roles.map(s => s).join(" | "), true)
 
