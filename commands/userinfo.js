@@ -36,7 +36,7 @@ if (member.user.bot === true) {
                 //.addField("Status", `${status[member.user.presence.status]}`, inline, true)
                 .addField("Playing", `${member.user.presence.game ? `${member.user.presence.game.name}` : "Not playing"}`,inline, true)
                 .addField("Joined Discord At", member.user.createdAt)
-                .addField("Joined This Server At", member.user.guild.joinedAt)
+                .addField("Joined This Server At", message.guild.member(member).joinedAt)
                 // .setTimestamp(member.user.createdAt)
                 .addField(`Roles:`, message.guild.member(member).roles.map(s => s).join(" | "), true)
 
