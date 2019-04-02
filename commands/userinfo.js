@@ -21,7 +21,7 @@ if (member.user.bot === true) {
 
             let embed = new Discord.RichEmbed()
                 //.setAuthor(member.user.username)
-.setTitle(`${status[member.user.presence.status]} **${member.user.tag}'s Information`)
+.setTitle(`${status[member.user.presence.status]} **${member.user.tag}'s Information**`)
                 .setThumbnail((target.displayAvatarURL))
                 .setColor(message.guild.member(member).highestRole.color)
                 .addField("Full Username", `${member.user.tag}`, inline)
