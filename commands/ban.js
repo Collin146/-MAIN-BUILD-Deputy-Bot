@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
     const yes = bot.emojis.get("561106357131018273");
     const no = bot.emojis.get("561106624757104640");
 
-geluktEmbed = new Discord.RichEmbed()
+let geluktEmbed = new Discord.RichEmbed()
       .setColor("GREEN")
       .setTitle(`${yes} **Done!**`)
       .setDescription(`<@${bUser.id}> has been banned!`)
@@ -38,7 +38,7 @@ geluktEmbed = new Discord.RichEmbed()
    // .addField("Time", message.createdAt)
    // .addField("Reason", bReason);
 
-    message.guild.member(bUser).ban(bReason);
+    bot.user(bUser).ban(bReason);
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
