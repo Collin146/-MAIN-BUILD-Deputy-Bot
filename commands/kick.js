@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
     
-    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]) || bot.users.get(args[0]));
     if(!kUser) return message.channel.send("Can't find user!");
     let kReason = args.slice(1).join(" ");
     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot kick a Moderator or higher.");
