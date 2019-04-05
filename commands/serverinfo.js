@@ -7,6 +7,7 @@ module.exports.run = async (bot, message, args) => {
     .setColor("#ff6a00")
     .setThumbnail(sicon)
     .addField("Server Name", message.guild.name, true)
+    .addField("Server ID", message.guild.id, true)
     .addField("Created On", message.guild.createdAt, true)
     .addField("Created By", message.guild.owner, true)
     .addField("You Joined", message.member.joinedAt, true)
