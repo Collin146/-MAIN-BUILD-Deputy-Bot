@@ -8,12 +8,12 @@ module.exports.run = async (bot, message, args) => {
     .setThumbnail(sicon)
     .addField("Server Name", message.guild.name, true)
     .addField("Server ID", message.guild.id)
-    .addField("Created On", message.guild.createdAt, true)
-    .addField("Created By", message.guild.owner, true)
-    .addField("You Joined", message.member.joinedAt, true)
-    .addField("Total Members", message.guild.memberCount,true)
-    .addField("Region", message.guild.region,true)
-    .addField("Invite Link", "https://discord.gg/VqXfwn8", true);
+    .addField("Created On", message.guild.createdAt)
+    .addField("Created By", message.guild.owner)
+    .addField("You Joined", message.member.joinedAt)
+    .addField("Total Members", message.guild.memberCount)
+    .addField("Region", message.guild.region)
+    .addField("Invite Link", "https://discord.gg/VqXfwn8");
 
     return message.channel.send(serverembed);
 
