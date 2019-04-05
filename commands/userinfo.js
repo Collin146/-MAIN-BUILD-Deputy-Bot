@@ -27,7 +27,7 @@ if (member.user.bot === true) {
                 //.setAuthor(member.user.username)
                 .setTitle(`**Information About**`)
                 .setDescription(`${status[member.user.presence.status]} **${member}**`)
-                .setThumbnail((member.displayAvatarURL))
+                .setThumbnail(member.displayAvatarURL)
                 .setColor(message.guild.member(member).highestRole.color)
                 .addField("Full Username", `${member.user.tag}`, inline)
                 .addField("ID", member.user.id, inline)
