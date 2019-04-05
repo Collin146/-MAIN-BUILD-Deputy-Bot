@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run =async (bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
     let inline = true
     let resence = true
     const status = {
@@ -10,7 +10,7 @@ module.exports.run =async (bot, message, args) => {
         offline: "<:Offline:562637080526716939>"
       }
         
-const member = bot.fetchUser(args[0]) || message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]) || message.member || message.author);
+const member = message.bot.fetchUser(args[0]) || message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]) || message.member || message.author);
 //let target = message.mentions.users.first() || message.author
 // const now = new Date[0](member.user.createdAt);
 // var  mydate = new Date(member.user.createdAt.startDate.value);
