@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
         offline: "<:Offline:562637080526716939>"
       }
         
-const member = message.guild.bot.fetchUser(args[0]) || message.mentions.users.first() || message.guild.members.get(args[0]) || message.member || message.author;
+const member = bot.users.get(args[0]) || message.mentions.users.first() || message.guild.members.get(args[0]) || message.member || message.author;
 //let target = message.mentions.users.first() || message.author
 // const now = new Date[0](member.user.createdAt);
 // var  mydate = new Date(member.user.createdAt.startDate.value);
