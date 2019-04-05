@@ -67,7 +67,7 @@ const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
       .setColor("#00f4ef")
       .setDescription(`Welcome ${member}, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
       .setImage(`${image}`);
-    welcomechannel.send({embed});
+  await welcomechannel.send({embed});
 
     let memberTag = member.user.tag;
     
