@@ -11,7 +11,7 @@ module.exports.run =async (bot, message, args) => {
       }
         
 const member = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]) || message.member);
-let target = message.mentions.users.first() || message.author
+let target = message.mentions.users.first() || message.guild.members.get(args[0]) || message.author
 // const now = new Date[0](member.user.createdAt);
 // var  mydate = new Date(member.user.createdAt.startDate.value);
 
