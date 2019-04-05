@@ -84,7 +84,7 @@ bot.on("guildMemberRemove", async member => {
     console.log(`${member} left the server.`);
 
     let welcomechannel = member.guild.channels.find(`name`, "left-members");
-    welcomechannel.send(`${member} has left the server.`);
+    welcomechannel.send(`<@${member.id}> has left the server.`);
     
     let memberTag = member.user.tag;
     
