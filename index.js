@@ -2,7 +2,7 @@ const botconfig = require("./Botconfig.json");
 const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
-const yt = require('ytdl-core');
+const yt = require("ytdl-core-discord");
 bot.commands = new Discord.Collection();
 
 fs.readdir("./commands/", (err, files) => {
