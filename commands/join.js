@@ -11,7 +11,6 @@ module.exports.run = async (bot, message, args) => {
     } else {
       message.reply('You need to join a voice channel first!');
     }
-});
 
 }
 
