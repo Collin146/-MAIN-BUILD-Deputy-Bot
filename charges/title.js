@@ -274,11 +274,11 @@ if(args[0] === "2"){
         return;
     }
 
-    if(args[0] === "11.5"){
+    if(args[0] === "11(.5)"){
 
         let intim115embed = new Discord.RichEmbed()
-        .setTitle("**Title 11.5 - Road Law Extensive**")
-        .setDescription("These are all of the Title 11.5 charges & commands to get the information about them.")
+        .setTitle("**Title 11(.5) - Road Law Extensive**")
+        .setDescription("These are all of the Title 11(.5) charges & commands to get the information about them.")
         .setColor("ffffff")
         .addField("Traffic Signals - Responsibility At A Green Light (11.5)01", "!traffic signals - responsibility at a green light")
         .addField("Traffic Signals - Responsibility At A Red Light (11.5)02", "!traffic signals - responsibility at a red light")
