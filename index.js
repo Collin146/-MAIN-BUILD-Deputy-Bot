@@ -61,40 +61,39 @@ const rando_imgs = [
 ]
 
 const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
-
+let memberTag = member.user.tag;
+    
     let embed = new Discord.RichEmbed()
       .setTitle("**A new user has joined!**")
       .setColor("#00f4ef")
-      .setDescription(`Welcome <@${member.id}>, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
+      .setDescription(`Welcome ${memberTag}, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
       .setImage(`${image}`);
   welcomechannel.send({embed});
-
-    let memberTag = member.user.tag;
     
-    let backupembed = new Discord.RichEmbed()
-    .setColor("GREEN")
-    .setAuthor(`${memberTag}`, member.avatarURL)
-    .setDescription("Has just joined.");
+//    let backupembed = new Discord.RichEmbed()
+//    .setColor("GREEN")
+//    .setAuthor(`${memberTag}`, member.avatarURL)
+//    .setDescription("Has just joined.");
 
-    let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
-    backupchannel.send(backupembed);
+//    let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
+ //   backupchannel.send(backupembed);
   });
 
 bot.on("guildMemberRemove", async member => {
     console.log(`${member} left the server.`);
+    
+   let memberTag = member.user.tag;
 
     let welcomechannel = member.guild.channels.find(`name`, "left-members");
-    welcomechannel.send(`<@${member.id}> has left the server.`);
+    welcomechannel.send(`${memberTag} has left the server.`);
     
-    let memberTag = member.user.tag;
-    
-    let backupembed = new Discord.RichEmbed()
-    .setColor("RED")
-    .setAuthor(`${memberTag}`, member.avatarURL)
-    .setDescription("Has just left.");
+    //let backupembed = new Discord.RichEmbed()
+//    .setColor("RED")
+ //   .setAuthor(`${memberTag}`, member.avatarURL)
+//    .setDescription("Has just left.");
 
-    let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
-    backupchannel.send(backupembed);
+ //   let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
+ //   backupchannel.send(backupembed);
 
 });
 
