@@ -66,7 +66,7 @@ let memberTag = member.user.tag;
     let embed = new Discord.RichEmbed()
       .setTitle("**A new user has joined!**")
       .setColor("#00f4ef")
-      .setDescription(`Welcome ${memberTag}, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
+      .setDescription(`Welcome **${memberTag}**, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
       .setImage(`${image}`);
   welcomechannel.send({embed});
     
@@ -80,7 +80,7 @@ let memberTag = member.user.tag;
   });
 
 bot.on("guildMemberRemove", async member => {
-    console.log(`${member} left the server.`);
+    console.log(`**${member}** left the server.`);
     
    let memberTag = member.user.tag;
 
