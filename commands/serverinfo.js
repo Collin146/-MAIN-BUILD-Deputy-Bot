@@ -12,8 +12,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Created By", message.guild.owner)
     .addField("You Joined", message.member.joinedAt)
     .addField("Total Members", message.guild.memberCount)
-    .addField("Region", message.guild.region)
-    .addField("Invite Link", "https://discord.gg/VqXfwn8");
+    .addField("Region", message.guild.region);
 
     return message.channel.send(serverembed);
 
