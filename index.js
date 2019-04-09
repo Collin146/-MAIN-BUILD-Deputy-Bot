@@ -80,12 +80,12 @@ let memberTag = member.user.tag;
   });
 
 bot.on("guildMemberRemove", async member => {
-    console.log(`**${member}** left the server.`);
+    console.log(`${member} left the server.`);
     
    let memberTag = member.user.tag;
 
     let welcomechannel = member.guild.channels.find(`name`, "left-members");
-    welcomechannel.send(`${memberTag} has left the server.`);
+    welcomechannel.send(`**${memberTag}** has left the server.`);
     
     //let backupembed = new Discord.RichEmbed()
 //    .setColor("RED")
