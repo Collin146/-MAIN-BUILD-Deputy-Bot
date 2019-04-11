@@ -3,7 +3,7 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
-if(args[0] === "defense"){
+if(args[0] === "defense,"){
 
     let intim2embed = new Discord.RichEmbed()
     .setTitle("**Private Defense, Self Defense, Castle Doctrine, And Denfense Of Others (12)03 Info**")
