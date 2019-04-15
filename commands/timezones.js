@@ -21,11 +21,11 @@ module.exports.run = async (bot, message, args) => {
         
 message.channel.send([
     "**Other Timezones:**",
-    "PDT: 11:30 AM",
-    "EDT: 2:30 PM",
-    "CEST: 2:30 PM",
-    "MDT: 12:30 PM",
-    "CDT: 1:30 PM"
+    "PDT: 10:30 AM",
+    "EDT: 1:30 PM",
+    "CEST: 7:30 PM",
+    "MDT: 11:30 AM",
+    "CDT: 12:30 PM"
    ].join('\n'))
         
    message.delete().catch(O_o=>{});
@@ -37,11 +37,11 @@ message.channel.send([
 
 message.channel.send([
     "**Other Timezones:**",
-    "PDT: 12:00 PM",
-    "EDT: 3:00 PM",
+    "PDT: 11:00 AM",
+    "EDT: 2:00 PM",
     "CEST: 8:00 PM",
-    "MDT: 1:00 PM",
-    "CDT: 2:00 PM"
+    "MDT: 12:00 PM",
+    "CDT: 1:00 PM"
    ].join('\n'))
         
    message.delete().catch(O_o=>{});
@@ -56,11 +56,11 @@ if(args[0] === "7:30"){
 
 message.channel.send([
     "**Other Timezones:**",
-    "PDT: 12:30 PM",
-    "EDT: 3:30 PM",
+    "PDT: 11:30 AM",
+    "EDT: 2:30 PM",
     "CEST: 8:30 PM",
-    "MDT: 1:30 PM",
-    "CDT: 2:30 PM"
+    "MDT: 12:30 PM",
+    "CDT: 1:30 PM"
    ].join('\n'))
 
    message.delete().catch(O_o=>{});
@@ -72,11 +72,11 @@ message.channel.send([
 
 message.channel.send([
     "**Other Timezones:**",
-    "PDT: 1:00 PM",
-    "EDT: 4:00 PM",
+    "PDT: 12:00 PM",
+    "EDT: 3:00 PM",
     "CEST: 9:00 PM",
-    "MDT: 2:00 PM",
-    "CDT: 3:00 PM"
+    "MDT: 1:00 PM",
+    "CDT: 2:00 PM"
    ].join('\n'))
         
    message.delete().catch(O_o=>{});
@@ -88,11 +88,11 @@ message.channel.send([
 
 message.channel.send([
     "**Other Timezones:**",
-    "PDT: 1:30 PM",
-    "EDT: 4:30 PM",
+    "PDT: 12:30 PM",
+    "EDT: 3:30 PM",
     "CEST: 9:30 PM",
-    "MDT: 2:30 PM",
-    "CDT: 3:30 PM"
+    "MDT: 1:30 PM",
+    "CDT: 2:30 PM"
    ].join('\n'))
          
    message.delete().catch(O_o=>{});
@@ -104,11 +104,11 @@ message.channel.send([
 
  message.channel.send([
     "**Other Timezones:**",
-    "PDT: 2:00 PM",
-    "EDT: 5:00 PM",
+    "PDT: 1:00 PM",
+    "EDT: 4:00 PM",
     "CEST: 10:00 PM",
-    "MDT: 3:00 PM",
-    "CDT: 4:00 PM"
+    "MDT: 2:00 PM",
+    "CDT: 3:00 PM"
    ].join('\n'))
            
    message.delete().catch(O_o=>{});
