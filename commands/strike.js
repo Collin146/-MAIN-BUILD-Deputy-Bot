@@ -1,0 +1,146 @@
+const Discord = require("discord.js");
+const fs = require("fs");
+const ms = require("ms");
+const errors = require("../utils/errors.js");
+
+module.exports.run = async (bot, message, args) => { 
+
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
+    if(args[0] === "help"){
+        message.reply("Usage: !strike <1 or 2> <user> <reason>");
+        return;
+    }
+    
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
+    if(args[0] == "help"){
+        message.reply("Usage: !strike <1 or 2> <user> <reason>");
+        return;
+    }
+
+}
+
+let tostrike = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+if(!tostrike) return message.reply("Couldn't find that user.");
+let kReason = args.slice(1).join(" ");
+if (!kReason) return message.reply(`Please give a reason.`);
+if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
+if(tostrike.hasPermission("ADMINISTRATOR")) return message.reply("You cannot strike a Moderator or higher");
+let strike1role = message.guild.roles.find(`name`, "Strike 1");
+let strike2role = message.guild.roles.find(`name`, "Strike 2");
+let mentioned = message.mentions.users.first();
+const yes = bot.emojis.get("561106357131018273");
+const no = bot.emojis.get("561106624757104640");
+
+if(args[0] === "1"){
+
+    geluktEmbed = new Discord.RichEmbed()
+    .setColor("GREEN")
+    .setTitle(`${yes} **Done!**`)
+    .setDescription(`<@${tostrike.id}> has been given Strike 1 for \`${kReason}\``)
+    .setFooter(`Mentioned User ID: ${tostrike.id}`);
+
+    if (!strikerole){
+        try{
+            strikerole = await message.guild.createRole({
+                name: "Strike 1",
+                color: "#000000",
+                permissions: []
+            })
+            message.guild.channels.forEach(async (channel, id) => {
+                await channel.overwritePermissions(strike1role, {
+                });
+            });
+    
+        }catch(e){
+            console.log(e.stack);
+        }
+    }
+
+    await (tostrike.addRole(strike1role.id), (kReason));
+    message.channel.send(geluktEmbed);
+
+    let ModEmbed = new Discord.RichEmbed()
+    .setTitle("**Strike 1 command used!**")
+    .setColor("RED")
+    .addField("Striked User", `<@${tostrike.id}>`, true)
+    .addField("Striked In", message.channel, true)
+    .addField("Reason", kReason, true)
+    .addField("Striked By", message.author.username, true)
+    .setTimestamp()
+    .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+
+let warnchannel = message.guild.channels.find(`name`, "modlog");
+if(!warnchannel) return message.reply("Couldn't find channel");
+
+warnchannel.send(ModEmbed);
+
+let DMembed = new Discord.RichEmbed()
+.setTitle(`**You have been striked in ${message.guild.name}**`)
+.setColor("#ff0c00")
+.addField("Strike Type", "Strike 1")
+.addField("Length & Reason", kReason);
+ 
+ mentioned.send(DMembed);
+ 
+      return; 
+      }
+
+      if(args[0] === "2"){
+
+        geluktEmbed = new Discord.RichEmbed()
+    .setColor("GREEN")
+    .setTitle(`${yes} **Done!**`)
+    .setDescription(`<@${tostrike.id}> has been given Strike 2 for \`${kReason}\``)
+    .setFooter(`Mentioned User ID: ${tostrike.id}`);
+
+    if (!strikerole){
+        try{
+            strikerole = await message.guild.createRole({
+                name: "Strike 2",
+                color: "#000000",
+                permissions: []
+            })
+            message.guild.channels.forEach(async (channel, id) => {
+                await channel.overwritePermissions(strike2role, {
+                });
+            });
+    
+        }catch(e){
+            console.log(e.stack);
+        }
+    }
+
+    await (tostrike.addRole(strike2role.id), (kReason));
+    message.channel.send(geluktEmbed);
+
+    let ModEmbed = new Discord.RichEmbed()
+    .setTitle("**Strike 2 command used!**")
+    .setColor("RED")
+    .addField("Striked User", `<@${tostrike.id}>`, true)
+    .addField("Striked In", message.channel, true)
+    .addField("Reason", kReason, true)
+    .addField("Striked By", message.author.username, true)
+    .setTimestamp()
+    .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+
+let warnchannel = message.guild.channels.find(`name`, "modlog");
+if(!warnchannel) return message.reply("Couldn't find channel");
+
+warnchannel.send(ModEmbed);
+
+let DMembed = new Discord.RichEmbed()
+.setTitle(`**You have been striked in ${message.guild.name}**`)
+.setColor("#ff0c00")
+.addField("Strike Type", "Strike 2")
+.addField("Length & Reason", kReason);
+ 
+ mentioned.send(DMembed);
+
+    return; 
+      }
+
+message.reply(`Please provide which type of strike you want to use.`).then(msg => msg.delete(5000));
+
+module.exports.help = {
+    name: "strike"
+}
