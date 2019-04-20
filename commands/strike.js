@@ -17,8 +17,6 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-}
-
 let tostrike = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!tostrike) return message.reply("Couldn't find that user.");
 let kReason = args.slice(1).join(" ");
@@ -108,6 +106,8 @@ let DMembed = new Discord.RichEmbed()
       }
 
 message.reply(`Please provide which type of strike you want to use.`).then(msg => msg.delete(5000));
+
+}
 
 module.exports.help = {
     name: "strike"
