@@ -36,7 +36,7 @@ if(args[0] === "1"){
     geluktEmbed = new Discord.RichEmbed()
     .setColor("GREEN")
     .setTitle(`${yes} **Done!**`)
-    .setDescription(`<@${tostrike.id}> has been given Strike 1 for \`${kReason}\``)
+    .setDescription(`<@${tostrike.id}> has been given strike 1 for \`${kReason}\``)
     .setFooter(`Mentioned User ID: ${tostrike.id}`);
 
     await (tostrike.addRole(strike1role.id), (kReason));
@@ -73,7 +73,7 @@ let DMembed = new Discord.RichEmbed()
     geluktEmbed = new Discord.RichEmbed()
     .setColor("GREEN")
     .setTitle(`${yes} **Done!**`)
-    .setDescription(`<@${tostrike.id}> has been given Strike 2 for \`${kReason}\``)
+    .setDescription(`<@${tostrike.id}> has been given strike 2 for \`${kReason}\``)
     .setFooter(`Mentioned User ID: ${tostrike.id}`);
 
     await (tostrike.addRole(strike2role.id), (kReason));
