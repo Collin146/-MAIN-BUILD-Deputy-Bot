@@ -26,7 +26,9 @@ if (!kReason) return message.reply(`Please give a reason.`);
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 if(tostrike.hasPermission("ADMINISTRATOR")) return message.reply("You cannot strike a Moderator or higher");
 let strike1role = message.guild.roles.find(`name`, "Strike 1");
+if(!strike1role) return message.reply("The role Strike 1 doesn't exist.");
 let strike2role = message.guild.roles.find(`name`, "Strike 2");
+if(!strike2role) return message.reply("The role Strike 2 doesn't exist.");
 let mentioned = message.mentions.users.first();
 const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");
@@ -38,23 +40,6 @@ if(args[0] === "1"){
     .setTitle(`${yes} **Done!**`)
     .setDescription(`<@${tostrike.id}> has been given Strike 1 for \`${kReason}\``)
     .setFooter(`Mentioned User ID: ${tostrike.id}`);
-
-    if (!strikerole){
-        try{
-            strikerole = await message.guild.createRole({
-                name: "Strike 1",
-                color: "#000000",
-                permissions: []
-            })
-            message.guild.channels.forEach(async (channel, id) => {
-                await channel.overwritePermissions(strike1role, {
-                });
-            });
-    
-        }catch(e){
-            console.log(e.stack);
-        }
-    }
 
     await (tostrike.addRole(strike1role.id), (kReason));
     message.channel.send(geluktEmbed);
@@ -87,28 +72,11 @@ let DMembed = new Discord.RichEmbed()
 
       if(args[0] === "2"){
 
-        geluktEmbed = new Discord.RichEmbed()
+    geluktEmbed = new Discord.RichEmbed()
     .setColor("GREEN")
     .setTitle(`${yes} **Done!**`)
     .setDescription(`<@${tostrike.id}> has been given Strike 2 for \`${kReason}\``)
     .setFooter(`Mentioned User ID: ${tostrike.id}`);
-
-    if (!strikerole){
-        try{
-            strikerole = await message.guild.createRole({
-                name: "Strike 2",
-                color: "#000000",
-                permissions: []
-            })
-            message.guild.channels.forEach(async (channel, id) => {
-                await channel.overwritePermissions(strike2role, {
-                });
-            });
-    
-        }catch(e){
-            console.log(e.stack);
-        }
-    }
 
     await (tostrike.addRole(strike2role.id), (kReason));
     message.channel.send(geluktEmbed);
