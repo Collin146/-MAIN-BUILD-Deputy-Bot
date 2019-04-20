@@ -61,7 +61,7 @@ let DMembed = new Discord.RichEmbed()
 .setTitle(`**You have been striked in ${message.guild.name}**`)
 .setColor("#ff0c00")
 .addField("Strike Type", "Strike 1")
-.addField("Length & Reason", kReason);
+.addField("Reason", kReason);
  
  mentioned.send(DMembed);
  
@@ -98,7 +98,7 @@ let DMembed = new Discord.RichEmbed()
 .setTitle(`**You have been striked in ${message.guild.name}**`)
 .setColor("#ff0c00")
 .addField("Strike Type", "Strike 2")
-.addField("Length & Reason", kReason);
+.addField("Reason", kReason);
  
  mentioned.send(DMembed);
 
