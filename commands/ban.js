@@ -14,8 +14,8 @@ module.exports.run = async (bot, message, args, user) => {
     //     return;
     // }
 
-    user = await bot.funcs.userSearch(msg, {user: [user], name: this.help.name});
-    if (user.valid === null) { return; }
+//     user = await bot.funcs.userSearch(msg, {user: [user], name: this.help.name});
+//     if (user.valid === null) { return; }
     //user = bot.users.find("username", user.user[0].username);
     //bot.fetchUser(args[0])
 
