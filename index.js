@@ -193,6 +193,7 @@ bot.on(`message`, async message => {
     const bannedWords = [`@everyone` || `@Member`]
     let weazelrole = message.guild.roles.find('name', 'Weazel News'); 
     let commrole = message.guild.roles.find('name', 'Community Manager'); 
+    let staffrole = message.guild.roles.find('name', 'Staff Team'); 
 //     let errchan = message.guild.channels.find(`name`, `bot-errors`);
 //     let modchan = message.guild.channels.find(`name`, `modlog`);
 //     if (!weazelrole) return errchan.send("Weazel Role doesn't exist! (index.js, 161)");
@@ -203,6 +204,7 @@ bot.on(`message`, async message => {
             if (message.member.hasPermission("ADMINISTRATOR")) return;
             if (message.member.roles.has(weazelrole.id)) return;
             if (message.member.roles.has(commrole.id)) return;
+            if (message.member.roles.has(staffrole.id)) return;
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
