@@ -1,26 +1,20 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
-module.exports.run = async (bot, message, args, user) => {
+module.exports.run = async (bot, message, args) => {
     
     if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
     if(args[0] === "help"){
         message.reply("Usage: !ban <user> <reason>");
         return;
     }
-    // if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You don't have permission to do that.");
-    // if(args[0] == "help"){
-    //     message.reply("Usage: !ban <user> <reason");
-    //     return;
-    // }
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You don't have permission to do that.");
+    if(args[0] == "help"){
+        message.reply("Usage: !ban <user> <reason");
+        return;
+    }
 
-//     user = await bot.funcs.userSearch(msg, {user: [user], name: this.help.name});
-//     if (user.valid === null) { return; }
-    //user = bot.users.find("username", user.user[0].username);
-    //bot.fetchUser(args[0])
-
-    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]) || bot.users.find("username", user.user[0].username));
-
+    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]) || bot.fetchUser(args[0]));
     if(!bUser) return message.channel.send("Can't find user!");
     let bReason = args.slice(1).join(" ");
     if(bUser.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot ban an Admin.");
