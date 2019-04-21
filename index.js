@@ -162,9 +162,11 @@ bot.on(`message`, async message => {
     const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`, 'https://', 'http://', '.com/', '.com', 'www.', 'https://www.', 'http://www.']
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
+            let commrole = message.guild.roles.find('name', 'Community Manager'); 
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
             if (message.member.roles.find("name", "Content Creator")) return;
+            if (message.member.roles.has(commrole.id)) return;
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
