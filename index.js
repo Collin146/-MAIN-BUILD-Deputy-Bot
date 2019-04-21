@@ -190,15 +190,17 @@ bot.on(`message`, async message => {
 bot.on(`message`, async message => {
     const bannedWords = [`@everyone` || `@Member`]
     let weazelrole = message.guild.roles.find('name', 'Weazel News'); 
+    let commrole = message.guild.roles.find('name', 'Community Manager'); 
 //     let errchan = message.guild.channels.find(`name`, `bot-errors`);
 //     let modchan = message.guild.channels.find(`name`, `modlog`);
 //     if (!weazelrole) return errchan.send("Weazel Role doesn't exist! (index.js, 161)");
 //     if (!errchan) return modchan.send("Error channel doesn't exist (bot-errors)");
     try {
-        if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
+            if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
             if (message.member.roles.has(weazelrole.id)) return;
+            if (message.member.roles.has(commrole.id)) return;
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
