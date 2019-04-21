@@ -44,7 +44,7 @@ let geluktEmbed = new Discord.RichEmbed()
    // .addField("Time", message.createdAt)
    // .addField("Reason", bReason);
 
-    message.guild(args[0]).ban(bReason);
+    bot.users(args[0]).ban(bReason);
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
