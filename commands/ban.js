@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args, user) => {
     //user = bot.users.find("username", user.user[0].username);
     //bot.fetchUser(args[0])
 
-    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0])) || bot.users.find("username", user.user[0].username);
+    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]) || bot.users.find("username", user.user[0].username));
 
     if(!bUser) return message.channel.send("Can't find user!");
     let bReason = args.slice(1).join(" ");
