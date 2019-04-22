@@ -350,9 +350,9 @@ modlogchannel.send(cuembed);
 bot.on('guildBanAdd', (guild, user) => {
 
     const ubembed = new Discord.RichEmbed()
-     .setColor('GREEN')
+     .setColor('red')
     .setTimestamp()
-    .setThumbnail(user.displayAvatarURL)
+    .setThumbnail((user.displayAvatarURL))
     .setTitle("**User Banned!**")
     .setDescription([
         `**User's Name:** <@${user.id}>`,
