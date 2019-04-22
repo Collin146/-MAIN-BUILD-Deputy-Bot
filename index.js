@@ -400,7 +400,9 @@ modlogchannel.send({embed: nickembed});
         .setColor('GREEN')
         .setTimestamp()
         .setTitle("**Roles Given!**")
-        .setDescription([
+        for (const role of newMember.roles.map(x => x.id)) {
+			if (!oldMember.roles.has(role)) {
+        roleminembed.setDescription([
            `**User's Name:** <@${newMember.id}>`,
            `**User's ID:** ${newMember.id}`,
            `**Role(s) Given:** ${oldMember.guild.roles.get(role).name}`
@@ -412,20 +414,24 @@ modlogchannel.send({embed: nickembed});
    let modlogchannel = guild.channels.find(x => x.name === 'modlog');
    modlogchannel.send({embed: roleminembed});
    
+        }
+        }
     }
 
 	if (oldMember.roles.size > newMember.roles.size) {
-
+    
         const rolemaxembed = new Discord.RichEmbed()
         .setColor('RED')
         .setTimestamp()
         .setTitle("**Roles Removed!**")
-        .setDescription([
+        for (const role of oldMember.roles.map(x => x.id)) {
+			if (!newMember.roles.has(role)) {
+        rolemaxembed.setDescription([
            `**User's Name:** <@${newMember.id}>`,
            `**User's ID:** ${newMember.id}`,
            `**Role(s) Removed:** ${oldMember.guild.roles.get(role).name}`
          ].join('\n'))
-   
+    
    // let modlogchannel = guild.channels.find(`name`, "modlog");
    // modlogchannel.send(ubembed);
    
@@ -433,7 +439,8 @@ modlogchannel.send({embed: nickembed});
    modlogchannel.send({embed: rolemaxembed});
 
         }
-
+    }
+    }
 
 });
 
