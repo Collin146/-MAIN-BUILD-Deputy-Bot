@@ -301,8 +301,7 @@ bot.on('channelCreate', (channel) => {
         .setDescription([
             `**Channel Name:** ${channel.name}`,
             `**Channel ID:** ${channel.id}`,
-            `**Channel Type:** ${channel.type}`,
-            `\`${day}\` **at** \`${time}\` **PM GMT**`
+            `**Channel Type:** ${channel.type}`
           ].join('\n'))
   		// .setTitle("**Channel Created!**")
 	    // .addField("Channel Name", `${channel.name}`)
