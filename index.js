@@ -277,14 +277,9 @@ bot.on(`message`, async message => {
 //Channel Created Log Start
 //-—
 
-bot.on = (bot, channel) => {
-	if (!channel) return;
-
-	if (!bot.provider.getGuild(channel.guild.id, 'prefix')) return;
-	if (bot.provider.getGuild(channel.guild.id, 'channelcreatelog') === 'false') return;
-
-	const messagechannel = bot.channels.get(bot.provider.getGuild(channel.guild.id, 'channelcreatelogchannel'));
-	if (!messagechannel) return;
+bot.on("channelCreate", async  => {
+    let logs = await msg.guild.fetchAuditLogs({type: 10});
+    let entry = logs.entries.first();
 
 	const ccembed = new Discord.RichEmbed()
 		.setColor('GREEN')
@@ -296,7 +291,7 @@ bot.on = (bot, channel) => {
         let modlogchannel = msg.guild.channels.find(x => x.name === 'modlog');
         modlogchannel.send({ccembed});
 
-};
+});
 
 //-—
 //Channel Created Log End
