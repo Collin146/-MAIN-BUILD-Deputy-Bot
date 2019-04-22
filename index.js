@@ -295,8 +295,8 @@ bot.on = (bot, channel) => {
 		.addField("Channel Name", channel.name)
         .addField("Channel ID", channel.id);
         
-        let channel = msg.guild.channels.find(x => x.name === 'modlog');
-        channel.send({ccembed});
+        let modlogchannel = msg.guild.channels.find(x => x.name === 'modlog');
+        modlogchannel.send({ccembed});
 
 };
 
