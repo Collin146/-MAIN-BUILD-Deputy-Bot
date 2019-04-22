@@ -279,7 +279,6 @@ bot.on(`message`, async message => {
 
 bot.on("channelCreate", async message => {
     let logs = message.guild.fetchAuditLogs({type: 10});
-    let entry = logs.entries.first();
 
 	const ccembed = new Discord.RichEmbed()
 		.setColor('GREEN')
