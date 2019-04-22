@@ -294,7 +294,7 @@ bot.on(`message`, async message => {
 
 bot.on('channelCreate', (channel) => {
    // channel.guild.defaultChannel.send(`A new channel has been created: ${channel.name}`);
-    let modlogchannel = message.guild.channels.find(`name`, "modlog");
+    let modlogchannel = channel.guild.channels.find(`name`, "modlog");
     modlogchannel.send(`A new channel has been created: ${channel.name}`)
 
 });
