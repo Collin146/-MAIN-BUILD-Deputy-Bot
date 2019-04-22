@@ -347,7 +347,7 @@ modlogchannel.send(cuembed);
 
 });
 
-bot.on('guildBanAdd', (user, guild) => {
+bot.on('guildBanAdd', (guild, user) => {
 
     const ubembed = new Discord.RichEmbed()
      .setColor('RED')
