@@ -299,9 +299,10 @@ bot.on('channelCreate', (channel) => {
  		.setColor('GREEN')
  		.setTimestamp()
   		.setTitle("**Channel Created!**")
-	    .addField("Channel Name", `${channel.name}`)
-        .addField("Channel ID", channel.id);
-
+	        .addField("Channel Name", `${channel.name}`)
+                .addField("Channel ID", channel.id)
+                .addField("Channel Type", channel.type);
+	
     let modlogchannel = channel.guild.channels.find(`name`, "modlog");
     modlogchannel.send(ccembed);
 
