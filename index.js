@@ -334,7 +334,7 @@ modlogchannel.send(cdembed);
 
 bot.on('channelUpdate', (oldChannel, newChannel, channel) => {
 
-    const cdembed = new Discord.RichEmbed()
+    const cuembed = new Discord.RichEmbed()
      .setColor('GREEN')
     .setTimestamp()
     .setTitle("**Channel Updated!**")
@@ -343,9 +343,27 @@ bot.on('channelUpdate', (oldChannel, newChannel, channel) => {
       ].join('\n'))
 
 let modlogchannel = oldChannel.guild.channels.find(`name`, "modlog");
-modlogchannel.send(cdembed);
+modlogchannel.send(cuembed);
 
 });
+
+bot.on('guildBanAdd', (user) => {
+
+    const ubembed = new Discord.RichEmbed()
+     .setColor('RED')
+    .setTimestamp()
+    .setThumbnail(user.displayAvatarURL)
+    .setTitle("**User Banned!**")
+    .setDescription([
+        `**User's Name:** <@${user.id}>`,
+        `**User's ID:** ${user.id}`
+      ].join('\n'))
+
+let modlogchannel = user.guild.channels.find(`name`, "modlog");
+modlogchannel.send(ubembed);
+
+});
+
 
 //-—
 //Channel Created Log End
