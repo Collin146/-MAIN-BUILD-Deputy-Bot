@@ -19,12 +19,12 @@ let user = message.mentions.users.first();
 
 let member;
 if (user) {
-    member = await message.guild.fetchMember(user);
+    member = await message.guild.fetchUser(user);
 }
 
 if (!user) {
     try {
-        const fetchedMember = await message.guild.fetchMember(args.slice(0, 1).join(' '));
+        const fetchedMember = await message.guild.fetchUser(args.slice(0, 1).join(' '));
         if (!fetchedMember) return message.reply('User not found!');
         if(user.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot ban an Admin.");
         user = fetchedMember;
