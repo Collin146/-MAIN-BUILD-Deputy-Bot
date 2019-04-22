@@ -451,7 +451,7 @@ bot.on('messageUpdate', (newMessage, oldMessage) => {
 // let modlogchannel = guild.channels.find(`name`, "modlog");
 // modlogchannel.send(ubembed);
 
-let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: updembed});
 
 });
