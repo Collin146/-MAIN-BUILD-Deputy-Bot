@@ -277,19 +277,28 @@ bot.on(`message`, async message => {
 //Channel Created Log Start
 //-—
 
-// bot.on("channelCreate", async  => {
-//     let logs = await msg.guild.fetchAuditLogs({type: 10});
-//     let entry = logs.entries.first();
-  
-//     let CCembed = new Discord.RichEmbed()
-//       .setTitle("**CHANNEL CREATED**")
-//       .setColor("#55ea10")
-//       .addField("Channel ID", msg.channel.id, true)
-//       .addField("Channel Type", msg.channel.type, true)
-  
-//     let channel = msg.guild.channels.find(x => x.name === 'modlog');
-//     channel.send({CCembed});
-//   });
+bot.on = (bot, channel) => {
+	if (!channel) return;
+	if (channel.type !== 'text') return;
+	if (!bot.provider.isReady) return;
+
+	if (!bot.provider.getGuild(channel.guild.id, 'prefix')) return;
+	if (bot.provider.getGuild(channel.guild.id, 'channelcreatelog') === 'false') return;
+
+	const messagechannel = bot.channels.get(bot.provider.getGuild(channel.guild.id, 'channelcreatelogchannel'));
+	if (!messagechannel) return;
+
+	const ccembed = new Discord.RichEmbed()
+		.setColor('GREEN')
+		.setTimestamp()
+		.setTitle("**Channel Created!**")
+		.addField("Channel Name", channel.name)
+        .addField("Channel ID", channel.id);
+        
+        let channel = msg.guild.channels.find(x => x.name === 'modlog');
+        channel.send({ccembed});
+
+};
 
 //-—
 //Channel Created Log End
