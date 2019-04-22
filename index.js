@@ -379,7 +379,6 @@ bot.on('guildMemberUpdate', (oldMember, newMember, member) => {
     const nickembed = new Discord.RichEmbed()
      .setColor('GREEN')
     .setTimestamp()
-    .setThumbnail((user.displayAvatarURL))
     .setTitle("**Nickname Changed!**")
     .setDescription([
         `**User's Name:** <@${newMember.id}>`,
@@ -400,7 +399,6 @@ modlogchannel.send({embed: nickembed});
         const roleminembed = new Discord.RichEmbed()
         .setColor('GREEN')
         .setTimestamp()
-        .setThumbnail((user.displayAvatarURL))
         .setTitle("**Roles Given!**")
         .setDescription([
            `**User's Name:** <@${newMember.id}>`,
@@ -421,7 +419,6 @@ modlogchannel.send({embed: nickembed});
         const rolemaxembed = new Discord.RichEmbed()
         .setColor('RED')
         .setTimestamp()
-        .setThumbnail((user.displayAvatarURL))
         .setTitle("**Roles Removed!**")
         .setDescription([
            `**User's Name:** <@${newMember.id}>`,
