@@ -438,8 +438,10 @@ modlogchannel.send({embed: nickembed});
 
 });
 
-bot.on('messageUpdate', (newMessage, oldMessage, message) => {
+bot.on('messageUpdate', (newMessage, oldMessage) => {
 
+    function message (message) {
+    
     const updembed = new Discord.RichEmbed()
      .setColor('GREEN')
     .setTimestamp()
@@ -454,6 +456,7 @@ bot.on('messageUpdate', (newMessage, oldMessage, message) => {
 let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: updembed});
 
+    }
 });
 
 //-—
