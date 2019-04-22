@@ -296,8 +296,9 @@ bot.on('channelCreate', (channel) => {
    // channel.guild.defaultChannel.send(`A new channel has been created: ${channel.name}`);
 
     	const ccembed = new Discord.RichEmbed()
- 		.setColor('GREEN')
+        .setColor('GREEN')
         .setTimestamp()
+        .setTitle("**Channel Created!**")
         .setDescription([
             `**Channel Name:** ${channel.name}`,
             `**Channel ID:** ${channel.id}`,
