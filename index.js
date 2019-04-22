@@ -332,7 +332,7 @@ modlogchannel.send(cdembed);
 
 });
 
-bot.on('channelUpdate', (newChannel, oldChannel, channel) => {
+bot.on('channelUpdate', (oldChannel, newChannel, channel) => {
 
     const cdembed = new Discord.RichEmbed()
      .setColor('GREEN')
