@@ -382,9 +382,9 @@ bot.on('guildMemberUpdate', (oldMember, newMember, member) => {
     .setThumbnail((user.displayAvatarURL))
     .setTitle("**Nickname Changed!**")
     .setDescription([
-        `**Changed from** ${oldMember.nickname} **to** ${newMember.nickname}`,
         `**User's Name:** <@${newMember.id}>`,
-        `**User's ID:** ${newMember.id}`
+        `**User's ID:** ${newMember.id}`,
+        `**Changed from** ${oldMember.nickname} **to** ${newMember.nickname}`
       ].join('\n'))
 
 // let modlogchannel = guild.channels.find(`name`, "modlog");
@@ -394,6 +394,49 @@ let modlogchannel = guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: nickembed});
 
     }
+
+    if (oldMember.roles.size < newMember.roles.size) {
+
+        const roleminembed = new Discord.RichEmbed()
+        .setColor('GREEN')
+        .setTimestamp()
+        .setThumbnail((user.displayAvatarURL))
+        .setTitle("**Roles Given!**")
+        .setDescription([
+           `**User's Name:** <@${newMember.id}>`,
+           `**User's ID:** ${newMember.id}`,
+           `**Role(s) Given:** ${oldMember.guild.roles.get(role).name}`
+         ].join('\n'))
+   
+   // let modlogchannel = guild.channels.find(`name`, "modlog");
+   // modlogchannel.send(ubembed);
+   
+   let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+   modlogchannel.send({embed: roleminembed});
+   
+    }
+
+	if (oldMember.roles.size > newMember.roles.size) {
+
+        const rolemaxembed = new Discord.RichEmbed()
+        .setColor('RED')
+        .setTimestamp()
+        .setThumbnail((user.displayAvatarURL))
+        .setTitle("**Roles Removed!**")
+        .setDescription([
+           `**User's Name:** <@${newMember.id}>`,
+           `**User's ID:** ${newMember.id}`,
+           `**Role(s) Removed:** ${oldMember.guild.roles.get(role).name}`
+         ].join('\n'))
+   
+   // let modlogchannel = guild.channels.find(`name`, "modlog");
+   // modlogchannel.send(ubembed);
+   
+   let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+   modlogchannel.send({embed: rolemaxembed});
+
+        }
+
 
 });
 
