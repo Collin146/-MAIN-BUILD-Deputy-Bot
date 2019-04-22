@@ -297,12 +297,18 @@ bot.on('channelCreate', (channel) => {
 
     	const ccembed = new Discord.RichEmbed()
  		.setColor('GREEN')
- 		.setTimestamp()
-  		.setTitle("**Channel Created!**")
-	        .addField("Channel Name", `${channel.name}`)
-                .addField("Channel ID", channel.id)
-                .addField("Channel Type", channel.type);
-	
+        .setTimestamp()
+        .setDescription([
+            `**Channel Name:** ${channel.name}`,
+            `**Channel ID:** ${channel.id}`,
+            `**Channel Type:** ${channel.type}`,
+            `\`${day}\` **at** \`${time}\` **PM GMT**`
+          ].join('\n'))
+  		// .setTitle("**Channel Created!**")
+	    // .addField("Channel Name", `${channel.name}`)
+        // .addField("Channel ID", channel.id)
+        // .addField("Channel Type", channel.type);
+
     let modlogchannel = channel.guild.channels.find(`name`, "modlog");
     modlogchannel.send(ccembed);
 
