@@ -438,13 +438,13 @@ modlogchannel.send({embed: nickembed});
 
 });
 
-bot.on('messageUpdate', (oldMessage, newMessage, message) => {
+bot.on('messageUpdate', (oldMessage, newMessage, message, author) => {
 
     const updembed = new Discord.RichEmbed()
      .setColor('GREEN')
     .setTimestamp()
     .setTitle("**Message Edited!**")
-    .setDescription(`<@${message.author.id}>'s **message has been edited in** ${message.channel}`)
+    .setDescription(`<@${author.id}>'s **message has been edited in** ${message.channel}`)
     .addField("Before", `${oldMessage.content}`)
     .addField("After", `${newMessage.content}`);
 
