@@ -438,23 +438,23 @@ modlogchannel.send({embed: nickembed});
 
 });
 
-bot.on('messageUpdate', (oldMessage, newMessage) => {
+// bot.on('messageUpdate', (oldMessage, newMessage) => {
 
-    const updembed = new Discord.RichEmbed()
-     .setColor('GREEN')
-    .setTimestamp()
-    .setTitle("**Message Edited!**")
-    .setDescription(`<@${oldMessage.author.id}>'s **message has been edited in** ${oldMessage.channel}`)
-    .addField("Before", `${oldMessage} || "None"`)
-    .addField("After", `${newMessage}`);
+//     const updembed = new Discord.RichEmbed()
+//      .setColor('GREEN')
+//     .setTimestamp()
+//     .setTitle("**Message Edited!**")
+//     .setDescription(`<@${oldMessage.author.id}>'s **message has been edited in** ${oldMessage.channel}`)
+//     .addField("Before", `${oldMessage} || "None"`)
+//     .addField("After", `${newMessage}`);
 
-// let modlogchannel = guild.channels.find(`name`, "modlog");
-// modlogchannel.send(ubembed);
+// // let modlogchannel = guild.channels.find(`name`, "modlog");
+// // modlogchannel.send(ubembed);
 
-let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
-modlogchannel.send({embed: updembed});
+// let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
+// modlogchannel.send({embed: updembed});
 
-});
+// });
 
 //-—
 //Channel Created Log End
