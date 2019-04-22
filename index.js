@@ -332,7 +332,7 @@ modlogchannel.send(cdembed);
 
 });
 
-bot.on('channelUpdate', (oldChannel, newChannel, channel) => {
+bot.on('channelUpdate', (channel, oldChannel, newChannel) => {
 
     const cdembed = new Discord.RichEmbed()
      .setColor('GREEN')
@@ -342,7 +342,7 @@ bot.on('channelUpdate', (oldChannel, newChannel, channel) => {
         `**Channel Name:** ${oldChannel.name} -> ${newChannel.name || "None"}`
       ].join('\n'))
 
-let modlogchannel = channel.guild.channels.find(`name`, "modlog");
+let modlogchannel = oldChannel.guild.channels.find(`name`, "modlog");
 modlogchannel.send(cdembed);
 
 });
