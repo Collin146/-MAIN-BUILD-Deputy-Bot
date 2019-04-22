@@ -381,9 +381,7 @@ bot.on('guildMemberUpdate', (oldMember, newMember, member) => {
     .setTimestamp()
     .setTitle("**Nickname Changed!**")
     .setDescription([
-        `**User's Name** <@${newMember.id}>`,
-        ` `, 
-        `**Changed from** ${oldMember.nickname} **to** ${newMember.nickname}`
+        `<@${oldMember.id}>'s nickname changed from ${oldMember.nickname} to ${newMember.nickname}`
       ].join('\n'))
 
 // let modlogchannel = guild.channels.find(`name`, "modlog");
@@ -403,9 +401,7 @@ modlogchannel.send({embed: nickembed});
         for (const role of newMember.roles.map(x => x.id)) {
 			if (!oldMember.roles.has(role)) {
         roleminembed.setDescription([
-           `**Roles Given To** <@${newMember.id}>`,
-           ` `,
-           `**Given Role:** ${oldMember.guild.roles.get(role).name}`
+           `<@${newMember.id}> has been given the \`${oldMember.guild.roles.get(role).name}\` role.`
          ].join('\n'))
    
    // let modlogchannel = guild.channels.find(`name`, "modlog");
@@ -427,9 +423,7 @@ modlogchannel.send({embed: nickembed});
         for (const role of oldMember.roles.map(x => x.id)) {
 			if (!newMember.roles.has(role)) {
         rolemaxembed.setDescription([
-           `**Roles Removed From:** <@${newMember.id}>`,
-           ` `,
-           `**Removed Role:** ${oldMember.guild.roles.get(role).name}`
+           `<@${newMember.id}> has been removed from the \`${oldMember.guild.roles.get(role).name}\` role.`
          ].join('\n'))
     
    // let modlogchannel = guild.channels.find(`name`, "modlog");
