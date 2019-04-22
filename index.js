@@ -290,6 +290,7 @@ bot.on("channelCreate", async  => {
         
         let modlogchannel = msg.guild.channels.find(x => x.name === 'modlog');
         modlogchannel.send({ccembed});
+	console.log(e);
 
 });
 
