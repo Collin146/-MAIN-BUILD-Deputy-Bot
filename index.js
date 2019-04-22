@@ -277,14 +277,14 @@ bot.on(`message`, async message => {
 //Channel Created Log Start
 //-—
 
-bot.on("channelCreate", async (message, channel) => {
+bot.on('channelCreate', (message, channel) => {
     let logs = message.guild.fetchAuditLogs({type: 10});
 
 	const ccembed = new Discord.RichEmbed()
 		.setColor('GREEN')
 		.setTimestamp()
 		.setTitle("**Channel Created!**")
-		.addField("Channel Name", channel.name)
+		.addField("Channel Name", `${channel.name}`)
         .addField("Channel ID", channel.id);
         
         let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
