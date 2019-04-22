@@ -277,20 +277,24 @@ bot.on(`message`, async message => {
 //Channel Created Log Start
 //-—
 
-bot.on('channelCreate', (message, channel) => {
-    let logs = message.guild.fetchAuditLogs({type: 10});
+// bot.on('channelCreate', (message, channel) => {
+//     let logs = message.guild.fetchAuditLogs({type: 10});
 
-	const ccembed = new Discord.RichEmbed()
-		.setColor('GREEN')
-		.setTimestamp()
-		.setTitle("**Channel Created!**")
-		.addField("Channel Name", `${channel.name}`)
-        .addField("Channel ID", channel.id);
+// 	const ccembed = new Discord.RichEmbed()
+// 		.setColor('GREEN')
+// 		.setTimestamp()
+// 		.setTitle("**Channel Created!**")
+// 		.addField("Channel Name", `${channel.name}`)
+//         .addField("Channel ID", channel.id);
         
-        let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
-        modlogchannel.send({ccembed});
-        console.log(e);
-});
+//         let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+//         modlogchannel.send({ccembed});
+//         console.log(e);
+// });
+
+bot.on('channelCreate', (channel) => {
+    channel.guild.defaultChannel.send(`A new channel has been created: ${channel.name}`);
+})
 
 //-—
 //Channel Created Log End
