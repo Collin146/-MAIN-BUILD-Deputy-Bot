@@ -380,9 +380,9 @@ bot.on('guildMemberUpdate', (oldMember, newMember, member) => {
     .setColor('GREEN')
     .setTimestamp()
     .setTitle("**Nickname Changed!**")
-    .setDescription([
-        `**${oldMember.user.tag}'s** nickname changed from \`${oldMember.nickname || "None"}\` to \`${newMember.nickname || "None"}\``
-      ].join('\n'))
+    .setDescription(`<@${oldMember.id}>'s **nickname was changed**`)
+    .addField("Before", `${oldMember.nickname || "None"}`)
+    .addField("After", `${newMember.nickname || "None"}`);
 
 // let modlogchannel = guild.channels.find(`name`, "modlog");
 // modlogchannel.send(ubembed);
