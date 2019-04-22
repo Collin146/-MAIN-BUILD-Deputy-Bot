@@ -332,22 +332,6 @@ modlogchannel.send(cdembed);
 
 });
 
-bot.on('channelUpdate', (oldChannel, newChannel, channel) => {
-
-    const cuembed = new Discord.RichEmbed()
-     .setColor('GREEN')
-    .setTimestamp()
-    .setTitle("**Channel Updated!**")
-    .setDescription([
-        `**Channel Name:** ${oldChannel.name} -> ${newChannel.name}`,
-        `**Permission Overwrite(s):** ${newChannel.permissionOverwrites.get(newChannel.permissionOverwrites)}`
-      ].join('\n'))
-
-let modlogchannel = oldChannel.guild.channels.find(`name`, "modlog");
-modlogchannel.send(cuembed);
-
-});
-
 bot.on('guildBanAdd', (guild, user) => {
 
     const ubembed = new Discord.RichEmbed()
@@ -385,6 +369,31 @@ bot.on('guildBanRemove', (guild, user) => {
 
 let modlogchannel = guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: uuembed});
+
+});
+
+bot.on('guildMemberUpdate', (oldMember, newMember, member) => {
+
+    if (oldMember.nickname !== newMember.nickname) {
+
+    const nickembed = new Discord.RichEmbed()
+     .setColor('GREEN')
+    .setTimestamp()
+    .setThumbnail((user.displayAvatarURL))
+    .setTitle("**Nickname Changed!**")
+    .setDescription([
+        `**Changed from** ${oldMember.nickname} **to** ${newMember.nickname}`,
+        `**User's Name:** <@${newMember.id}>`,
+        `**User's ID:** ${newMember.id}`
+      ].join('\n'))
+
+// let modlogchannel = guild.channels.find(`name`, "modlog");
+// modlogchannel.send(ubembed);
+
+let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: nickembed});
+
+    }
 
 });
 
