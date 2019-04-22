@@ -294,8 +294,16 @@ bot.on(`message`, async message => {
 
 bot.on('channelCreate', (channel) => {
    // channel.guild.defaultChannel.send(`A new channel has been created: ${channel.name}`);
+
+    	const ccembed = new Discord.RichEmbed()
+ 		.setColor('GREEN')
+ 		.setTimestamp()
+  		.setTitle("**Channel Created!**")
+	    .addField("Channel Name", `${channel.name}`)
+        .addField("Channel ID", channel.id);
+
     let modlogchannel = channel.guild.channels.find(`name`, "modlog");
-    modlogchannel.send(`A new channel has been created: ${channel.name}`)
+    modlogchannel.send(ccembed);
 
 });
 
