@@ -370,7 +370,7 @@ modlogchannel.send({embed: ubembed});
 bot.on('guildBanRemove', (guild, user) => {
 
     const uuembed = new Discord.RichEmbed()
-     .setColor('RED')
+     .setColor('GREEN')
     .setTimestamp()
     .setThumbnail((user.displayAvatarURL))
     .setTitle("**User Unbanned!**")
