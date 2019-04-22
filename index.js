@@ -339,7 +339,7 @@ bot.on('channelUpdate', (channel, oldChannel, newChannel) => {
     .setTimestamp()
     .setTitle("**Channel Updated!**")
     .setDescription([
-        `**Channel Name:** ${oldChannel.name} -> ${newChannel.name || "None"}`
+        `**Channel Name:** ${oldChannel.name} -> ${newChannel.name}`
       ].join('\n'))
 
 let modlogchannel = oldChannel.guild.channels.find(`name`, "modlog");
