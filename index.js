@@ -438,6 +438,25 @@ modlogchannel.send({embed: nickembed});
 
 });
 
+bot.on('messageUpdate', (oldMessage, newMessage, message) => {
+
+    const updembed = new Discord.RichEmbed()
+     .setColor('GREEN')
+    .setTimestamp()
+    .setThumbnail((user.displayAvatarURL))
+    .setTitle("**Message Edited!**")
+    .setDescription(`<@${message.author.id}>'s **message has been edited in** ${message.channel}`)
+    .addField("Before", `${oldMessage.content}`)
+    .addField("After", `${newMessage.content}`);
+
+// let modlogchannel = guild.channels.find(`name`, "modlog");
+// modlogchannel.send(ubembed);
+
+let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: updembed});
+
+});
+
 //-—
 //Channel Created Log End
 //-—
