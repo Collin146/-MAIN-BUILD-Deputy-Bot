@@ -292,11 +292,16 @@ bot.on(`message`, async message => {
 //         console.log(e);
 // });
 
+  		// .setTitle("**Channel Created!**")
+	    // .addField("Channel Name", `${channel.name}`)
+        // .addField("Channel ID", channel.id)
+        // .addField("Channel Type", channel.type);
+        // channel.guild.defaultChannel.send(`A new channel has been created: ${channel.name}`);
+
 bot.on('channelCreate', (channel) => {
-   // channel.guild.defaultChannel.send(`A new channel has been created: ${channel.name}`);
 
     	const ccembed = new Discord.RichEmbed()
-        .setColor('GREEN')
+         .setColor('GREEN')
         .setTimestamp()
         .setTitle("**Channel Created!**")
         .setDescription([
@@ -304,13 +309,26 @@ bot.on('channelCreate', (channel) => {
             `**Channel ID:** ${channel.id}`,
             `**Channel Type:** ${channel.type}`
           ].join('\n'))
-  		// .setTitle("**Channel Created!**")
-	    // .addField("Channel Name", `${channel.name}`)
-        // .addField("Channel ID", channel.id)
-        // .addField("Channel Type", channel.type);
 
     let modlogchannel = channel.guild.channels.find(`name`, "modlog");
     modlogchannel.send(ccembed);
+
+});
+
+bot.on('channelDelete', (channel) => {
+
+    const cdembed = new Discord.RichEmbed()
+     .setColor('RED')
+    .setTimestamp()
+    .setTitle("**Channel Deleted!**")
+    .setDescription([
+        `**Channel Name:** ${channel.name}`,
+        `**Channel ID:** ${channel.id}`,
+        `**Channel Type:** ${channel.type}`
+      ].join('\n'))
+
+let modlogchannel = channel.guild.channels.find(`name`, "modlog");
+modlogchannel.send(cdembed);
 
 });
 
