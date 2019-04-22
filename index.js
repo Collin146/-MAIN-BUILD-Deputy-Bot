@@ -367,6 +367,25 @@ modlogchannel.send({embed: ubembed});
 
 });
 
+bot.on('guildBanRemove', (guild, user) => {
+
+    const uuembed = new Discord.RichEmbed()
+     .setColor('RED')
+    .setTimestamp()
+    .setThumbnail((user.displayAvatarURL))
+    .setTitle("**User Unbanned!**")
+    .setDescription([
+        `**User's Name:** <@${user.id}>`,
+        `**User's ID:** ${user.id}`
+      ].join('\n'))
+
+// let modlogchannel = guild.channels.find(`name`, "modlog");
+// modlogchannel.send(ubembed);
+
+let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: uuembed});
+
+});
 
 //-—
 //Channel Created Log End
