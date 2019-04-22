@@ -332,6 +332,21 @@ modlogchannel.send(cdembed);
 
 });
 
+bot.on('channelUpdate', (oldChannel, newChannel, channel) => {
+
+    const cdembed = new Discord.RichEmbed()
+     .setColor('GREEN')
+    .setTimestamp()
+    .setTitle("**Channel Updated!**")
+    .setDescription([
+        `**Channel Name:** ${oldChannel.name} -> ${newChannel.name || "None"}`
+      ].join('\n'))
+
+let modlogchannel = channel.guild.channels.find(`name`, "modlog");
+modlogchannel.send(cdembed);
+
+});
+
 //-—
 //Channel Created Log End
 //-—
