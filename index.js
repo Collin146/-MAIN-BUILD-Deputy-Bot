@@ -277,8 +277,8 @@ bot.on(`message`, async message => {
 //Channel Created Log Start
 //-—
 
-bot.on("channelCreate", async  => {
-    let logs = msg.guild.fetchAuditLogs({type: 10});
+bot.on("channelCreate", async message => {
+    let logs = message.guild.fetchAuditLogs({type: 10});
     let entry = logs.entries.first();
 
 	const ccembed = new Discord.RichEmbed()
@@ -288,10 +288,9 @@ bot.on("channelCreate", async  => {
 		.addField("Channel Name", channel.name)
         .addField("Channel ID", channel.id);
         
-        let modlogchannel = msg.guild.channels.find(x => x.name === 'modlog');
+        let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
         modlogchannel.send({ccembed});
-	console.log(e);
-
+        console.log(e);
 });
 
 //-—
