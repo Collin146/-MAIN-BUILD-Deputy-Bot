@@ -347,7 +347,7 @@ modlogchannel.send(cuembed);
 
 });
 
-bot.on('guildBanAdd', (guild, user, channels) => {
+bot.on('guildBanAdd', (guild, user) => {
 
     const ubembed = new Discord.RichEmbed()
      .setColor('GREEN')
@@ -362,7 +362,7 @@ bot.on('guildBanAdd', (guild, user, channels) => {
 // let modlogchannel = guild.channels.find(`name`, "modlog");
 // modlogchannel.send(ubembed);
 
-let channel = user.guild.channels.find(x => x.name === 'modlog');
+let channel = guild.channels.find(x => x.name === 'modlog');
 channel.send({ubembed});
 
 });
