@@ -444,7 +444,7 @@ bot.on('messageUpdate', (newMessage, oldMessage) => {
      .setColor('GREEN')
     .setTimestamp()
     .setTitle("**Message Edited!**")
-    .setDescription(`<@${oldMessage.author.id}>'s **message has been edited in** ${message.channel}`)
+    .setDescription(`<@${oldMessage.author.id}>'s **message has been edited in** ${oldMessage.channel}`)
     .addField("Before", `${oldMessage}`)
     .addField("After", `${newMessage}`);
 
