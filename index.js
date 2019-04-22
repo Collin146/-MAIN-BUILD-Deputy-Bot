@@ -340,7 +340,7 @@ bot.on('channelUpdate', (oldChannel, newChannel, channel) => {
     .setTitle("**Channel Updated!**")
     .setDescription([
         `**Channel Name:** ${oldChannel.name} -> ${newChannel.name}`,
-        `**Permission Overwrite(s):** ${oldChannel.PermissionOverwrites}`
+        `**Permission Overwrite(s):** ${oldChannel.PermissionOverwrites.get}`
       ].join('\n'))
 
 let modlogchannel = oldChannel.guild.channels.find(`name`, "modlog");
