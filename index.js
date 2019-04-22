@@ -277,7 +277,7 @@ bot.on(`message`, async message => {
 //Channel Created Log Start
 //-—
 
-bot.on("channelCreate", async message => {
+bot.on("channelCreate", async (message, channel) => {
     let logs = message.guild.fetchAuditLogs({type: 10});
 
 	const ccembed = new Discord.RichEmbed()
