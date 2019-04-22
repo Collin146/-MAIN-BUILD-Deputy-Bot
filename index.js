@@ -298,7 +298,7 @@ bot.on(`message`, async message => {
         // .addField("Channel Type", channel.type);
         // channel.guild.defaultChannel.send(`A new channel has been created: ${channel.name}`);
 
-bot.on('channelCreate', (channel) => {
+bot.on('channelCreate', (channel, guild) => {
 
     	const ccembed = new Discord.RichEmbed()
          .setColor('GREEN')
@@ -310,7 +310,7 @@ bot.on('channelCreate', (channel) => {
             `**Channel Type:** ${channel.type}`
           ].join('\n'))
 
-    let modlogchannel = channel.guild.channels.find(`name`, "modlog");
+    let modlogchannel = guild.channels.find(`name`, "modlog");
     modlogchannel.send(ccembed);
 
 });
