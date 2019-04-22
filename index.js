@@ -389,7 +389,7 @@ bot.on('guildMemberUpdate', (oldMember, newMember, member) => {
 // let modlogchannel = guild.channels.find(`name`, "modlog");
 // modlogchannel.send(ubembed);
 
-let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = newMember.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: nickembed});
 
     }
@@ -411,7 +411,7 @@ modlogchannel.send({embed: nickembed});
    // let modlogchannel = guild.channels.find(`name`, "modlog");
    // modlogchannel.send(ubembed);
    
-   let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+   let modlogchannel = newMember.guild.channels.find(x => x.name === 'modlog');
    modlogchannel.send({embed: roleminembed});
    
         }
@@ -435,7 +435,7 @@ modlogchannel.send({embed: nickembed});
    // let modlogchannel = guild.channels.find(`name`, "modlog");
    // modlogchannel.send(ubembed);
    
-   let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+   let modlogchannel = newMember.guild.channels.find(x => x.name === 'modlog');
    modlogchannel.send({embed: rolemaxembed});
 
         }
