@@ -443,7 +443,6 @@ bot.on('messageUpdate', (oldMessage, newMessage, message) => {
     const updembed = new Discord.RichEmbed()
      .setColor('GREEN')
     .setTimestamp()
-    .setThumbnail((user.displayAvatarURL))
     .setTitle("**Message Edited!**")
     .setDescription(`<@${message.author.id}>'s **message has been edited in** ${message.channel}`)
     .addField("Before", `${oldMessage.content}`)
