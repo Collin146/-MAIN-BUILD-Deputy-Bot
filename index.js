@@ -347,10 +347,10 @@ modlogchannel.send(cuembed);
 
 });
 
-bot.on('guildBanAdd', (user) => {
+bot.on('guildBanAdd', (user, guild) => {
 
     const ubembed = new Discord.RichEmbed()
-     .setColor('RED')
+     .setColor('GREEN')
     .setTimestamp()
     .setThumbnail(user.displayAvatarURL)
     .setTitle("**User Banned!**")
@@ -359,7 +359,7 @@ bot.on('guildBanAdd', (user) => {
         `**User's ID:** ${user.id}`
       ].join('\n'))
 
-let modlogchannel = user.guild.channels.find(`name`, "modlog");
+let modlogchannel = guild.channels.find(`name`, "modlog");
 modlogchannel.send(ubembed);
 
 });
