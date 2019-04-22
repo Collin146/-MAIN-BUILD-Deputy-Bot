@@ -438,7 +438,7 @@ modlogchannel.send({embed: nickembed});
 
 });
 
-bot.on('messageUpdate', (message, oldMessage, newMessage) => {
+bot.on('messageUpdate', (message, newMessage, oldMessage) => {
 
     const updembed = new Discord.RichEmbed()
      .setColor('GREEN')
