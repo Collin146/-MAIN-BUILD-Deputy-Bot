@@ -455,7 +455,7 @@ bot.on('messageUpdate', (newMessage, oldMessage) => {
 
 let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: updembed});
-
+console.log(e)
     }
 });
 
