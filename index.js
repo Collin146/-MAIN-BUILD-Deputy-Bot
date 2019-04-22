@@ -279,7 +279,6 @@ bot.on(`message`, async message => {
 
 bot.on = (bot, channel) => {
 	if (!channel) return;
-	if (channel.type !== 'text') return;
 	if (!bot.provider.isReady) return;
 
 	if (!bot.provider.getGuild(channel.guild.id, 'prefix')) return;
