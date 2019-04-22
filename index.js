@@ -407,7 +407,7 @@ modlogchannel.send({embed: nickembed});
            `**User's Name:** <@${newMember.id}>`,
            `**User's ID:** ${newMember.id}`,
            ` `,
-           `**Role(s) Given:** ${oldMember.guild.roles.get(role).map(s => s).join(" | ")}`
+           `**Role(s) Given:** ${oldMember.guild.roles.get(role).roles.map(s => s).join(" | ")}`
          ].join('\n'))
    
    // let modlogchannel = guild.channels.find(`name`, "modlog");
@@ -432,7 +432,7 @@ modlogchannel.send({embed: nickembed});
            `**User's Name:** <@${newMember.id}>`,
            `**User's ID:** ${newMember.id}`,
            ` `,
-           `**Role(s) Removed:** ${oldMember.guild.roles.get(role).map(s => s).join(" | ")}`
+           `**Role(s) Removed:** ${oldMember.guild.roles.get(role).roles.map(s => s).join(" | ")}`
          ].join('\n'))
     
    // let modlogchannel = guild.channels.find(`name`, "modlog");
