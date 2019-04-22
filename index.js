@@ -399,7 +399,7 @@ modlogchannel.send({embed: nickembed});
         const roleminembed = new Discord.RichEmbed()
         .setColor('GREEN')
         .setTimestamp()
-        .setTitle("**Roles Given!**")
+        .setTitle("**Role Given!**")
         for (const role of newMember.roles.map(x => x.id)) {
 			if (!oldMember.roles.has(role)) {
         roleminembed.setDescription([
@@ -423,7 +423,7 @@ modlogchannel.send({embed: nickembed});
         const rolemaxembed = new Discord.RichEmbed()
         .setColor('RED')
         .setTimestamp()
-        .setTitle("**Roles Removed!**")
+        .setTitle("**Role Removed!**")
         for (const role of oldMember.roles.map(x => x.id)) {
 			if (!newMember.roles.has(role)) {
         rolemaxembed.setDescription([
