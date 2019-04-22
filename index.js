@@ -383,6 +383,7 @@ bot.on('guildMemberUpdate', (oldMember, newMember, member) => {
     .setDescription([
         `**User's Name:** <@${newMember.id}>`,
         `**User's ID:** ${newMember.id}`,
+        ` `, 
         `**Changed from** ${oldMember.nickname} **to** ${newMember.nickname}`
       ].join('\n'))
 
@@ -405,6 +406,7 @@ modlogchannel.send({embed: nickembed});
         roleminembed.setDescription([
            `**User's Name:** <@${newMember.id}>`,
            `**User's ID:** ${newMember.id}`,
+           ` `,
            `**Role(s) Given:** ${oldMember.guild.roles.get(role).name}`
          ].join('\n'))
    
@@ -429,6 +431,7 @@ modlogchannel.send({embed: nickembed});
         rolemaxembed.setDescription([
            `**User's Name:** <@${newMember.id}>`,
            `**User's ID:** ${newMember.id}`,
+           ` `,
            `**Role(s) Removed:** ${oldMember.guild.roles.get(role).name}`
          ].join('\n'))
     
