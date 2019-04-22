@@ -359,8 +359,11 @@ bot.on('guildBanAdd', (user, guild) => {
         `**User's ID:** ${user.id}`
       ].join('\n'))
 
-let modlogchannel = guild.guild.channels.find(`name`, "modlog");
-modlogchannel.send(ubembed);
+// let modlogchannel = guild.channels.find(`name`, "modlog");
+// modlogchannel.send(ubembed);
+
+let channel = user.guild.channels.find(x => x.name === 'modlog');
+channel.send({ubembed});
 
 });
 
