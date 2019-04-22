@@ -377,11 +377,11 @@ bot.on('guildMemberUpdate', (oldMember, newMember, member) => {
     if (oldMember.nickname !== newMember.nickname) {
 
     const nickembed = new Discord.RichEmbed()
-     .setColor('GREEN')
+    .setColor('GREEN')
     .setTimestamp()
     .setTitle("**Nickname Changed!**")
     .setDescription([
-        `<@${oldMember.id}>'s nickname changed from ${oldMember.nickname} to ${newMember.nickname}`
+        `${oldMember.user.tag}'s nickname changed from \`${oldMember.nickname}\` to \`${newMember.nickname}\``
       ].join('\n'))
 
 // let modlogchannel = guild.channels.find(`name`, "modlog");
