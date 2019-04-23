@@ -497,8 +497,8 @@ modlogchannel.send(gnembed);
        .setTimestamp()
        .setTitle("**Guild Icon Changed!**")
        .setDescription(`**This guild's icon has been edited**`)
-       .addField("Before", `${oldGuild.iconURL}`)
-       .addField("After", `${newGuild.iconURL}`);
+       .addField("Before", `${oldGuild.iconURL || "None"}`)
+       .addField("After", `${newGuild.iconURL || "None"}`);
    
    let modlogchannel = oldGuild.channels.find(x => x.name === 'modlog');
    modlogchannel.send(giembed);
