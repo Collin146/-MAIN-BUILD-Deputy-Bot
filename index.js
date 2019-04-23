@@ -261,7 +261,7 @@ bot.on(`message`, async message => {
         
         });
 
-bot.on('channelCreate', (channel) => {
+bot.on('channelCreate', (channel, user) => {
 
     	const ccembed = new Discord.RichEmbed()
          .setColor('GREEN')
@@ -273,7 +273,7 @@ bot.on('channelCreate', (channel) => {
             `**Channel Type:** ${channel.type}`
           ].join('\n'))
 
-          let modlogchannel = bot.channels.find(x => x.name === 'modlog');
+          let modlogchannel = user.guild.channels.find(x => x.name === 'modlog');
           modlogchannel.send({embed: ccembed});
 
 });
