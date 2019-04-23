@@ -29,32 +29,29 @@ geluktEmbed = new Discord.RichEmbed()
       .setDescription(`<@${kUser.id}> has been kicked!`)
       .setFooter(`Mentioned User ID: ${kUser.id}`);
 
-
-    //let kickEmbed = new Discord.RichEmbed()
-    //.setDescription("A user has been kicked")
-    //.setColor("#ff6a00")
-    //.addField("Kicked User", `${kUser} with ID: ${kUser.id}`)
-    //.addField("Kicked By", `<@${message.author.id}> with ID: ${message.author.id}`)
-    //.addField("Kicked In", message.channel)
-    //.addField("Time", message.createdAt)
-    //.addField("Reason", kReason);
-
     message.guild.member(kUser).kick(kReason);
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
-    .setTitle("**Kick command used!**")
-    .setColor("RED")
-    .addField("Kicked User", `<@${kUser.id}>`, true)
-    .addField("Kicked In", message.channel, true)
-    .addField("Reason", kReason, true)
-    .addField("Kicked By", message.author.username, true)
+    .setTitle("**Moderation Command Used!**")
     .setTimestamp()
+    .setColor("BLACK")
+    .setDescription([
+        `**The moderation command** !kick **has been used**`,
+        ` `,
+        `**Used On:** <@${kUser.id}>`,
+        ` `,
+        `**Used In:** ${message.channel}`,
+        ` `,
+        `**Used By:** ${message.author.username}`,
+        ` `,
+        `**Reason For Kick:** ${kReason}`
+      ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
-
+    
     let warnchannel = message.guild.channels.find(`name`, "modlog");
     if(!warnchannel) return message.reply("Couldn't find channel");
-
+    
     warnchannel.send(ModEmbed);
 
     let dmembed =  new Discord.RichEmbed()
