@@ -524,6 +524,8 @@ modlogchannel.send(gnembed);
 
 bot.on('channelUpdate', (oldChannel, newChannel) => {
 
+	if (oldChannel.name !== newChannel.name) {
+
     const cuembed = new Discord.RichEmbed()
      .setColor('BLACK')
     .setTimestamp()
@@ -534,6 +536,8 @@ bot.on('channelUpdate', (oldChannel, newChannel) => {
 
 let modlogchannel = oldChannel.guild.channels.find(`name`, "modlog");
 modlogchannel.send(cuembed);
+
+    }
 
 });
 
