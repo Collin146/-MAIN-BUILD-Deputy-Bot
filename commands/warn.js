@@ -24,6 +24,8 @@ module.exports.run = async (bot, message, args) => {
   let reason = args.slice(1).join(" ");
   if (!reason) return message.reply("Please give a reason");
   let mentioned = message.mentions.users.first();
+  const yes = bot.emojis.get("561106357131018273");
+  const no = bot.emojis.get("561106624757104640");
 
   if(!warns[wUser.id]) warns[wUser.id] = {
     warns: 0
@@ -35,29 +37,34 @@ module.exports.run = async (bot, message, args) => {
     if (err) console.log(err)
   });
 
-  let WEmbed = new Discord.RichEmbed()
-  .setTitle("**A user has been warned!**")
-  .setColor("#ff0c00")
-  .addField("Punished User", `<@${wUser.id}>`)
-  .addField("Punishment Type", "Warning")
-  .addField("Reason", reason)
+  geluktEmbed = new Discord.RichEmbed()
+  .setColor("GREEN")
+  .setTitle(`${yes} **Done!**`)
+  .setDescription(`<@${wUser.id}> has been warned for \`${reason}\``)
+  .setFooter(`Mentioned User ID: ${wUser.id}`);
 
-  message.reply(WEmbed);
+  message.channel.send(geluktEmbed);
 
   let ModEmbed = new Discord.RichEmbed()
-  .setTitle("**Warn command used!**")
-  .setColor("RED")
-  .addField("Warned User", `<@${wUser.id}>`, true)
-  .addField("Warned In", message.channel, true)
-  .addField("Reason", reason, true)
-  .addField("Number of Warnings", warns[wUser.id].warns, true)
-  .addField("Warned By", message.author.username, true)
+  .setTitle("**Moderation Command Used!**")
   .setTimestamp()
+  .setColor("BLACK")
+  .setDescription([
+      `**The moderation command** !warn **has been used**`,
+      ` `,
+      `**Used On:** <@${wUser.id}>`,
+      ` `,
+      `**Used In:** ${message.channel}`,
+      ` `,
+      `**Used By:** ${message.author.username}`,
+      ` `,
+      `**Reason For Warning:** ${reason}`
+    ].join('\n'))
   .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
-
+  
   let warnchannel = message.guild.channels.find(`name`, "modlog");
   if(!warnchannel) return message.reply("Couldn't find channel");
-
+  
   warnchannel.send(ModEmbed);
 
   let DMembed = new Discord.RichEmbed()
@@ -67,24 +74,6 @@ module.exports.run = async (bot, message, args) => {
   .addField("Reason", reason);
  
 mentioned.send(DMembed);
-
-//   if(warns[wUser.id].warns == 2){
-//     let muterole = message.guild.roles.find(`name`, "muted");
-//     if(!muterole) return message.reply("You should create that role.");
-
-//     let mutetime = "10s";
-//     await(wUser.addRole(muterole.id));
-//     message.channel.send(`<@${wUser.id}> has been temporarily muted`);
-
-//     setTimeout(function(){
-//       wUser.removeRole(muterole.id)
-//       message.reply(`<@${wUser.id}> has been unmuted.`)
-//     }, ms(mutetime))
-//   }
-//   if(warns[wUser.id].warns == 3){
-//     message.guild.member(wUser).ban(reason);
-//     message.reply(`<@${wUser.id}> has been banned.`)
-//   }
 
 }
 
