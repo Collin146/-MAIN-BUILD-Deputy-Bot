@@ -584,10 +584,23 @@ modlogchannel.send(gnembed);
 
 });
 
+bot.on('channelUpdate', (oldChannel, newChannel) => {
+
+    const cuembed = new Discord.RichEmbed()
+     .setColor('BLACK')
+    .setTimestamp()
+    .setTitle("**Channel Name Edited!**")
+    .setDescription(`'**The name of channel** ${oldChannel.name} **has been edited**`)
+    .addField("Before", `${oldChannel.name}`)
+    .addField("After", `${newChannel.name}`);
+
+let modlogchannel = oldChannel.guild.channels.find(`name`, "modlog");
+modlogchannel.send(cuembed);
+
+});
 
 //-—
 //Channel Created Log End
 //-—
-
 
 bot.login(botconfig.token);
