@@ -259,6 +259,8 @@ bot.on('channelDelete', (channel) => {
 let modlogchannel = channel.guild.channels.find(`name`, "modlog");
 modlogchannel.send(cdembed);
 
+});
+
 bot.on('channelCreate', channel => {
 
     const ccembed = new Discord.RichEmbed()
@@ -271,29 +273,11 @@ bot.on('channelCreate', channel => {
         `**Channel Type:** ${channel.type}`
       ].join('\n'))
 
-let modlogchannel = channel.guild.channels.find(`name`, "modlog");
+let modlogchannel = message.guild.channels.find(`name`, "modlog");
 modlogchannel.send(ccembed);
 
 });
 
-});
-
-bot.on('guildBanAdd', (guild, user) => {
-
-    const ubembed = new Discord.RichEmbed()
-     .setColor('RED')
-    .setTimestamp()
-    .setThumbnail((user.displayAvatarURL))
-    .setTitle("**User Banned!**")
-    .setDescription([
-        `**User's Name:** <@${user.id}>`,
-        `**User's ID:** ${user.id}`
-      ].join('\n'))
-
-      let modlogchannel = channel.guild.channels.find(`name`, "modlog");
-      modlogchannel.send(ubembed);
-
-    });
 
 bot.on('guildBanRemove', (guild, user) => {
 
