@@ -473,7 +473,7 @@ bot.on('roleCreate', (role) => {
 // let modlogchannel = guild.channels.find(`name`, "modlog");
 // modlogchannel.send(ubembed);
 
-let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = role.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(rcembed);
 
 });
@@ -493,7 +493,7 @@ bot.on('roleDelete', (role) => {
 // let modlogchannel = guild.channels.find(`name`, "modlog");
 // modlogchannel.send(ubembed);
 
-let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = role.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(rdembed);
 
 });
