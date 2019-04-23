@@ -244,9 +244,25 @@ bot.on(`message`, async message => {
 //Modlog events start
 //--
 
+bot.on('guildBanAdd', (guild, user) => {
+
+    const ubembed = new Discord.RichEmbed()
+     .setColor('RED')
+    .setTimestamp()
+    .setThumbnail((user.displayAvatarURL))
+    .setTitle("**User Banned!**")
+    .setDescription([
+        `**User's Name:** <@${user.id}>`,
+        `**User's ID:** ${user.id}`
+      ].join('\n'))
+
+let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ubembed});
+
+
         bot.on('channelCreate', (channel) => {
 
-            const guild = channel.guild
+            const guild = user.guild
             const ccembed = new Discord.RichEmbed()
              .setColor('GREEN')
             .setTimestamp()
@@ -261,6 +277,7 @@ bot.on(`message`, async message => {
               modlogchannel.send({embed: ccembed});
         
         });
+    });
 
 bot.on('channelDelete', (channel) => {
 
