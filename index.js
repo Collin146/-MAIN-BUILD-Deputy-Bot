@@ -506,7 +506,7 @@ bot.on('roleUpdate', (oldRole, newRole) => {
      .setColor('BLACK')
     .setTimestamp()
     .setTitle("**Role Name Edited!**")
-    .setDescription(`**The name of** ${oldRole.name} **has been edited**`)
+    .setDescription(`**The name of role** ${oldRole.name} **has been edited**`)
     .addField("Before", `${oldRole.name}`)
     .addField("After", `${newRole.name}`);
 
@@ -522,7 +522,7 @@ bot.on('roleUpdate', (oldRole, newRole) => {
         .setTimestamp()
         .setTitle("**Role Color Edited!**")
         .setDescription([
-            `**The color of** ${oldRole.name} **has been edited**`,
+            `**The color of role** ${oldRole.name} **has been edited**`,
             `${oldRole.hexColor} -> ${newRole.hexColor}`
           ].join('\n'));
 
