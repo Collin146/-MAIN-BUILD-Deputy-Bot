@@ -535,6 +535,55 @@ bot.on('roleUpdate', (oldRole, newRole) => {
 
 });
 
+bot.on('guildUpdate', (oldGuild, newGuild) => {
+
+    if (oldGuild.name !== newGuild.name) {
+   
+    const gnembed = new Discord.RichEmbed()
+     .setColor('BLACK')
+    .setTimestamp()
+    .setTitle("**Guild Name Edited!**")
+    .setDescription(`**This guild's name has been edited**`)
+    .addField("Before", `${oldGuild.name}`)
+    .addField("After", `${newGuild.name}`);
+
+let modlogchannel = oldGuild.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send(gnembed);
+
+    }
+
+	if (oldGuild.iconURL !== newGuild.iconURL) {
+
+        const giembed = new Discord.RichEmbed()
+        .setColor('BLACK')
+       .setTimestamp()
+       .setTitle("**Guild Icon Changed!**")
+       .setDescription(`**This guild's icon has been edited**`)
+       .addField("Before", `${oldGuild.iconURL}`)
+       .addField("After", `${newGuild.iconURL}`);
+   
+   let modlogchannel = oldGuild.guild.channels.find(x => x.name === 'modlog');
+   modlogchannel.send(giembed);
+
+    }
+
+    if (oldGuild.owner.id !== newGuild.owner.id) {
+
+        const goembed = new Discord.RichEmbed()
+        .setColor('BLACK')
+       .setTimestamp()
+       .setTitle("**Guild Owner Transfership!**")
+       .setDescription(`**This guild's ownership has been transferred**`)
+       .addField("Before", `${oldGuild.owner.user.tag}`)
+       .addField("After", `${newGuild.owner.user.tag}`);
+   
+   let modlogchannel = oldGuild.guild.channels.find(x => x.name === 'modlog');
+   modlogchannel.send(goembed);
+
+    }
+
+});
+
 
 //-—
 //Channel Created Log End
