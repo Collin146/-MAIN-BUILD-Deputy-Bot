@@ -39,19 +39,25 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send(sEmbed);
 
-    let modlogembed = new Discord.RichEmbed()
-    .setTitle("**Prefix command used!**")
-    .addField("Used In", message.channel, true)
-    .addField("Changed By", message.author.username, true)
-    .addField("Changed To", `${args[0]}`, true)
+    let ModEmbed = new Discord.RichEmbed()
+    .setTitle("**Administration Command Used!**")
     .setTimestamp()
+    .setColor("BLACK")
+    .setDescription([
+        `**The administration command** !prefix **has been used**`,
+        ` `,
+        `**Changed To** ${args[0]}`,
+        ` `,
+        `**Used In:** ${message.channel}`,
+        ` `,
+        `**Used By:** ${message.author.username}`,
+      ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
-
+    
     let warnchannel = message.guild.channels.find(`name`, "modlog");
     if(!warnchannel) return message.reply("Couldn't find channel");
-
-
     
+    warnchannel.send(ModEmbed);
     
 }
 
