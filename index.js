@@ -138,7 +138,7 @@ bot.on("message", async message => {
     if(!message.content.startsWith(prefix))return;
 
     }
-
+});
 
 
 //--
@@ -244,22 +244,24 @@ bot.on(`message`, async message => {
 //Modlog events start
 //--
 
-//         bot.on('guildBanAdd', (guild, user) => {
+bot.on("message", async message => {
 
-//             const ubembed = new Discord.RichEmbed()
-//              .setColor('RED')
-//             .setTimestamp()
-//             .setThumbnail((user.displayAvatarURL))
-//             .setTitle("**User Banned!**")
-//             .setDescription([
-//                 `**User's Name:** <@${user.id}>`,
-//                 `**User's ID:** ${user.id}`
-//               ].join('\n'))
+        bot.on('guildBanAdd', (guild, user) => {
+
+            const ubembed = new Discord.RichEmbed()
+             .setColor('RED')
+            .setTimestamp()
+            .setThumbnail((user.displayAvatarURL))
+            .setTitle("**User Banned!**")
+            .setDescription([
+                `**User's Name:** <@${user.id}>`,
+                `**User's ID:** ${user.id}`
+              ].join('\n'))
         
-//         let modlogchannel = guild.channels.find(x => x.name === 'modlog');
-//         modlogchannel.send({embed: ubembed});
+        let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+        modlogchannel.send({embed: ubembed});
         
-//         });
+        });
 
 bot.on('channelDelete', (channel) => {
 
