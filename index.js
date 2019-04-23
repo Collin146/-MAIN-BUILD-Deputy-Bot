@@ -498,6 +498,43 @@ modlogchannel.send(rdembed);
 
 });
 
+bot.on('roleUpdate', (oldRole, newRole) => {
+
+    if (oldRole.name !== newRole.name) {
+
+    const rnembed = new Discord.RichEmbed()
+     .setColor('BLACK')
+    .setTimestamp()
+    .setTitle("**Role Name Edited!**")
+    .setDescription(`**The name of** ${oldRole.name} **has been edited**`)
+    .addField("Before", `${oldRole.name}`)
+    .addField("After", `${newRole.name}`);
+
+    let modlogchannel = oldRole.guild.channels.find(x => x.name === 'modlog');
+    modlogchannel.send({embed: rnembed});
+
+    }
+
+    if (oldRole.hexColor !== newRole.hexColor) {
+
+        const rhxembed = new Discord.RichEmbed()
+        .setColor('BLACK')
+        .setTimestamp()
+        .setTitle("**Role Color Edited!**")
+        .setDescription([
+            `**The color of** ${oldRole.name} **has been edited**`,
+            `${oldRole.hexColor} -> ${newRole.hexColor}`
+          ].join('\n'));
+
+       let modlogchannel = oldRole.guild.channels.find(x => x.name === 'modlog');
+       modlogchannel.send({embed: rhxembed});
+   
+
+    }
+
+});
+
+
 //-—
 //Channel Created Log End
 //-—
