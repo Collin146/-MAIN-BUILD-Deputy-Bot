@@ -438,36 +438,38 @@ modlogchannel.send({embed: nickembed});
 
 });
 
-// bot.on('messageUpdate', (oldMessage, newMessage) => {
-
-//     const updembed = new Discord.RichEmbed()
-//      .setColor('GREEN')
-//     .setTimestamp()
-//     .setTitle("**Message Edited!**")
-//     .setDescription(`<@${oldMessage.author.id}>'s **message has been edited in** ${oldMessage.channel}`)
-//     .addField("Before", oldMessage.content)
-//     .addField("After", newMessage.content)
-
-// // let modlogchannel = guild.channels.find(`name`, "modlog");
-// // modlogchannel.send(ubembed);
-
-// let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
-// modlogchannel.send({ updembed });
-// });
-
 bot.on('messageUpdate', (oldMessage, newMessage) => {
 
-    const updembed = new Discord.RichEmbed();
-    updembed.setTitle("**Message Edited!**");
-    updembed.setDescription(`<@${oldMessage.author.id}>'s **message has been edited in** ${oldMessage.channel}`);
-    updembed.addField("Before", oldMessage.content);
-    updembed.addField("After", newMessage.content);
-    updembed.setColor('GREEN');
-    updembed.setTimestamp();
+    const updembed = new Discord.RichEmbed()
+     .setColor('GREEN')
+    .setTimestamp()
+    .setTitle("**Message Edited!**")
+    .setDescription(`<@${oldMessage.author.id}>'s **message has been edited in** ${oldMessage.channel}`)
+    .addField("Before", oldMessage.content || "Nothing")
+    .addField("After", newMessage.content || "Nothing")
+
+    if(oldMessage.author = bot.author) return;
+
+// let modlogchannel = guild.channels.find(`name`, "modlog");
+// modlogchannel.send(ubembed);
 
 let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
-modlogchannel.send({ embed: updembed });
+modlogchannel.send({ updembed });
 });
+
+// bot.on('messageUpdate', (oldMessage, newMessage) => {
+
+//     const updembed = new Discord.RichEmbed();
+//     updembed.setTitle("**Message Edited!**");
+//     updembed.setDescription(`<@${oldMessage.author.id}>'s **message has been edited in** ${oldMessage.channel}`);
+//     updembed.addField("Before", oldMessage.content);
+//     updembed.addField("After", newMessage.content);
+//     updembed.setColor('GREEN');
+//     updembed.setTimestamp();
+
+// let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
+// modlogchannel.send({ embed: updembed });
+// });
 
 //-—
 //Channel Created Log End
