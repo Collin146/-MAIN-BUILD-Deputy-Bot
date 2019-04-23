@@ -244,8 +244,6 @@ bot.on(`message`, async message => {
 //Modlog events start
 //--
 
-bot.on("message", async message => {
-
         bot.on('guildBanAdd', (guild, user) => {
 
             const ubembed = new Discord.RichEmbed()
@@ -537,7 +535,6 @@ modlogchannel.send(cuembed);
 
 });
 
-});
 //-—
 //Modlog events end
 //-—
