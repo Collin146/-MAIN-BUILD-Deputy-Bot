@@ -2,17 +2,26 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
     let sicon = message.guild.iconURL;
+
     let serverembed = new Discord.RichEmbed()
     .setTitle("**Server Information**")
     .setColor("#00fff6")
     .setThumbnail(sicon)
-    .addField("Server Name", message.guild.name, true)
-    .addField("Server ID", message.guild.id)
-    .addField("Created On", message.guild.createdAt)
-    .addField("Created By", message.guild.owner)
-    .addField("You Joined", message.member.joinedAt)
-    .addField("Total Members", message.guild.memberCount)
-    .addField("Region", message.guild.region);
+    .setDescription([
+        `**Server Name:** ${message.guild.name}`,
+        ` `,
+        `**Server ID:** ${message.guild.id}`,
+        ` `,
+        `**Created On:** ${message.guild.createdAt}`,
+        ` `,
+        `**Created By:** ${message.guild.owner}`,
+        ` `,
+        `**You Joined At:** ${message.guild.joinedAt}`,
+        ` `,
+        `**Total Members:** ${message.guild.memberCount}`,
+        ` `,
+        `**Region:** ${message.server.region}`
+      ].join('\n'))
 
     return message.channel.send(serverembed);
 
