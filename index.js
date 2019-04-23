@@ -246,7 +246,7 @@ bot.on(`message`, async message => {
 
 bot.on('channelCreate', channel => {
 
-if (channel.guild === null) return;
+if (channel.type === DMChannel) return;
 
     const ccembed = new Discord.RichEmbed()
      .setColor('GREEN')
