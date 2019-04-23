@@ -20,11 +20,11 @@ module.exports.run = async (bot, message, args) => {
         ` `,
         `**Total Members:** ${message.guild.memberCount}`,
         ` `,
-        `**Region:** ${message.server.region}`
+        `**Region:** ${message.guild.region}`
       ].join('\n'))
 
     return message.channel.send(serverembed);
-
+    
 }
 
 module.exports.help = {
