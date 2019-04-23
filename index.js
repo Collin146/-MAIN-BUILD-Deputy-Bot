@@ -66,7 +66,7 @@ bot.on('channelCreate', channel => {
         `**Channel Type:** ${channel.type}`
       ].join('\n'))
 
-let modlogchannel = message.guild.channels.find(`name`, "modlog");
+let modlogchannel = channel.guild.channels.find(`name`, "modlog");
 modlogchannel.send(ccembed);
 
 });
