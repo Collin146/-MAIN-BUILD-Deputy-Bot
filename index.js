@@ -523,6 +523,7 @@ bot.on('roleUpdate', (oldRole, newRole) => {
         .setTitle("**Role Color Edited!**")
         .setDescription([
             `**The color of role** ${oldRole.name} **has been edited**`,
+            ` `,
             `${oldRole.hexColor} -> ${newRole.hexColor}`
           ].join('\n'));
 
