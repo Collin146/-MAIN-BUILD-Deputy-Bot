@@ -3,21 +3,6 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
-    let ModEmbed = new Discord.RichEmbed()
-    .setTitle("**Clear command used!**")
-    .setColor("RED")
-    .addField("Cleared In", message.channel, true)
-    .addField("Cleared By", message.author.username, true)
-    .addField("Cleared Amount", args, true)
-    .setTimestamp()
-    .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
-
-    let warnchannel = message.guild.channels.find(`name`, "modlog");
-    if(!warnchannel) return message.reply("Couldn't find channel");
-
-    warnchannel.send(ModEmbed);
-
-
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
     if(args[0] === "help"){
         message.reply("Usage: !clear <amount>");
@@ -39,6 +24,26 @@ module.exports.run = async (bot, message, args) => {
 
 
     });
+
+    let ModEmbed = new Discord.RichEmbed()
+    .setTitle("**Moderation Command Used!**")
+    .setTimestamp()
+    .setColor("BLACK")
+    .setDescription([
+        `**The moderation command** !clear **has been used**`,
+        ` `,
+        `**Cleared Amount:** ${args}`,
+        ` `,
+        `**Used In:** ${message.channel}`,
+        ` `,
+        `**Used By:** ${message.author.username}`
+      ].join('\n'))
+    .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+    
+    let warnchannel = message.guild.channels.find(`name`, "modlog");
+    if(!warnchannel) return message.reply("Couldn't find channel");
+    
+    warnchannel.send(ModEmbed);
 }
 
 
