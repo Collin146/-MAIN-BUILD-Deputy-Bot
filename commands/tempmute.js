@@ -59,13 +59,20 @@ setTimeout(function(){
 }, ms(mutetime));
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("**Tempmute command used!**")
-.setColor("RED")
-.addField("Muted User", `<@${tomute.id}>`, true)
-.addField("Muted In", message.channel, true)
-.addField("Length", mutetime, true)
-.addField("Muted By", message.author.username, true)
+.setTitle("**Moderation Command Used!**")
 .setTimestamp()
+.setColor("BLACK")
+.setDescription([
+    `**The moderation command** !tempmute **has been used**`,
+    ` `,
+    `**Used On:** <@${tomute.id}>`,
+    ` `,
+    `**Used In:** ${message.channel}`,
+    ` `,
+    `**Used By:** ${message.author.username}`,
+    ` `,
+    `**Muted For:** ${mutetime}`
+  ].join('\n'))
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
 let warnchannel = message.guild.channels.find(`name`, "modlog");
