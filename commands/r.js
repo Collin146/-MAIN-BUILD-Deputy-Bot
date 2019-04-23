@@ -18,10 +18,9 @@ module.exports.run = async (bot, message, args) => {
 
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 let mentionrole = message.guild.roles.find(`name`, `Member`);
-let traineerole = message.guild.roles.find("name", "Trainee");
 
     message.channel.send([
-        `<@&${mentionrole.id || traineerole.id}>`,
+        `<@&${mentionrole.id}>`,
         ` `,
         "⚠ **Reminder!** ⚠"
       ].join('\n'))
