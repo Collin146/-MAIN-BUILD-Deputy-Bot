@@ -4,6 +4,10 @@ const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
+//--
+//Cmd handler end
+//--
+
 fs.readdir("./commands/", (err, files) => {
 
 if(err) console.log(err);
@@ -46,10 +50,16 @@ fs.readdir("./charges/", (err, files) => {
     
     });
 
+//--
+//Cmd handler end
+//--
+
+//--
+//welcome message begin
+//--
+
 bot.on('guildMemberAdd', member => {
     let welcomechannel = member.guild.channels.find(`name`, "welcome");
-    // channel: the channel you want to send the welcome message in
-    // or send it with an embed:
 
 const rando_imgs = [
 'https://media.discordapp.net/attachments/540626663944355861/555452902936936459/Screenshot_2019-01-03_at_13.15.28.png',
@@ -69,15 +79,16 @@ let memberTag = member.user.tag;
       .setDescription(`Welcome **${memberTag}**, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
       .setImage(`${image}`);
   welcomechannel.send({embed});
-    
-//    let backupembed = new Discord.RichEmbed()
-//    .setColor("GREEN")
-//    .setAuthor(`${memberTag}`, member.avatarURL)
-//    .setDescription("Has just joined.");
 
-//    let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
- //   backupchannel.send(backupembed);
   });
+
+//--
+//welcome message end
+//--
+
+//--
+//left message begin
+//--
 
 bot.on("guildMemberRemove", async member => {
     console.log(`${member} left the server.`);
@@ -87,21 +98,22 @@ bot.on("guildMemberRemove", async member => {
     let welcomechannel = member.guild.channels.find(`name`, "left-members");
     welcomechannel.send(`**${memberTag}** has left the server.`);
     
-    //let backupembed = new Discord.RichEmbed()
-//    .setColor("RED")
- //   .setAuthor(`${memberTag}`, member.avatarURL)
-//    .setDescription("Has just left.");
-
- //   let backupchannel = member.guild.channels.find(`name`, "backup-users-joined");
- //   backupchannel.send(backupembed);
 
 });
+
+//--
+//left message end
+//--
 
 bot.on("ready", async () => {
  console.log(`${bot.user.username} is online!`);
  bot.user.setActivity("Status: Maintenance | !help");
 
 });
+
+//--
+//prefix begin
+//--
 
 bot.on("message", async message => {
 
@@ -129,29 +141,9 @@ bot.on("message", async message => {
 
 });
 
-//-—
-//Deleted Messages Log Start
-//-—
-
-bot.on("messageDelete", async msg => {
-    let logs = await msg.guild.fetchAuditLogs({type: 72});
-    let entry = logs.entries.first();
-  
-    let embed = new Discord.RichEmbed()
-      .setTitle("**Deleted Message**")
-      .setColor("#fc3c3c")
-      .addField("Author", msg.author.tag, true)
-      .addField("Channel", msg.channel, true)
-      .addField("Message", msg.content)
-      .setFooter(`Message ID: ${msg.id} | Author ID: ${msg.author.id}`);
-  
-    let channel = msg.guild.channels.find(x => x.name === 'deleted-messages-log');
-    channel.send({embed});
-  });
-
-//-—
-//Deleted Messages Log Start
-//-—
+//--
+//prefix end
+//--
 
 //—
 //Link Detection Start
@@ -182,8 +174,8 @@ bot.on(`message`, async message => {
     }
 });
 
- //--      
- //Link Detection End  
+//--      
+//Link Detection End  
 //--
 
 //--
@@ -194,10 +186,6 @@ bot.on(`message`, async message => {
     let weazelrole = message.guild.roles.find('name', 'Weazel News'); 
     let commrole = message.guild.roles.find('name', 'Community Manager'); 
     let staffrole = message.guild.roles.find('name', 'Staff Team'); 
-//     let errchan = message.guild.channels.find(`name`, `bot-errors`);
-//     let modchan = message.guild.channels.find(`name`, `modlog`);
-//     if (!weazelrole) return errchan.send("Weazel Role doesn't exist! (index.js, 161)");
-//     if (!errchan) return modchan.send("Error channel doesn't exist (bot-errors)");
     try {
             if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
             if (message.author.id === message.guild.ownerID) return;
@@ -252,53 +240,11 @@ bot.on(`message`, async message => {
 //Banned Words End
 //--
 
-//—
-//Channel Created Log Start
-//—
+//--
+//Modlog events start
+//--
 
-//bot.on('channelCreate', async msg => {
- //   let logs = await msg.guild.fetchAuditLogs({type: 10});
-//    let entry = logs.entries.first();
-//  
-//    let ccembed = new Discord.RichEmbed()
-//      .setTitle("**Channel Created!**")
- //     .setColor("#GREEN")
- //     .addField("Channel Name", msg.channel.content, true)
-//      .setTimestamp()
- // 
-//    let cchannel = msg.guild.channels.find(x => x.name === 'modlog');
- //   cchannel.send({ccembed});
- // });
-
-
-
-
-//-—
-//Channel Created Log Start
-//-—
-
-// bot.on('channelCreate', (message, channel) => {
-//     let logs = message.guild.fetchAuditLogs({type: 10});
-
-// 	const ccembed = new Discord.RichEmbed()
-// 		.setColor('GREEN')
-// 		.setTimestamp()
-// 		.setTitle("**Channel Created!**")
-// 		.addField("Channel Name", `${channel.name}`)
-//         .addField("Channel ID", channel.id);
-        
-//         let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
-//         modlogchannel.send({ccembed});
-//         console.log(e);
-// });
-
-  		// .setTitle("**Channel Created!**")
-	    // .addField("Channel Name", `${channel.name}`)
-        // .addField("Channel ID", channel.id)
-        // .addField("Channel Type", channel.type);
-        // channel.guild.defaultChannel.send(`A new channel has been created: ${channel.name}`);
-
-        bot.on('guildBanAdd', (guild, user, channel) => {
+        bot.on('guildBanAdd', (guild, user, ) => {
 
             const ubembed = new Discord.RichEmbed()
              .setColor('RED')
@@ -309,9 +255,6 @@ bot.on(`message`, async message => {
                 `**User's Name:** <@${user.id}>`,
                 `**User's ID:** ${user.id}`
               ].join('\n'))
-        
-        // let modlogchannel = guild.channels.find(`name`, "modlog");
-        // modlogchannel.send(ubembed);
         
         let modlogchannel = guild.channels.find(x => x.name === 'modlog');
         modlogchannel.send({embed: ubembed});
@@ -364,9 +307,6 @@ bot.on('guildBanRemove', (guild, user) => {
         `**User's ID:** ${user.id}`
       ].join('\n'))
 
-// let modlogchannel = guild.channels.find(`name`, "modlog");
-// modlogchannel.send(ubembed);
-
 let modlogchannel = guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: uuembed});
 
@@ -384,9 +324,6 @@ bot.on('guildMemberUpdate', (oldMember, newMember, member) => {
     .addField("Before", `${oldMember.nickname || "None"}`)
     .addField("After", `${newMember.nickname || "None"}`);
 
-// let modlogchannel = guild.channels.find(`name`, "modlog");
-// modlogchannel.send(ubembed);
-
 let modlogchannel = newMember.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: nickembed});
 
@@ -403,9 +340,6 @@ modlogchannel.send({embed: nickembed});
         roleminembed.setDescription([
            `<@${newMember.id}> has been given the \`${oldMember.guild.roles.get(role).name}\` role.`
          ].join('\n'))
-   
-   // let modlogchannel = guild.channels.find(`name`, "modlog");
-   // modlogchannel.send(ubembed);
    
    let modlogchannel = newMember.guild.channels.find(x => x.name === 'modlog');
    modlogchannel.send({embed: roleminembed});
@@ -426,9 +360,6 @@ modlogchannel.send({embed: nickembed});
            `<@${newMember.id}> has been removed from the \`${oldMember.guild.roles.get(role).name}\` role.`
          ].join('\n'))
     
-   // let modlogchannel = guild.channels.find(`name`, "modlog");
-   // modlogchannel.send(ubembed);
-   
    let modlogchannel = newMember.guild.channels.find(x => x.name === 'modlog');
    modlogchannel.send({embed: rolemaxembed});
 
@@ -437,6 +368,20 @@ modlogchannel.send({embed: nickembed});
     }
 
 });
+
+bot.on("messageDelete", async msg => {
+  
+    let embed = new Discord.RichEmbed()
+      .setTitle("**Deleted Message**")
+      .setColor("#fc3c3c")
+      .addField("Author", msg.author.tag, true)
+      .addField("Channel", msg.channel, true)
+      .addField("Message", msg.content)
+      .setFooter(`Message ID: ${msg.id} | Author ID: ${msg.author.id}`);
+  
+    let channel = msg.guild.channels.find(x => x.name === 'deleted-messages-log');
+    channel.send({embed: embed});
+  });
 
 bot.on('messageUpdate', (oldMessage, newMessage) => {
 
@@ -449,9 +394,6 @@ bot.on('messageUpdate', (oldMessage, newMessage) => {
     .addField("After", newMessage.content || "Nothing");
 
     if(oldMessage.author.bot) return;
-
-// let modlogchannel = guild.channels.find(`name`, "modlog");
-// modlogchannel.send(ubembed);
 
 let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(updembed);
@@ -470,9 +412,6 @@ bot.on('roleCreate', (role) => {
         `**Role Color:** ${role.hexColor}`
       ].join('\n'))
 
-// let modlogchannel = guild.channels.find(`name`, "modlog");
-// modlogchannel.send(ubembed);
-
 let modlogchannel = role.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(rcembed);
 
@@ -489,9 +428,6 @@ bot.on('roleDelete', (role) => {
         `**Role ID:** ${role.id}`,
         `**Role Color:** ${role.hexColor}`
       ].join('\n'))
-
-// let modlogchannel = guild.channels.find(`name`, "modlog");
-// modlogchannel.send(ubembed);
 
 let modlogchannel = role.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(rdembed);
@@ -600,7 +536,7 @@ modlogchannel.send(cuembed);
 });
 
 //-—
-//Channel Created Log End
+//Modlog events end
 //-—
 
 bot.login(botconfig.token);
