@@ -21,26 +21,35 @@ if (member.user.bot === true) {
     bot = "No";
   }
 
-//   const time = message.setTimestamp(member.user.createdAt)
+  
+  let embed = new Discord.RichEmbed()
+  //.setAuthor(member.user.username)
+  .setTitle(`**Information About**`)
+  .setThumbnail((target.displayAvatarURL))
+  .setColor(message.guild.member(member).highestRole.color)
+  .setDescription([
+    `${status[member.user.presence.status]} **${member}**`,
+    ` `,
+    `**Full Username:** ${member.user.tag}`,
+    ` `,
+    `**ID:** ${member.user.id}`,
+    ` `,
+    `**Nickname:** ${member.nickname !== null ? `${member.nickname}` : "None"}`,
+    ` `,
+    `**Bot:** ${bot}`,
+    ` `,
+    `**Playing:** ${member.user.presence.game ? `${member.user.presence.game.name}` : "Nothing"}`,
+    ` `,
+    `**Joined Discord At:** ${member.user.createdAt}`
+    ` `,
+    `**Joined This Server At:** ${message.guild.member(member).joinedAt}`
+    ` `,
+    `**Roles:** ${message.guild.member(member).roles.map(s => s).join(" | ")}`
+  ].join('\n'))
 
-            let embed = new Discord.RichEmbed()
-                //.setAuthor(member.user.username)
-                .setTitle(`**Information About**`)
-                .setDescription(`${status[member.user.presence.status]} **${member}**`)
-                .setThumbnail((target.displayAvatarURL))
-                .setColor(message.guild.member(member).highestRole.color)
-                .addField("Full Username", `${member.user.tag}`, inline)
-                .addField("ID", member.user.id, inline)
-                .addField("Nickname", `${member.nickname !== null ? `${member.nickname}` : "None"}`, true)
-                .addField("Bot", `${bot}`, inline, true)
-                //.addField("Status", `${status[member.user.presence.status]}`, inline, true)
-                .addField("Playing", `${member.user.presence.game ? `${member.user.presence.game.name}` : "Not playing"}`,inline, true)
-                .addField("Joined Discord At", member.user.createdAt)
-                .addField("Joined This Server At", message.guild.member(member).joinedAt)
-                // .setTimestamp(member.user.createdAt)
-                .addField(`Roles:`, message.guild.member(member).roles.map(s => s).join(" | "), true)
 
-            message.channel.send(embed);
+message.channel.send(embed);
+
     }
 
     module.exports.help = {
