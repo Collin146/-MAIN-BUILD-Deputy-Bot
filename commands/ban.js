@@ -42,7 +42,7 @@ let geluktEmbed = new Discord.RichEmbed()
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
-    .setTitle("**Admin Command Used!**")
+    .setTitle("**Administration Command Used!**")
     .setTimestamp()
     .setColor("BLACK")
     .setDescription([
