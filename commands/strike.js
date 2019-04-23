@@ -43,19 +43,26 @@ if(args[0] === "1"){
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
-    .setTitle("**Strike 1 command used!**")
-    .setColor("RED")
-    .addField("Striked User", `<@${tostrike.id}>`, true)
-    .addField("Striked In", message.channel, true)
-    .addField("Reason", kReason, true)
-    .addField("Striked By", message.author.username, true)
+    .setTitle("**Moderation Command Used!**")
     .setTimestamp()
+    .setColor("BLACK")
+    .setDescription([
+        `**The moderation command** !strike 1 **has been used**`,
+        ` `,
+        `**Used On** <@${tostrike.id}>`,
+        ` `,
+        `**Used In:** ${message.channel}`,
+        ` `,
+        `**Used By:** ${message.author.username}`,
+        ` `,
+        `**Reason For Strike** ${kReason}`
+      ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
-
-let warnchannel = message.guild.channels.find(`name`, "modlog");
-if(!warnchannel) return message.reply("Couldn't find channel");
-
-warnchannel.send(ModEmbed);
+    
+    let warnchannel = message.guild.channels.find(`name`, "modlog");
+    if(!warnchannel) return message.reply("Couldn't find channel");
+    
+    warnchannel.send(ModEmbed);
 
 let DMembed = new Discord.RichEmbed()
 .setTitle(`**You have been striked in ${message.guild.name}**`)
@@ -80,19 +87,26 @@ let DMembed = new Discord.RichEmbed()
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
-    .setTitle("**Strike 2 command used!**")
-    .setColor("RED")
-    .addField("Striked User", `<@${tostrike.id}>`, true)
-    .addField("Striked In", message.channel, true)
-    .addField("Reason", kReason, true)
-    .addField("Striked By", message.author.username, true)
+    .setTitle("**Moderation Command Used!**")
     .setTimestamp()
+    .setColor("BLACK")
+    .setDescription([
+        `**The moderation command** !strike 2 **has been used**`,
+        ` `,
+        `**Used On** <@${tostrike.id}>`,
+        ` `,
+        `**Used In:** ${message.channel}`,
+        ` `,
+        `**Used By:** ${message.author.username}`,
+        ` `,
+        `**Reason For Strike** ${kReason}`
+      ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
-
-let warnchannel = message.guild.channels.find(`name`, "modlog");
-if(!warnchannel) return message.reply("Couldn't find channel");
-
-warnchannel.send(ModEmbed);
+    
+    let warnchannel = message.guild.channels.find(`name`, "modlog");
+    if(!warnchannel) return message.reply("Couldn't find channel");
+    
+    warnchannel.send(ModEmbed);
 
 let DMembed = new Discord.RichEmbed()
 .setTitle(`**You have been striked in ${message.guild.name}**`)
