@@ -246,6 +246,7 @@ bot.on(`message`, async message => {
 
 bot.on('channelCreate', channel => {
 
+const DMChannel = channel.type.dm
 if (channel.type === DMChannel) return;
 
     const ccembed = new Discord.RichEmbed()
