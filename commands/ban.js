@@ -42,13 +42,20 @@ let geluktEmbed = new Discord.RichEmbed()
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
-    .setTitle("**Ban command used!**")
-    .setColor("RED")
-    .addField("Banned User", `<@${bUser.id}>`, true)
-    .addField("Banned In", message.channel, true)
-    .addField("Reason", bReason, true)
-    .addField("Banned By", message.author.username, true)
+    .setTitle("**Admin Command Used!**")
     .setTimestamp()
+    .setColor("BLACK")
+    .setDescription([
+        `**The admin command** Ban **has been used**`,
+        ` `,
+        `**Banned User:** <@${bUser.id}>`,
+        ` `,
+        `**Used In:** ${message.channel}`,
+        ` `,
+        `**Used By:** ${message.author.username}`,
+        ` `,
+        `**Reason For Ban:** ${bReason}`
+      ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
     let warnchannel = message.guild.channels.find(`name`, "modlog");
