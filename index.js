@@ -245,39 +245,22 @@ bot.on(`message`, async message => {
 //--
 
 
-// bot.on('channelCreate', (channel) => {
+bot.on('channelCreate', (channel) => {
 
-//     const ccembed = new Discord.RichEmbed()
-//      .setColor('GREEN')
-//     .setTimestamp()
-//     .setTitle("**Channel Created!**")
-//     .setDescription([
-//         `**Channel Name:** ${channel.name}`,
-//         `**Channel ID:** ${channel.id}`,
-//         `**Channel Type:** ${channel.type}`
-//       ].join('\n'))
-
-//       let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
-//       modlogchannel.send({embed: ccembed});
-
-// });
-
-bot.on('guildBanAdd', (guild, user) => {
-
-    const ubembed = new Discord.RichEmbed()
-     .setColor('RED')
+    const ccembed = new Discord.RichEmbed()
+     .setColor('GREEN')
     .setTimestamp()
-    .setThumbnail((user.displayAvatarURL))
-    .setTitle("**User Banned!**")
+    .setTitle("**Channel Created!**")
     .setDescription([
-        `**User's Name:** <@${user.id}>`,
-        `**User's ID:** ${user.id}`
+        `**Channel Name:** ${channel.name}`,
+        `**Channel ID:** ${channel.id}`,
+        `**Channel Type:** ${channel.type}`
       ].join('\n'))
 
-let modlogchannel = guild.channels.find(x => x.name === 'modlog');
-modlogchannel.send({embed: ubembed});
+let modlogchannel = channel.guild.channels.find(`name`, "modlog");
+modlogchannel.send(ccembed);
 
-});
+    });
 
 bot.on('channelDelete', (channel) => {
 
@@ -295,6 +278,23 @@ let modlogchannel = channel.guild.channels.find(`name`, "modlog");
 modlogchannel.send(cdembed);
 
 });
+
+bot.on('guildBanAdd', (guild, user) => {
+
+    const ubembed = new Discord.RichEmbed()
+     .setColor('RED')
+    .setTimestamp()
+    .setThumbnail((user.displayAvatarURL))
+    .setTitle("**User Banned!**")
+    .setDescription([
+        `**User's Name:** <@${user.id}>`,
+        `**User's ID:** ${user.id}`
+      ].join('\n'))
+
+      let modlogchannel = channel.guild.channels.find(`name`, "modlog");
+      modlogchannel.send(ubembed);
+
+    });
 
 bot.on('guildBanRemove', (guild, user) => {
 
