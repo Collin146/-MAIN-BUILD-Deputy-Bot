@@ -33,7 +33,7 @@ setTimeout(function(){
 
 let dmembed = new Discord.RichEmbed()
 .setTitle(`${yes} **Done!**`)
-.setColor("#00fff6")
+.setColor("GREEN")
 .setDescription(`I will post an announcement in ${message.channel} for briefing room in ${mutetime}.`)
 .setTimestamp();
 try{
