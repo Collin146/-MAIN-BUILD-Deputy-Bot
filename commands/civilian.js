@@ -39,17 +39,23 @@ tociv.addRole(civilianrole.id);
 tociv.addRole(civ1role.id);
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("**Civilian command used!**")
-.setColor("GREEN")
-.addField("User", `<@${tociv.id}>`, true)
-.addField("Command Used In", message.channel, true)
-.addField("Command Used By", message.author.username, true)
+.setTitle("**Moderation Command Used!**")
 .setTimestamp()
+.setColor("BLACK")
+.setDescription([
+    `**The moderation command** !civilian **has been used**`,
+    ` `,
+    `**Used On:** <@${tociv.id}>`,
+    ` `,
+    `**Used In:** ${message.channel}`,
+    ` `,
+    `**Used By:** ${message.author.username}`
+  ].join('\n'))
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
 let warnchannel = message.guild.channels.find(`name`, "modlog");
 if(!warnchannel) return message.reply("Couldn't find channel");
-    
+
 warnchannel.send(ModEmbed);
 
 geluktEmbed = new Discord.RichEmbed()
