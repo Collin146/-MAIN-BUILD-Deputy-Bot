@@ -40,23 +40,29 @@ rUser.send(rejectembed);
 
       message.channel.send(geluktEmbed);
 
-let ModEmbed = new Discord.RichEmbed()
-.setTitle("**Reject command used!**")
-.setColor("ORANGE")
-.addField("User", `<@${rUser.id}>`, true)
-.addField("Rejected For", kReason)
-.addField("Command Used In", message.channel, true)
-.addField("Command Used By", message.author.username, true)
-.setTimestamp()
-.setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
-
-let warnchannel = message.guild.channels.find(`name`, "modlog");
-if(!warnchannel) return message.reply("Couldn't find channel");
-    
-warnchannel.send(ModEmbed);
+      let ModEmbed = new Discord.RichEmbed()
+      .setTitle("**Moderation Command Used!**")
+      .setTimestamp()
+      .setColor("BLACK")
+      .setDescription([
+          `**The moderation command** !reject **has been used**`,
+          ` `,
+          `**Used On:** <@${rUser.id}>`,
+          ` `,
+          `**Used In:** ${message.channel}`,
+          ` `,
+          `**Used By:** ${message.author.username}`,
+          ` `,
+          `**Rejected For:** ${kReason}`,
+        ].join('\n'))
+      .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+      
+      let warnchannel = message.guild.channels.find(`name`, "modlog");
+      if(!warnchannel) return message.reply("Couldn't find channel");
+      
+      warnchannel.send(ModEmbed);
 
 }
-
 
 module.exports.help = {
     name: "reject"
