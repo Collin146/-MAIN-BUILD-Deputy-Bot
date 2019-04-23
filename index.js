@@ -448,6 +448,7 @@ bot.on('messageUpdate', (oldMessage, newMessage) => {
     .addField("Before", oldMessage.content)
     .addField("After", newMessage.content);
 
+	
 // let modlogchannel = guild.channels.find(`name`, "modlog");
 // modlogchannel.send(ubembed);
 
