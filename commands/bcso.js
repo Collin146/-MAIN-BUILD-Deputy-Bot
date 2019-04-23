@@ -42,12 +42,18 @@ tobcso.addRole(probrole.id);
 tobcso.addRole(leorole.id);
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("**BCSO command used!**")
-.setColor("GREEN")
-.addField("User", `<@${tobcso.id}>`, true)
-.addField("Command Used In", message.channel, true)
-.addField("Command Used By", message.author.username, true)
+.setTitle("**Moderation Command Used!**")
 .setTimestamp()
+.setColor("BLACK")
+.setDescription([
+    `**The moderation command** !bcso **has been used**`,
+    ` `,
+    `**Used On:** <@${tobcso.id}>`,
+    ` `,
+    `**Used In:** ${message.channel}`,
+    ` `,
+    `**Used By:** ${message.author.username}`
+  ].join('\n'))
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
 let warnchannel = message.guild.channels.find(`name`, "modlog");
