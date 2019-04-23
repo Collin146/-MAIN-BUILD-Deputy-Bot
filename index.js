@@ -298,6 +298,26 @@ bot.on(`message`, async message => {
         // .addField("Channel Type", channel.type);
         // channel.guild.defaultChannel.send(`A new channel has been created: ${channel.name}`);
 
+        bot.on('guildBanAdd', (guild, user) => {
+
+            const ubembed = new Discord.RichEmbed()
+             .setColor('RED')
+            .setTimestamp()
+            .setThumbnail((user.displayAvatarURL))
+            .setTitle("**User Banned!**")
+            .setDescription([
+                `**User's Name:** <@${user.id}>`,
+                `**User's ID:** ${user.id}`
+              ].join('\n'))
+        
+        // let modlogchannel = guild.channels.find(`name`, "modlog");
+        // modlogchannel.send(ubembed);
+        
+        let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+        modlogchannel.send({embed: ubembed});
+        
+        });
+
 bot.on('channelCreate', (channel) => {
 
     	const ccembed = new Discord.RichEmbed()
@@ -329,26 +349,6 @@ bot.on('channelDelete', (channel) => {
 
 let modlogchannel = channel.guild.channels.find(`name`, "modlog");
 modlogchannel.send(cdembed);
-
-});
-
-bot.on('guildBanAdd', (guild, user) => {
-
-    const ubembed = new Discord.RichEmbed()
-     .setColor('RED')
-    .setTimestamp()
-    .setThumbnail((user.displayAvatarURL))
-    .setTitle("**User Banned!**")
-    .setDescription([
-        `**User's Name:** <@${user.id}>`,
-        `**User's ID:** ${user.id}`
-      ].join('\n'))
-
-// let modlogchannel = guild.channels.find(`name`, "modlog");
-// modlogchannel.send(ubembed);
-
-let modlogchannel = guild.channels.find(x => x.name === 'modlog');
-modlogchannel.send({embed: ubembed});
 
 });
 
