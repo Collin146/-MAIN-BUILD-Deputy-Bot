@@ -273,7 +273,7 @@ bot.on('channelCreate', (channel) => {
             `**Channel Type:** ${channel.type}`
           ].join('\n'))
 
-          let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
+          let modlogchannel = bot.guild.channels.find(x => x.name === 'modlog');
           modlogchannel.send({embed: ccembed});
 
 });
