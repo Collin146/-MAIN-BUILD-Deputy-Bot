@@ -590,7 +590,7 @@ bot.on('channelUpdate', (oldChannel, newChannel) => {
      .setColor('BLACK')
     .setTimestamp()
     .setTitle("**Channel Name Edited!**")
-    .setDescription(`'**The name of channel** ${oldChannel.name} **has been edited**`)
+    .setDescription(`**The name of channel** ${oldChannel.name} **has been edited**`)
     .addField("Before", `${oldChannel.name}`)
     .addField("After", `${newChannel.name}`);
 
