@@ -244,24 +244,6 @@ bot.on(`message`, async message => {
 //Modlog events start
 //--
 
-
-bot.on('channelCreate', (channel) => {
-
-    const ccembed = new Discord.RichEmbed()
-     .setColor('GREEN')
-    .setTimestamp()
-    .setTitle("**Channel Created!**")
-    .setDescription([
-        `**Channel Name:** ${channel.name}`,
-        `**Channel ID:** ${channel.id}`,
-        `**Channel Type:** ${channel.type}`
-      ].join('\n'))
-
-let modlogchannel = channel.guild.channels.find(`name`, "modlog");
-modlogchannel.send(ccembed);
-
-    });
-
 bot.on('channelDelete', (channel) => {
 
     const cdembed = new Discord.RichEmbed()
@@ -276,6 +258,23 @@ bot.on('channelDelete', (channel) => {
 
 let modlogchannel = channel.guild.channels.find(`name`, "modlog");
 modlogchannel.send(cdembed);
+
+bot.on('channelCreate', channel => {
+
+    const ccembed = new Discord.RichEmbed()
+     .setColor('GREEN')
+    .setTimestamp()
+    .setTitle("**Channel Created!**")
+    .setDescription([
+        `**Channel Name:** ${channel.name}`,
+        `**Channel ID:** ${channel.id}`,
+        `**Channel Type:** ${channel.type}`
+      ].join('\n'))
+
+let modlogchannel = channel.guild.channels.find(`name`, "modlog");
+modlogchannel.send(ccembed);
+
+});
 
 });
 
