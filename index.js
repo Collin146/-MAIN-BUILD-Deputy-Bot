@@ -290,7 +290,7 @@ bot.on('guildBanAdd', (guild, user) => {
         `**User's ID:** ${user.id}`
       ].join('\n'))
 
-      let modlogchannel = channel.guild.channels.find(`name`, "modlog");
+      let modlogchannel = guild.channels.find(`name`, "modlog");
       modlogchannel.send(ubembed);
 
     });
