@@ -263,6 +263,23 @@ bot.on("message", async message => {
         
         });
 
+        bot.on('channelCreate', (channel) => {
+
+            const ccembed = new Discord.RichEmbed()
+             .setColor('GREEN')
+            .setTimestamp()
+            .setTitle("**Channel Created!**")
+            .setDescription([
+                `**Channel Name:** ${channel.name}`,
+                `**Channel ID:** ${channel.id}`,
+                `**Channel Type:** ${channel.type}`
+              ].join('\n'))
+        
+              let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+              modlogchannel.send({embed: ccembed});
+        
+        });
+
 bot.on('channelDelete', (channel) => {
 
     const cdembed = new Discord.RichEmbed()
@@ -517,23 +534,6 @@ bot.on('channelUpdate', (oldChannel, newChannel) => {
 
 let modlogchannel = oldChannel.guild.channels.find(`name`, "modlog");
 modlogchannel.send(cuembed);
-
-});
-
-bot.on('channelCreate', (channel) => {
-
-    const ccembed = new Discord.RichEmbed()
-     .setColor('GREEN')
-    .setTimestamp()
-    .setTitle("**Channel Created!**")
-    .setDescription([
-        `**Channel Name:** ${channel.name}`,
-        `**Channel ID:** ${channel.id}`,
-        `**Channel Type:** ${channel.type}`
-      ].join('\n'))
-
-      let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
-      modlogchannel.send({embed: ccembed});
 
 });
 
