@@ -446,7 +446,7 @@ bot.on('messageUpdate', (oldMessage, newMessage) => {
     .setTitle("**Message Edited!**")
     .setDescription(`<@${oldMessage.author.id}>'s **message has been edited in** ${oldMessage.channel}`)
     .addField("Before", oldMessage.content || "Nothing")
-    .addField("After", newMessage.content || "Nothing")
+    .addField("After", newMessage.content || "Nothing");
 
     if(oldMessage.author = bot.author) return;
 
@@ -454,7 +454,7 @@ bot.on('messageUpdate', (oldMessage, newMessage) => {
 // modlogchannel.send(ubembed);
 
 let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
-modlogchannel.send({ updembed });
+modlogchannel.send(updembed);
 });
 
 // bot.on('messageUpdate', (oldMessage, newMessage) => {
