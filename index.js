@@ -455,21 +455,48 @@ bot.on('messageUpdate', (oldMessage, newMessage) => {
 
 let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(updembed);
+
 });
 
-// bot.on('messageUpdate', (oldMessage, newMessage) => {
+bot.on('roleCreate', (role) => {
 
-//     const updembed = new Discord.RichEmbed();
-//     updembed.setTitle("**Message Edited!**");
-//     updembed.setDescription(`<@${oldMessage.author.id}>'s **message has been edited in** ${oldMessage.channel}`);
-//     updembed.addField("Before", oldMessage.content);
-//     updembed.addField("After", newMessage.content);
-//     updembed.setColor('GREEN');
-//     updembed.setTimestamp();
+    const rcembed = new Discord.RichEmbed()
+     .setColor('GREEN')
+    .setTimestamp()
+    .setTitle("**Role Created!**")
+    .setDescription([
+        `**Role Name:** ${role.name}`,
+        `**Role ID:** ${role.id}`,
+        `**Role Color:** ${role.hexColor}`
+      ].join('\n'))
 
-// let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
-// modlogchannel.send({ embed: updembed });
-// });
+// let modlogchannel = guild.channels.find(`name`, "modlog");
+// modlogchannel.send(ubembed);
+
+let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send(rcembed);
+
+});
+
+bot.on('roleDelete', (role) => {
+
+    const rdembed = new Discord.RichEmbed()
+     .setColor('RED')
+    .setTimestamp()
+    .setTitle("**Role Deleted!**")
+    .setDescription([
+        `**Role Name:** ${role.name}`,
+        `**Role ID:** ${role.id}`,
+        `**Role Color:** ${role.hexColor}`
+      ].join('\n'))
+
+// let modlogchannel = guild.channels.find(`name`, "modlog");
+// modlogchannel.send(ubembed);
+
+let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send(rdembed);
+
+});
 
 //-—
 //Channel Created Log End
