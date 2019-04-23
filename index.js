@@ -547,7 +547,7 @@ bot.on('guildUpdate', (oldGuild, newGuild) => {
     .addField("Before", `${oldGuild.name}`)
     .addField("After", `${newGuild.name}`);
 
-let modlogchannel = oldGuild.guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = oldGuild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(gnembed);
 
     }
@@ -562,7 +562,7 @@ modlogchannel.send(gnembed);
        .addField("Before", `${oldGuild.iconURL}`)
        .addField("After", `${newGuild.iconURL}`);
    
-   let modlogchannel = oldGuild.guild.channels.find(x => x.name === 'modlog');
+   let modlogchannel = oldGuild.channels.find(x => x.name === 'modlog');
    modlogchannel.send(giembed);
 
     }
@@ -577,7 +577,7 @@ modlogchannel.send(gnembed);
        .addField("Before", `${oldGuild.owner.user.tag}`)
        .addField("After", `${newGuild.owner.user.tag}`);
    
-   let modlogchannel = oldGuild.guild.channels.find(x => x.name === 'modlog');
+   let modlogchannel = oldGuild.channels.find(x => x.name === 'modlog');
    modlogchannel.send(goembed);
 
     }
