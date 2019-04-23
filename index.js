@@ -298,7 +298,7 @@ bot.on(`message`, async message => {
         // .addField("Channel Type", channel.type);
         // channel.guild.defaultChannel.send(`A new channel has been created: ${channel.name}`);
 
-        bot.on('guildBanAdd', (guild, user) => {
+        bot.on('guildBanAdd', (guild, user, channel) => {
 
             const ubembed = new Discord.RichEmbed()
              .setColor('RED')
@@ -318,7 +318,7 @@ bot.on(`message`, async message => {
         
         });
 
-bot.on('channelCreate', (channel, guild) => {
+bot.on('channelCreate', (channel) => {
 
     	const ccembed = new Discord.RichEmbed()
          .setColor('GREEN')
@@ -330,7 +330,7 @@ bot.on('channelCreate', (channel, guild) => {
             `**Channel Type:** ${channel.type}`
           ].join('\n'))
 
-          let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+          let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
           modlogchannel.send({embed: ccembed});
 
 });
