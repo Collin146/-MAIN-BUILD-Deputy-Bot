@@ -49,7 +49,7 @@ if(args[0] === "1"){
     .setDescription([
         `**The moderation command** !strike 1 **has been used**`,
         ` `,
-        `**Used On** <@${tostrike.id}>`,
+        `**Used On:** <@${tostrike.id}>`,
         ` `,
         `**Used In:** ${message.channel}`,
         ` `,
@@ -93,7 +93,7 @@ let DMembed = new Discord.RichEmbed()
     .setDescription([
         `**The moderation command** !strike 2 **has been used**`,
         ` `,
-        `**Used On** <@${tostrike.id}>`,
+        `**Used On:** <@${tostrike.id}>`,
         ` `,
         `**Used In:** ${message.channel}`,
         ` `,
