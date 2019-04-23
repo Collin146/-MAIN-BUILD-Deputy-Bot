@@ -29,20 +29,25 @@ const no = bot.emojis.get("561106624757104640");
 toinvest.setRoles([investrole.id])
     .catch(console.error);
 
-let ModEmbed = new Discord.RichEmbed()
-.setTitle("**Investigation command used!**")
-.setColor("RED")
-.addField("Used On", `<@${toinvest.id}>`, true)
-.addField("Command Used In", message.channel, true)
-.addField("Command Used By", message.author.username, true)
-.setTimestamp()
-.setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
-
-let warnchannel = message.guild.channels.find(`name`, "modlog");
-if(!warnchannel) return message.reply("Couldn't find channel");
+    let ModEmbed = new Discord.RichEmbed()
+    .setTitle("**Administration Command Used!**")
+    .setTimestamp()
+    .setColor("BLACK")
+    .setDescription([
+        `**The administration command** !investigation **has been used**`,
+        ` `,
+        `**Used On:** <@${toinvest.id}>`,
+        ` `,
+        `**Used In:** ${message.channel}`,
+        ` `,
+        `**Used By:** ${message.author.username}`,
+      ].join('\n'))
+    .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
     
-warnchannel.send(ModEmbed);
+    let warnchannel = message.guild.channels.find(`name`, "modlog");
+    if(!warnchannel) return message.reply("Couldn't find channel");
     
+    warnchannel.send(ModEmbed);
 
     geluktEmbed = new Discord.RichEmbed()
       .setColor("GREEN")
