@@ -36,17 +36,23 @@ let doneembed = new Discord.RichEmbed()
 message.channel.send(doneembed);
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("**Dm command used!**")
-.setColor("RED")
-.addField("Message", `${reason}`)
-.addField("Command Used In", message.channel, true)
-.addField("Command Used By", message.author.username, true)
+.setTitle("**Administration Command Used!**")
 .setTimestamp()
+.setColor("BLACK")
+.setDescription([
+    `**The administration command** !dm **has been used**`,
+    ` `,
+    `**Used In:** ${message.channel}`,
+    ` `,
+    `**Used By:** ${message.author.username}`,
+    ` `,
+    `**Message:** ${reason}`
+  ].join('\n'))
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
 let warnchannel = message.guild.channels.find(`name`, "modlog");
 if(!warnchannel) return message.reply("Couldn't find channel");
-    
+
 warnchannel.send(ModEmbed);
 
 }
