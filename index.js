@@ -452,7 +452,7 @@ bot.on('messageUpdate', (oldMessage, newMessage) => {
 // modlogchannel.send(ubembed);
 
 let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
-modlogchannel.send({updembed});
+modlogchannel.send(updembed);
 
 });
 
