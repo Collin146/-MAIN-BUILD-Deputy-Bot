@@ -377,7 +377,7 @@ bot.on('guildMemberUpdate', (oldMember, newMember, member) => {
     if (oldMember.nickname !== newMember.nickname) {
 
     const nickembed = new Discord.RichEmbed()
-    .setColor('GREEN')
+    .setColor('BLACK')
     .setTimestamp()
     .setTitle("**Nickname Changed!**")
     .setDescription(`<@${oldMember.id}>'s **nickname was changed**`)
@@ -441,7 +441,7 @@ modlogchannel.send({embed: nickembed});
 bot.on('messageUpdate', (oldMessage, newMessage) => {
 
     const updembed = new Discord.RichEmbed()
-     .setColor('GREEN')
+     .setColor('BLACK')
     .setTimestamp()
     .setTitle("**Message Edited!**")
     .setDescription(`<@${oldMessage.author.id}>'s **message has been edited in** ${oldMessage.channel}`)
