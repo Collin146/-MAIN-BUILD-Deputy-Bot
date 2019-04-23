@@ -40,13 +40,20 @@ await (tostrike.addRole(strikerole.id), (kReason));
 message.channel.send(geluktEmbed);
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("**Watchlist command used!**")
-.setColor("RED")
-.addField("Punished User", `<@${tostrike.id}>`, true)
-.addField("Punished In", message.channel, true)
-.addField("Reason", kReason, true)
-.addField("Punished By", message.author.username, true)
+.setTitle("**Moderation Command Used!**")
 .setTimestamp()
+.setColor("BLACK")
+.setDescription([
+    `**The moderation command** !watchlist **has been used**`,
+    ` `,
+    `**Used On:** <@${tostrike.id}>`,
+    ` `,
+    `**Used In:** ${message.channel}`,
+    ` `,
+    `**Used By:** ${message.author.username}`,
+    ` `,
+    `**Reason For Watchlist:** ${kReason}`
+  ].join('\n'))
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
 let warnchannel = message.guild.channels.find(`name`, "modlog");
