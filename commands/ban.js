@@ -46,7 +46,7 @@ let geluktEmbed = new Discord.RichEmbed()
     .setTimestamp()
     .setColor("BLACK")
     .setDescription([
-        `**The admin command** Ban **has been used**`,
+        `**The administration command** Ban **has been used**`,
         ` `,
         `**Banned User:** <@${bUser.id}>`,
         ` `,
