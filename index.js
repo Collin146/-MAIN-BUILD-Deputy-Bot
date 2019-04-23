@@ -245,22 +245,22 @@ bot.on(`message`, async message => {
 //--
 
 
-bot.on('channelCreate', (channel) => {
+// bot.on('channelCreate', (channel) => {
 
-    const ccembed = new Discord.RichEmbed()
-     .setColor('GREEN')
-    .setTimestamp()
-    .setTitle("**Channel Created!**")
-    .setDescription([
-        `**Channel Name:** ${channel.name}`,
-        `**Channel ID:** ${channel.id}`,
-        `**Channel Type:** ${channel.type}`
-      ].join('\n'))
+//     const ccembed = new Discord.RichEmbed()
+//      .setColor('GREEN')
+//     .setTimestamp()
+//     .setTitle("**Channel Created!**")
+//     .setDescription([
+//         `**Channel Name:** ${channel.name}`,
+//         `**Channel ID:** ${channel.id}`,
+//         `**Channel Type:** ${channel.type}`
+//       ].join('\n'))
 
-      let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
-      modlogchannel.send({embed: ccembed});
+//       let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
+//       modlogchannel.send({embed: ccembed});
 
-});
+// });
 
 bot.on('guildBanAdd', (guild, user) => {
 
