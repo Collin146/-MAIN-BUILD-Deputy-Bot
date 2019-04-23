@@ -139,7 +139,7 @@ bot.on("message", async message => {
 
     }
 
-});
+
 
 //--
 //prefix end
@@ -244,7 +244,7 @@ bot.on(`message`, async message => {
 //Modlog events start
 //--
 
-        bot.on('guildBanAdd', (guild, user, ) => {
+        bot.on('guildBanAdd', (guild, user) => {
 
             const ubembed = new Discord.RichEmbed()
              .setColor('RED')
@@ -530,11 +530,12 @@ bot.on('channelCreate', (channel) => {
         `**Channel Type:** ${channel.type}`
       ].join('\n'))
 
-      let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
+      let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
       modlogchannel.send({embed: ccembed});
 
 });
 
+});
 //-—
 //Modlog events end
 //-—
