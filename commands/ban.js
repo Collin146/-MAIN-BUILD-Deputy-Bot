@@ -75,20 +75,3 @@ let geluktEmbed = new Discord.RichEmbed()
  module.exports.help = {
      name: "ban"
  }
-
-exports.run('guildBanAdd', (guild, user) => {
-
-    const ubembed = new Discord.RichEmbed()
-     .setColor('RED')
-    .setTimestamp()
-    .setThumbnail((user.displayAvatarURL))
-    .setTitle("**User Banned!**")
-    .setDescription([
-        `**User's Name:** <@${user.id}>`,
-        `**User's ID:** ${user.id}`
-      ].join('\n'))
-
-      let modlogchannel = channel.guild.channels.find(`name`, "modlog");
-      modlogchannel.send(ubembed);
-
-    });
