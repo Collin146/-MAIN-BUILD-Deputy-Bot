@@ -561,14 +561,14 @@ bot.on('message', message => {
       maxMatches: 1, // you only need that to happen once
       time: 5 * 1000 // time is in milliseconds
     }).then(collected => {
-        const tomute = message.author
+        const tomute = message.member
         let muterole = message.guild.roles.find(`name`, "Muted");
         let memberrole = message.guild.roles.find(`name`, "Member");
         let modlogchannel = message.guild.channels.find(`name`, "modlog");
         if(!memberrole) return modlogchannel.send("**Spam Detection Error!** The role `Member` does not exist")
       // this function will be called when a message matches you filter
-          message.author.addRole(muterole.id);
-          message.author.removeRole(memberrole.id);
+          tomute.addRole(muterole.id);
+          tomute.removeRole(memberrole.id);
       
       setTimeout(function(){
           tomute.removeRole(muterole.id);
