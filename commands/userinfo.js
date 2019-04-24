@@ -29,7 +29,7 @@ if (member.user.bot === true) {
   let embed = new Discord.RichEmbed()
   //.setAuthor(member.user.username)
   .setTitle(`**Information About**`)
-  .setThumbnail((target.displayAvatarURL))
+  .setThumbnail((member.displayAvatarURL))
   .setColor(message.guild.member(member).highestRole.color)
   .setDescription([
     `${status[member.user.presence.status]} **${member}**`,
