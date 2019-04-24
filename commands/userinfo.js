@@ -10,8 +10,8 @@ module.exports.run =async (bot, message, args) => {
         offline: "<:Offline:562637080526716939>"
       }
         
-let user = msg.mentions.users.first();
-const member = msg.guild.member(user) || await msg.guild.fetchMember(user) || message.author;
+let user = message.mentions.users.first();
+const member = message.guild.member(user) || await message.guild.fetchMember(user) || message.author;
 const userondiscord = moment(user.createdTimestamp).format('MMMM Do YYYY, h:mm:ss a');
 const useronserver = moment(member.joinedAt).format('MMMM Do YYYY, h:mm:ss a');
 // let target = message.mentions.users.first() || message.guild.members.get(args[0]) || message.author
