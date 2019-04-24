@@ -10,8 +10,11 @@ module.exports.run =async (bot, message, args) => {
         offline: "<:Offline:562637080526716939>"
       }
         
-const member = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]) || message.member);
-let target = message.mentions.users.first() || message.guild.members.get(args[0]) || message.author
+let user = msg.mentions.users.first();
+const member = msg.guild.member(user) || await msg.guild.fetchMember(user) || message.author;
+const userondiscord = moment(user.createdTimestamp).format('MMMM Do YYYY, h:mm:ss a');
+const useronserver = moment(member.joinedAt).format('MMMM Do YYYY, h:mm:ss a');
+// let target = message.mentions.users.first() || message.guild.members.get(args[0]) || message.author
 // const now = new Date[0](member.user.createdAt);
 // var  mydate = new Date(member.user.createdAt.startDate.value);
 
@@ -39,6 +42,10 @@ if (member.user.bot === true) {
     `**Bot:** ${bot}`,
     ` `,
     `**Playing:** ${member.user.presence.game ? `${member.user.presence.game.name}` : "Nothing"}`,
+    ` `,
+    `**Joined Discord At:** ${userondiscord}`
+    ` `,
+    `**Joined Server At:** ${useronserver}`
     ` `,
     `**Roles:** ${message.guild.member(member).roles.map(s => s).join(" | ")}`
   ].join('\n'))
