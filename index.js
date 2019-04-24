@@ -567,8 +567,8 @@ bot.on('message', message => {
         let modlogchannel = message.guild.channels.find(`name`, "modlog");
         if(!memberrole) return modlogchannel.send("**Spam Detection Error!** The role `Member` does not exist")
       // this function will be called when a message matches you filter
-      await(tomute.addRole(muterole.id));
-      await(tomute.removeRole(memberrole.id));
+          tomute.addRole(muterole.id);
+          tomute.removeRole(memberrole.id);
       
       setTimeout(function(){
           tomute.removeRole(muterole.id);
