@@ -561,7 +561,37 @@ bot.on('message', message => {
       maxMatches: 1, // you only need that to happen once
       time: 5 * 1000 // time is in milliseconds
     }).then(collected => {
+        const tomute = message.author
+        let muterole = message.guild.roles.find(`name`, "Muted");
+        let memberrole = message.guild.roles.find(`name`, "Member");
+        let modlogchannel = message.guild.channels.find(`name`, "modlog");
+        if(!memberrole) return modlogchannel.send("**Spam Detection Error!** The role `Member` does not exist")
       // this function will be called when a message matches you filter
+      await(tomute.addRole(muterole.id));
+      await(tomute.removeRole(memberrole.id));
+      
+      setTimeout(function(){
+          tomute.removeRole(muterole.id);
+          tomute.addRole(memberrole.id);
+          modlogchannel.send(`<@${tomute.id}> has been unmuted!`);
+      }, ms("2h"));
+
+      let ModEmbed = new Discord.RichEmbed()
+      .setTitle("**Spam Detected!**")
+      .setTimestamp()
+      .setColor("BLACK")
+      .setDescription([
+          `<@${tomute.id}> **was spamming in** ${message.channel}`,
+          ` `,
+          `**Action Used:** Muted For 2h`,
+        ].join('\n'))
+      .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+      
+      let warnchannel = message.guild.channels.find(`name`, "modlog");
+      if(!warnchannel) return message.reply("Couldn't find channel");
+      
+      warnchannel.send(ModEmbed);
+
     }).catch(console.error);
   });
   
