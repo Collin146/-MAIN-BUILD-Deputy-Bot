@@ -372,17 +372,17 @@ modlogchannel.send({embed: nickembed});
 
 });
 
-bot.on("messageDelete", async msg => {
+bot.on("messageDelete", async message => {
   
     let embed = new Discord.RichEmbed()
       .setTitle("**Deleted Message**")
       .setColor("#fc3c3c")
-      .addField("Author", msg.author.tag, true)
-      .addField("Channel", msg.channel, true)
-      .addField("Message", msg.content)
-      .setFooter(`Message ID: ${msg.id} | Author ID: ${msg.author.id}`);
+      .addField("Author", message.author.tag, true)
+      .addField("Channel", message.channel, true)
+      .addField("Message", message.content)
+      .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
   
-    let channel = msg.guild.channels.find(x => x.name === 'deleted-messages-log');
+    let channel = message.guild.channels.find(x => x.name === 'deleted-messages-log');
     channel.send({embed: embed});
   });
 
@@ -546,4 +546,23 @@ modlogchannel.send(cuembed);
 //Modlog events end
 //-—
 
+//--
+//Spam detection begin
+//--
+
+bot.on('message', message => {
+    // this function can check whether the content of the message you pass is the same as this message
+    let filter = message => {
+      return message.content.toLowerCase() == message.content.toLowerCase() && // check if the content is the same (sort of)
+             message.author == message.author; // check if the author is the same
+    }
+  
+    message.channel.awaitMessages(filter, {
+      maxMatches: 1, // you only need that to happen once
+      time: 5 * 1000 // time is in milliseconds
+    }).then(collected => {
+      // this function will be called when a message matches you filter
+    }).catch(console.error);
+  });
+  
 bot.login(botconfig.token);
