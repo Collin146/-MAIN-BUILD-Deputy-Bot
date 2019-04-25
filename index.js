@@ -176,37 +176,59 @@ bot.on(`message`, async message => {
     }
 });
 
-bot.on(`message`, async (message, args) => {
-    const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`]
-    const invite = (args[0])
-    try {
-        if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
-            let commrole = message.guild.roles.find('name', 'Community Manager'); 
+// // bot.on(`message`, async (message, args) => {
+// //     const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`]
+//     const containsDiscordUrl = message.test("/discord.gg\/\w*\d*");
+//     if (containsDiscordUrl) { 
+//    // try {
+//         //if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
+//            // let commrole = message.guild.roles.find('name', 'Community Manager'); 
 
-            if (message.author.id === message.guild.ownerID) return;
-            if (message.member.hasPermission("ADMINISTRATOR")) return;
-            if (message.member.roles.find("name", "Content Creator")) return;
-            if (message.member.roles.has(commrole.id)) return;
+//             // if (message.author.id === message.guild.ownerID) return;
+//             // if (message.member.hasPermission("ADMINISTRATOR")) return;
+//             // if (message.member.roles.find("name", "Content Creator")) return;
+//             // if (message.member.roles.has(commrole.id)) return;
             
+//             let linkembed2 = new Discord.RichEmbed()
+//             .setTitle("**Discord Invite!**")
+//             .setTimestamp()
+//             .setColor("RED")
+//             .setDescription([
+//                 `**A invite for a Discord server has been sent in** ${message.channel}`,
+//                 `**Server Name:** ${invite.guild.name}`,
+//                 `**Channel ID:** ${invite.guild.id}`,
+//                 `**Members:** ${invite.guild.memberCount}`
+//                 `**Sent By:** ${message.member}`
+//               ].join('\n'))
+
+//             let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+//             modlogchannel.send({embed: linkembed2});
+//         }
+//     } catch (e) {
+//         console.log(e);
+//     }
+// }
+// });
+
+const containsDiscordUrl = message.test("/discord.gg\/\w*\d*");
+if (containsDiscordUrl) { 
+
             let linkembed2 = new Discord.RichEmbed()
             .setTitle("**Discord Invite!**")
             .setTimestamp()
             .setColor("RED")
             .setDescription([
                 `**A invite for a Discord server has been sent in** ${message.channel}`,
-                `**Server Name:** ${invite.guild.name}`,
-                `**Channel ID:** ${invite.guild.id}`,
-                `**Members:** ${invite.guild.memberCount}`
-                `**Sent By:** ${message.member}`
+                `**Server Name:** ${containsDiscordUrl.guild.name}`,
+                `**Channel ID:** ${containsDiscordUrl.guild.id}`,
+                `**Members:** ${containsDiscordUrl.guild.memberCount}`
+                `**Sent By:** ${containsDiscordUrl.member}`
               ].join('\n'))
 
             let modlogchannel = guild.channels.find(x => x.name === 'modlog');
             modlogchannel.send({embed: linkembed2});
-        }
-    } catch (e) {
-        console.log(e);
-    }
-});
+
+}
 
 //--      
 //Link Detection End  
