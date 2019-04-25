@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
     //!clear 15
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("You don't have permission to do that.");
     if(!args[0]) return message.channel.send("Specify what amount of messages.");
-    message.channel.bulkDelete(args[0]).then(() => {
+    message.channel.bulkDelete(args[0] + 1).then(() => {
         message.channel.send(`Cleared ${args[0]} messages.`).then(msg => msg.delete(5000));
 
 
