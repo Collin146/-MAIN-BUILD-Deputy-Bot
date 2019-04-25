@@ -549,50 +549,5 @@ modlogchannel.send(cuembed);
 //--
 //Spam detection begin
 //--
-
-// bot.on('message', message => {
-//     // this function can check whether the content of the message you pass is the same as this message
-//     let filter = message => {
-//       return message.content.toLowerCase() == message.content.toLowerCase() && // check if the content is the same (sort of)
-//              message.author == message.author; // check if the author is the same
-//     }
-  
-//     message.channel.awaitMessages(filter, {
-//       maxMatches: 1, // you only need that to happen once
-//       time: 5 * 1000 // time is in milliseconds
-//     }).then(collected => {
-//         const tomute = message.member
-//         let muterole = message.guild.roles.find(`name`, "Muted");
-//         let memberrole = message.guild.roles.find(`name`, "Member");
-//         let modlogchannel = message.guild.channels.find(`name`, "modlog");
-//         if(!memberrole) return modlogchannel.send("**Spam Detection Error!** The role `Member` does not exist")
-//       // this function will be called when a message matches you filter
-//           tomute.addRole(muterole.id);
-//           tomute.removeRole(memberrole.id);
-      
-//       setTimeout(function(){
-//           tomute.removeRole(muterole.id);
-//           tomute.addRole(memberrole.id);
-//           modlogchannel.send(`<@${tomute.id}> has been unmuted!`);
-//       }, ms("2h"));
-
-//       let ModEmbed = new Discord.RichEmbed()
-//       .setTitle("**Spam Detected!**")
-//       .setTimestamp()
-//       .setColor("BLACK")
-//       .setDescription([
-//           `<@${tomute.id}> **was spamming in** ${message.channel}`,
-//           ` `,
-//           `**Action Used:** Muted For 2h`,
-//         ].join('\n'))
-//       .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
-      
-//       let warnchannel = message.guild.channels.find(`name`, "modlog");
-//       if(!warnchannel) return message.reply("Couldn't find channel");
-      
-//       warnchannel.send(ModEmbed);
-
-//     }).catch(console.error);
-//   });
   
 bot.login(botconfig.token);
