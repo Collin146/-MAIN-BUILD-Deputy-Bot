@@ -210,6 +210,7 @@ bot.on(`message`, async message => {
 // }
 // });
 
+const message = "Hi, please join discord.gg/a2dsc for cool conversations";
 const containsDiscordUrl = message.test("/discord.gg\/\w*\d*");
 if (containsDiscordUrl) { 
 
