@@ -209,27 +209,26 @@ bot.on(`message`, async message => {
 //     }
 // }
 // });
+// const message = "Hi, please join discord.gg/a2dsc for cool conversations";
+// const containsDiscordUrl = message.test("/discord.gg\/\w*\d*");
+// if (containsDiscordUrl) { 
 
-const message = "Hi, please join discord.gg/a2dsc for cool conversations";
-const containsDiscordUrl = message.test("/discord.gg\/\w*\d*");
-if (containsDiscordUrl) { 
+//             let linkembed2 = new Discord.RichEmbed()
+//             .setTitle("**Discord Invite!**")
+//             .setTimestamp()
+//             .setColor("RED")
+//             .setDescription([
+//                 `**A invite for a Discord server has been sent in** ${message.channel}`,
+//                 `**Server Name:** ${containsDiscordUrl.guild.name}`,
+//                 `**Channel ID:** ${containsDiscordUrl.guild.id}`,
+//                 `**Members:** ${containsDiscordUrl.guild.memberCount}`
+//                 `**Sent By:** ${containsDiscordUrl.member}`
+//               ].join('\n'))
 
-            let linkembed2 = new Discord.RichEmbed()
-            .setTitle("**Discord Invite!**")
-            .setTimestamp()
-            .setColor("RED")
-            .setDescription([
-                `**A invite for a Discord server has been sent in** ${message.channel}`,
-                `**Server Name:** ${containsDiscordUrl.guild.name}`,
-                `**Channel ID:** ${containsDiscordUrl.guild.id}`,
-                `**Members:** ${containsDiscordUrl.guild.memberCount}`
-                `**Sent By:** ${containsDiscordUrl.member}`
-              ].join('\n'))
+//             let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+//             modlogchannel.send({embed: linkembed2});
 
-            let modlogchannel = guild.channels.find(x => x.name === 'modlog');
-            modlogchannel.send({embed: linkembed2});
-
-}
+// }
 
 //--      
 //Link Detection End  
