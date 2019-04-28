@@ -22,8 +22,16 @@ module.exports.run = async (bot, message, args) => {
     message.channel.bulkDelete(args[0]).then(() => {
         message.channel.send(`Cleared ${args[0]} messages.`).then(msg => msg.delete(5000));
 
+    });
+
+    if (args[0] < 100) {
+
+    message.channel.bulkDelete(100)
+    message.channel.bulkDelete(args[0] - 100).then(() => {
+        message.channel.send(`Cleared ${args[0]} messages.`).then(msg => msg.delete(5000));
 
     });
+}
 
     let ModEmbed = new Discord.RichEmbed()
     .setTitle("**Moderation Command Used!**")
