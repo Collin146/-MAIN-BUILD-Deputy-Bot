@@ -436,7 +436,7 @@ bot.on("messageDelete", async message => {
       .setDescription([
           `**A message from** ${message.author.tag} **has been deleted**`,
           ` `,
-          `**Channel:** ${message}`,
+          `**Channel:** ${message.channel}`,
           ` `,
           `**Message:** ${message.content}`
         ].join('\n'));
