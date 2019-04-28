@@ -7,7 +7,7 @@ bot.commands = new Discord.Collection();
 
 const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");
-const warningsign = bot.emojis.get("572176403907215360");
+// const warningsign = bot.emojis.get("572176403907215360");
 
 
 //--
@@ -161,6 +161,8 @@ bot.on(`message`, async message => {
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
             let commrole = message.guild.roles.find('name', 'Community Manager'); 
+            const warningsign = bot.emojis.get("572176403907215360");
+
 
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
@@ -249,6 +251,8 @@ bot.on(`message`, async message => {
     let staffrole = message.guild.roles.find('name', 'Staff Team'); 
     try {
             if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
+            const warningsign = bot.emojis.get("572176403907215360");
+
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
             if (message.member.roles.has(weazelrole.id)) return;
@@ -281,6 +285,7 @@ bot.on(`message`, async message => {
     const bannedWords = [`nigger`, `nigg`, `nogger`, `nagger`, `kanker`, `negro`, `negger`, `nigro`, `nignog`, `nig ger`, `nig  ger`, `ni99er`, `nog ger`, `n1gger`, `neger`, `nigga`, `nigge`, `n1gg3r`, `nigg3r`] 
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
+            const warningsign = bot.emojis.get("572176403907215360");
             if (message.author.id === message.guild.ownerID) return;
             await message.delete();
             
