@@ -245,7 +245,7 @@ bot.on(`message`, async message => {
 //mention detection begin
 //--
 bot.on(`message`, async message => {
-    const bannedWords = [`@everyone` || `@Member`]
+    const bannedWords = [`@everyone`, `@Member`]
     let weazelrole = message.guild.roles.find('name', 'Weazel News'); 
     let commrole = message.guild.roles.find('name', 'Community Manager'); 
     let staffrole = message.guild.roles.find('name', 'Staff Team'); 
