@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
 
     });
 
-    if (args[0] < 100) {
+    if (args[0] > 100) {
 
     message.channel.bulkDelete(100)
     message.channel.bulkDelete(args[0] - 100).then(() => {
