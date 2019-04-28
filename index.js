@@ -5,6 +5,11 @@ const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
+const yes = bot.emojis.get("561106357131018273");
+const no = bot.emojis.get("561106624757104640");
+const warningsign = bot.emojis.get("572176403907215360");
+
+
 //--
 //Cmd handler end
 //--
@@ -164,7 +169,7 @@ bot.on(`message`, async message => {
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
-            .setTitle("**Notice!**")
+            .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Links are not allowed to be sent!")
             .setFooter("Spamming links will result in a punishment!");
@@ -252,7 +257,7 @@ bot.on(`message`, async message => {
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
-            .setTitle("**Notice!**")
+            .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Do not mention everyone or member!")
             .setFooter("Mention spam will result in a punishment!");
@@ -280,7 +285,7 @@ bot.on(`message`, async message => {
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
-            .setTitle("**Notice!**")
+            .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Those words are not allowed to be sent!")
             .setFooter("Continuing on sending those words will result in a punishment!");
