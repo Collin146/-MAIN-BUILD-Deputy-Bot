@@ -428,17 +428,21 @@ modlogchannel.send({embed: nickembed});
 });
 
 bot.on("messageDelete", async message => {
-  
-    let embed = new Discord.RichEmbed()
-      .setTitle("**Deleted Message**")
-      .setColor("#fc3c3c")
-      .addField("Author", message.author.tag, true)
-      .addField("Channel", message.channel, true)
-      .addField("Message", message.content)
-      .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+
+      const delembed = new Discord.RichEmbed()
+      .setColor("RED")
+      .setTimestamp()
+      .setTitle("**Deleted Message!**")
+      .setDescription([
+          `**A message from** ${message.author.tag} **has been deleted**`,
+          ` `,
+          `**Channel:** ${message}`,
+          ` `,
+          `**Message:** ${message.content}`
+        ].join('\n'));
   
     let channel = message.guild.channels.find(x => x.name === 'deleted-messages-log');
-    channel.send({embed: embed});
+    channel.send({embed: delembed});
   });
 
 bot.on('messageUpdate', (oldMessage, newMessage) => {
