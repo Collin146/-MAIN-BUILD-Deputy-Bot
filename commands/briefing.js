@@ -44,19 +44,19 @@ try{
  }
  message.delete().catch(O_o=>{});
 
-}
-
-if(args[0] == "cancel"){
+ if(args[0] == "cancel"){
 
     let dm2embed = new Discord.RichEmbed()
-.setTitle(`${yes} **Done!**`)
-.setColor("GREEN")
-.setDescription(`The briefing room announcement in ${mutetime} has successfully been cancelled.`)
-.setTimestamp();
+    .setTitle(`${yes} **Done!**`)
+    .setColor("GREEN")
+    .setDescription(`The briefing room announcement in ${mutetime} has successfully been cancelled.`)
+    .setTimestamp();
+    
+     message.author.send(dm2embed);
+    
+    return;
+    }
 
- message.author.send(dm2embed);
-
-return;
 }
 
 module.exports.help = {
