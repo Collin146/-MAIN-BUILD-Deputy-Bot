@@ -33,6 +33,13 @@ if(args[0] == "cancel"){
     
      message.author.send(dm2embed);
     
+     function stop() {
+        if (timer) {
+            clearTimeout(timer);
+            timer = 0;
+        }
+    }
+
     return;
     }
 
