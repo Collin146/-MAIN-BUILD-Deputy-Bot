@@ -33,12 +33,7 @@ if(args[0] == "cancel"){
     
      message.author.send(dm2embed);
     
-     function stop() {
-        if (mutetime) {
-            clearTimeout(mutetime);
-            mutetime = 0;
-        }
-    }
+clearTimeout(mutetime);
 
     return;
     }
