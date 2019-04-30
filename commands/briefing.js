@@ -23,6 +23,19 @@ if(!mutetime) return message.reply("You didn't specify a time!");
 const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");
 
+if(args[0] == "cancel"){
+
+    let dm2embed = new Discord.RichEmbed()
+    .setTitle(`${yes} **Done!**`)
+    .setColor("GREEN")
+    .setDescription(`The briefing room announcement in ${mutetime} has successfully been cancelled.`)
+    .setTimestamp();
+    
+     message.author.send(dm2embed);
+    
+    return;
+    }
+
 setTimeout(function(){
     message.channel.send([
         `<@&${mentionrole.id}>`,
@@ -42,20 +55,7 @@ try{
     message.reply("Your DMs are locked. I cannot send you the mod commands.");
 
  }
- message.delete().catch(O_o=>{});
-
- if(args[0] == "cancel"){
-
-    let dm2embed = new Discord.RichEmbed()
-    .setTitle(`${yes} **Done!**`)
-    .setColor("GREEN")
-    .setDescription(`The briefing room announcement in ${mutetime} has successfully been cancelled.`)
-    .setTimestamp();
-    
-     message.author.send(dm2embed);
-    
-    return;
-    }
+ message.delete().catch(O_o=>{})
 
 }
 
