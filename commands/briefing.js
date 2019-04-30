@@ -53,11 +53,8 @@ if(args[0] == "cancel"){
 .setColor("GREEN")
 .setDescription(`The briefing room announcement in ${mutetime} has successfully been cancelled.`)
 .setTimestamp();
-try{
-    await message.author.send(dm2embed);
-}catch(e){
-    message.reply("Your DMs are locked. I cannot send you the mod commands.");
-}
+
+ message.author.send(dm2embed);
 
 return;
 }
