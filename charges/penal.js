@@ -8,13 +8,14 @@ module.exports.run = async (bot, message, args) => {
 
         let intimembed = new Discord.RichEmbed()
         .setTitle("**Penal Code Commands Help Menu**")
-        .setColor("WHITE")
+        .setColor("ffffff")
         .addField("!titles", "This shows all of the titles & the commands to see all of the charges of a specific title.")
         .addField("!title <number>", "This shows all of the charges which fall under the title number that is put in & the commands to see each specific charge.")
         .addField("!<charge>", "This shows the information about the charge that is put in.");
         
         message.channel.send(intimembed);
         
+        return;
             }
 
             message.reply("If you were looking for the Penal Code Commands Help menu type: !penal code help.");
