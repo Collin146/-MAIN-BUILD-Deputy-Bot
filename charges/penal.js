@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
         return;
             }
 
-            message.reply("If you were looking for the Penal Code Commands Help menu type: !penal code help.");
+            message.reply("If you were looking for the Penal Code Commands Help Menu type: !penal code help.");
 }
 
 module.exports.help = {
