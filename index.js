@@ -111,7 +111,7 @@ bot.on("guildMemberRemove", async member => {
 
 bot.on("ready", async () => {
  console.log(`${bot.user.username} is online!`);
- bot.user.setActivity("Hope are ya’ll are still having fun!");
+ bot.user.setActivity("Global Roleplay PS4");
 
 });
 
