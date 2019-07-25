@@ -113,7 +113,7 @@ bot.on("guildMemberRemove", async member => {
 // console.log(`${bot.user.username} is online!`);
 // bot.user.setActivity("Global Roleplay PS4");
 
-});
+//});
 
 //--
 //prefix begin
