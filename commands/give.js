@@ -9,7 +9,7 @@ const collin = bot.fetchUser('292598566759956480');
 //     //Rest of your code
 // }
 
-let managerrole = message.guild.roles.find(`name`, `Manager`);
+let managerrole = message.guild.roles.find(`name`, `Head Of Management`);
 if (!message.member.roles.has(managerrole.id)) return bot.fetchUser('292598566759956480').then((user) => {
     user.send(`${message.author} tried using the !give command!`);
 });
@@ -20,7 +20,7 @@ if(!tobcso) return message.reply("Couldn't find that user.");
 // if (!tobcos === collin) return collin.send(`${message.author} tried using the !give command!`);
 // let role = args[1];
 // if(!role) return tobcso.send("You didn't specify a role.");
-let memberrole = message.guild.roles.find(`name`, `Founder`);
+let memberrole = message.guild.roles.find(`name`, `Bots`);
 if(!memberrole) tobcso.send("err with (memberrole)");
 //let memrrole = message.guild.roles.find(`name`, "ember");
 //let approle = message.guild.roles.find(`name`, "Applicant");
