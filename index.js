@@ -81,7 +81,7 @@ let memberTag = member.user.tag;
       .setTitle("**A new user has joined!**")
       .setColor("#00f4ef")
       .setDescription(`Welcome **${memberTag}**, To Global Roleplay™ PS4, the best Roleplay Community for PS4!`)
-      .setImage(`${image}`);
+      .setImage(`https://media.discordapp.net/attachments/493575328636207109/605415071094669322/Welcome_TOO.png`); // random is ${image}
   welcomechannel.send({embed});
 
   });
