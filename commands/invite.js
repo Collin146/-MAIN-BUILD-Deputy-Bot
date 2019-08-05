@@ -13,7 +13,7 @@ let invembed = new Discord.RichEmbed()
 .setDescription(`${message.author} needs an invite to the session.`)
 .setTimestamp()
 
-let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = message.guild.channels.find(x => x.name === 'needs-an-invite');
 modlogchannel.send(`<@&${mentionrole.id}>`)
 await modlogchannel.send({embed: invembed});
 
