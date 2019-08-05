@@ -61,6 +61,7 @@ let geluktEmbed = new Discord.RichEmbed()
 let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ModEmbed});
 
+    
 modlogchannel.send(ModEmbed);
 
     let dmembed =  new Discord.RichEmbed()
