@@ -16,8 +16,8 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
 
   if(!onderwerp) return message.channel.send(errorEmbed); //als er geen args zijn
 
-  let role = message.guild.roles.find(c => c.name ==='Staff Team'); //De role die toegang heeft tot de channel
-  let role2 = message.guild.roles.find(c => c.name ==='@Staff Team'); //De role van iedereen
+  let role = message.guild.roles.find(x => x.name === 'Staff Team');
+  let role2 = message.guild.roles.find(x => x.name ==='@Staff Team'); //De role van iedereen
         // Als ticket al gemaakt is
         var bool = false;
 
@@ -52,10 +52,8 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
       .setTimestamp()
       .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
       
-      let ticketchannel = message.guild.channels.find(`name`, "meetings");
-      if(!ticketchannel) return message.reply("Couldn't find channel");
-
-      ticketchannel.send(ticketEmbed);
+let ticketchannel = message.guild.channels.find(x => x.name === 'meetings');
+ticketchannel.send({embed: ticketEmbed});
 
       geluktEmbed = new discord.RichEmbed()
       .setColor("GREEN")
