@@ -56,7 +56,7 @@ let ModEmbed = new Discord.RichEmbed()
   ].join('\n'))
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
-let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ModEmbed});
 
 
