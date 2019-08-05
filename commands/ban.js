@@ -58,8 +58,9 @@ let geluktEmbed = new Discord.RichEmbed()
       ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
-    let warnchannel = message.guild.channels.find(`name`, "modlog");
-    if(!warnchannel) return message.reply("Couldn't find channel");
+let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ModEmbed});
+
 
     warnchannel.send(ModEmbed);
 
