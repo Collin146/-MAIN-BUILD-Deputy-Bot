@@ -14,7 +14,8 @@ module.exports.run = async (bot, message, args) => {
         message.reply("Usage: !sahp <user>");
         return;
     }
-let mentionrole = message.guild.roles.find(`name`, `Trainee`);
+    
+let mentionrole = message.guild.roles.find(x => x.name === 'Trainee');
 let day = args[0];
 let time = args[1];
 
