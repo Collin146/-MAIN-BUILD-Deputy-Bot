@@ -24,7 +24,7 @@ let kReason = args.slice(1).join(" ");
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 if(tostrike.hasPermission("ADMINISTRATOR")) return message.reply("You cannot watchlist a Moderator or higher");
 if (!kReason) return message.reply("Please give a reason");
-let strikerole = message.guild.roles.find(`name`, "Watchlist");
+let strikerole = message.guild.roles.find(x => x.name === 'Watchlist');
 if(!strikerole) return message.reply("The Watchlist role doesn't exist.");
 let mentioned = message.mentions.users.first();
 const yes = bot.emojis.get("561106357131018273");
@@ -56,11 +56,9 @@ let ModEmbed = new Discord.RichEmbed()
   ].join('\n'))
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
-let warnchannel = message.guild.channels.find(`name`, "modlog");
-if(!warnchannel) return message.reply("Couldn't find channel");
-
-warnchannel.send(ModEmbed);
-
+let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ModEmbed});
+    
 let DMembed = new Discord.RichEmbed()
 .setTitle(`**You have been put on watchlist in ${message.guild.name}**`)
 .setColor("#ff0c00")
