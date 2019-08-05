@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
 let toinvest = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!toinvest) return message.reply("Couldn't find that user.");
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
-let investrole = message.guild.roles.find(`name`, "Investigation");
+let investrole = message.guild.roles.find(x => x.name === 'Investigation');
 if(toinvest.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot use this command on an admin!");
 const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");
@@ -44,10 +44,9 @@ toinvest.setRoles([investrole.id])
       ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
     
-    let warnchannel = message.guild.channels.find(`name`, "modlog");
-    if(!warnchannel) return message.reply("Couldn't find channel");
-    
-    warnchannel.send(ModEmbed);
+let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ModEmbed});
+
 
     geluktEmbed = new Discord.RichEmbed()
       .setColor("GREEN")
