@@ -22,9 +22,9 @@ let tomute = message.guild.member(message.mentions.users.first() || message.guil
 if(!tomute) return message.reply("Couldn't find that user.");
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 if(tomute.hasPermission("ADMINISTRATOR")) return message.reply("You cannot mute a Moderator or higher");
-let muterole = message.guild.roles.find(`name`, "Muted");
-let memberrole = message.guild.roles.find(`name`, "Member");
-let approle = message.guild.roles.find(`name`, "Applicant");
+let muterole = message.guild.roles.find(x => x.name === 'Muted');
+let Memberrole = message.guild.roles.find(x => x.name === 'Member');
+let approle = message.guild.roles.find(x => x.name === 'Applicant');
 //start of create role
 if (!muterole){
     try{
@@ -75,10 +75,8 @@ let ModEmbed = new Discord.RichEmbed()
   ].join('\n'))
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
-let warnchannel = message.guild.channels.find(`name`, "modlog");
-if(!warnchannel) return message.reply("Couldn't find channel");
-
-warnchannel.send(ModEmbed);
+let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ModEmbed});
 
 //end of module
 }
