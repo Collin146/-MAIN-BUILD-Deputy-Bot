@@ -59,8 +59,7 @@ let ModEmbed = new Discord.RichEmbed()
 let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ModEmbed});
 
-
-warnchannel.send(ModEmbed);
+modlogchannel.send(ModEmbed);
 
 geluktEmbed = new Discord.RichEmbed()
       .setColor("GREEN")
