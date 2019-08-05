@@ -18,11 +18,11 @@ module.exports.run = async (bot, message, args) => {
 let tosahp = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!tosahp) return message.reply("Couldn't find that user.");
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
-let memberrole = message.guild.roles.find(`name`, "Member");
-let sahprole = message.guild.roles.find(`name`, "SAHP");
-let probrole = message.guild.roles.find(`name`, "SAHP Probationary");
-let leorole = message.guild.roles.find(`name`, "LEO");
-let nmrole = message.guild.roles.find(`name`, "New Member");
+let memberrole = message.guild.roles.find(x => x.name === 'Member');
+let sahprole = message.guild.roles.find(x => x.name === 'SAHP');
+let probrole = message.guild.roles.find(x => x.name === 'SAHP Probationary');
+let leorole = message.guild.roles.find(x => x.name === 'LEO');
+let nmrole = message.guild.roles.find(x => x.name === 'New Member');
 if(tosahp.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot use this command on an admin!");
 const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");
@@ -56,10 +56,9 @@ let ModEmbed = new Discord.RichEmbed()
   ].join('\n'))
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
-let warnchannel = message.guild.channels.find(`name`, "modlog");
-if(!warnchannel) return message.reply("Couldn't find channel");
+let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ModEmbed});
 
-warnchannel.send(ModEmbed);
 
 geluktEmbed = new Discord.RichEmbed()
       .setColor("GREEN")
