@@ -18,11 +18,11 @@ module.exports.run = async (bot, message, args) => {
 let tobcso = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 if(!tobcso) return message.reply("Couldn't find that user.");
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
-let memberrole = message.guild.roles.find(`name`, "Member");
-let bcsorole = message.guild.roles.find(`name`, "BCSO");
-let probrole = message.guild.roles.find(`name`, "BCSO Probationary");
-let leorole = message.guild.roles.find(`name`, "LEO");
-let nmrole = message.guild.roles.find(`name`, "New Member");
+let memberrole = message.guild.roles.find(x => x.name === 'Member');
+let bcsorole = message.guild.roles.find(x => x.name === 'BCSO');
+let probrole = message.guild.roles.find(x => x.name === 'BCSO Probationary');
+let leorole = message.guild.roles.find(x => x.name === 'LEO');
+let nmrole = message.guild.roles.find(x => x.name === 'New Member');;
 if(tobcso.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot use this command on an admin!");
 const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");
