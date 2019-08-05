@@ -14,8 +14,8 @@ let sugembed = new Discord.RichEmbed()
 .setColor("GREEN")
 .setAuthor(`${message.author.username}`, message.author.avatarURL)
 .setDescription(`${kReason}`);
-
-let warnchannel = message.guild.channels.find(`name`, "server-suggestions-staff-only"); 
+    
+let warnchannel = message.guild.channels.find(x => x.name === 'server-suggestions-staff-only');
 if(!warnchannel) return message.reply("Couldn't find channel");
 
 const sentMessage =  await warnchannel.send(sugembed);
