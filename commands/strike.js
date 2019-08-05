@@ -23,9 +23,9 @@ let kReason = args.slice(2).join(" ");
 if (!kReason) return message.reply(`Please give a reason.`);
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 if(tostrike.hasPermission("ADMINISTRATOR")) return message.reply("You cannot strike a Moderator or higher");
-let strike1role = message.guild.roles.find(`name`, "Strike 1");
+let strike1role = message.guild.roles.find(x => x.name === 'Strike 1');
 if(!strike1role) return message.reply("The role Strike 1 doesn't exist.");
-let strike2role = message.guild.roles.find(`name`, "Strike 2");
+let strike2role = message.guild.roles.find(x => x.name === 'Strike 2');
 if(!strike2role) return message.reply("The role Strike 2 doesn't exist.");
 let mentioned = message.mentions.users.first();
 const yes = bot.emojis.get("561106357131018273");
@@ -59,10 +59,9 @@ if(args[0] === "1"){
       ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
     
-    let warnchannel = message.guild.channels.find(`name`, "modlog");
-    if(!warnchannel) return message.reply("Couldn't find channel");
+let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ModEmbed});
     
-    warnchannel.send(ModEmbed);
 
 let DMembed = new Discord.RichEmbed()
 .setTitle(`**You have been striked in ${message.guild.name}**`)
@@ -103,10 +102,9 @@ let DMembed = new Discord.RichEmbed()
       ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
     
-    let warnchannel = message.guild.channels.find(`name`, "modlog");
-    if(!warnchannel) return message.reply("Couldn't find channel");
-    
-    warnchannel.send(ModEmbed);
+let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ModEmbed});
+
 
 let DMembed = new Discord.RichEmbed()
 .setTitle(`**You have been striked in ${message.guild.name}**`)
