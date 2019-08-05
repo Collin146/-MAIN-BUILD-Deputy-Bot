@@ -29,12 +29,11 @@ message.delete().catch(O_o=>{});
         .addField("Reason", reason)
         .setTimestamp()
         .setFooter(`Reported User ID: ${rUser.id} | Author ID: ${message.author.id}`);
-
-        let reportschannel = message.guild.channels.find(`name`, "reports");
-        if(!reportschannel) return message.reply("Couldn't find reports channel,");
-
-        message.delete().catch(O_o=>{});
-        reportschannel.send(reportEmbed);
+    
+let reportchannel = message.guild.channels.find(x => x.name === 'reports');
+message.delete().catch(O_o=>{});
+reportchannel.send({embed: reportEmbed});
+    
 
 let dmembed = new Discord.RichEmbed()
 .setTitle(`${yes} **Done!**`)
