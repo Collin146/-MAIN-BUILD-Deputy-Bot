@@ -65,7 +65,7 @@ fs.readdir("./charges/", (err, files) => {
 //--
 
 bot.on('guildMemberAdd', member => {
-    let welcomechannel = member.guild.channels.find(`name`, "welcome");
+	let welcomechannel = member.guild.channels.find(x => x.name === 'welcome');
 
 const rando_imgs = [
 'https://cdn.discordapp.com/attachments/461540254441144326/575060389440651284/ELlfQHzH_EqodvyRcB_6jQ_0_0.jpg',
@@ -99,8 +99,8 @@ bot.on("guildMemberRemove", async member => {
     
    let memberTag = member.user.tag;
 
-    let welcomechannel = member.guild.channels.find(`name`, "left-members");
-    welcomechannel.send(`**${member}** has left the server.`);
+let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
+    leftchannel.send(`**${member}** has left the server.`);
     
 
 });
@@ -158,14 +158,13 @@ bot.on(`message`, async message => {
     const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`, 'https://', 'http://', '.com/', '.com', 'www.', 'https://www.', 'http://www.']
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
-            let commrole = message.guild.roles.find('name', 'Community Manager'); 
+
             const warningsign = bot.emojis.get("572176403907215360");
 
 
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
-            if (message.member.roles.find("name", "Content Creator")) return;
-            if (message.member.roles.has(commrole.id)) return;
+            if (message.guild.roles.find(x => x.name === 'Staff Team')) return;
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
@@ -244,9 +243,9 @@ bot.on(`message`, async message => {
 //--
 bot.on(`message`, async message => {
     const bannedWords = [`@everyone`, `@Member`]
-    let weazelrole = message.guild.roles.find('name', 'Weazel News'); 
-    let commrole = message.guild.roles.find('name', 'Community Manager'); 
-    let staffrole = message.guild.roles.find('name', 'Staff Team'); 
+    let weazelrole = message.guild.roles.find(x => x.name === 'Weazel News');
+    let staffrole = message.guild.roles.find(x => x.name === 'Staff Team');
+
     try {
             if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
             const warningsign = bot.emojis.get("572176403907215360");
@@ -254,7 +253,6 @@ bot.on(`message`, async message => {
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
             if (message.member.roles.has(weazelrole.id)) return;
-            if (message.member.roles.has(commrole.id)) return;
             if (message.member.roles.has(staffrole.id)) return;
             await message.delete();
             
@@ -322,8 +320,8 @@ bot.on('channelCreate', channel => {
         `**Channel Type:** ${channel.type}`
       ].join('\n'))
 
-let modlogchannel = channel.guild.channels.find(`name`, "modlog");
-modlogchannel.send(ccembed);
+let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ccembed});
 
 });
 
@@ -339,8 +337,8 @@ bot.on('channelDelete', (channel) => {
         `**Channel Type:** ${channel.type}`
       ].join('\n'))
 
-let modlogchannel = channel.guild.channels.find(`name`, "modlog");
-modlogchannel.send(cdembed);
+let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: cdembed});
 
 });
 
@@ -356,8 +354,8 @@ bot.on('guildBanAdd', (guild, user) => {
         `**User's ID:** ${user.id}`
       ].join('\n'))
 
-      let modlogchannel = guild.channels.find(`name`, "modlog");
-      modlogchannel.send(ubembed);
+let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ubembed});
 
     });
 
@@ -602,8 +600,8 @@ bot.on('channelUpdate', (oldChannel, newChannel) => {
     .addField("Before", `${oldChannel.name}`)
     .addField("After", `${newChannel.name}`);
 
-let modlogchannel = oldChannel.guild.channels.find(`name`, "modlog");
-modlogchannel.send(cuembed);
+let modlogchannel = oldChannel.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: cuembed});
 
     }
 
