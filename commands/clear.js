@@ -68,11 +68,10 @@ module.exports.run = async (bot, message, args) => {
         `**Used By:** ${message.author.username}`
       ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+
+    let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+    modlogchannel.send({embed: ModEmbed});
     
-    let warnchannel = message.guild.channels.find(`name`, "modlog");
-    if(!warnchannel) return message.reply("Couldn't find channel");
-    
-    warnchannel.send(ModEmbed);
 }
 
 
