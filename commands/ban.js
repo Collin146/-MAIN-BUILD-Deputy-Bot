@@ -74,3 +74,4 @@ modlogchannel.send({embed: ModEmbed});
  module.exports.help = {
      name: "ban"
  }
+
