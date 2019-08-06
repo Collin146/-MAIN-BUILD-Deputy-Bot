@@ -29,7 +29,6 @@ let geluktEmbed = new Discord.RichEmbed()
       .setDescription(`<@${bUser.id}> has been banned!`)
       .setFooter(`Mentioned User ID: ${bUser.id}`);
 
-
    // let banEmbed = new Discord.RichEmbed()
    // .setDescription("A user has been banned")
    // .setColor("#ff6a00")
