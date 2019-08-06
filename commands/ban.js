@@ -14,7 +14,8 @@ module.exports.run = async (bot, message, args, channel) => {
         return;
     }
 
-    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]) || bot.fetchUser(args[0]));
+    //let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]) || bot.fetchUser(args[0]));
+    let bUser = message.guild.members.get(); || Client.fetchUser();
     if(!bUser) return message.channel.send("Can't find user!");
     let bReason = args.slice(1).join(" ");
     if(bUser.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot ban an Admin.");
