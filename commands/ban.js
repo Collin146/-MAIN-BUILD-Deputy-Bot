@@ -14,12 +14,11 @@ module.exports.run = async (bot, message, args, channel) => {
         return;
     }
 
-    //let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]) || bot.fetchUser(args[0]));
-    let bbuser = (args[0])
-    let bUser = message.guild.members.get(bbuser) || bot.fetchUser(bbuser);
+    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]) || bot.fetchUser(args[0]));
+    // let bUser = message.guild.members.get() || Client.fetchUser();
     if(!bUser) return message.channel.send("Can't find user!");
     let bReason = args.slice(1).join(" ");
-    if(bbuser.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot ban an Admin.");
+    if(bUser.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot ban an Admin.");
     if(!bReason) return message.reply("Please give a reason.");
     const yes = bot.emojis.get("561106357131018273");
     const no = bot.emojis.get("561106624757104640");
@@ -29,6 +28,7 @@ let geluktEmbed = new Discord.RichEmbed()
       .setTitle(`${yes} **Done!**`)
       .setDescription(`<@${bUser.id}> has been banned!`)
       .setFooter(`Mentioned User ID: ${bUser.id}`);
+
 
    // let banEmbed = new Discord.RichEmbed()
    // .setDescription("A user has been banned")
@@ -75,4 +75,3 @@ modlogchannel.send({embed: ModEmbed});
  module.exports.help = {
      name: "ban"
  }
-
