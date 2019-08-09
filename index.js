@@ -610,19 +610,14 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
   let newUserChannel = newMember.voiceChannel
   let oldUserChannel = oldMember.voiceChannel
 
-
-  if(oldUserChannel === undefined && newUserChannel !== undefined) {
-
-     // User Joins a voice channel
-
-  } else if(newUserChannel === undefined){
+if(newUserChannel === undefined){
 
 let memberrole = oldMember.find(x => x.name === 'Owner');
 	 
-	  oldMember.addRole(memberrole.id);
+oldMember.addRole(memberrole.id);
 	  
     // User leaves a voice channel
-
+}
   }
 });
 
