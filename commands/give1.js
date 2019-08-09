@@ -38,8 +38,9 @@ let memberrole = bot.guilds.get('486491665767333889').roles.find(x => x.name ===
     
 bot.guilds.get('486491665767333889').members.get(message.author.id).addRole('Founder.id')
     
-    console.log(err)
-}
+    } catch (e) {
+        console.log(e);
+    }
 
 module.exports.help = {
     name: "give1"
