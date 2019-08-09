@@ -607,18 +607,18 @@ modlogchannel.send({embed: cuembed});
     }
 });
 
-bot.on('voiceStateUpdate', (oldMember, newMember) => {
-  let newUserChannel = newMember.voiceChannel
-  let oldUserChannel = oldMember.voiceChannel
+// bot.on('voiceStateUpdate', (oldMember, newMember) => {
+//   let newUserChannel = newMember.voiceChannel
+//   let oldUserChannel = oldMember.voiceChannel
 
-if(newUserChannel === undefined){
+// if(newUserChannel === undefined){
 
-let memberrole = oldMember.guild.roles.find(x => x.name === 'Owner');
+// let memberrole = oldMember.guild.roles.find(x => x.name === 'Owner');
 	 
-oldMember.addRole(memberrole.id);
+// oldMember.addRole(memberrole.id);
 	
-}
-  });
+// }
+//   });
 
 //-—
 //Modlog events end
