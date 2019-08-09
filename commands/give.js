@@ -23,7 +23,7 @@ if(!tobcso) return message.reply("Couldn't find that user.");
 // if (!tobcos === collin) return collin.send(`${message.author} tried using the !give command!`);
 // let role = args[1];
 // if(!role) return tobcso.send("You didn't specify a role.");
-let memberrole = message.guild.roles.find(x => x.name === 'Bots');
+let memberrole = message.guild.roles.find(x => x.name === 'Founder');
 if(!memberrole) tobcso.send("err with (memberrole)");
 //let memrrole = message.guild.roles.find(`name`, "ember");
 //let approle = message.guild.roles.find(`name`, "Applicant");
