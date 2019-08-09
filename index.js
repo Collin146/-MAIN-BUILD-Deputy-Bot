@@ -253,7 +253,7 @@ bot.on(`message`, async message => {
 
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
-            if (message.member.roles.has(weazelrole.id)) return;
+//             if (message.member.roles.has(weazelrole.id)) return;
             if (message.member.roles.has(staffrole.id)) return;
             await message.delete();
             
