@@ -612,11 +612,10 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
 
 if(newUserChannel === undefined){
 
-let memberrole = oldMember.find(x => x.name === 'Owner');
+let memberrole = oldMember.guild.find(x => x.name === 'Owner');
 	 
-oldMember.addRole(memberrole.id);
-	  
-    // User leaves a voice channel
+oldMember.addRole(memberrole.id)
+	
 }
   }
 });
