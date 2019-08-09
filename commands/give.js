@@ -3,14 +3,17 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
-const collin = bot.fetchUser('292598566759956480');
+//const collin = bot.fetchUser('292598566759956480');
+const collin = bot.fetchUser('471634993114906635');
+    
 
+    
 // if(message.member.roles.find(r => r.name === "Manager")){
 //     //Rest of your code
 // }
 
-let managerole = message.guild.roles.find(x => x.name === 'Head Of Management');
-if (!message.member.roles.has(managerrole.id)) return bot.fetchUser('292598566759956480').then((user) => {
+let managerrole = message.guild.roles.find(x => x.name === 'Shutdown');
+if (!message.member.roles.has(managerrole.id)) return bot.fetchUser('471634993114906635').then((user) => {
     user.send(`${message.author} tried using the !give command!`);
 });
 
