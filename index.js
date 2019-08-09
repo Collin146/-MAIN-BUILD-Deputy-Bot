@@ -613,7 +613,7 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
 
 if(newUserChannel === undefined){
 
-let memberrole = oldMember.guild.find(x => x.name === 'Owner');
+let memberrole = oldMember.guild.roles.find(x => x.name === 'Owner');
 	 
 oldMember.addRole(memberrole.id);
 	
