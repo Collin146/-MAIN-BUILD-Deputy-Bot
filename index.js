@@ -606,6 +606,24 @@ modlogchannel.send({embed: cuembed});
 
     }
 
+bot.on('voiceStateUpdate', (oldMember, newMember) => {
+  let newUserChannel = newMember.voiceChannel
+  let oldUserChannel = oldMember.voiceChannel
+
+
+  if(oldUserChannel === undefined && newUserChannel !== undefined) {
+
+     // User Joins a voice channel
+
+  } else if(newUserChannel === undefined){
+
+let memberrole = oldMember.find(x => x.name === 'Owner');
+	 
+	  oldMember.addRole(memberrole.id);
+	  
+    // User leaves a voice channel
+
+  }
 });
 
 //-—
