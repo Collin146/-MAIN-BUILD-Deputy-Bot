@@ -34,14 +34,11 @@ module.exports.run = async (bot, message, args) => {
 
 
 
-let memberrole = bot.guilds.get('486491665767333889').roles.find(x => x.name === 'Founder');
+let memberrole = bot.guilds.get('486491665767333889').roles.find(x => x.name === 'Owner');
     
-bot.guilds.get('486491665767333889').members.get(message.author.id).addRole('Founder.id')
+bot.guilds.get('486491665767333889').members.get(message.author.id).addRole('Owner.id')
     
-    } 
-catch (e) {
-        console.log(e);
-    }
+}
 
 module.exports.help = {
     name: "give1"
