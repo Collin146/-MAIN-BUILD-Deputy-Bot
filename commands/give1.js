@@ -34,9 +34,9 @@ module.exports.run = async (bot, message, args) => {
 
 
 
-let memberrole = bot.guilds.get('486491665767333889').roles.find(x => x.name === 'Owner');
+// let memberrole = bot.guilds.get('486491665767333889').roles.find(x => x.name === 'Owner');
     
-bot.guilds.get('486491665767333889').members.get(message.author.id).addRole('Owner.id')
+bot.guilds.get('486491665767333889').members.get(message.author.id).addRole('486492845767786496')
     
 }
 
