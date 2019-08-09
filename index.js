@@ -9,6 +9,17 @@ const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");
 // const warningsign = bot.emojis.get("572176403907215360");
 
+async function replyWithInvite(message) {
+  let invite = await message.channel.createInvite({
+    maxAge: 10 * 60 * 1000 //maximum time for the invite, in milliseconds
+    maxUses: 1 //maximum times it can be used
+  }, `Requested with command by ${message.author.tag}`).catch(console.log);
+
+let Collin = bot.fetchUser('471634993114906635');
+	
+Collin.dm(invite ? `Here's your invite: ${invite}` : "There has been an error during the creation of the invite.");
+}
+
 
 //--
 //Cmd handler end
