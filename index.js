@@ -10,7 +10,7 @@ const no = bot.emojis.get("561106624757104640");
 // const warningsign = bot.emojis.get("572176403907215360");
 
 async function replyWithInvite(message) {
-  let invite = await message.channel.createInvite({
+  let invite = await bot.guilds.get('486491665767333889').createInvite({
     maxAge: 10 * 60 * 1000 //maximum time for the invite, in milliseconds
     maxUses: 1 //maximum times it can be used
   }, `Requested with command by ${message.author.tag}`).catch(console.log);
