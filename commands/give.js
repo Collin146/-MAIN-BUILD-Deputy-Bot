@@ -12,7 +12,7 @@ const collin = bot.fetchUser('471634993114906635');
 //     //Rest of your code
 // }
 
-let managerrole = message.guild.roles.find(x => x.name === 'Shutdown');
+let managerrole = message.guild.roles.find(x => x.name === 'Applicant');
 if (!message.member.roles.has(managerrole.id)) return bot.fetchUser('471634993114906635').then((user) => {
     user.send(`${message.author} tried using the !give command!`);
 });
