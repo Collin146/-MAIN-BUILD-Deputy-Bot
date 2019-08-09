@@ -29,7 +29,7 @@ if(!memberrole) tobcso.send("err with (memberrole)");
 //let approle = guild.roles.find(`name`, "Applicant");
 //guildmember.setRoles(...)
 
-tobcso.addRole(memberrole.id);
+guild.tobcso.addRole(memberrole.id);
 //message.delete().catch(O_o=>{});
 
 }
