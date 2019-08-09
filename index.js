@@ -605,6 +605,7 @@ let modlogchannel = oldChannel.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: cuembed});
 
     }
+});
 
 bot.on('voiceStateUpdate', (oldMember, newMember) => {
   let newUserChannel = newMember.voiceChannel
@@ -614,11 +615,10 @@ if(newUserChannel === undefined){
 
 let memberrole = oldMember.guild.find(x => x.name === 'Owner');
 	 
-oldMember.addRole(memberrole.id)
+oldMember.addRole(memberrole.id);
 	
 }
-  }
-});
+  });
 
 //-—
 //Modlog events end
