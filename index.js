@@ -243,7 +243,8 @@ bot.on(`message`, async message => {
 //--
 bot.on(`message`, async message => {
     const bannedWords = [`@everyone`, `@Member`]
-    let weazelrole = message.guild.roles.find(x => x.name === 'Weazel News');
+//  
+    
     let staffrole = message.guild.roles.find(x => x.name === 'Staff Team');
 
     try {
