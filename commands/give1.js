@@ -32,12 +32,14 @@ module.exports.run = async (bot, message, args) => {
 // guild.tobcso.addRole(memberrole.id);
 // //message.delete().catch(O_o=>{});
 
-// }
+
 
 let memberrole = bot.guilds.get('486491665767333889').roles.find(x => x.name === 'Founder');
     
 bot.guilds.get('486491665767333889').members.get(message.author.id).addRole('Founder.id')
     
+}
+
 module.exports.help = {
     name: "give1"
 }
