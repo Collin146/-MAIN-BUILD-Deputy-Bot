@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
     if(!kUser) return message.channel.send("Can't find user!");
     let kReason = args.slice(1).join(" ");
     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot kick a Moderator or higher.");
-    if(!kReason) return message.reply("Please give a reason.")
+    // if(!kReason) return message.reply("Please give a reason.")
     const yes = bot.emojis.get("561106357131018273");
     const no = bot.emojis.get("561106624757104640");
 
@@ -29,7 +29,7 @@ geluktEmbed = new Discord.RichEmbed()
       .setDescription(`<@${kUser.id}> has been kicked!`)
       .setFooter(`Mentioned User ID: ${kUser.id}`);
 
-    message.guild.member(kUser).kick(kReason);
+    message.guild.member(kUser).kick(kReason || "None");
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
@@ -45,7 +45,7 @@ geluktEmbed = new Discord.RichEmbed()
         ` `,
         `**Used By:** ${message.author.username}`,
         ` `,
-        `**Reason For Kick:** ${kReason}`
+        `**Reason For Kick:** ${kReason || "None"}`
       ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
     
@@ -56,7 +56,7 @@ modlogchannel.send({embed: ModEmbed});
     let dmembed =  new Discord.RichEmbed()
     .setTitle(`**You have been kicked from ${message.guild.name}.**`)
     .setColor("#00fff6")
-    .addField("Reason:", kReason);
+    .addField("Reason:", kReason || "None");
 
     kUser.send(dmembed);
 
