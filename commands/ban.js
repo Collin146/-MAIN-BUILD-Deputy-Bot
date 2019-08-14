@@ -14,12 +14,11 @@ module.exports.run = async (bot, message, args, channel) => {
         return;
     }
 
-    let bUser = bot.fetchUser(args[0])
-    if(!bUser) const bMember = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]) || bot.fetchUser(args[0]));
     // let bUser = message.guild.members.get() || Client.fetchUser();
     if(!bUser) return message.channel.send("Can't find user!");
     let bReason = args.slice(1).join(" ");
-    if(!bUser) if(bMember.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot ban an Admin.");
+    if(bUser.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot ban an Admin.");
     // if(!bReason) return message.reply("Please give a reason.");
     const yes = bot.emojis.get("561106357131018273");
     const no = bot.emojis.get("561106624757104640");
@@ -27,8 +26,8 @@ module.exports.run = async (bot, message, args, channel) => {
 let geluktEmbed = new Discord.RichEmbed()
       .setColor("GREEN")
       .setTitle(`${yes} **Done!**`)
-      .setDescription(`<@${bUser.id || bMember.id}> has been banned!`)
-      .setFooter(`Mentioned User ID: ${bUser.id || bMember.id}`);
+      .setDescription(`<@${bUser.id}> has been banned!`)
+      .setFooter(`Mentioned User ID: ${bUser.id}`);
 
 
    // let banEmbed = new Discord.RichEmbed()
@@ -40,7 +39,7 @@ let geluktEmbed = new Discord.RichEmbed()
    // .addField("Time", message.createdAt)
    // .addField("Reason", bReason);
 
-    message.guild.member(bUser || bMember).ban(bReason || "None");
+    message.guild.member(bUser).ban(bReason || "None");
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
@@ -50,7 +49,7 @@ let geluktEmbed = new Discord.RichEmbed()
     .setDescription([
         `**The administration command** !ban **has been used**`,
         ` `,
-        `**Banned User:** <@${bUser.id || bMember.id}>`,
+        `**Banned User:** <@${bUser.id}>`,
         ` `,
         `**Used In:** ${message.channel}`,
         ` `,
@@ -69,7 +68,7 @@ modlogchannel.send({embed: ModEmbed});
     .setColor("#00fff6")
     .addField("Reason:", bReason || "None");
 
-    bUser || bMember.send(dmembed);
+    bUser.send(dmembed);
 
 }
 
