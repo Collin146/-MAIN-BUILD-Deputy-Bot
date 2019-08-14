@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args, channel) => {
     if(!bUser) return message.channel.send("Can't find user!");
     let bReason = args.slice(1).join(" ");
     if(bUser.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot ban an Admin.");
-    if(!bReason) return message.reply("Please give a reason.");
+    // if(!bReason) return message.reply("Please give a reason.");
     const yes = bot.emojis.get("561106357131018273");
     const no = bot.emojis.get("561106624757104640");
 
@@ -39,7 +39,7 @@ let geluktEmbed = new Discord.RichEmbed()
    // .addField("Time", message.createdAt)
    // .addField("Reason", bReason);
 
-    message.guild.member(bUser).ban(bReason);
+    message.guild.member(bUser).ban(bReason || "None");
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
@@ -55,7 +55,7 @@ let geluktEmbed = new Discord.RichEmbed()
         ` `,
         `**Used By:** ${message.author.username}`,
         ` `,
-        `**Reason For Ban:** ${bReason}`
+        `**Reason For Ban:** ${bReason || "None"}`
       ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
 
@@ -66,7 +66,7 @@ modlogchannel.send({embed: ModEmbed});
     let dmembed =  new Discord.RichEmbed()
     .setTitle(`**You have been banned from ${message.guild.name}.**`)
     .setColor("#00fff6")
-    .addField("Reason:", bReason);
+    .addField("Reason:", bReason || "None");
 
     bUser.send(dmembed);
 
