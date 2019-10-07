@@ -166,6 +166,20 @@ bot.on(`message`, async message => {
             if (message.member.hasPermission("ADMINISTRATOR")) return;
             if (message.guild.roles.find(x => x.name === 'Staff Team')) return;
             await message.delete();
+
+            const modembed = new Discord.RichEmbed()
+           .setColor('RED')
+           .setTimestamp()
+           .setTitle("**Link Posted!**")
+           .setDescription([
+               `**Sent By:** ${message.author.tag}`,
+               `**User's ID:** ${message.author.id}`,
+               `**Sent In:** ${message.channel}`,
+               `**Link:** ${message.content}`
+             ].join('\n'))
+       
+       let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
+       modlogchannel.send({embed: modembed});
             
             let linkembed = new Discord.RichEmbed()
             .setTitle(`${warningsign} **Notice!**`)
