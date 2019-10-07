@@ -80,7 +80,7 @@ let memberTag = member.user.tag;
     let embed = new Discord.RichEmbed()
       .setTitle("**A new user has joined!**")
       .setColor("#00f4ef")
-      .setDescription(`Welcome **${user.name}**, To Unity Roleplay, the best Roleplay Community for PS4!`)
+      .setDescription(`Welcome **${memberTag}**, To Unity Roleplay, the best Roleplay Community for PS4!`)
       .setImage(`https://media.discordapp.net/attachments/493575328636207109/605415071094669322/Welcome_TOO.png`); // random is ${image}
   welcomechannel.send({embed});
 
@@ -100,7 +100,7 @@ bot.on("guildMemberRemove", async member => {
    let memberTag = member.user.tag;
 
 let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
-    leftchannel.send(`**${user.name}** has left the server.`);
+    leftchannel.send(`**${memberTag}** has left the server.`);
     
 
 });
