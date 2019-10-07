@@ -10,7 +10,6 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
     
-    
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
     if(args[0] == "help"){
         message.reply("Usage: !tempmute <user> <time length>");
@@ -52,6 +51,10 @@ if(!mutetime) return message.reply("You didn't specify a time!");
 await(tomute.addRole(muterole.id));
 await(tomute.removeRole(memberrole.id));
 message.reply(`<@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
+
+if(!message.member.roles.find(r => r.name === "Muted"))
+return;
+    
 
 setTimeout(function(){
     tomute.removeRole(muterole.id);
