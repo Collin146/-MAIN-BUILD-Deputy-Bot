@@ -607,6 +607,16 @@ modlogchannel.send({embed: cuembed});
     }
 });
 
+bot.on('message', function(message) {
+    if (message.content === "d! bump") { 
+        var interval = setInterval (function () {
+            // use the message's channel (TextChannel) to send a new message
+            message.channel.send("bot-bumping")
+            .catch(console.error); // add error handling here
+        }, 10 * 1000); 
+    }
+});
+
 // bot.on('voiceStateUpdate', (oldMember, newMember) => {
 //   let newUserChannel = newMember.voiceChannel
 //   let oldUserChannel = oldMember.voiceChannel
