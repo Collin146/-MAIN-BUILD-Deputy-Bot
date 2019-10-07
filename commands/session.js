@@ -25,7 +25,7 @@ message.channel.send([
     `\`${day}\` **at** \`${time}\` **PM BST**`,
     ` `,
     "**Say yes to attend**",
-    "(if you say yes or maybe and dont show up without a valid reason, you will receive a strike)"
+    "(if you say yes or maybe and you dont show up without a valid reason, you will receive a strike)"
   ].join('\n'))
 
   message.delete().catch(O_o=>{});
