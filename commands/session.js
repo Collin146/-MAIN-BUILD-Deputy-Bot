@@ -17,6 +17,7 @@ module.exports.run = async (bot, message, args) => {
 let mentionrole = message.guild.roles.find(x => x.name === 'Member');
 let day = args[0];
 let time = args[1];
+// let mentionchannel = message.guild.channels.find(x => x.name === 'reason-for-inactivity');
 
 message.channel.send([
     `<@&${mentionrole.id}>`,
@@ -25,7 +26,7 @@ message.channel.send([
     `\`${day}\` **at** \`${time}\` **PM BST**`,
     ` `,
     "**Say yes to attend**",
-    "(if you say yes or maybe and you dont show up without a valid reason, you will receive a strike)"
+    "(If you say yes or maybe you are required to show up to the session. If you can't show up with a reason inform staff in <#603669555558088801> __before__ the session starts otherwise, it will result in diciplinary action. )"
   ].join('\n'))
 
   message.delete().catch(O_o=>{});
