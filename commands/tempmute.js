@@ -10,6 +10,7 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
     
+    
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
     if(args[0] == "help"){
         message.reply("Usage: !tempmute <user> <time length>");
