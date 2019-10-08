@@ -2,6 +2,9 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
+    const yes = bot.emojis.get("561106357131018273");
+    const no = bot.emojis.get("561106624757104640");
+
     geluktEmbed = new Discord.RichEmbed()
     .setColor("GREEN")
     .setTitle(`${yes} **Command List**`)
