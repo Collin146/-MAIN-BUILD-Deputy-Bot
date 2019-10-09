@@ -22,7 +22,6 @@ message.guild.fetchBans().then(bans => {
                 message.guild.unban(user);
             });
         });
-}
 
 
 let geluktEmbed = new Discord.RichEmbed()
