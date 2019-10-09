@@ -14,6 +14,8 @@ module.exports.run = async (bot, message, args, channel) => {
         return;
     }
     
+const yes = bot.emojis.get("561106357131018273");
+const no = bot.emojis.get("561106624757104640");    
 let bReason = args.slice(1).join(" ");
 
 message.guild.fetchBans().then(bans => {
