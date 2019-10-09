@@ -62,7 +62,7 @@ modlogchannel.send({embed: ModEmbed});
     .setColor("#00fff6")
     .addField("Reason:", bReason || "None");
 
-    user.send(dmembed);
+    username.send(dmembed);
 }
 
  module.exports.help = {
