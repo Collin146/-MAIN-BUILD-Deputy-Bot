@@ -14,29 +14,23 @@ module.exports.run = async (bot, message, args, channel) => {
         return;
     }
     
-let user = args[0];
-const usercheck = bot.users.get(user) || message.guild.member(message.mentions.users.first())
-if (!usercheck) return message.channel.send("Couldn't find this user.")
+//let user = args[0];
+//const usercheck = bot.users.get(user) || message.guild.member(message.mentions.users.first())
+const user = message.mentions.users.first() || await client.fetchUser(args[0]);
+if (!user) return message.channel.send("Couldn't find this user.") // Change if not working
 const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");    
 let bReason = args.slice(1).join(" ");
 const username = bot.fetchUser(user)
 
-message.guild.fetchBans().then(bans => {
-            bans.forEach(user => {
-                console.log(user.username + '#' + user.tag);
-//                message.guild.ban(user);
-                  message.guild.member(user).ban(bReason || "None") || message.guild(user).ban(bReason || "None");
-                // if (!user) return message.channel.send("Couldn't find this user!")
-            });
-        });
 
+message.guild(user).ban(bReason || "None");
 
 let geluktEmbed = new Discord.RichEmbed()
       .setColor("GREEN")
       .setTitle(`${yes} **Done!**`)
-      .setDescription(`<@${user}> has been banned!`)
-      .setFooter(`Mentioned User ID: ${user}`);
+      .setDescription(`<@${user.id}> has been banned!`)
+      .setFooter(`Mentioned User ID: ${user.id}`);
 
     message.channel.send(geluktEmbed);
 
@@ -47,7 +41,7 @@ let geluktEmbed = new Discord.RichEmbed()
     .setDescription([
         `**The administration command** !ban **has been used**`,
         ` `,
-        `**Banned User:** <@${user}>`,
+        `**Banned User:** <@${user.id}>`,
         ` `,
         `**Used In:** ${message.channel}`,
         ` `,
