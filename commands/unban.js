@@ -18,11 +18,16 @@ module.exports.run = async (bot, message, args, channel) => {
     // let bUser = message.guild.members.get() || Client.fetchUser();
     //if(!bUser) return message.channel.send("Can't find user!");
     let bReason = args.slice(1).join(" ");
-    let user: User;
+    const idRegex: RegExp = /^(?:<@!?)?(\d+)>?$/;
     // if(!bReason) return message.reply("Please give a reason.");
     const yes = bot.emojis.get("561106357131018273");
     const no = bot.emojis.get("561106624757104640");
     
+    public async action(message: Message, args: Array<any>): Promise<any> {
+		let moderator: GuildMember = message.member;
+		let user: User;
+
+
     if (args[0]) {
 			// Check if it's a user ID
 			if (idRegex.test(args[0])) {
@@ -46,6 +51,7 @@ let banned: boolean = await message.guild.fetchBans().then(bans => {
 
 			if (!banned) { return; }
 
+} 
 
 let geluktEmbed = new Discord.RichEmbed()
       .setColor("GREEN")
@@ -101,3 +107,4 @@ modlogchannel.send({embed: ModEmbed});
  module.exports.help = {
      name: "unban"
  }
+
