@@ -18,7 +18,7 @@ const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");    
 let bReason = args.slice(1).join(" ");
 let user = args[0];
-let username = bot.fetchUser(user)
+const username = bot.fetchUser(user)
 
 message.guild.fetchBans().then(bans => {
             bans.forEach(user => {
