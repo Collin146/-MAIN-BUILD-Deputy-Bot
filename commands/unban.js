@@ -31,8 +31,8 @@ message.guild.fetchBans().then(bans => {
 let geluktEmbed = new Discord.RichEmbed()
       .setColor("GREEN")
       .setTitle(`${yes} **Done!**`)
-      .setDescription(`<@${username.id}> has been unbanned!`)
-      .setFooter(`Mentioned User ID: ${username.id}`);
+      .setDescription(`<@${user}> has been unbanned!`)
+      .setFooter(`Mentioned User ID: ${user}`);
 
     message.channel.send(geluktEmbed);
 
@@ -43,7 +43,7 @@ let geluktEmbed = new Discord.RichEmbed()
     .setDescription([
         `**The administration command** !unban **has been used**`,
         ` `,
-        `**Unbanned User:** <@${username.id}>`,
+        `**Unbanned User:** <@${user}>`,
         ` `,
         `**Used In:** ${message.channel}`,
         ` `,
@@ -57,12 +57,12 @@ let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ModEmbed});
 
 
-    let dmembed =  new Discord.RichEmbed()
-    .setTitle(`**You have been unbanned from ${message.guild.name}.**`)
-    .setColor("#00fff6")
-    .addField("Reason:", bReason || "None");
+   // let dmembed =  new Discord.RichEmbed()
+  //  .setTitle(`**You have been unbanned from ${message.guild.name}.**`)
+  //  .setColor("#00fff6")
+  //  .addField("Reason:", bReason || "None");
 
-    username.send(dmembed);
+    //username.send(dmembed);
 }
 
  module.exports.help = {
