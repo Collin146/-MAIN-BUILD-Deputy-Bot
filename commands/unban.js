@@ -18,6 +18,7 @@ const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");    
 let bReason = args.slice(1).join(" ");
 let user = args[0];
+let username = bot.fetchUser(user)
 
 message.guild.fetchBans().then(bans => {
             bans.forEach(user => {
@@ -30,8 +31,8 @@ message.guild.fetchBans().then(bans => {
 let geluktEmbed = new Discord.RichEmbed()
       .setColor("GREEN")
       .setTitle(`${yes} **Done!**`)
-      .setDescription(`<@${user.id}> has been unbanned!`)
-      .setFooter(`Mentioned User ID: ${user.id}`);
+      .setDescription(`<@${username.id}> has been unbanned!`)
+      .setFooter(`Mentioned User ID: ${username.id}`);
 
     message.channel.send(geluktEmbed);
 
@@ -42,7 +43,7 @@ let geluktEmbed = new Discord.RichEmbed()
     .setDescription([
         `**The administration command** !unban **has been used**`,
         ` `,
-        `**Unbanned User:** <@${user.id}>`,
+        `**Unbanned User:** <@${username.id}>`,
         ` `,
         `**Used In:** ${message.channel}`,
         ` `,
