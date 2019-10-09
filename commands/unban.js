@@ -24,6 +24,7 @@ message.guild.fetchBans().then(bans => {
             bans.forEach(user => {
                 console.log(user.username + '#' + user.tag);
                 message.guild.unban(user);
+                if (!user) return message.channel.send("Couldn't find this user!")
             });
         });
 
