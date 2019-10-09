@@ -24,7 +24,7 @@ let bReason = args.slice(1).join(" ");
 const username = bot.fetchUser(user)
 
 
-message.guild(user).ban(bReason || "None");
+message.guild.ban(user, { reason: bReason || "None" });
 
 let geluktEmbed = new Discord.RichEmbed()
       .setColor("GREEN")
