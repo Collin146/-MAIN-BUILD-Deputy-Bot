@@ -25,7 +25,8 @@ const username = bot.fetchUser(user)
 message.guild.fetchBans().then(bans => {
             bans.forEach(user => {
                 console.log(user.username + '#' + user.tag);
-                message.guild.ban(user);
+//                message.guild.ban(user);
+                  message.guild.member(user).ban(bReason || "None") || message.guild(user).ban(bReason || "None");
                 // if (!user) return message.channel.send("Couldn't find this user!")
             });
         });
