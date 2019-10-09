@@ -9,7 +9,6 @@ const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");
 // const warningsign = bot.emojis.get("572176403907215360");
 
-
 //--
 //Cmd handler end
 //--
