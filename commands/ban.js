@@ -55,12 +55,12 @@ let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ModEmbed});
 
 
-   // let dmembed =  new Discord.RichEmbed()
-  //  .setTitle(`**You have been unbanned from ${message.guild.name}.**`)
-  //  .setColor("#00fff6")
-  //  .addField("Reason:", bReason || "None");
+    let dmembed =  new Discord.RichEmbed()
+    .setTitle(`**You have been banned from ${message.guild.name}.**`)
+    .setColor("#00fff6")
+    .addField("Reason:", bReason || "None");
 
-    //username.send(dmembed);
+    user.send(dmembed);
 }
 
  module.exports.help = {
