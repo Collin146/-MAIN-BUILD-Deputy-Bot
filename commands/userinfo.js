@@ -13,9 +13,9 @@ module.exports.run =async (bot, message, args) => {
         
 //let user = message.mentions.users.first();
 const user = message.mentions.users.first() || await bot.fetchUser(args[0]);
-//const member = message.guild.member(user) || await message.guild.fetchMember(user) || message.author;
-const userondiscord = moment(user.createdTimestamp).format('MMMM Do YYYY, h:mm:ss a');
-const useronserver = moment(user.joinedAt).format('MMMM Do YYYY, h:mm:ss a');
+const member = message.guild.member(user) || await message.guild.fetchMember(user) || message.author;
+const userondiscord = moment(member.user.createdTimestamp).format('MMMM Do YYYY, h:mm:ss a');
+const useronserver = moment(member,user.joinedAt).format('MMMM Do YYYY, h:mm:ss a');
 // let target = message.mentions.users.first() || message.guild.members.get(args[0]) || message.author
 // const now = new Date[0](member.user.createdAt);
 // var  mydate = new Date(member.user.createdAt.startDate.value);
@@ -33,23 +33,23 @@ if (user.bot === true) {
   .setThumbnail((user.displayAvatarURL))
   .setColor(message.guild.member(user).highestRole.color || "BLACK") 
   .setDescription([
-    `${status[user.presence.status]} **${user}**`,
+    `${status[member.user.presence.status]} **${member.user}**`,
     ` `,
-    `**Full Username:** ${user.tag}`,
+    `**Full Username:** ${member.user.tag}`,
     ` `,
-    `**ID:** ${user.id}`,
+    `**ID:** ${member.user.id}`,
     ` `,
-    `**Nickname:** ${user.nickname !== null ? `${user.nickname}` : "None"}`,
+    `**Nickname:** ${member.user.nickname !== null ? `${member.user.nickname}` : "None"}`,
     ` `,
     `**Bot:** ${bot}`,
     ` `,
-    `**Playing:** ${user.presence.game ? `${user.presence.game.name}` : "Nothing"}`,
+    `**Playing:** ${member.user.presence.game ? `${member.user.presence.game.name}` : "Nothing"}`,
     ` `,
     `**Joined Discord At:** ${userondiscord}`
     ` `,
     `**Joined Server At:** ${useronserver}`
     ` `,
-    `**Roles:** ${message.guild.member(user).roles.map(s => s).join(" | ")} || "None"`
+    `**Roles:** ${message.guild.member(member).roles.map(s => s).join(" | ")} || "None"`
   ].join('\n'))
 
 
