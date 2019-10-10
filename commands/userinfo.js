@@ -31,7 +31,7 @@ if (user.bot === true) {
   //.setAuthor(member.user.username)
   .setTitle(`**Information About**`)
   .setThumbnail((user.displayAvatarURL))
-  .setColor(message.guild.member(member).highestRole.color || "BLACK") 
+  .setColor(message.guild.member(user).highestRole.color || "BLACK") 
   .setDescription([
     `${status[user.presence.status]} **${user}**`,
     ` `,
@@ -49,7 +49,7 @@ if (user.bot === true) {
     ` `,
     `**Joined Server At:** ${useronserver}`
     ` `,
-    `**Roles:** ${message.guild.member(member).roles.map(s => s).join(" | ")} || "None"`
+    `**Roles:** ${message.guild.member(user).roles.map(s => s).join(" | ")} || "None"`
   ].join('\n'))
 
 
