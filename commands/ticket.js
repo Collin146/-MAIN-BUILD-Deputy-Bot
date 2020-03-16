@@ -52,7 +52,7 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
       .setTimestamp()
       .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
       
-let ticketchannel = message.guild.channels.find(x => x.name === 'meetings');
+let ticketchannel = message.guild.channels.find(x => x.name === 'needing-support');
 ticketchannel.send({embed: ticketEmbed});
 
       geluktEmbed = new discord.RichEmbed()
