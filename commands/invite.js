@@ -15,6 +15,7 @@ let nonexist = new Discord.RichEmbed()
       .setFooter(`Message ID: ${message.id}`);
     
 if (!servernum) message.channel.send(nonexist);
+    return;
 
 
 let invembed = new Discord.RichEmbed()
