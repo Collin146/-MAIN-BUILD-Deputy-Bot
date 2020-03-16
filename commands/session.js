@@ -15,6 +15,7 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 let mentionrole = message.guild.roles.find(x => x.name === 'Member');
+let author = message.author
 let day = args[0];
 let time = args[1];
 // let mentionchannel = message.guild.channels.find(x => x.name === 'reason-for-inactivity');
@@ -26,7 +27,7 @@ message.channel.send([
     `\`${day}\` **at** \`${time}\` **PM BST**`,
     ` `,
     "**Say yes to attend**",
-    "(If you say yes or maybe you are required to show up to the patrol. If you can't show up with a reason inform <@${message.author.id}> in __before__ the patrol starts.)"
+    "(If you say yes or maybe you are required to show up to the patrol. If you can't show up with a reason inform <@${author.id}> in __before__ the patrol starts.)"
   ].join('\n'))
 
   message.delete().catch(O_o=>{});
