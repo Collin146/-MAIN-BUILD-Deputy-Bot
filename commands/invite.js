@@ -21,7 +21,7 @@ if (!servernum) message.channel.send(nonexist);
 let invembed = new Discord.RichEmbed()
 .setTitle("**Invite Request!**")
 .setColor("GREEN")
-.setDescription(`${message.author} needs an invite to the session of \`server ${servernum}\`.`)
+.setDescription(`${message.author} needs an invite to the session of server \`${servernum}\`.`)
 .setTimestamp()
 
 let modlogchannel = message.guild.channels.find(x => x.name === 'needs-an-invite');
