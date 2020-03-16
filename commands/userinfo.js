@@ -14,8 +14,8 @@ module.exports.run =async (bot, message, args) => {
 user = message.mentions.users.first();
 //const user = message.mentions.users.first() || await bot.fetchUser(args[0]);
 const member = message.guild.member(user) || await message.guild.fetchMember(user) || await bot.fetchUser(args[0]) || message.author;
-const userondiscord = member.createdTimestamp.format('MMMM Do YYYY, h:mm:ss a');
-const useronserver = member.joinedTimestamp.format('MMMM Do YYYY, h:mm:ss a');
+const userondiscord = member.createdTimestamp('MMMM Do YYYY, h:mm:ss a');
+const useronserver = member.joinedTimestamp('MMMM Do YYYY, h:mm:ss a');
 // let target = message.mentions.users.first() || message.guild.members.get(args[0]) || message.author
 // const now = new Date[0](member.user.createdAt);
 // var  mydate = new Date(member.user.createdAt.startDate.value);
