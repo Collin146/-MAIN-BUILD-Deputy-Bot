@@ -22,7 +22,7 @@ let time = args[1];
 message.channel.send([
     `<@&${mentionrole.id}>`,
     ` `,
-    "**Patrol at",
+    "**New Patrol Scheduled For",
     `\`${day}\` **at** \`${time}\` **PM BST**`,
     ` `,
     "**Say yes to attend**",
