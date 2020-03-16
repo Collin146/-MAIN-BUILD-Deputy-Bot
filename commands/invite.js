@@ -4,13 +4,23 @@ const errors = require("../utils/errors.js");
 module.exports.run = async (bot, message, args) => { 
 
 let mentionrole = message.guild.roles.find(x => x.name === 'Staff Team');
+let servernum = args.slice(2).join(" ");
 const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");
+    
+let nonexist - new Discord.RichEmbed()
+      .setColor("RED")
+      .setTitle(`${no} **Error!**`)
+      .setDescription(`Please provide a server number!`)
+      .setFooter(`Message ID: ${message.id}`);
+    
+if (!servernum) message.channel.send(nonexist);
+
 
 let invembed = new Discord.RichEmbed()
 .setTitle("**Invite Request!**")
 .setColor("GREEN")
-.setDescription(`${message.author} needs an invite to the session.`)
+.setDescription(`${message.author} needs an invite to the session of \`server ${servernum}\`.`)
 .setTimestamp()
 
 let modlogchannel = message.guild.channels.find(x => x.name === 'needs-an-invite');
