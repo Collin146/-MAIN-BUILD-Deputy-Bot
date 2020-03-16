@@ -4,7 +4,7 @@ const errors = require("../utils/errors.js");
 module.exports.run = async (bot, message, args) => { 
 
 let mentionrole = message.guild.roles.find(x => x.name === 'Staff Team');
-let servernum = args.slice(0).join(" ");
+let servernum = args.join(" ");
 const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");
     
