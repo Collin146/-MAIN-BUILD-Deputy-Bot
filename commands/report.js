@@ -38,7 +38,7 @@ reportchannel.send({embed: reportEmbed});
 let dmembed = new Discord.RichEmbed()
 .setTitle(`${yes} **Done!**`)
 .setColor("GREEN")
-.setDescription(`${rUser} has been reported to the staff team of ${message.guild.name}.`);
+.setDescription(`${rUser} has been reported to the Staff Team of ${message.guild.name}.`);
 try{
     await message.author.send(dmembed);
 }catch(e){
