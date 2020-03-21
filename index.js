@@ -620,6 +620,21 @@ modlogchannel.send({embed: cuembed});
     }
 });
 
+bot.on('voiceStateUpdate', (oldMember, newMember) => {
+  let newUserChannel = newMember.voiceChannel
+  let oldUserChannel = oldMember.voiceChannel
+  let memberrole = newMember.guild.roles.find(x => x.name === 'Founder');
+
+  if(oldUserChannel === undefined && newUserChannel !== undefined) {
+
+newMember.addRole(memberrole.id);
+
+  } else if(newUserChannel === undefined){
+
+return;
+
+  }
+})
 
 // bot.on('voiceStateUpdate', (oldMember, newMember) => {
 //   let newUserChannel = newMember.voiceChannel
