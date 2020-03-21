@@ -620,21 +620,23 @@ modlogchannel.send({embed: cuembed});
     }
 });
 
-bot.on('voiceStateUpdate', (oldMember, newMember) => {
-  let newUserChannel = newMember.voiceChannel
-  let oldUserChannel = oldMember.voiceChannel
-  let memberrole = newMember.guild.roles.find(x => x.name === 'Founder');
+//  GIVE ROLES THROUGH JOINING VC
 
-  if(oldUserChannel === undefined && newUserChannel !== undefined) {
+// bot.on('voiceStateUpdate', (oldMember, newMember) => {
+//   let newUserChannel = newMember.voiceChannel
+//   let oldUserChannel = oldMember.voiceChannel
+//   let memberrole = newMember.guild.roles.find(x => x.name === 'Founder');
 
-newMember.addRole(memberrole.id);
+//   if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
-  } else if(newUserChannel === undefined){
+// newMember.addRole(memberrole.id);
 
-return;
+//   } else if(newUserChannel === undefined){
 
-  }
-})
+// return;
+
+//   }
+// })
 
 // bot.on('voiceStateUpdate', (oldMember, newMember) => {
 //   let newUserChannel = newMember.voiceChannel
