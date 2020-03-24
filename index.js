@@ -625,7 +625,7 @@ modlogchannel.send({embed: cuembed});
 bot.on('voiceStateUpdate', (oldMember, newMember) => {
   let newUserChannel = newMember.voiceChannel
   let oldUserChannel = oldMember.voiceChannel
-  let memberrole = newMember.guild.roles.find(x => x.name === 'Director');
+  let memberrole = newMember.guild.roles.find(x => x.name === 'BOTS');
 
   if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
