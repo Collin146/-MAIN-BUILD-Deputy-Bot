@@ -635,8 +635,8 @@ newMember.addRole(memberrole.id);
 
 return;
 
-//   }
-// })
+  }
+})
 
 // bot.on('voiceStateUpdate', (oldMember, newMember) => {
 //   let newUserChannel = newMember.voiceChannel
