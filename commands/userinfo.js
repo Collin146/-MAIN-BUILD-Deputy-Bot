@@ -34,7 +34,7 @@ if (user.bot === true) {
   .setThumbnail((member.displayAvatarURL))
   .setColor(message.guild.member(user).highestRole.color || "BLACK") 
   .setDescription([
-    `${status[member.presence.status]} **${member.user}**`,
+    `${status[member.presence.status]} **${member.presence.status}**`,
     ` `,
     `**Full Username:** ${member.tag}`,
     ` `,
