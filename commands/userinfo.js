@@ -31,20 +31,20 @@ if (user.bot === true) {
   let embed = new Discord.RichEmbed()
   //.setAuthor(member.user.username)
   .setTitle(`**Information About**`)
-  .setThumbnail((user.displayAvatarURL))
+  .setThumbnail((member.displayAvatarURL))
   .setColor(message.guild.member(user).highestRole.color || "BLACK") 
   .setDescription([
     `${status[member.presence.status]} **${member.user}**`,
     ` `,
-    `**Full Username:** ${member.user.tag}`,
+    `**Full Username:** ${member.tag}`,
     ` `,
-    `**ID:** ${member.user.id}`,
+    `**ID:** ${member.id}`,
     ` `,
-    `**Nickname:** ${member.user.nickname !== null ? `${member.user.nickname}` : "None"}`,
+    `**Nickname:** ${member.nickname !== null ? `${member.nickname}` : "None"}`,
     ` `,
     `**Bot:** ${bot}`,
     ` `,
-    `**Playing:** ${member.user.presence.game ? `${member.user.presence.game.name}` : "Nothing"}`,
+    `**Playing:** ${member.presence.game ? `${member.presence.game.name}` : "Nothing"}`,
     ` `,
     `**Joined Discord At:** ${userondiscord}`
     ` `,
