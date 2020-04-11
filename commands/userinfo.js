@@ -43,8 +43,8 @@ if (user.bot === true) {
     `**Nickname:** ${member.nickname !== null ? `${member.nickname}` : "None"}`,
     ` `,
     `**Bot:** ${bot}`,
-    ` `,
-    `**Playing:** ${member.presence.game ? `${member.presence.game.name}` : "Nothing"}`,
+    //` `,
+    //`**Playing:** ${member.presence.game ? `${member.presence.game.name}` : "Nothing"}`,
     ` `,
     `**Joined Discord At:** ${userondiscord}`
     ` `,
