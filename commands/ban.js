@@ -18,22 +18,16 @@ module.exports.run = async (bot, message, args, channel) => {
 //const usercheck = bot.users.get(user) || message.guild.member(message.mentions.users.first())
 const user = message.mentions.users.first() || await bot.fetchUser(args[0]);
 const yes = bot.emojis.get("561106357131018273");
-const no = bot.emojis.get("561106624757104640");   
-if (!user) // message.channel.send("Couldn't find this user.") // Change if not working
-
+const no = bot.emojis.get("561106624757104640");  
 let errorEmbed = new Discord.RichEmbed()
       .setColor("RED")
       .setTitle(`${no} **Error!**`)
-      .setDescription(`Couldn't find that user!`)
-      .setFooter(`Mentioned User ID: ${user.id}`);
+      .setDescription(`Couldn't find that user!`);
 
-      message.channel.send(errorEmbed);
-
-      return;
+if (!user) return message.channel.send(errorEmbed);
  
 let bReason = args.slice(1).join(" ");
 const username = bot.fetchUser(user)
-
 
 message.guild.ban(user, { reason: bReason || "None" });
 
