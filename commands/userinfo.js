@@ -13,7 +13,8 @@ module.exports.run =async (bot, message, args) => {
         
 user = message.mentions.users.first();
 //const user = message.mentions.users.first() || await bot.fetchUser(args[0]);
-const member = message.guild.member(user) || await message.guild.fetchMember(user) || await bot.fetchUser(args[0]) || message.author;
+//const member = message.guild.member(user) || await message.guild.fetchMember(user) || await bot.fetchUser(args[0]) || message.author;
+const member = message.mentions.users.first() || await bot.fetchUser(args[0]);
 const userondiscord = member.createdTimestamp || user.createdTimestamp;
 const useronserver = member.joinedTimestamp || user.joinedTimestamp;
 // let target = message.mentions.users.first() || message.guild.members.get(args[0]) || message.author
