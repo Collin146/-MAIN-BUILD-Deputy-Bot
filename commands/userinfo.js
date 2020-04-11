@@ -46,9 +46,9 @@ if (user.bot === true) {
     ` `,
     `**Playing:** ${member.presence.game ? `${member.presence.game.name}` : "Nothing"}`,
     ` `,
-    `**Joined Discord At:** ${userondiscord}`
+    `**Joined Discord At:** ${memberondiscord}`
     ` `,
-    `**Joined Server At:** ${useronserver}`
+    `**Joined Server At:** ${memberonserver}`
     ` `,
     `**Roles:** ${message.guild.member(member).roles.map(s => s).join(" | ")} || "None"`
   ].join('\n'))
