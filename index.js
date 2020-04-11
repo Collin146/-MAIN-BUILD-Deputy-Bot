@@ -79,8 +79,8 @@ let memberTag = member.user.tag;
     let embed = new Discord.RichEmbed()
       .setTitle("**A new user has joined!**")
       .setColor("#00f4ef")
-      .setDescription(`Welcome **${memberTag}**, To Deputy Roleplay, the best Roleplay Community for PS4!`)
-      .setImage(`https://cdn.discordapp.com/attachments/461540254441144326/689179495000703063/TRANSP_WELCOME-cutout.png`); // random is ${image}
+      .setDescription(`Welcome **${memberTag}**, To Unity Roleplay, the best Roleplay Community for PS4!`)
+      .setImage(`https://media.discordapp.net/attachments/493575328636207109/605415071094669322/Welcome_TOO.png`); // random is ${image}
   welcomechannel.send({embed});
 
   });
@@ -108,11 +108,11 @@ let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
 //left message end
 //--
 
-bot.on("ready", async () => {
-console.log(`${bot.user.username} is online!`);
-bot.user.setActivity("!help | Status: Updating..");
+//bot.on("ready", async () => {
+// console.log(`${bot.user.username} is online!`);
+// bot.user.setActivity("Global Roleplay PS4");
 
-});
+//});
 
 //--
 //prefix begin
@@ -620,12 +620,12 @@ modlogchannel.send({embed: cuembed});
     }
 });
 
-// //  GIVE ROLES THROUGH JOINING VC
+//  GIVE ROLES THROUGH JOINING VC
 
 // bot.on('voiceStateUpdate', (oldMember, newMember) => {
 //   let newUserChannel = newMember.voiceChannel
 //   let oldUserChannel = oldMember.voiceChannel
-//   let memberrole = newMember.guild.roles.find(x => x.name === 'BOTS');
+//   let memberrole = newMember.guild.roles.find(x => x.name === 'Founder');
 
 //   if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
@@ -649,7 +649,7 @@ modlogchannel.send({embed: cuembed});
 // oldMember.addRole(memberrole.id);
 	
 // }
-// });
+//   });
 
 //-—
 //Modlog events end
