@@ -66,12 +66,12 @@ fs.readdir("./charges/", (err, files) => {
 bot.on('guildMemberAdd', member => {
 	let welcomechannel = member.guild.channels.find(x => x.name === 'welcome');
 
-const rando_imgs = [
-'https://cdn.discordapp.com/attachments/461540254441144326/575060389440651284/ELlfQHzH_EqodvyRcB_6jQ_0_0.jpg',
-'https://cdn.discordapp.com/attachments/461540254441144326/575060395312676898/p6BODNzfD0StqIxd76Et1g_0_0.jpg',
-'https://cdn.discordapp.com/attachments/461540254441144326/575060497091788813/oADhdqSfQUqltCx4DaPh0Q_0_0.jpg',
-'https://cdn.discordapp.com/attachments/461540254441144326/575060528708190272/3eC2G8r4GEKQjjvQ4-FTWw_0_0.jpg',
-]
+//const rando_imgs = [
+//'https://cdn.discordapp.com/attachments/461540254441144326/575060389440651284/ELlfQHzH_EqodvyRcB_6jQ_0_0.jpg',
+//'https://cdn.discordapp.com/attachments/461540254441144326/575060395312676898/p6BODNzfD0StqIxd76Et1g_0_0.jpg',
+//'https://cdn.discordapp.com/attachments/461540254441144326/575060497091788813/oADhdqSfQUqltCx4DaPh0Q_0_0.jpg',
+//'https://cdn.discordapp.com/attachments/461540254441144326/575060528708190272/3eC2G8r4GEKQjjvQ4-FTWw_0_0.jpg',
+//]
 
 const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
 let memberTag = member.user.tag;
@@ -80,7 +80,7 @@ let memberTag = member.user.tag;
       .setTitle("**A new user has joined!**")
       .setColor("#00f4ef")
       .setDescription(`Welcome **${memberTag}**, To Unity Roleplay, the best Roleplay Community for PS4!`)
-      .setImage(`https://media.discordapp.net/attachments/493575328636207109/605415071094669322/Welcome_TOO.png`); // random is ${image}
+      .setImage(`https://cdn.discordapp.com/attachments/461540254441144326/689179495000703063/TRANSP_WELCOME-cutout.png`); // random is ${image}
   welcomechannel.send({embed});
 
   });
@@ -108,9 +108,9 @@ let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
 //left message end
 //--
 
-//bot.on("ready", async () => {
-// console.log(`${bot.user.username} is online!`);
-// bot.user.setActivity("Global Roleplay PS4");
+bot.on("ready", async () => {
+console.log(`${bot.user.username} is online!`);
+bot.user.setActivity("!help | Status: Normal");
 
 //});
 
