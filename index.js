@@ -112,7 +112,7 @@ bot.on("ready", async () => {
 console.log(`${bot.user.username} is online!`);
 bot.user.setActivity("!help | Status: Normal");
 
-//});
+});
 
 //--
 //prefix begin
