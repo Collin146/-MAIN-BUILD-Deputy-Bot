@@ -6,10 +6,7 @@ const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
 function catchErr (err, message) {
-	let errchannel = bot.channels.find(x => x.name === 'errors');
 
-    errchannel.send("**ERROR DETECTED!** ```" + err + "```");
-}
 
 try {
 
@@ -665,6 +662,11 @@ modlogchannel.send({embed: cuembed});
 }
 catch (err) {
 catchErr(err, message)
+let errchannel = bot.channels.find(x => x.name === 'errors');
+
+errchannel.send("**ERROR DETECTED!** ```" + err + "```");
+
+}
 
 }
 
