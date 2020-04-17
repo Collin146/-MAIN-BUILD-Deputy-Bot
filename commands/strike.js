@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
 //let tostrike = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-const tostrike = message.mentions.users.first() || await bot.fetchUser(args[0]);
+const tostrike = message.mentions.users.first() || await message.guild.fetchUser(args[0]);
 
 let errEmbed = new Discord.RichEmbed()
 .setColor("RED")
@@ -62,7 +62,7 @@ if(args[0] === "1"){
     .setDescription(`<@${tostrike.id}> has been given strike 1 for \`${kReason}\``)
     .setFooter(`Mentioned User ID: ${tostrike.id}`);
 
-    await (tostrike.message.guild.addRole(strike1role.id), (kReason));
+    await (tostrike.addRole(strike1role.id), (kReason));
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
@@ -105,7 +105,7 @@ let DMembed = new Discord.RichEmbed()
     .setDescription(`<@${tostrike.id}> has been given strike 2 for \`${kReason}\``)
     .setFooter(`Mentioned User ID: ${tostrike.id}`);
 
-    await (tostrike.message.guild.addRole(strike2role.id), (kReason));
+    await (tostrike.addRole(strike2role.id), (kReason));
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
