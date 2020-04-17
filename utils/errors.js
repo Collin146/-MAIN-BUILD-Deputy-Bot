@@ -1,10 +1,10 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 let config = require("../Botconfig.json");
+const bot = new Discord.Client({disableEveryone: true});
 
-module.exports.noPerms = (bot, message, perm) => {
+module.exports.noPerms = (message, perm) => {
 
-const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");  
 
     let embed = new Discord.RichEmbed()
