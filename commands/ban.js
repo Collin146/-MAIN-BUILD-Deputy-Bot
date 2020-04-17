@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
-function catchError (error, message)
 
 module.exports.run = async (message, args, channel, error) => {
     
