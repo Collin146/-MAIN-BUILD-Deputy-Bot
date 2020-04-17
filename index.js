@@ -9,7 +9,7 @@ function catchErr (err, message) {
 
 let errchannel = bot.channels.find(x => x.name === 'errors');
 
-errchannel.send("**ERROR DETECTED!** ```" + err + "```");
+errchannel.send(`**<@292598566759956480> ERROR DETECTED!** \`\`\`` + err + `\`\`\``);
 
 }
 
