@@ -18,8 +18,8 @@ module.exports.run = async (bot, message, args) => {
 
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 
-const yes = bot.emojis.get("561106357131018273");
-const no = bot.emojis.get("561106624757104640");
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
 let mentionrole = message.guild.roles.find(x => x.name === 'Member');
 //let mentionrole = message.guild.roles.find(`name`, `Member`);
 let mutetime = args[0];
