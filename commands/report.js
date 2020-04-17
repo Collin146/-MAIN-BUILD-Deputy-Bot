@@ -6,29 +6,42 @@ module.exports.run = async (bot, message, args) => {
         message.reply("Usage: !report <user> <reason>");
         return;
     }
+
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
+
     message.delete().catch(O_o=>{});
         let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-        if(!rUser) return message.reply("Couldn't find that user").then(msg => msg.delete(5000));
+
+        let errEmbed = new Discord.RichEmbed()
+          .setColor("RED")
+          .setTitle(`${no} **Error!**`)
+          .setDescription(`Was not able to find that user.`);
+
+        if(!rUser) return message.channel.send(errEmbed).then(msg => msg.delete(5000));
 
 let reason = args.slice(1).join(" ");
 
         message.delete().catch(O_o=>{});
-if (!reason) return message.reply(`Please give a reason.`).then(msg => msg.delete(5000));
+
+let errEmbed2 = new Discord.RichEmbed()
+  .setColor("RED")
+  .setTitle(`${no} **Error!**`)
+  .setDescription(`You didn't provide a reason!`);
+
+if (!reason) return message.channel.send(errEmbed2).then(msg => msg.delete(5000));
 
 message.delete().catch(O_o=>{});
-    
-const yes = bot.emojis.get("700713527576625205");
-const no = bot.emojis.get("700713478578634783"); 
 
         let reportEmbed = new Discord.RichEmbed()
-        .setTitle("**A user has been reported!**")
-        .setColor("ORANGE")
-        .addField("Reported User", `${rUser}`)
-        .addField("Reported By", `${message.author}`)
-        .addField("Channel", message.channel)
-        .addField("Reason", reason)
-        .setTimestamp()
-        .setFooter(`Reported User ID: ${rUser.id} | Author ID: ${message.author.id}`);
+          .setTitle("**A user has been reported!**")
+          .setColor("ORANGE")
+          .addField("Reported User", `${rUser}`)
+          .addField("Reported By", `${message.author}`)
+          .addField("Channel", message.channel)
+          .addField("Reason", reason)
+          .setTimestamp()
+          .setFooter(`Reported User ID: ${rUser.id} | Author ID: ${message.author.id}`);
     
 let reportchannel = message.guild.channels.find(x => x.name === 'reports');
 message.delete().catch(O_o=>{});
@@ -42,7 +55,13 @@ let dmembed = new Discord.RichEmbed()
 try{
     await message.author.send(dmembed);
 }catch(e){
-    message.reply("Your DMs are locked. I cannot send you the mod commands.");
+
+    let errEmbed3 = new Discord.RichEmbed()
+      .setColor("RED")
+      .setTitle(`${no} **Error!**`)
+      .setDescription(`Your DMs are locked. I cannot send you the confirmation message.`);
+      
+    message.channel.send(errEmbed3);
 }
 
 
