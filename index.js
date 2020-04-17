@@ -108,13 +108,17 @@ let memberTag = member.user.tag;
 //--
 
 bot.on("guildMemberRemove", async member => {
-    console.log(`${member} left the server.`);
-    
-   let memberTag = member.user.tag;
+  
+try {
+
+let memberTag = member.user.tag;
 
 let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
     leftchannel.send(`**${memberTag}** has left the server.`);
     
+} catch (err) {
+    catchErr(err);
+}
 
 });
 
@@ -133,6 +137,8 @@ bot.user.setActivity("!help | Status: Normal");
 //--
 
 bot.on("message", async message => {
+ 
+try {
 
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
@@ -155,6 +161,11 @@ bot.on("message", async message => {
     if(!message.content.startsWith(prefix))return;
 
     }
+
+} catch (err) {
+    catchErr(err);
+}
+
 });
 
 
@@ -168,6 +179,9 @@ bot.on("message", async message => {
 
 
 bot.on(`message`, async message => {
+
+    try {
+
     const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`, 'https://', 'http://', '.com/', '.com', 'www.', 'https://www.', 'http://www.']
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
@@ -205,6 +219,11 @@ bot.on(`message`, async message => {
     } catch (e) {
         console.log(e);
     }
+
+} catch (err) {
+    catchErr(err);
+}
+
 });
 
 // // bot.on(`message`, async (message, args) => {
@@ -269,9 +288,10 @@ bot.on(`message`, async message => {
 //mention detection begin
 //--
 bot.on(`message`, async message => {
+
+    try {
+
     const bannedWords = [`@everyone`, `@Member`]
-//  
-    
     let staffrole = message.guild.roles.find(x => x.name === 'Staff Team');
 
     try {
@@ -295,6 +315,11 @@ bot.on(`message`, async message => {
     } catch (e) {
         console.log(e);
     }
+
+} catch (err) {
+    catchErr(err);
+}
+
 });
 
 //--
@@ -306,6 +331,9 @@ bot.on(`message`, async message => {
 //--
 
 bot.on(`message`, async message => {
+
+    try {
+
     const bannedWords = [`nigger`, `nigg`, `nogger`, `nagger`, `kanker`, `negro`, `negger`, `nigro`, `nignog`, `nig ger`, `nig  ger`, `ni99er`, `nog ger`, `n1gger`, `neger`, `nigga`, `nigge`, `n1gg3r`, `nigg3r`, `Nigger`, `Nigg`, `Nogger`, `Nagger`, `Kanker`, `Negro`, `Negger`, `Nigro`, `Nignog`, `Nig ger`, `Nig  ger`, `Ni99er`, `Nog ger`, `N1gger`, `Neger`, `Nigga`, `Nigge`, `N1gg3r`, `Nigg3r`, `Nibba`, `nibba`] 
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
@@ -324,6 +352,11 @@ bot.on(`message`, async message => {
     } catch (e) {
         console.log(e);
     }
+
+} catch (err) {
+    catchErr(err);
+}
+
 });
 
 //--
@@ -335,6 +368,8 @@ bot.on(`message`, async message => {
 //--
 
 bot.on('channelCreate', channel => {
+
+    try {
 
    if (channel.type === 'dm') return;
 
@@ -351,9 +386,15 @@ bot.on('channelCreate', channel => {
 let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ccembed});
 
+} catch (err) {
+    catchErr(err);
+}
+
 });
 
 bot.on('channelDelete', (channel) => {
+
+    try {
 
     const cdembed = new Discord.RichEmbed()
      .setColor('RED')
@@ -368,9 +409,15 @@ bot.on('channelDelete', (channel) => {
 let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: cdembed});
 
+} catch (err) {
+    catchErr(err);
+}
+
 });
 
 bot.on('guildBanAdd', (guild, user) => {
+
+    try { 
 
     const ubembed = new Discord.RichEmbed()
      .setColor('RED')
@@ -385,10 +432,17 @@ bot.on('guildBanAdd', (guild, user) => {
 let modlogchannel = guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ubembed});
 
+} catch (err) {
+    catchErr(err);
+}
+
     });
 
 bot.on('guildBanRemove', (guild, user) => {
 
+
+    try {
+    
     const uuembed = new Discord.RichEmbed()
      .setColor('GREEN')
     .setTimestamp()
@@ -402,9 +456,15 @@ bot.on('guildBanRemove', (guild, user) => {
 let modlogchannel = guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: uuembed});
 
+} catch (err) {
+    catchErr(err);
+}
+
 });
 
 bot.on('guildMemberUpdate', (oldMember, newMember, member) => {
+
+    try {
 
     if (oldMember.nickname !== newMember.nickname) {
 
@@ -459,9 +519,15 @@ modlogchannel.send({embed: nickembed});
     }
     }
 
+} catch (err) {
+    catchErr(err);
+}
+
 });
 
 bot.on("messageDelete", async message => {
+
+    try {
 
       const delembed = new Discord.RichEmbed()
       .setColor("RED")
@@ -477,9 +543,16 @@ bot.on("messageDelete", async message => {
   
     let channel = message.guild.channels.find(x => x.name === 'deleted-messages-log');
     channel.send({embed: delembed});
+
+} catch (err) {
+    catchErr(err);
+}
+
   });
 
 bot.on('messageUpdate', (oldMessage, newMessage) => {
+
+    try {
 
     const updembed = new Discord.RichEmbed()
      .setColor('BLACK')
@@ -494,9 +567,15 @@ bot.on('messageUpdate', (oldMessage, newMessage) => {
 let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(updembed);
 
+} catch (err) {
+    catchErr(err);
+}
+
 });
 
 bot.on('roleCreate', (role) => {
+
+    try {
 
     const rcembed = new Discord.RichEmbed()
      .setColor('GREEN')
@@ -511,9 +590,15 @@ bot.on('roleCreate', (role) => {
 let modlogchannel = role.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(rcembed);
 
+} catch (err) {
+    catchErr(err);
+}
+
 });
 
 bot.on('roleDelete', (role) => {
+
+    try {
 
     const rdembed = new Discord.RichEmbed()
      .setColor('RED')
@@ -528,9 +613,15 @@ bot.on('roleDelete', (role) => {
 let modlogchannel = role.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(rdembed);
 
+} catch (err) {
+    catchErr(err);
+}
+
 });
 
 bot.on('roleUpdate', (oldRole, newRole) => {
+
+    try {
 
     if (oldRole.name !== newRole.name) {
 
@@ -565,9 +656,15 @@ bot.on('roleUpdate', (oldRole, newRole) => {
 
     }
 
+} catch (err) {
+    catchErr(err);
+}
+
 });
 
 bot.on('guildUpdate', (oldGuild, newGuild) => {
+
+    try {
 
     if (oldGuild.name !== newGuild.name) {
    
@@ -614,9 +711,15 @@ modlogchannel.send(gnembed);
 
     }
 
+} catch (err) {
+    catchErr(err);
+}
+
 });
 
 bot.on('channelUpdate', (oldChannel, newChannel) => {
+
+    try {
 
 	if (oldChannel.name !== newChannel.name) {
 
@@ -632,6 +735,10 @@ let modlogchannel = oldChannel.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: cuembed});
 
     }
+} catch (err) {
+    catchErr(err);
+}
+
 });
 
 //  GIVE ROLES THROUGH JOINING VC
