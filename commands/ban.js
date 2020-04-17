@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
+function catchError (error, message);
 
 module.exports.run = async (bot, message, args, channel) => {
     
@@ -23,9 +24,17 @@ let errEmbed = new Discord.RichEmbed()
       .setColor("RED")
       .setTitle(`${no} **Error!**`)
       .setDescription("Was not able to find that user!");
-      
+
+try {
+
 const user = message.mentions.users.first() || await bot.fetchUser(args[0]);
+
+}
+catch (error) {
+    catchError(err, message);
+
 if (!user) return message.channel.send(errEmbed); // Change if not working 
+}
 
 let bReason = args.slice(1).join(" ");
 // const username = bot.fetchUser(user)
