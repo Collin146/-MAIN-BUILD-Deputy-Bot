@@ -3,7 +3,9 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
-message.guild.leave
+const theguild = message.guild.id
+
+message.guild.leave(theguild)
 
 }
 
