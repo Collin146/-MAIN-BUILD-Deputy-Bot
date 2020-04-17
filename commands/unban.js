@@ -13,12 +13,18 @@ module.exports.run = async (bot, message, args, channel) => {
         message.reply("Usage: !unban <user>");
         return;
     }
-    
+
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
 let user = args[0];
 const usercheck = bot.users.get(user);
-if (!usercheck) return message.channel.send("Couldn't find this user.")
-const yes = bot.emojis.get("700713527576625205");
-const no = bot.emojis.get("700713478578634783");    
+
+let errEmbed = new Discord.RichEmbed()
+.setColor("RED")
+.setTitle(`${no} **Error!**`)
+.setDescription(`Was not able to find that user!`);
+
+if (!usercheck) return message.channel.send(errEmbed)    
 let bReason = args.slice(1).join(" ");
 const username = bot.fetchUser(user)
 
