@@ -16,6 +16,18 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
     
+    const yes = bot.emojis.get("700713527576625205");
+    const no = bot.emojis.get("700713478578634783"); 
+
+    geluktEmbed = new Discord.RichEmbed()
+      .setColor("GREEN")
+      .setTitle(`${yes} **Done!**`)
+      .setDescription(`Channel locked down.`)
+
+      geluktEmbed2 = new Discord.RichEmbed()
+      .setColor("GREEN")
+      .setTitle(`${yes} **Done!**`)
+      .setDescription(`Lockdown lifted.`)
 
     if (message.member.hasPermission("MANAGE_MESSAGES")) {
          if (!bot.lockit) bot.lockit = [];
@@ -25,7 +37,7 @@ module.exports.run = async (bot, message, args) => {
       message.channel.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: null
       }).then(() => {
-        message.channel.sendMessage('Lockdown lifted.');
+        message.channel.sendMessage(geluktEmbed2);
         clearTimeout(bot.lockit[message.channel.id]);
         delete bot.lockit[message.channel.id];
       }).catch(error => {
@@ -35,12 +47,12 @@ module.exports.run = async (bot, message, args) => {
       message.channel.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: false
       }).then(() => {
-        message.channel.sendMessage(`Channel locked down.`).then(() => {
+        message.channel.send(geluktEmbed).then(() => {
    
           bot.lockit[message.channel.id] = setTimeout(() => {
             message.channel.overwritePermissions(message.guild.id, {
               SEND_MESSAGES: null
-            }).then(message.channel.sendMessage('Lockdown lifted.')).catch(console.error);
+            }).then(message.channel.sendMessage(geluktEmbed2)).catch(console.error);
             delete bot.lockit[message.channel.id];
           }, ms(time));
    
