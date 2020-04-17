@@ -18,14 +18,26 @@ module.exports.run = async (bot, message, args) => {
         message.reply("Usage: !warn <user> <reason>");
         return;
     }
+
+  const yes = bot.emojis.get("700713527576625205");
+  const no = bot.emojis.get("700713478578634783"); 
   let wUser = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])
-  if(!wUser) return message.reply("Couldn't find that user.");
-  if(wUser.hasPermission("ADMINISTRATOR")) return message.reply("You can't warn a Admin or higher.");
+
+  let errEmbed = new Discord.RichEmbed()
+  .setColor("RED")
+  .setTitle(`${no} **Error!**`)
+  .setDescription(`Was not able to find that user!`);
+
+  if(!wUser) return message.channel.send(errEmbed);
   let reason = args.slice(1).join(" ");
-  if (!reason) return message.reply("Please give a reason");
+
+  let errEmbed2 = new Discord.RichEmbed()
+  .setColor("RED")
+  .setTitle(`${no} **Error!**`)
+  .setDescription(`You didn't provide a reason!`);
+
+  if (!reason) return message.channel.send(errEmbed2);
   let mentioned = message.mentions.users.first();
-const yes = bot.emojis.get("700713527576625205");
-const no = bot.emojis.get("700713478578634783"); 
 
   if(!warns[wUser.id]) warns[wUser.id] = {
     warns: 0
@@ -67,7 +79,7 @@ modlogchannel.send({embed: ModEmbed});
     
 
   let DMembed = new Discord.RichEmbed()
-  .setTitle(`**You have been warned in ${message.guild.name}**`)
+  .setTitle(`**You have received a warning in ${message.guild.name}**`)
   .setColor("#ff0c00")
   .addField("Punishment Type", "Warning")
   .addField("Reason", reason);
