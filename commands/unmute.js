@@ -15,20 +15,42 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783");
 let tociv = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-if(!tociv) return message.reply("Couldn't find that user.");
-if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
+
+let errEmbed = new Discord.RichEmbed()
+.setColor("RED")
+.setTitle(`${no} **Error!**`)
+.setDescription(`Was not able to find that user!`);
+
+if(!tociv) return message.channel.send(errEmbed);
 let memberrole = message.guild.roles.find(x => x.name === 'Member');
 let nmrole = message.guild.roles.find(x => x.name === 'Muted');
-if(tociv.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot use this command on an admin!");
-const yes = bot.emojis.get("700713527576625205");
-const no = bot.emojis.get("700713478578634783"); 
+
+let errEmbed2 = new Discord.RichEmbed()
+.setColor("RED")
+.setTitle(`${no} **Error!**`)
+.setDescription(`You cannot use this command on an administrator`);
+
+if(tociv.hasPermission("ADMINISTRATOR")) return message.channel.send(errEmbed2); 
 //let memrrole = message.guild.roles.find(`name`, "ember");
 //let approle = message.guild.roles.find(`name`, "Applicant");
 //guildmember.setRoles(...)
     
-   if(!memberrole) return message.reply("The role \'Member\' doesn't exist");
-   if(!nmrole) return message.reply("The role \'Muted\' doesn't exist");
+let errEmbed3 = new Discord.RichEmbed()
+.setColor("RED")
+.setTitle(`${no} **Error!**`)
+.setDescription(`The role \"Member\" doesn't exist!`);
+
+if(!memberrole) return message.channel.send(errEmbed3);
+
+let errEmbed4 = new Discord.RichEmbed()
+.setColor("RED")
+.setTitle(`${no} **Error!**`)
+.setDescription(`The role \"Muted\" doesn't exist!`);
+
+if(!nmrole) return message.channel.send(errEmbed4);
 
 tociv.removeRole(nmrole.id);
 tociv.addRole(memberrole.id);
