@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
 //let tostrike = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-const tostrike = message.mentions.users.first() || await message.guildMember()
+const tostrike = message.mentions.users.first() || await message.guildMember.fetch(args[0])
 
 let errEmbed = new Discord.RichEmbed()
 .setColor("RED")
@@ -87,7 +87,7 @@ modlogchannel.send({embed: ModEmbed});
     
 
 let DMembed = new Discord.RichEmbed()
-.setTitle(`**You have been striked in ${message.guild.name}**`)
+.setTitle(`**You received a strike in ${message.guild.name}**`)
 .setColor("#ff0c00")
 .addField("Strike Type", "Strike 1")
 .addField("Reason", kReason);
@@ -130,7 +130,7 @@ modlogchannel.send({embed: ModEmbed});
 
 
 let DMembed = new Discord.RichEmbed()
-.setTitle(`**You have been striked in ${message.guild.name}**`)
+.setTitle(`**You have received a strike in ${message.guild.name}**`)
 .setColor("#ff0c00")
 .addField("Strike Type", "Strike 2")
 .addField("Reason", kReason);
