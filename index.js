@@ -10,7 +10,7 @@ function catchErr (err, message) {
 let errchannel = bot.channels.find(x => x.name === 'errors');
 const warningsign = bot.emojis.get("700843409526620180");
 
-errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`index.js\`** \`\`\`` + err + `\`\`\``);
+errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`index.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
 
 }
 
@@ -732,7 +732,7 @@ bot.on('channelUpdate', (oldChannel, newChannel) => {
     .addField("Before", `${oldChannel.name}`)
     .addField("After", `${newChannel.name}`);
 
-//let modlogchannel = oldChannel.guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = oldChannel.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: cuembed});
 
     }
