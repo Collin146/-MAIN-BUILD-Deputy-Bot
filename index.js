@@ -11,6 +11,8 @@ function catchErr (err, message) {
     errchannel.send("**ERROR DETECTED!** ```" + err + "```")`;`
 }
 
+try {
+
 const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");
 // const warningsign = bot.emojis.get("572176403907215360");
@@ -79,7 +81,7 @@ bot.on('guildMemberAdd', member => {
 //'https://cdn.discordapp.com/attachments/461540254441144326/575060528708190272/3eC2G8r4GEKQjjvQ4-FTWw_0_0.jpg',
 //]
 
-const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
+//const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
 let memberTag = member.user.tag;
     
     let embed = new Discord.RichEmbed()
@@ -272,9 +274,8 @@ bot.on(`message`, async message => {
 
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
-	    if (message.member.hasPermission("MANAGE_MESSAGES")) return;
 //             if (message.member.roles.has(weazelrole.id)) return;
-//            if (message.member.roles.has(staffrole.id)) return;
+            if (message.member.roles.has(staffrole.id)) return;
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
@@ -661,6 +662,10 @@ modlogchannel.send({embed: cuembed});
 //-—
 //Modlog events end
 //-—
+}
+catch (err) {
+catchErr(err, message)
 
+}
 
 bot.login(botconfig.token);
