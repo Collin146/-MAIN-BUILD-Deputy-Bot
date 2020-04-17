@@ -19,9 +19,20 @@ module.exports.run = async (bot, message, args) => {
 //!tempmute @user 1s/m/h/d
 
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-if(!tomute) return message.reply("Couldn't find that user.");
-if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
-if(tomute.hasPermission("ADMINISTRATOR")) return message.reply("You cannot mute a Moderator or higher");
+
+let errEmbed = new Discord.RichEmbed()
+.setColor("RED")
+.setTitle(`${no} **Error!**`)
+.setDescription(`Was not able to find that user!`);
+
+if(!tomute) return message.channel.send(errEmbed);
+
+let errEmbed2 = new Discord.RichEmbed()
+.setColor("RED")
+.setTitle(`${no} **Error!**`)
+.setDescription(`You cannot mute a Moderator or higher.`);
+
+if(tomute.hasPermission("ADMINISTRATOR")) return message.channel.send(errEmbed2);
 let muterole = message.guild.roles.find(x => x.name === 'Muted');
 let memberrole = message.guild.roles.find(x => x.name === 'Member');
 let approle = message.guild.roles.find(x => x.name === 'Applicant');
@@ -46,7 +57,13 @@ if (!muterole){
 }
 //end of create role
 let mutetime = args[1];
-if(!mutetime) return message.reply("You didn't specify a time!");
+
+let errEmbed3 = new Discord.RichEmbed()
+.setColor("RED")
+.setTitle(`${no} **Error!**`)
+.setDescription(`You didn't specify a time!`);
+
+if(!mutetime) return message.channel.send(errEmbed3);
 
 await(tomute.addRole(muterole.id));
 await(tomute.removeRole(memberrole.id));
