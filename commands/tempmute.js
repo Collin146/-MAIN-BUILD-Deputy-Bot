@@ -18,6 +18,8 @@ module.exports.run = async (bot, message, args) => {
 
 //!tempmute @user 1s/m/h/d
 
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
 let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
 let errEmbed = new Discord.RichEmbed()
