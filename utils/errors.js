@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 let config = require("../Botconfig.json");
-const bot = new Discord.Client({disableEveryone: true});
+// const bot = new Discord.Client({disableEveryone: true});
 
-module.exports.noPerms = (message, perm) => {
+module.exports.noPerms = async (bot, message, args, perm) => { 
 
 const no = bot.emojis.get("561106624757104640");   
 
