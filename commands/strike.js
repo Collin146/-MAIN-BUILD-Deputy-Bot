@@ -62,7 +62,7 @@ if(args[0] === "1"){
     .setDescription(`<@${tostrike.id}> has been given strike 1 for \`${kReason}\``)
     .setFooter(`Mentioned User ID: ${tostrike.id}`);
 
-    await (tostrike.guild.addRole(strike1role.id), (kReason));
+    await (tostrike.message.guild.addRole(strike1role.id), (kReason));
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
@@ -105,7 +105,7 @@ let DMembed = new Discord.RichEmbed()
     .setDescription(`<@${tostrike.id}> has been given strike 2 for \`${kReason}\``)
     .setFooter(`Mentioned User ID: ${tostrike.id}`);
 
-    await (tostrike.guild.addRole(strike2role.id), (kReason));
+    await (tostrike.message.guild.addRole(strike2role.id), (kReason));
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
