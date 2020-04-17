@@ -15,6 +15,8 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
+const yes = bot.emojis.get("561106357131018273");
+const no = bot.emojis.get("561106624757104640");
 let tociv = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
 let errEmbed = new Discord.RichEmbed()
@@ -34,8 +36,6 @@ let errEmbed2 = new Discord.RichEmbed()
       .setDescription("You cannot use this command on an administrator.");
 
 if(tociv.hasPermission("ADMINISTRATOR")) return message.channel.send(errEmbed2);
-const yes = bot.emojis.get("561106357131018273");
-const no = bot.emojis.get("561106624757104640");
 //let memrrole = message.guild.roles.find(`name`, "ember");
 //let approle = message.guild.roles.find(`name`, "Applicant");
 //guildmember.setRoles(...)
