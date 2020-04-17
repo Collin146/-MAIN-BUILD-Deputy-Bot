@@ -30,7 +30,7 @@ const user = message.mentions.users.first() || await bot.fetchUser(args[0]);
 
 }
 catch (error) {
-    catchError(err, message);
+    catchError(error, message);
 
 if (!user) return message.channel.send(errEmbed); // Change if not working 
 }
