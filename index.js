@@ -9,7 +9,7 @@ function catchErr (err, message) {
 
 let errchannel = bot.channels.find(x => x.name === 'errors');
 
-errchannel.send(`**<@292598566759956480> ERROR DETECTED!** \`\`\`` + err + `\`\`\``);
+errchannel.send(`**<@292598566759956480> Error Detected in \`index.js\`!** \`\`\`` + err + `\`\`\``);
 
 }
 
@@ -731,7 +731,7 @@ bot.on('channelUpdate', (oldChannel, newChannel) => {
     .addField("Before", `${oldChannel.name}`)
     .addField("After", `${newChannel.name}`);
 
-let modlogchannel = oldChannel.guild.channels.find(x => x.name === 'modlog');
+//let modlogchannel = oldChannel.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: cuembed});
 
     }
