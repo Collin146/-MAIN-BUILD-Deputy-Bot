@@ -20,8 +20,8 @@ let rUser = message.guild.member(message.mentions.users.first() || message.guild
     let kReason = args.slice(1).join(" ");
     if (!kReason) return message.reply("Please give a reason");
     if(rUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot reject a Moderator or higher.");
-    const yes = bot.emojis.get("561106357131018273");
-    const no = bot.emojis.get("561106624757104640");
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
 
     
 let rejectembed = new Discord.RichEmbed()
