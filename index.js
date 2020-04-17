@@ -5,6 +5,12 @@ const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
+function catchErr (err, message) {
+	let errchannel = bot.channels.find(x => x.name === 'errors');
+
+    errchannel.send("**ERROR DETECTED!** ```" + err + "```")`;`
+}
+
 const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");
 // const warningsign = bot.emojis.get("572176403907215360");
@@ -654,5 +660,6 @@ modlogchannel.send({embed: cuembed});
 //-—
 //Modlog events end
 //-—
-  
+
+
 bot.login(botconfig.token);
