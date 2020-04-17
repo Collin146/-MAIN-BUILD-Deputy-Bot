@@ -79,9 +79,7 @@ geluktEmbed = new Discord.RichEmbed()
 message.channel.send(geluktEmbed);
 
 if(!message.member.roles.find(r => r.name === "Muted"))
-return;
     
-
 setTimeout(function(){
     tomute.removeRole(muterole.id);
     tomute.addRole(memberrole.id);
