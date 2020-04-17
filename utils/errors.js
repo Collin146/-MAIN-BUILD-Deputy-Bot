@@ -11,7 +11,7 @@ const no = bot.emojis.get("561106624757104640");
 
     .setTitle("❌ **Error!**")
     .setColor("RED")
-    .setDescription("Insufficient permissions", perm);
+    .setDescription(`Missing permissions ${perm}`);
 
 message.channel.send(embed) //.then(m => m.delete(5000));
 
