@@ -5,8 +5,8 @@ module.exports.run = async (client, message, args, guild) => { //dingen definen
   let onderwerp = args.join(" ");
   var userName = message.author.username;
   let bicon = client.user.displayAvatarURL;
-  const yes = client.emojis.get("561106357131018273");
-  const no = client.emojis.get("561106624757104640");
+const yes = client.emojis.get("700713527576625205");
+const no = client.emojis.get("700713478578634783"); 
     
 //Embed voor geen reden
  let errorEmbed = new discord.RichEmbed()
