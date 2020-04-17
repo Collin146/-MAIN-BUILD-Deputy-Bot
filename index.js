@@ -79,7 +79,7 @@ bot.on('guildMemberAdd', member => {
 //'https://cdn.discordapp.com/attachments/461540254441144326/575060528708190272/3eC2G8r4GEKQjjvQ4-FTWw_0_0.jpg',
 //]
 
-//const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
+const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
 let memberTag = member.user.tag;
     
     let embed = new Discord.RichEmbed()
