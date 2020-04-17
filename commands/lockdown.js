@@ -37,7 +37,7 @@ module.exports.run = async (bot, message, args) => {
       message.channel.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: null
       }).then(() => {
-        message.channel.sendMessage(geluktEmbed2);
+        message.channel.send(geluktEmbed2);
         clearTimeout(bot.lockit[message.channel.id]);
         delete bot.lockit[message.channel.id];
       }).catch(error => {
