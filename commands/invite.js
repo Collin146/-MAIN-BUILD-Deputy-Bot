@@ -8,13 +8,12 @@ let servernum = args.join(" ");
 const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");
     
-let nonexist = new Discord.RichEmbed()
+let errEmbed = new Discord.RichEmbed()
       .setColor("RED")
       .setTitle(`${no} **Error!**`)
       .setDescription(`Please provide a server number!`)
-      .setFooter(`Message ID: ${message.id}`);
     
-if(!servernum) return message.channel.send(nonexist);
+if(!servernum) return message.channel.send(errEmbed);
 
 
 let invembed = new Discord.RichEmbed()
