@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
-module.exports.run = async (message, args, channel,) => {
+module.exports.run = async (message, args, channel) => {
     
     if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
     if(args[0] === "help"){
@@ -24,7 +24,6 @@ let errEmbed = new Discord.RichEmbed()
       .setTitle(`${no} **Error!**`)
       .setDescription("Was not able to find that user!");
 
-function catchError (error)
 try {
 
 const user = message.mentions.users.first() || await bot.fetchUser(args[0]);
