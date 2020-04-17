@@ -13,6 +13,7 @@ errchannel.send("**ERROR DETECTED!** ```" + err + "```");
 
 }
 
+try {
 const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");
 // const warningsign = bot.emojis.get("572176403907215360");
@@ -75,7 +76,6 @@ fs.readdir("./charges/", (err, files) => {
 bot.on('guildMemberAdd', member => {
 	let welcomechannel = member.guild.channels.find(x => x.name === 'welcome');
  
-try {
 //const rando_imgs = [
 //'https://cdn.discordapp.com/attachments/461540254441144326/575060389440651284/ELlfQHzH_EqodvyRcB_6jQ_0_0.jpg',
 //'https://cdn.discordapp.com/attachments/461540254441144326/575060395312676898/p6BODNzfD0StqIxd76Et1g_0_0.jpg',
@@ -92,10 +92,6 @@ let memberTag = member.user.tag;
       .setDescription(`Welcome **${memberTag}**, To Deputy Roleplay, the best Roleplay Community for PS4!`)
       .setImage(`https://cdn.discordapp.com/attachments/461540254441144326/689179495000703063/TRANSP_WELCOME-cutout.png`); // random is ${image}
   welcomechannel.send({embed});
-
-} catch (err) {
-    catchErr(err);
-}
   
 });
 
@@ -668,5 +664,9 @@ modlogchannel.send({embed: cuembed});
 //-—
 //Modlog events end
 //-—
+
+} catch (err) {
+    catchErr(err);
+}
 
 bot.login(botconfig.token);
