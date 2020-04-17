@@ -43,21 +43,21 @@ if(tobcso.hasPermission("ADMINISTRATOR")) return message.channel.send(errEmbed2)
 let errEmbed3 = new Discord.RichEmbed()
       .setColor("RED")
       .setTitle(`${no} **Error!**`)
-      .setDescription("The role \'Member\' doesn't exist");
+      .setDescription("The role \"Member\" doesn't exist.");
 
    if(!memberrole) return message.channel.send(errEmbed3);
 
 let errEmbed4 = new Discord.RichEmbed()
       .setColor("RED")
       .setTitle(`${no} **Error!**`)
-      .setDescription("The role \'BCSO\' doesn't exist");
+      .setDescription("The role \"BCSO\" doesn't exist.");
 
    if(!bcsorole) return message.channel.send(errEmbed4);
 
 let errEmbed5 = new Discord.RichEmbed()
    .setColor("RED")
    .setTitle(`${no} **Error!**`)
-   .setDescription("The role \'Probationary Deputy\' doesn't exist");
+   .setDescription("The role \"Probationary Deputy\" doesn't exist.");
 
    if(!probrole) return message.channel.send(errEmbed5);
     
