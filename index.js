@@ -8,7 +8,7 @@ bot.commands = new Discord.Collection();
 function catchErr (err, message) {
 
 let errchannel = bot.channels.find(x => x.name === 'errors');
-const warningsign = bot.emojis.get("700840374062809168");
+const warningsign = bot.emojis.get("700843409526620180");
 
 errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`index.js\`** \`\`\`` + err + `\`\`\``);
 
@@ -187,7 +187,7 @@ bot.on(`message`, async message => {
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
 
-            const warningsign = bot.emojis.get("700840374062809168");
+            const warningsign = bot.emojis.get("700843409526620180");
 
 
             if (message.author.id === message.guild.ownerID) return;
@@ -297,7 +297,7 @@ bot.on(`message`, async message => {
 
     try {
             if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
-            const warningsign = bot.emojis.get("700840374062809168");
+            const warningsign = bot.emojis.get("700843409526620180");
 
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
@@ -338,7 +338,7 @@ bot.on(`message`, async message => {
     const bannedWords = [`nigger`, `nigg`, `nogger`, `nagger`, `kanker`, `negro`, `negger`, `nigro`, `nignog`, `nig ger`, `nig  ger`, `ni99er`, `nog ger`, `n1gger`, `neger`, `nigga`, `nigge`, `n1gg3r`, `nigg3r`, `Nigger`, `Nigg`, `Nogger`, `Nagger`, `Kanker`, `Negro`, `Negger`, `Nigro`, `Nignog`, `Nig ger`, `Nig  ger`, `Ni99er`, `Nog ger`, `N1gger`, `Neger`, `Nigga`, `Nigge`, `N1gg3r`, `Nigg3r`, `Nibba`, `nibba`] 
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
-            const warningsign = bot.emojis.get("700840374062809168");
+            const warningsign = bot.emojis.get("700843409526620180");
             if (message.author.id === message.guild.ownerID) return;
             await message.delete();
             
@@ -732,7 +732,7 @@ bot.on('channelUpdate', (oldChannel, newChannel) => {
     .addField("Before", `${oldChannel.name}`)
     .addField("After", `${newChannel.name}`);
 
-//let modlogchannel = oldChannel.guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = oldChannel.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: cuembed});
 
     }
