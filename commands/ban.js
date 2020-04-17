@@ -18,13 +18,13 @@ module.exports.run = async (bot, message, args, channel) => {
 //const usercheck = bot.users.get(user) || message.guild.member(message.mentions.users.first())
 const yes = bot.emojis.get("561106357131018273");
 const no = bot.emojis.get("561106624757104640");   
-const user = message.mentions.users.first() || await bot.fetchUser(args[0]); 
 
 let errEmbed = new Discord.RichEmbed()
       .setColor("RED")
       .setTitle(`${no} **Error!**`)
       .setDescription("Was not able to find that user!");
-
+      
+const user = message.mentions.users.first() || await bot.fetchUser(args[0]);
 if (!user) return message.channel.send(errEmbed); // Change if not working 
 
 let bReason = args.slice(1).join(" ");
