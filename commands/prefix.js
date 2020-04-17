@@ -16,17 +16,21 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
     
-
-    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("You don't have permission to do that.");
-    if(!args[0] || args[0 == "help"]) return message.reply(`Usage: ${prefix}prefix <desired prefix here>`);
-const yes = bot.emojis.get("700713527576625205");
-const no = bot.emojis.get("700713478578634783"); 
+    const yes = bot.emojis.get("700713527576625205");
+    const no = bot.emojis.get("700713478578634783"); 
 
     let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
 
     prefixes[message.guild.id] = {
         prefixes: args[0]
     };
+
+    let errEmbed = new Discord.RichEmbed()
+    .setColor("RED")
+    .setTitle(`${no} **Error!**`)
+    .setDescription(`You didn't provide a new prefix!`);
+
+    if (!args[0]) return message.channel.send(errEmbed);
 
     fs.writeFile("./prefixes.json", JSON.stringify(prefixes), (err) => {
         if (err) console.log(err)
