@@ -656,9 +656,9 @@ modlogchannel.send({embed: cuembed});
 //-—
 //Modlog events end
 //-—
-}
-catch (err) {
-catchErr(err, message)
+} catch (e) {
+    console.log(e);
+
 let errchannel = bot.channels.find(x => x.name === 'errors');
 
 errchannel.send("**ERROR DETECTED!** ```" + err + "```");
