@@ -69,7 +69,14 @@ if(!mutetime) return message.channel.send(errEmbed3);
 
 await(tomute.addRole(muterole.id));
 await(tomute.removeRole(memberrole.id));
-message.reply(`<@${tomute.id}> has been muted for ${ms(ms(mutetime))}`);
+
+geluktEmbed = new Discord.RichEmbed()
+      .setColor("GREEN")
+      .setTitle(`${yes} **Done!**`)
+      .setDescription(`<@${tomute.id}> has been muted for ${ms(ms(mutetime))}.`)
+      .setFooter(`Mentioned User ID: ${tomute.id}`);
+
+message.channel.send(geluktEmbed);
 
 if(!message.member.roles.find(r => r.name === "Muted"))
 return;
@@ -78,7 +85,14 @@ return;
 setTimeout(function(){
     tomute.removeRole(muterole.id);
     tomute.addRole(memberrole.id);
-    message.channel.send(`<@${tomute.id}> has been unmuted!`);
+
+    geluktEmbed2 = new Discord.RichEmbed()
+    .setColor("GREEN")
+    .setTitle(`${yes} **Done!**`)
+    .setDescription(`<@${tomute.id}> has been ummuted.`)
+    .setFooter(`Mentioned User ID: ${tomute.id}`);
+
+    message.channel.send(geluktEmbed2);
 }, ms(mutetime));
 
 let ModEmbed = new Discord.RichEmbed()
