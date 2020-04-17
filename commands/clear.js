@@ -48,8 +48,8 @@ module.exports.run = async (bot, message, args) => {
 
     //!clear 15
 
-    const yes = bot.emojis.get("561106357131018273");
-    const no = bot.emojis.get("561106624757104640");
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
 
     let errEmbed = new Discord.RichEmbed()
     .setColor("RED")
