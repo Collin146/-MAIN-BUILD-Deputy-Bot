@@ -28,12 +28,6 @@ try {
 
 const user = message.mentions.users.first() || await bot.fetchUser(args[0]);
 
-}
-catch (error) {
-
-message.channel.send(errEmbed); // Change if not working 
-}
-
 let bReason = args.slice(1).join(" ");
 // const username = bot.fetchUser(user)
 
@@ -75,6 +69,12 @@ modlogchannel.send({embed: ModEmbed});
     .addField("Reason:", bReason || "None");
 
     user.send(dmembed);
+}
+
+catch (error) {
+
+message.channel.send(errEmbed); // Change if not working 
+}
 }
 
  module.exports.help = {
