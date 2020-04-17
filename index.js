@@ -94,8 +94,7 @@ let memberTag = member.user.tag;
   welcomechannel.send({embed});
 
 } catch (e) {
-    console.log(e);
-
+    catchErr(err, message);
 }
   
 });
