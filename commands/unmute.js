@@ -21,8 +21,8 @@ if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send
 let memberrole = message.guild.roles.find(x => x.name === 'Member');
 let nmrole = message.guild.roles.find(x => x.name === 'Muted');
 if(tociv.hasPermission("ADMINISTRATOR")) return message.channel.send("You cannot use this command on an admin!");
-const yes = bot.emojis.get("561106357131018273");
-const no = bot.emojis.get("561106624757104640");
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
 //let memrrole = message.guild.roles.find(`name`, "ember");
 //let approle = message.guild.roles.find(`name`, "Applicant");
 //guildmember.setRoles(...)
