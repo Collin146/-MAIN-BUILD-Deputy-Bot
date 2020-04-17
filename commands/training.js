@@ -1,55 +1,79 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
-module.exports.run = async (bot, message, args) => { 
-
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
-    if(args[0] === "help"){
-        message.reply("Usage: !training <day> <time>");
-        return;
-    }
+module.exports.run = async (bot, message, args, channel) => {
     
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
+    if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
+    if(args[0] === "help"){
+        message.reply("Usage: !unban <user>");
+        return;
+    }
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You don't have permission to do that.");
     if(args[0] == "help"){
-        message.reply("Usage: !training <day> <time>");
+        message.reply("Usage: !unban <user>");
         return;
     }
 
-const yes = bot.emojis.get("700713527576625205");
-const no = bot.emojis.get("700713478578634783");
-let mentionrole = message.guild.roles.find(x => x.name === 'Recruit');
-let day = args[0];
-let time = args[1];
+const yes = bot.emojis.get("561106357131018273");
+const no = bot.emojis.get("561106624757104640");
+let user = args[0];
+const usercheck = bot.users.get(user);
 
 let errEmbed = new Discord.RichEmbed()
 .setColor("RED")
 .setTitle(`${no} **Error!**`)
-.setDescription(`You didn't provide a day & time!`);
+.setDescription(`Was not able to find that user!`);
 
-if (!day) return message.channel.send(errEmbed);
+if (!usercheck) return message.channel.send(errEmbed)    
+let bReason = args.slice(1).join(" ");
+const username = bot.fetchUser(user)
 
-let errEmbed2 = new Discord.RichEmbed()
-.setColor("RED")
-.setTitle(`${no} **Error!**`)
-.setDescription(`You didn't provide a time!`);
+message.guild.fetchBans().then(bans => {
+            bans.forEach(user => {
+                console.log(user.username + '#' + user.tag);
+                message.guild.unban(user);
+                // if (!user) return message.channel.send("Couldn't find this user!")
+            });
+        });
 
-if (!time) return message.channel.send(errEmbed2);
 
-message.channel.send([
-    `<@&${mentionrole.id}>`,
-    ` `,
-    "**Training on**",
-    `\`${day}\` **at** \`${time}\` **PM BST**`,
-    ` `,
-    "**Say yes to attend**",
-    `(If you say yes or maybe you are required to show up to the training. If you can't show up with a reason inform ${message.author} __before__ the training starts.)`
-  ].join('\n'))
+let geluktEmbed = new Discord.RichEmbed()
+      .setColor("GREEN")
+      .setTitle(`${yes} **Done!**`)
+      .setDescription(`<@${user}> has been unbanned!`)
+      .setFooter(`Mentioned User ID: ${user}`);
 
-  message.delete().catch(O_o=>{});
+    message.channel.send(geluktEmbed);
 
+    let ModEmbed = new Discord.RichEmbed()
+    .setTitle("**Administration Command Used!**")
+    .setTimestamp()
+    .setColor("BLACK")
+    .setDescription([
+        `**The administration command** !unban **has been used**`,
+        ` `,
+        `**Unbanned User:** <@${user}>`,
+        ` `,
+        `**Used In:** ${message.channel}`,
+        ` `,
+        `**Used By:** ${message.author.username}`,
+        ` `,
+        `**Reason For Unban:** ${bReason || "None"}`
+      ].join('\n'))
+    .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+
+let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ModEmbed});
+
+
+   // let dmembed =  new Discord.RichEmbed()
+  //  .setTitle(`**You have been unbanned from ${message.guild.name}.**`)
+  //  .setColor("#00fff6")
+  //  .addField("Reason:", bReason || "None");
+
+    //username.send(dmembed);
 }
 
-
-module.exports.help = {
-    name: "training"
-}
+ module.exports.help = {
+     name: "unban"
+ }
