@@ -31,7 +31,7 @@ const user = message.mentions.users.first() || await bot.fetchUser(args[0]);
 }
 catch (error) {
 
-if (!user) return message.channel.send(errEmbed); // Change if not working 
+message.channel.send(errEmbed); // Change if not working 
 }
 
 let bReason = args.slice(1).join(" ");
