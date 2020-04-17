@@ -47,10 +47,21 @@ module.exports.run = async (bot, message, args) => {
 // }
 
     //!clear 15
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("You don't have permission to do that.");
-    if(!args[0]) return message.channel.send("Specify what amount of messages.");
+
+    let errEmbed = new Discord.RichEmbed()
+    .setColor("RED")
+    .setTitle(`${no} **Error!**`)
+    .setDescription("You didn't specify what amount of messages.");
+
+    if(!args[0]) return message.channel.send(errEmbed);
+
+    let geluktEmbed = new Discord.RichEmbed()
+    .setColor("GREEN")
+    .setTitle(`${yes} **Done!**`)
+    .setDescription(`Cleared ${args[0]} messages.`)
+
     message.channel.bulkDelete(args[0]).then(() => {
-        message.channel.send(`Cleared ${args[0]} messages.`).then(msg => msg.delete(5000));
+        message.channel.send(geluktEmbed).then(msg => msg.delete(5000));
 
     });
 
