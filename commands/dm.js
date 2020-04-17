@@ -15,8 +15,8 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-const yes = bot.emojis.get("561106357131018273");
-const no = bot.emojis.get("561106624757104640");
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
 let reason = args.join(" ");
 
 let errEmbed = new Discord.RichEmbed()
