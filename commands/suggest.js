@@ -5,9 +5,9 @@ module.exports.run = async (bot, message, args) => {
 
 let kReason = args.join(" ").slice(0);
 if(!kReason) return message.reply("Please give a suggestion");
-const yes = bot.emojis.get("561106357131018273");
-const no = bot.emojis.get("561106624757104640");
-const maybe = bot.emojis.get("561106761038299137");
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
+const maybe = bot.emojis.get("700713222566707203");
 
 let sugembed = new Discord.RichEmbed()
 .setTitle("**New Suggestion!**")
