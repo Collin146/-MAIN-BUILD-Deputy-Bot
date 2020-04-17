@@ -79,7 +79,7 @@ let memberTag = member.user.tag;
     let embed = new Discord.RichEmbed()
       .setTitle("**A new user has joined!**")
       .setColor("#00f4ef")
-      .setDescription(`Welcome **${memberTag}**, To Unity Roleplay, the best Roleplay Community for PS4!`)
+      .setDescription(`Welcome **${memberTag}**, To Deputy Roleplay, the best Roleplay Community for PS4!`)
       .setImage(`https://cdn.discordapp.com/attachments/461540254441144326/689179495000703063/TRANSP_WELCOME-cutout.png`); // random is ${image}
   welcomechannel.send({embed});
 
