@@ -93,7 +93,7 @@ let memberTag = member.user.tag;
       .setImage(`https://cdn.discordapp.com/attachments/461540254441144326/689179495000703063/TRANSP_WELCOME-cutout.png`); // random is ${image}
   welcomechannel.send({embed});
 
-} catch (e) {
+} catch (err) {
     catchErr(err, message);
 }
   
