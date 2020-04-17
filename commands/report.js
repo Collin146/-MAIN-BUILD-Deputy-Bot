@@ -17,8 +17,8 @@ if (!reason) return message.reply(`Please give a reason.`).then(msg => msg.delet
 
 message.delete().catch(O_o=>{});
     
-    const yes = bot.emojis.get("561106357131018273");
-    const no = bot.emojis.get("561106624757104640");
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
 
         let reportEmbed = new Discord.RichEmbed()
         .setTitle("**A user has been reported!**")
