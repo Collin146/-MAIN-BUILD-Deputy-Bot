@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
-function catchError (error, message)
 
-module.exports.run = async (bot, message, args, channel) => {
+
+module.exports.run = async (error, bot, message, args, channel) => {
     
     if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
     if(args[0] === "help"){
