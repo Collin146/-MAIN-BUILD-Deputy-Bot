@@ -19,8 +19,8 @@ module.exports.run = async (bot, message, args) => {
 
     if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("You don't have permission to do that.");
     if(!args[0] || args[0 == "help"]) return message.reply(`Usage: ${prefix}prefix <desired prefix here>`);
-    const yes = bot.emojis.get("561106357131018273");
-    const no = bot.emojis.get("561106624757104640");
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
 
     let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
 
