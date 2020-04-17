@@ -17,19 +17,41 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-let tostrike = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-if(!tostrike) return message.reply("Couldn't find that user.");
-let kReason = args.slice(2).join(" ");
-if (!kReason) return message.reply(`Please give a reason.`);
-if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
-if(tostrike.hasPermission("ADMINISTRATOR")) return message.reply("You cannot strike a Moderator or higher");
-let strike1role = message.guild.roles.find(x => x.name === 'Strike 1');
-if(!strike1role) return message.reply("The role Strike 1 doesn't exist.");
-let strike2role = message.guild.roles.find(x => x.name === 'Strike 2');
-if(!strike2role) return message.reply("The role Strike 2 doesn't exist.");
-let mentioned = message.mentions.users.first();
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
+let tostrike = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+
+let errEmbed = new Discord.RichEmbed()
+.setColor("RED")
+.setTitle(`${no} **Error!**`)
+.setDescription(`Was not able to find that user.`);
+
+if(!tostrike) return message.channel.send(errEmbed);
+let kReason = args.slice(2).join(" ");
+
+let errEmbed2 = new Discord.RichEmbed()
+.setColor("RED")
+.setTitle(`${no} **Error!**`)
+.setDescription(`You didn't give a reason!`);
+
+if (!kReason) return message.channel.send(errEmbed2);
+let strike1role = message.guild.roles.find(x => x.name === 'Strike 1');
+
+let errEmbed3 = new Discord.RichEmbed()
+.setColor("RED")
+.setTitle(`${no} **Error!**`)
+.setDescription(`The \"Strike 1\" role does not exist!`);
+
+if(!strike1role) return message.channel.send(errEmbed3);
+let strike2role = message.guild.roles.find(x => x.name === 'Strike 2');
+
+let errEmbed4 = new Discord.RichEmbed()
+.setColor("RED")
+.setTitle(`${no} **Error!**`)
+.setDescription(`The \"Strike 2\" role does not exist!`);
+
+if(!strike2role) return message.channel.send(errEmbed4);
+let mentioned = message.mentions.users.first();
 
 if(args[0] === "1"){
 
@@ -117,7 +139,12 @@ let DMembed = new Discord.RichEmbed()
     return; 
       }
 
-message.reply(`Please provide which type of strike you want to use.`).then(msg => msg.delete(5000));
+let errEmbed5 = new Discord.RichEmbed()
+    .setColor("RED")
+    .setTitle(`${no} **Error!**`)
+    .setDescription(`You didn't provide which type of strike you want to use!`);
+
+message.channel.send(errEmbed5) //.then(msg => msg.delete(5000));
 
 }
 
