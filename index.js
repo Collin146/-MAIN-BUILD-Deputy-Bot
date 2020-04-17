@@ -5,9 +5,6 @@ const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
-function catchErr (err, message) {
-
-
 try {
 
 const yes = bot.emojis.get("561106357131018273");
@@ -665,8 +662,6 @@ catchErr(err, message)
 let errchannel = bot.channels.find(x => x.name === 'errors');
 
 errchannel.send("**ERROR DETECTED!** ```" + err + "```");
-
-}
 
 }
 
