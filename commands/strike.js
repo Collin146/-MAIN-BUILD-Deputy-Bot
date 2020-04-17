@@ -28,8 +28,8 @@ if(!strike1role) return message.reply("The role Strike 1 doesn't exist.");
 let strike2role = message.guild.roles.find(x => x.name === 'Strike 2');
 if(!strike2role) return message.reply("The role Strike 2 doesn't exist.");
 let mentioned = message.mentions.users.first();
-const yes = bot.emojis.get("561106357131018273");
-const no = bot.emojis.get("561106624757104640");
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
 
 if(args[0] === "1"){
 
