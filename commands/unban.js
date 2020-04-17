@@ -17,8 +17,8 @@ module.exports.run = async (bot, message, args, channel) => {
 let user = args[0];
 const usercheck = bot.users.get(user);
 if (!usercheck) return message.channel.send("Couldn't find this user.")
-const yes = bot.emojis.get("561106357131018273");
-const no = bot.emojis.get("561106624757104640");    
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783");    
 let bReason = args.slice(1).join(" ");
 const username = bot.fetchUser(user)
 
