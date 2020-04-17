@@ -1,14 +1,14 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
-module.exports.run = async (message, args, channel,) => {
+module.exports.run = async (bot, message, args, channel) => {
     
-    if(!message.guild.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
+    if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
     if(args[0] === "help"){
         message.reply("Usage: !ban <user> <reason");
         return;
     }
-    if(!message.guild.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You don't have permission to do that.");
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You don't have permission to do that.");
     if(args[0] == "help"){
         message.reply("Usage: !ban <user> <reason>");
         return;
