@@ -15,14 +15,25 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!rUser) return message.channel.send("Can't find user!");
-    let kReason = args.slice(1).join(" ");
-    if (!kReason) return message.reply("Please give a reason");
-    if(rUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot reject a Moderator or higher.");
 const yes = bot.emojis.get("700713527576625205");
-const no = bot.emojis.get("700713478578634783"); 
+const no = bot.emojis.get("700713478578634783");  
+let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
+let errEmbed = new Discord.RichEmbed()
+  .setColor("RED")
+  .setTitle(`${no} **Error!**`)
+  .setDescription(`Was not able to find that user!`);
+
+    if(!rUser) return message.channel.send(errEmbed);
+    let kReason = args.slice(1).join(" ");
+
+    let errEmbed2 = new Discord.RichEmbed()
+    .setColor("RED")
+    .setTitle(`${no} **Error!**`)
+    .setDescription(`You didn't provide a reason!`);
+
+    if (!kReason) return message.channel.send(errEmbed2);
+    if(rUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot reject a Moderator or higher.");
     
 let rejectembed = new Discord.RichEmbed()
 .setTitle(`**Your application for ${message.guild.name} has been rejected!**`)
