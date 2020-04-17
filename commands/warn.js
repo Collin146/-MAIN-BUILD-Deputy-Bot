@@ -24,8 +24,8 @@ module.exports.run = async (bot, message, args) => {
   let reason = args.slice(1).join(" ");
   if (!reason) return message.reply("Please give a reason");
   let mentioned = message.mentions.users.first();
-  const yes = bot.emojis.get("561106357131018273");
-  const no = bot.emojis.get("561106624757104640");
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
 
   if(!warns[wUser.id]) warns[wUser.id] = {
     warns: 0
