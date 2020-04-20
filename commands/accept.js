@@ -37,8 +37,8 @@ acceptchannel.send(geluktEmbed);
 let approle = message.guild.roles.find(x => x.name === 'Applicant');
 let accrole = message.guild.roles.find(x => x.name === 'Accepted For Interview');
 
-tobcso.removeRole(approle.id);
-tobcso.addRole(accrole.id);
+rUser.removeRole(approle.id);
+rUser.addRole(accrole.id);
 
 let ModEmbed = new Discord.RichEmbed()
 .setTitle("**Moderation Command Used!**")
