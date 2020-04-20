@@ -35,7 +35,7 @@ let acceptchannel = message.guild.channels.find(x => x.name === 'accepted-applic
 acceptchannel.send(geluktEmbed);
 
 let approle = message.guild.roles.find(x => x.name === 'Applicant');
-let accrole = message.guild.roles.find(x => x.name === 'Accepted For Interview');
+let accrole = message.guild.roles.find(x => x.name === 'Approved For Interview');
 
 rUser.removeRole(approle.id);
 rUser.addRole(accrole.id);
