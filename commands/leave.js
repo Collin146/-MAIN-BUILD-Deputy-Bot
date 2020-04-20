@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
 const theguild = message.guild.id
 
-guild.leave(theguild)
+message.guild.leave(theguild)
 
 }
 
