@@ -19,6 +19,13 @@ const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783");  
 let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
+let errEmbed = new Discord.RichEmbed()
+      .setColor("RED")
+      .setTitle(`${no} **Error!**`)
+      .setDescription("Was not able to find that user!");
+
+if (!rUser) return message.channel.send(errEmbed);
+
 let geluktEmbed = new Discord.RichEmbed()
       .setTitle(`${yes} **Congratulations!**`)
       .setColor("GREEN")
@@ -26,6 +33,12 @@ let geluktEmbed = new Discord.RichEmbed()
 
 let acceptchannel = message.guild.channels.find(x => x.name === 'accepted-applicants');
 acceptchannel.send(geluktEmbed);
+
+let approle = message.guild.roles.find(x => x.name === 'Applicant');
+let accrole = message.guild.roles.find(x => x.name === 'Accepted For Interview');
+
+tobcso.removeRole(approle.id);
+tobcso.addRole(accrole.id);
 
 let ModEmbed = new Discord.RichEmbed()
 .setTitle("**Moderation Command Used!**")
