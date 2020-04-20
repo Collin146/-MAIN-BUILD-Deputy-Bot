@@ -26,6 +26,25 @@ geluktEmbed = new Discord.RichEmbed()
       .setTitle(`${yes} **Congratulations!**`)
       .setDescription(`<@${rUser.id}> Your application has been approved! You have taken your first step into the community. The next step is to wait for an interview to be announced/scheduled. We wish you good luck!`)
 
+acceptchannel.send(geluktEmbed);
+
+let ModEmbed = new Discord.RichEmbed()
+.setTitle("**Moderation Command Used!**")
+.setTimestamp()
+.setColor("BLACK")
+.setDescription([
+    `**The administration command** !accept **has been used**`,
+    ` `,
+    `**Used On:** <@${rUser.id}>`,
+    ` `,
+    `**Used In:** ${message.channel}`,
+    ` `,
+    `**Used By:** ${message.author.username}`,
+  ].join('\n'))
+.setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+
+let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ModEmbed});
 
 }
 
