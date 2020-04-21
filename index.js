@@ -96,13 +96,13 @@ const imagetouse = ("https://cdn.discordapp.com/attachments/461540254441144326/6
       .setImage(`${imagetouse}`); // random is ${image}
   welcomechannel.send({embed});
 
-let memberrole = message.guild.roles.find(x => x.name === 'New Member');
+let memberrole = member.guild.roles.find(x => x.name === 'New Member');
 
 member.addRole(memberrole);
 
 try {
 
-let applicantrole = message.guild.roles.find(x => x.name === 'Applicant');
+let applicantrole = member.guild.roles.find(x => x.name === 'Applicant');
 
 member.addRole(applicantrole);
 
@@ -113,7 +113,7 @@ member.addRole(applicantrole);
 
 try {
 
-let recruitrole = message.guild.roles.find(x => x.name === 'Recruit');
+let recruitrole = member.guild.roles.find(x => x.name === 'Recruit');
 
 member.addRole(recruitrole);
 
