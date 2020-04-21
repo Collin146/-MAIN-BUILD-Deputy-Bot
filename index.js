@@ -96,6 +96,31 @@ const imagetouse = ("https://cdn.discordapp.com/attachments/461540254441144326/6
       .setImage(`${imagetouse}`); // random is ${image}
   welcomechannel.send({embed});
 
+let memberrole = message.guild.roles.find(x => x.name === 'New Member');
+
+member.addRole(memberrole);
+
+try {
+
+let applicantrole = message.guild.roles.find(x => x.name === 'Applicant');
+
+member.addRole(applicantrole);
+
+} catch (err) {
+    catchErr(err);
+
+}
+
+try {
+
+let recruitrole = message.guild.roles.find(x => x.name === 'Recruit');
+
+member.addRole(recruitrole);
+
+}  catch (err) {
+    catchErr(err);
+}
+
 } catch (err) {
     catchErr(err);
 }
