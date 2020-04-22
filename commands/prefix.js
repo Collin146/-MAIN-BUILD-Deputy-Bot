@@ -4,6 +4,17 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
+    function catchErr (err, message) {
+
+        let errchannel = bot.channels.find(x => x.name === 'errors');
+        const warningsign = bot.emojis.get("700843409526620180");
+        
+        errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`prefix.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
+        
+        }
+
+    try {
+
     if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
     if(args[0] === "help"){
         message.reply("Usage: !prefix <desired prefix here>");
@@ -61,7 +72,11 @@ module.exports.run = async (bot, message, args) => {
 let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ModEmbed});
 
-    
+    } catch(err) {
+        catchErr(err)
+
+    }    
+
 }
 
 module.exports.help = {
