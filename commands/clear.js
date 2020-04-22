@@ -3,6 +3,17 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
+    function catchErr (err, message) {
+
+        let errchannel = bot.channels.find(x => x.name === 'errors');
+        const warningsign = bot.emojis.get("700843409526620180");
+        
+        errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`clear.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
+        
+        }
+
+try {
+
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
     if(args[0] === "help"){
         message.reply("Usage: !clear <amount>");
@@ -48,8 +59,8 @@ module.exports.run = async (bot, message, args) => {
 
     //!clear 15
 
-const yes = bot.emojis.get("700713527576625205");
-const no = bot.emojis.get("700713478578634783"); 
+    const yes = bot.emojis.get("700713527576625205");
+    const no = bot.emojis.get("700713478578634783"); 
 
     let errEmbed = new Discord.RichEmbed()
     .setColor("RED")
@@ -85,6 +96,11 @@ const no = bot.emojis.get("700713478578634783");
 
     let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
     modlogchannel.send({embed: ModEmbed});
+
+} catch(err) {
+    catchErr(err)
+
+}
     
 }
 
