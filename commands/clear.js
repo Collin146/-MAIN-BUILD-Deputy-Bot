@@ -3,108 +3,81 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
-    function catchErr (err, message) {
+  function catchErr (err, message) {
 
-        let errchannel = bot.channels.find(x => x.name === 'errors');
-        const warningsign = bot.emojis.get("700843409526620180");
-        
-        errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`clear.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
-        
-        }
-
-try {
-
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
-    if(args[0] === "help"){
-        message.reply("Usage: !clear <amount>");
-        return;
+    let errchannel = bot.channels.find(x => x.name === 'errors');
+    const warningsign = bot.emojis.get("700843409526620180");
+    
+    errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`dm.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
+    
     }
 
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
-    if(args[0] == "help"){
-        message.reply("Usage: !clear <amount>");
+  try {
+
+    if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
+    if(args[0] === "help"){
+        message.reply("Usage: !dm <message>");
         return;
     }
     
-//     if (args[0] > 100) {
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You don't have permission to do that.");
+    if(args[0] == "help"){
+        message.reply("Usage: !dm <message>");
+        return;
+    }
 
-//         let args100 = args[0] - 100
-//     message.channel.bulkDelete(100)
-//     message.channel.bulkDelete(args100).then(() => {
-//         message.channel.send(`Cleared ${args[0]} messages.`).then(msg => msg.delete(5000));
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
+let reason = args.join(" ");
 
-//         let ModEmbed = new Discord.RichEmbed()
-//         .setTitle("**Moderation Command Used!**")
-//         .setTimestamp()
-//         .setColor("BLACK")
-//         .setDescription([
-//             `**The moderation command** !clear **has been used**`,
-//             ` `,
-//             `**Cleared Amount:** ${args}`,
-//             ` `,
-//             `**Used In:** ${message.channel}`,
-//             ` `,
-//             `**Used By:** ${message.author.username}`
-//           ].join('\n'))
-//         .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
-        
-//         let warnchannel = message.guild.channels.find(`name`, "modlog");
-//         if(!warnchannel) return message.reply("Couldn't find channel");
-        
-//         warnchannel.send(ModEmbed);
+let errEmbed = new Discord.RichEmbed()
+  .setColor("RED")
+  .setTitle(`${no} **Error!**`)
+  .setDescription("You didn't provide a message!");
 
-// return;
-//     });
-// }
+if (!reason) return message.channel.send(errEmbed);
 
-    //!clear 15
+let dmembed = new Discord.RichEmbed()
+  .setTitle(`**A message from ${message.guild.name}.**`)
+  .setColor("#00fff6")
+  .setDescription(`${reason}`);
 
-    const yes = bot.emojis.get("700713527576625205");
-    const no = bot.emojis.get("700713478578634783"); 
-
-    let errEmbed = new Discord.RichEmbed()
-    .setColor("RED")
-    .setTitle(`${no} **Error!**`)
-    .setDescription("You didn't specify what amount of messages.");
-
-    if(!args[0]) return message.channel.send(errEmbed);
-
-    let geluktEmbed = new Discord.RichEmbed()
-    .setColor("GREEN")
-    .setTitle(`${yes} **Done!**`)
-    .setDescription(`Cleared ${args[0]} messages.`)
-
-    message.channel.bulkDelete(args[0]).then(() => {
-        message.channel.send(geluktEmbed).then(msg => msg.delete(5000));
-
+message.guild.members.forEach(member => {
+      if (member.id != bot.user.id && !member.user.bot) member.send(dmembed);
     });
 
-    let ModEmbed = new Discord.RichEmbed()
-    .setTitle("**Moderation Command Used!**")
-    .setTimestamp()
-    .setColor("BLACK")
-    .setDescription([
-        `**The moderation command** !clear **has been used**`,
-        ` `,
-        `**Cleared Amount:** ${args}`,
-        ` `,
-        `**Used In:** ${message.channel}`,
-        ` `,
-        `**Used By:** ${message.author.username}`
-      ].join('\n'))
-    .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+let doneembed = new Discord.RichEmbed()
+.setTitle(`${yes} **Done!**`)
+.setColor("GREEN")
+.setDescription("A message has been sent to everyone in this server.");
 
-    let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
-    modlogchannel.send({embed: ModEmbed});
+message.channel.send(doneembed);
 
-} catch(err) {
+let ModEmbed = new Discord.RichEmbed()
+.setTitle("**Administration Command Used!**")
+.setTimestamp()
+.setColor("BLACK")
+.setDescription([
+    `**The administration command** !dm **has been used**`,
+    ` `,
+    `**Used In:** ${message.channel}`,
+    ` `,
+    `**Used By:** ${message.author.username}`,
+    ` `,
+    `**Message:** ${reason}`
+  ].join('\n'))
+.setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+
+let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ModEmbed});
+
+  } catch(err) {
     catchErr(err)
 
-}
-    
-}
+  }
 
+}
 
 module.exports.help = {
-    name: "clear"
+    name: "dm"
 }
