@@ -3,6 +3,17 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
+    function catchErr (err, message) {
+
+        let errchannel = bot.channels.find(x => x.name === 'errors');
+        const warningsign = bot.emojis.get("700843409526620180");
+        
+        errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`civilian.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
+        
+        }
+
+try {
+
     if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
     if(args[0] === "help"){
         message.reply("Usage: !bcso <user>");
@@ -16,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
     }
 
 const yes = bot.emojis.get("700713527576625205");
-const no = bot.emojis.get("700713478578634783"); 
+//const no = bot.emojis.get("700713478578634783"); 
 let tociv = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
 let errEmbed = new Discord.RichEmbed()
@@ -27,7 +38,7 @@ let errEmbed = new Discord.RichEmbed()
 if(!tociv) return message.channel.send(errEmbed);
 let memberrole = message.guild.roles.find(x => x.name === 'Member');
 let civilianrole = message.guild.roles.find(x => x.name === 'Civilian');
-let civ1role = message.guild.roles.find(x => x.name === 'Probationary Civilian');
+let civ1role = message.guild.roles.find(x => x.name === 'Civilian I');
 let nmrole = message.guild.roles.find(x => x.name === 'New Member');
 
 let errEmbed2 = new Discord.RichEmbed()
@@ -93,7 +104,10 @@ geluktEmbed = new Discord.RichEmbed()
 
       message.channel.send(geluktEmbed);
 
-//end of module
+} catch(err) {
+    catchErr(err)
+
+}
 
 }
 
