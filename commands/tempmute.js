@@ -119,8 +119,33 @@ message.channel.send(geluktEmbed);
 if(!message.member.roles.find(r => r.name === "Muted"))
     
 setTimeout(function(){
-    tomute.removeRole(muterole.id);
+
+tomute.removeRole(muterole.id);
+
+    try {
+     
     tomute.addRole(memberrole.id);
+
+    } catch(err) {
+        catchErr(err)
+
+    }
+
+    try {
+     
+    tomute.addRole(approle.id);
+    
+    } catch(err) {
+        catchErr(err)
+    }
+
+    try {
+     
+    tomute.addRole(recrole.id);
+        
+    } catch(err) {
+        catchErr(err)
+    }        
 
     geluktEmbed2 = new Discord.RichEmbed()
     .setColor("GREEN")
