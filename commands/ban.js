@@ -27,7 +27,7 @@ try {
     
 //let user = args[0];
 //const usercheck = bot.users.get(user) || message.guild.member(message.mentions.users.first())
-//const yes = bot.emojis.get("700713527576625205");
+const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
 
 let errEmbed = new Discord.RichEmbed()
