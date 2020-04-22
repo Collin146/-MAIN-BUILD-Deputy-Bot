@@ -3,6 +3,8 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
+    try {
+
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
     if(args[0] === "help"){
         message.reply("Usage: !accept <user>");
@@ -31,8 +33,17 @@ let geluktEmbed = new Discord.RichEmbed()
       .setColor("GREEN")
       .setDescription(`<@${rUser.id}> Your application has been approved! You have taken your first step into the community. The next step is to wait for an interview to be announced/scheduled. We wish you good luck!`);
 
+      
 let acceptchannel = message.guild.channels.find(x => x.name === 'accepted-applicants');
 acceptchannel.send(geluktEmbed);
+
+geluktEmbed2 = new Discord.RichEmbed()
+.setColor("GREEN")
+.setTitle(`${yes} **Done!**`)
+.setDescription(`<@${rUser.id}> has been notified!`)
+.setFooter(`Mentioned User ID: ${rUser.id}`);
+
+message.channel.send(geluktEmbed2);
 
 let approle = message.guild.roles.find(x => x.name === 'Applicant');
 let accrole = message.guild.roles.find(x => x.name === 'Approved For Interview');
@@ -57,6 +68,11 @@ let ModEmbed = new Discord.RichEmbed()
 
 let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ModEmbed});
+
+    } catch (err)  {
+     catchErr(err);
+
+    }
 
 }
 
