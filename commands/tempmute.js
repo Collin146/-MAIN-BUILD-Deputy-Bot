@@ -85,7 +85,6 @@ await(tomute.addRole(muterole.id));
 await(tomute.removeRole(memberrole.id));
 
 } catch(err) {
-    catchErr(err)
 }
 
 try {
@@ -94,8 +93,6 @@ await(tomute.addRole(muterole.id));
 await(tomute.removeRole(approle.id));
 
 } catch(err) {
-    catchErr(err)
-
 }
 
 try {
@@ -103,9 +100,7 @@ try {
 await(tomute.addRole(muterole.id));
 await(tomute.removeRole(recrole.id));
     
-} catch(err) {
-     catchErr(err)
-        
+} catch(err) {  
 }
 
 geluktEmbed = new Discord.RichEmbed()
@@ -127,8 +122,6 @@ tomute.removeRole(muterole.id);
     tomute.addRole(memberrole.id);
 
     } catch(err) {
-        catchErr(err)
-
     }
 
     try {
@@ -136,7 +129,6 @@ tomute.removeRole(muterole.id);
     tomute.addRole(approle.id);
     
     } catch(err) {
-        catchErr(err)
     }
 
     try {
@@ -144,7 +136,6 @@ tomute.removeRole(muterole.id);
     tomute.addRole(recrole.id);
         
     } catch(err) {
-        catchErr(err)
     }        
 
     geluktEmbed2 = new Discord.RichEmbed()
