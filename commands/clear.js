@@ -1,35 +1,110 @@
 const Discord = require("discord.js");
+const errors = require("../utils/errors.js");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args) => { 
 
     function catchErr (err, message) {
 
         let errchannel = bot.channels.find(x => x.name === 'errors');
         const warningsign = bot.emojis.get("700843409526620180");
         
-        errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`help.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
+        errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`clear.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
         
         }
 
-    try {
+try {
+
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
+    if(args[0] === "help"){
+        message.reply("Usage: !clear <amount>");
+        return;
+    }
+
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
+    if(args[0] == "help"){
+        message.reply("Usage: !clear <amount>");
+        return;
+    }
+    
+//     if (args[0] > 100) {
+
+//         let args100 = args[0] - 100
+//     message.channel.bulkDelete(100)
+//     message.channel.bulkDelete(args100).then(() => {
+//         message.channel.send(`Cleared ${args[0]} messages.`).then(msg => msg.delete(5000));
+
+//         let ModEmbed = new Discord.RichEmbed()
+//         .setTitle("**Moderation Command Used!**")
+//         .setTimestamp()
+//         .setColor("BLACK")
+//         .setDescription([
+//             `**The moderation command** !clear **has been used**`,
+//             ` `,
+//             `**Cleared Amount:** ${args}`,
+//             ` `,
+//             `**Used In:** ${message.channel}`,
+//             ` `,
+//             `**Used By:** ${message.author.username}`
+//           ].join('\n'))
+//         .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+        
+//         let warnchannel = message.guild.channels.find(`name`, "modlog");
+//         if(!warnchannel) return message.reply("Couldn't find channel");
+        
+//         warnchannel.send(ModEmbed);
+
+// return;
+//     });
+// }
+
+    //!clear 15
 
     const yes = bot.emojis.get("700713527576625205");
     const no = bot.emojis.get("700713478578634783"); 
 
-    geluktEmbed = new Discord.RichEmbed()
+    let errEmbed = new Discord.RichEmbed()
+    .setColor("RED")
+    .setTitle(`${no} **Error!**`)
+    .setDescription("You didn't specify what amount of messages.");
+
+    if(!args[0]) return message.channel.send(errEmbed);
+
+    let geluktEmbed = new Discord.RichEmbed()
     .setColor("GREEN")
-    .setTitle(`${yes} **Command List**`)
-    .setDescription(`Here is the command list of this bot: \https://docs.google.com/document/d/10m06EtPOt64mJ86K2IFeXH5c5tVN-F2bZ9r8x4ikc5o/edit?usp=sharing\ `)
+    .setTitle(`${yes} **Done!**`)
+    .setDescription(`Cleared ${args[0]} messages.`)
 
-    message.channel.send(geluktEmbed);
+    message.channel.bulkDelete(args[0]).then(() => {
+        message.channel.send(geluktEmbed).then(msg => msg.delete(5000));
 
-    } catch(err) {
-        catchErr(err)
+    });
 
-    }
+    let ModEmbed = new Discord.RichEmbed()
+    .setTitle("**Moderation Command Used!**")
+    .setTimestamp()
+    .setColor("BLACK")
+    .setDescription([
+        `**The moderation command** !clear **has been used**`,
+        ` `,
+        `**Cleared Amount:** ${args}`,
+        ` `,
+        `**Used In:** ${message.channel}`,
+        ` `,
+        `**Used By:** ${message.author.username}`
+      ].join('\n'))
+    .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+
+    let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+    modlogchannel.send({embed: ModEmbed});
+
+} catch(err) {
+    catchErr(err)
 
 }
+    
+}
+
 
 module.exports.help = {
-    name: "help"
+    name: "clear"
 }
