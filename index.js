@@ -156,7 +156,7 @@ let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
 
 bot.on("ready", async () => {
 console.log(`${bot.user.username} is online!`);
-bot.user.setActivity("!help | Status: Normal");
+bot.user.setActivity("!help | Status: Updating");
 
 });
 
