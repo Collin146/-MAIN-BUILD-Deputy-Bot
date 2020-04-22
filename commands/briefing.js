@@ -33,7 +33,7 @@ const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
 let mentionrole = message.guild.roles.find(x => x.name === 'Member');
 //let mentionrole = message.guild.roles.find(`name`, `Member`);
-let mutetime = args[0];
+//let mutetime = args[0];
 
 let errEmbed = new Discord.RichEmbed()
       .setColor("RED")
