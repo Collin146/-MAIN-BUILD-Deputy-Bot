@@ -1,6 +1,18 @@
 const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
+
+    function catchErr (err, message) {
+
+        let errchannel = bot.channels.find(x => x.name === 'errors');
+        const warningsign = bot.emojis.get("700843409526620180");
+        
+        errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`serverinfo.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
+        
+        }
+
+    try {
+
     let sicon = message.guild.iconURL;
 
     let serverembed = new Discord.RichEmbed()
@@ -24,6 +36,11 @@ module.exports.run = async (bot, message, args) => {
       ].join('\n'))
 
     return message.channel.send(serverembed);
+
+    } catch(err) {
+        catchErr(err)
+        
+    }
     
 }
 
