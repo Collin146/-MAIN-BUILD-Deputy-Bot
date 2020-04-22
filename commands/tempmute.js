@@ -49,6 +49,7 @@ if(tomute.hasPermission("ADMINISTRATOR")) return message.channel.send(errEmbed2)
 let muterole = message.guild.roles.find(x => x.name === 'Muted');
 let memberrole = message.guild.roles.find(x => x.name === 'Member');
 let approle = message.guild.roles.find(x => x.name === 'Applicant');
+let recrole = message.guild.roles.find(x => x.name === 'Recruit');
 //start of create role
 if (!muterole){
     try{
@@ -78,8 +79,34 @@ let errEmbed3 = new Discord.RichEmbed()
 
 if(!mutetime) return message.channel.send(errEmbed3);
 
+try {
+
 await(tomute.addRole(muterole.id));
 await(tomute.removeRole(memberrole.id));
+
+} catch(err) {
+    catchErr(err)
+}
+
+try {
+
+await(tomute.addRole(muterole.id));
+await(tomute.removeRole(approle.id));
+
+} catch(err) {
+    catchErr(err)
+
+}
+
+try {
+
+await(tomute.addRole(muterole.id));
+await(tomute.removeRole(recrole.id));
+    
+} catch(err) {
+     catchErr(err)
+        
+}
 
 geluktEmbed = new Discord.RichEmbed()
       .setColor("GREEN")
@@ -126,7 +153,7 @@ modlogchannel.send({embed: ModEmbed});
 
     } catch(err) {
         catchErr(err)
-        
+
     }
 
 }
