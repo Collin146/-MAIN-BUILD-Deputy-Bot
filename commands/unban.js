@@ -2,6 +2,17 @@ const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args, channel) => {
+
+    function catchErr (err, message) {
+
+        let errchannel = bot.channels.find(x => x.name === 'errors');
+        const warningsign = bot.emojis.get("700843409526620180");
+        
+        errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`unban.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
+        
+        }
+
+        try {
     
     if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
     if(args[0] === "help"){
@@ -65,13 +76,11 @@ let geluktEmbed = new Discord.RichEmbed()
 let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ModEmbed});
 
+    } catch(err) {
+        catchErr(err)
+        
+    } 
 
-   // let dmembed =  new Discord.RichEmbed()
-  //  .setTitle(`**You have been unbanned from ${message.guild.name}.**`)
-  //  .setColor("#00fff6")
-  //  .addField("Reason:", bReason || "None");
-
-    //username.send(dmembed);
 }
 
  module.exports.help = {
