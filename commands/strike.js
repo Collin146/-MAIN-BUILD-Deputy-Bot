@@ -5,6 +5,17 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
+    function catchErr (err, message) {
+
+        let errchannel = bot.channels.find(x => x.name === 'errors');
+        const warningsign = bot.emojis.get("700843409526620180");
+        
+        errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`strike.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
+        
+        }
+
+    try {
+
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
     if(args[0] === "help"){
         message.reply("Usage: !strike <1 or 2> <user> <reason>");
@@ -146,6 +157,11 @@ let errEmbed5 = new Discord.RichEmbed()
     .setDescription(`You didn't provide which type of strike you want to use!`);
 
 message.channel.send(errEmbed5) //.then(msg => msg.delete(5000));
+
+    } catch(err) {
+        catchErr(err)
+
+    }
 
 }
 
