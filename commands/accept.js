@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
         let errchannel = bot.channels.find(x => x.name === 'errors');
         const warningsign = bot.emojis.get("700843409526620180");
         
-        errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`index.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
+        errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`accept.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
         
         }
 
