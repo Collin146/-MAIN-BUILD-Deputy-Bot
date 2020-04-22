@@ -1,6 +1,17 @@
 const discord = require('discord.js'); //haal discord.js binnen
 
-module.exports.run = async (client, message, args, guild) => { //dingen definen
+module.exports.run = async (client, message, args, guild) => { 
+
+  function catchErr (err, message) {
+
+    let errchannel = client.channels.find(x => x.name === 'errors');
+    const warningsign = client.emojis.get("700843409526620180");
+    
+    errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`ticket.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
+    
+    }
+
+    try {
 
   let onderwerp = args.join(" ");
   var userName = message.author.username;
@@ -12,7 +23,7 @@ const no = client.emojis.get("700713478578634783");
  let errorEmbed = new discord.RichEmbed()
   .setColor("RED")
   .setTitle(`${no} **Error!**`)
-  .setDescription("You didn't provide a reason for this ticket!")
+  .setDescription("You didn't provide a reason for this ticket!");
 
   if(!onderwerp) return message.channel.send(errorEmbed); //als er geen args zijn
 
@@ -45,6 +56,12 @@ ticketchannel.send({embed: ticketEmbed});
 
       message.channel.send(geluktEmbed);
       return;
+
+    } catch(err) {
+      catchErr(err)
+      
+    }
+
 }
 module.exports.help = { //De export naar een echte CMD
     name: 'ticket' //Om de command aan te duiden dus bijvoorbeeld !help - !ticket etc.
