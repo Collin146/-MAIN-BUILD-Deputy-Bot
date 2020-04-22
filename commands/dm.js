@@ -3,6 +3,17 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
+  function catchErr (err, message) {
+
+    let errchannel = bot.channels.find(x => x.name === 'errors');
+    const warningsign = bot.emojis.get("700843409526620180");
+    
+    errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`dm.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
+    
+    }
+
+  try {
+
     if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
     if(args[0] === "help"){
         message.reply("Usage: !dm <message>");
@@ -60,6 +71,10 @@ let ModEmbed = new Discord.RichEmbed()
 let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ModEmbed});
 
+  } catch(err) {
+    catchErr(err)
+
+  }
 
 }
 
