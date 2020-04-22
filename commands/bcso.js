@@ -26,7 +26,7 @@ try {
         return;
     }
 
-//const yes = bot.emojis.get("700713527576625205");
+const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
 let tobcso = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
