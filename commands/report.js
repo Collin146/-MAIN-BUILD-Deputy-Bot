@@ -2,6 +2,17 @@ const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
 
+  function catchErr (err, message) {
+
+    let errchannel = bot.channels.find(x => x.name === 'errors');
+    const warningsign = bot.emojis.get("700843409526620180");
+    
+    errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`report.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
+    
+    }
+
+  try {
+
     if(args[0] == "help"){
         message.reply("Usage: !report <user> <reason>");
         return;
@@ -64,6 +75,10 @@ try{
     message.channel.send(errEmbed3);
 }
 
+  } catch(err) {
+    catchErr(err)
+
+  }
 
 }
 
