@@ -54,7 +54,7 @@ message.channel.send([
     `\`${day}\` **at** \`${time}\` **PM BST**`,
     ` `,
     "**Say yes to attend**",
-    `(If you say yes you are required to show up to the patrol. If you can't show up with a reason inform ${message.author} __before__ the patrol starts.)`
+    `(If you say yes you are required to show up to the patrol. If you can't show up with a reason inform ${message.author} __before__ the patrol starts).`
   ].join('\n'))
 
   message.delete().catch(O_o=>{});
