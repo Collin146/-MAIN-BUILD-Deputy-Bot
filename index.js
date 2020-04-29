@@ -85,7 +85,7 @@ try {
 //]
 
 //const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
-let memberTag = member.user.tag;
+//let memberTag = member.user.tag;
 
 let welcuser = member.guild.member(member) || member.guild.fetchMember(member)
 
@@ -141,10 +141,12 @@ bot.on("guildMemberRemove", async member => {
   
 try {
 
-let memberTag = member.user.tag;
+// let memberTag = member.user.tag;
+
+let leftuser = member.guild.member(member) || member.guild.fetchMember(member)
 
 let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
-    leftchannel.send(`**${memberTag}** has left the server.`);
+    leftchannel.send(`**<@${leftuser.id}>** has left the server.`);
     
 } catch (err) {
     catchErr(err);
