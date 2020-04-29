@@ -85,16 +85,16 @@ try {
 //]
 
 //const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
-//let memberTag = member.user.tag;
+let memberTag = member.user.tag;
 
-let welcuser = member.guild.member(member) || member.guild.fetchMember(member)
+//let welcuser = member.guild.member(member) || member.guild.fetchMember(member)
 
 const imagetouse = ("https://cdn.discordapp.com/attachments/461540254441144326/689179495000703063/TRANSP_WELCOME-cutout.png")
     
     let embed = new Discord.RichEmbed()
       .setTitle("**A new user has joined!**")
       .setColor("#00f4ef")
-      .setDescription(`Welcome **<@${welcuser.id}>**, To Deputy Roleplay, the best Roleplay Community for PS4!`)
+      .setDescription(`Welcome **${memberTag}**, To Deputy Roleplay, the best Roleplay Community for PS4!`)
       .setImage(`${imagetouse}`);
   welcomechannel.send({embed});
 
@@ -141,12 +141,12 @@ bot.on("guildMemberRemove", async member => {
   
 try {
 
-// let memberTag = member.user.tag;
+let memberTag = member.user.tag;
 
-let leftuser = member.guild.member(member) || member.guild.fetchMember(member)
+//let leftuser = member.guild.member(member) || member.guild.fetchMember(member)
 
 let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
-    leftchannel.send(`**<@${leftuser.id}>** has left the server.`);
+    leftchannel.send(`**${memberTag}** has left the server.`);
     
 } catch (err) {
     catchErr(err);
