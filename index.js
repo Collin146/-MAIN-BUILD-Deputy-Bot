@@ -805,7 +805,9 @@ modlogchannel.send({embed: cuembed});
 // }
 //   });
 
-
+//-—
+//On Patrol Logging event start
+//-—
 
 bot.on('voiceStateUpdate', (oldMember, newMember) => {
 
@@ -817,11 +819,20 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
     const mainguild = bot.guilds.get('644227663829139466')
     //if(!newMember.guild.id === mainguild) return;
 
-    const patrolrole = mainguild.roles.find(x => x.name === 'On Patrol');
+    let patrolrole = mainguild.roles.find(x => x.name === 'On Patrol');
 
     //const Briefingroom = newMember.guild.channels.fetch('689230310176456753')
     let Briefingroom = mainguild.channels.find(x => x.name === 'Briefing Room');
     let Generallobby = mainguild.channels.find(x => x.name === 'General Lobby');
+    let Relaxedlobby = mainguild.channels.find(x => x.name === 'Game/Relaxed Lobby');
+    let Helpchannel = mainguild.channels.find(x => x.name === 'Help');
+    let Techsupporthead = mainguild.channels.find(x => x.name === 'Tech Support Head Office');
+    let supportdesk1 = mainguild.channels.find(x => x.name === 'Support Desk #1');
+    let supportdesk2 = mainguild.channels.find(x => x.name === 'Support Desk #2');
+    let waitingsupport = mainguild.channels.find(x => x.name === 'Waiting For Support');
+    let communitymeeting = mainguild.channels.find(x => x.name === 'Community Meeting');
+    let staff1 = mainguild.channels.find(x => x.name === 'Staff Room #1');
+    let staff1wait = mainguild.channels.find(x => x.name === 'Staff Room #1 - Waiting Room');
 
     if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
@@ -833,17 +844,54 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
 
     } else if (oldUserChannel !== null && newUserChannel !== null) {
 
-    if(newUserChannel.id === Generallobby.id) newMember.removeRole(patrolrole.id);
+//General Lobby
+    // if(newUserChannel.id === Generallobby.id) newMember.removeRole(patrolrole.id);
     
-    if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-
+    if(newUserChannel.id !== Briefingroom.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
+// // Help Channel
+//     if(newUserChannel.id === Helpchannel.id) newMember.removeRole(patrolrole.id);
+    
+//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
+// //Game/Relaxed Lobby
+//     if(newUserChannel.id === Relaxedlobby.id) newMember.removeRole(patrolrole.id);
+    
+//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
+// //Tech Support Head Office
+//     if(newUserChannel.id === Techsupporthead.id) newMember.removeRole(patrolrole.id);
+    
+//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
+// //Support Desk #1
+//     if(newUserChannel.id === supportdesk1.id) newMember.removeRole(patrolrole.id);
+    
+//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
+// //Support Desk #2
+//     if(newUserChannel.id === supportdesk2.id) newMember.removeRole(patrolrole.id);
+    
+//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
+// //Waiting For Support 
+//     if(newUserChannel.id === waitingsupport.id) newMember.removeRole(patrolrole.id);
+    
+//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
+// //Community Meeting
+//     if(newUserChannel.id === communitymeeting.id) newMember.removeRole(patrolrole.id);
+    
+//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
+// //Staff Room #1
+//     if(newUserChannel.id === staff1.id) newMember.removeRole(patrolrole.id);
+    
+//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
     }
 
 //} catch (err) {
 //   catchErr(err);
 //}
 
-  })
+  });
+
+//-—
+//On Patrol Logging event end
+//-—
 
 //-—
 //Modlog events end
