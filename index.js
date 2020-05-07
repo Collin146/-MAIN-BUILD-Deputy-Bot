@@ -824,7 +824,7 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
 
     if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
-    if(newUserChannel.id === Briefingroom) oldMember.addRole(patrolrole); return;
+    if(oldUserChannel.id === Briefingroom) oldMember.addRole(patrolrole); return;
   
     } else if(newUserChannel === undefined){
    
