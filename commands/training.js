@@ -72,7 +72,7 @@ if(args[0] === "civilian"){
 
       if(args[0] === "bcso"){
 
-        message.channel.send([
+        const sentMessage2 =  await message.channel.send([
             `<@&${bcsorole.id}>`,
             ` `,
             "**BCSO Basic Training on**",
@@ -84,6 +84,8 @@ if(args[0] === "civilian"){
             `If you are attending, please join the BCSO Training Waiting room 5 minutes prior to the announced time above.`
           ].join('\n'))
         
+          await sentMessage2.react(yes.id);
+
           message.delete().catch(O_o=>{});
 
           return; 
@@ -91,7 +93,7 @@ if(args[0] === "civilian"){
 
         if(args[0] === "lsfd"){
 
-            message.channel.send([
+            const sentMessage3 =  await message.channel.send([
                 `<@&${lsfdrole.id}>`,
                 ` `,
                 "**LSFD Basic Training on**",
@@ -103,6 +105,8 @@ if(args[0] === "civilian"){
                 `If you are attending, please join the LSFD Training Waiting room 5 minutes prior to the announced time above.`
               ].join('\n'))
             
+              await sentMessage3.react(yes.id);
+
               message.delete().catch(O_o=>{});
 
               return; 
@@ -110,7 +114,7 @@ if(args[0] === "civilian"){
 
               if(args[0] === "communications"){
 
-                message.channel.send([
+                const sentMessage4 =  await message.channel.send([
                     `<@&${commsrole.id}>`,
                     ` `,
                     "**Communications Basic Training on**",
@@ -121,6 +125,8 @@ if(args[0] === "civilian"){
                     ` `,
                     `If you are attending, please join the Communications Training Waiting room 5 minutes prior to the announced time above.`
                   ].join('\n'))
+
+                  await sentMessage4.react(yes.id);
                 
                   message.delete().catch(O_o=>{});
                   
