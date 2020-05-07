@@ -828,7 +828,8 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
   
     } else if(newUserChannel === undefined){
    
-  
+    if(newUserChannel.id === Briefingroom.id) newMember.removeRole(patrolrole.id); return;
+
     }
 
 //} catch (err) {
