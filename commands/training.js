@@ -126,12 +126,12 @@ if(args[0] === "civilian"){
                   return; 
                   }
 
-    let errEmbed = new Discord.RichEmbed()
+    let errEmbed3 = new Discord.RichEmbed()
     .setColor("RED")
     .setTitle(`${no} **Error!**`)
     .setDescription(`You didn't provide what type of training!`);
 
-    message.channel.send(errEmbed);
+    message.channel.send(errEmbed3);
 
   message.delete().catch(O_o=>{});
 
