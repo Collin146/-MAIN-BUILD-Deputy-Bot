@@ -814,11 +814,12 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
     let newUserChannel = newMember.voiceChannel
     let oldUserChannel = oldMember.voiceChannel
 
-    //const mainguild = bot.guild.fetch('644227663829139466')
-    const patrolrole = newMember.guild.roles.find(x => x.name === 'On Patrol');
+    const mainguild = bot.guild.fetch('644227663829139466')
+    const patrolrole = mainguild.guild.roles.find(x => x.name === 'On Patrol');
 
-    const Briefingroom = newMember.guild.channel.fetch('689230310176456753')
-  
+    //const Briefingroom = newMember.guild.channels.fetch('689230310176456753')
+    let modlogchannel = mainguild.guild.channels.find(x => x.name === 'Briefing Room');
+
     if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
     if(newUserChannel.id === Briefingroom) newMember.addRole(patrolrole); return;
