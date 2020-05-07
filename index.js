@@ -833,7 +833,9 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
 
     } else if (oldUserChannel !== null && newUserChannel !== null) {
 
-    if(newUserChannel.id === Generallobby.id) newMember.removeRole(patrolrole.id); return;
+    if(newUserChannel.id === Generallobby.id) newMember.removeRole(patrolrole.id);
+    
+    if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
 
     }
 
