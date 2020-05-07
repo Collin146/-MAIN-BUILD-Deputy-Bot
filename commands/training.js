@@ -34,7 +34,6 @@ let lsfdrole = message.guild.roles.find(x => x.name === 'LSFD');
 let commsrole = message.guild.roles.find(x => x.name === 'Communications');
 let day = args[1];
 let time = args[2];
-let author = message.author
 
 let errEmbed = new Discord.RichEmbed()
 .setColor("RED")
@@ -59,7 +58,7 @@ if(args[0] === "civilian"){
         `\`${day}\` **at** \`${time}\` **PM BST**`,
         ` `,
         `**To attend, press the ${yes} below.**`,
-        `If you were attending but can't anymore, message ${author} before the training starts.`
+        `If you were attending but can't anymore, message <@${message.author.id}> before the training starts.`
         ` `,
         `If you are attending, please join the Civilian Training Waiting room 5 minutes prior to the announced time above.`
       ].join('\n'))
@@ -78,7 +77,7 @@ if(args[0] === "civilian"){
             `\`${day}\` **at** \`${time}\` **PM BST**`,
             ` `,
             `**To attend, press the ${yes} below.**`,
-            `If you were attending but can't anymore, message ${author} before the training starts.`,
+            `If you were attending but can't anymore, message <@${message.author.id}> before the training starts.`,
             ` `,
             `If you are attending, please join the BCSO Training Waiting room 5 minutes prior to the announced time above.`
           ].join('\n'))
@@ -97,7 +96,7 @@ if(args[0] === "civilian"){
                 `\`${day}\` **at** \`${time}\` **PM BST**`,
                 ` `,
                 `**To attend, press the ${yes} below.**`,
-                `If you were attending but can't anymore, message ${author} before the training starts.`,
+                `If you were attending but can't anymore, message <@${message.author.id}> before the training starts.`,
                 ` `,
                 `If you are attending, please join the LSFD Training Waiting room 5 minutes prior to the announced time above.`
               ].join('\n'))
@@ -116,7 +115,7 @@ if(args[0] === "civilian"){
                     `\`${day}\` **at** \`${time}\` **PM BST**`,
                     ` `,
                     `**To attend, press the ${yes} below.**`,
-                    `If you were attending but can't anymore, message ${author} before the training starts.`,
+                    `If you were attending but can't anymore, message <@${message.author.id}> before the training starts.`,
                     ` `,
                     `If you are attending, please join the Communications Training Waiting room 5 minutes prior to the announced time above.`
                   ].join('\n'))
