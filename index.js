@@ -810,133 +810,133 @@ modlogchannel.send({embed: cuembed});
 //On Patrol Logging event start
 //-—
 
-bot.on('voiceStateUpdate', (oldMember, newMember) => {
+// bot.on('voiceStateUpdate', (oldMember, newMember) => {
 
-//try {
+// //try {
 
-    let newUserChannel = newMember.voiceChannel
-    let oldUserChannel = oldMember.voiceChannel
+//     let newUserChannel = newMember.voiceChannel
+//     let oldUserChannel = oldMember.voiceChannel
 
-    const mainguild = bot.guilds.get('644227663829139466')
-    //if(!newMember.guild.id === mainguild) return;
+//     const mainguild = bot.guilds.get('644227663829139466')
+//     //if(!newMember.guild.id === mainguild) return;
 
-    let patrolrole = mainguild.roles.find(x => x.name === 'On Patrol');
+//     let patrolrole = mainguild.roles.find(x => x.name === 'On Patrol');
 
-    //const Briefingroom = newMember.guild.channels.fetch('689230310176456753')
-    let Briefingroom = mainguild.channels.find(x => x.name === 'Briefing Room');
-    let Queue = mainguild.channels.find(x => x.name === 'Queue');
-    let ten1 = mainguild.channels.find(x => x.name === '10-1 Channel');
-    let RA1 = mainguild.channels.find(x => x.name === 'Ride Along #1');
-    let RA2 = mainguild.channels.find(x => x.name === 'Ride Along #2');
-    let RA3 = mainguild.channels.find(x => x.name === 'Ride Along #3');
-    let RTO = mainguild.channels.find(x => x.name === 'R.T.O.');
-    let nine11 = mainguild.channels.find(x => x.name === '911 Centre');
-    let Traffic1 = mainguild.channels.find(x => x.name === 'Traffic Stop #1');
-    let Traffic2 = mainguild.channels.find(x => x.name === 'Traffic Stop #2');
-    let Traffic3 = mainguild.channels.find(x => x.name === 'Traffic Stop #3');
-    let Traffic4 = mainguild.channels.find(x => x.name === 'Traffic Stop #4');
-    let Scene1 = mainguild.channels.find(x => x.name === 'On Scene #1');
-    let Scene2 = mainguild.channels.find(x => x.name === 'On Scene #2');
-    let Scene3 = mainguild.channels.find(x => x.name === 'On Scene #3');
-    let Scene4 = mainguild.channels.find(x => x.name === 'On Scene #4');
-    let Civ1 = mainguild.channels.find(x => x.name === 'Civ Channel #1');
-    let Civ2 = mainguild.channels.find(x => x.name === 'Civ Channel #2');
-    let Civ3 = mainguild.channels.find(x => x.name === 'Civ Channel #3');
-    let Civ4 = mainguild.channels.find(x => x.name === 'Civ Channel #4');
-    let Civ5 = mainguild.channels.find(x => x.name === 'Civ Channel #5');
-    let Civ6 = mainguild.channels.find(x => x.name === 'Civ Channel #6');
-    let Civ7 = mainguild.channels.find(x => x.name === 'Civ Channel #7');
+//     //const Briefingroom = newMember.guild.channels.fetch('689230310176456753')
+//     let Briefingroom = mainguild.channels.find(x => x.name === 'Briefing Room');
+//     let Queue = mainguild.channels.find(x => x.name === 'Queue');
+//     let ten1 = mainguild.channels.find(x => x.name === '10-1 Channel');
+//     let RA1 = mainguild.channels.find(x => x.name === 'Ride Along #1');
+//     let RA2 = mainguild.channels.find(x => x.name === 'Ride Along #2');
+//     let RA3 = mainguild.channels.find(x => x.name === 'Ride Along #3');
+//     let RTO = mainguild.channels.find(x => x.name === 'R.T.O.');
+//     let nine11 = mainguild.channels.find(x => x.name === '911 Centre');
+//     let Traffic1 = mainguild.channels.find(x => x.name === 'Traffic Stop #1');
+//     let Traffic2 = mainguild.channels.find(x => x.name === 'Traffic Stop #2');
+//     let Traffic3 = mainguild.channels.find(x => x.name === 'Traffic Stop #3');
+//     let Traffic4 = mainguild.channels.find(x => x.name === 'Traffic Stop #4');
+//     let Scene1 = mainguild.channels.find(x => x.name === 'On Scene #1');
+//     let Scene2 = mainguild.channels.find(x => x.name === 'On Scene #2');
+//     let Scene3 = mainguild.channels.find(x => x.name === 'On Scene #3');
+//     let Scene4 = mainguild.channels.find(x => x.name === 'On Scene #4');
+//     let Civ1 = mainguild.channels.find(x => x.name === 'Civ Channel #1');
+//     let Civ2 = mainguild.channels.find(x => x.name === 'Civ Channel #2');
+//     let Civ3 = mainguild.channels.find(x => x.name === 'Civ Channel #3');
+//     let Civ4 = mainguild.channels.find(x => x.name === 'Civ Channel #4');
+//     let Civ5 = mainguild.channels.find(x => x.name === 'Civ Channel #5');
+//     let Civ6 = mainguild.channels.find(x => x.name === 'Civ Channel #6');
+//     let Civ7 = mainguild.channels.find(x => x.name === 'Civ Channel #7');
 
-    if(oldUserChannel === undefined && newUserChannel !== undefined) {
+//     if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
-    if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
-    // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
+//     // if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); return;
     
-    } else if(newUserChannel === undefined){
+//     } else if(newUserChannel === undefined){
    
-    if(oldUserChannel.id === Briefingroom.id) newMember.removeRole(patrolrole.id); return;
+//     if(oldUserChannel.id === Briefingroom.id) newMember.removeRole(patrolrole.id); return;
 
-    } else if (oldUserChannel !== null && newUserChannel !== null) {
+//     } else if (oldUserChannel !== null && newUserChannel !== null) {
 
-    if(newUserChannel.id === Briefingroom.id) return;
-    if(newUserChannel.id === Queue.id) return;
-    if(newUserChannel.id === ten1.id) return;
-    if(newUserChannel.id === RA1.id) return;
-    if(newUserChannel.id === RA2.id) return;
-    if(newUserChannel.id === RA3.id) return;
-    if(newUserChannel.id === RTO.id) return;
-    if(newUserChannel.id === nine11.id) return;
-    if(newUserChannel.id === Traffic1.id) return;
-    if(newUserChannel.id === Traffic2.id) return;
-    if(newUserChannel.id === Traffic3.id) return;
-    if(newUserChannel.id === Traffic4.id) return;
-    if(newUserChannel.id === Scene1.id) return;
-    if(newUserChannel.id === Scene2.id) return;
-    if(newUserChannel.id === Scene3.id) return;
-    if(newUserChannel.id === Scene4.id) return;
-    if(newUserChannel.id === Civ1.id) return;
-    if(newUserChannel.id === Civ2.id) return;
-    if(newUserChannel.id === Civ3.id) return;
-    if(newUserChannel.id === Civ4.id) return;
-    if(newUserChannel.id === Civ5.id) return;
-    if(newUserChannel.id === Civ6.id) return;
-    if(newUserChannel.id === Civ7.id) return;
+//     if(newUserChannel.id === Briefingroom.id) return;
+//     if(newUserChannel.id === Queue.id) return;
+//     if(newUserChannel.id === ten1.id) return;
+//     if(newUserChannel.id === RA1.id) return;
+//     if(newUserChannel.id === RA2.id) return;
+//     if(newUserChannel.id === RA3.id) return;
+//     if(newUserChannel.id === RTO.id) return;
+//     if(newUserChannel.id === nine11.id) return;
+//     if(newUserChannel.id === Traffic1.id) return;
+//     if(newUserChannel.id === Traffic2.id) return;
+//     if(newUserChannel.id === Traffic3.id) return;
+//     if(newUserChannel.id === Traffic4.id) return;
+//     if(newUserChannel.id === Scene1.id) return;
+//     if(newUserChannel.id === Scene2.id) return;
+//     if(newUserChannel.id === Scene3.id) return;
+//     if(newUserChannel.id === Scene4.id) return;
+//     if(newUserChannel.id === Civ1.id) return;
+//     if(newUserChannel.id === Civ2.id) return;
+//     if(newUserChannel.id === Civ3.id) return;
+//     if(newUserChannel.id === Civ4.id) return;
+//     if(newUserChannel.id === Civ5.id) return;
+//     if(newUserChannel.id === Civ6.id) return;
+//     if(newUserChannel.id === Civ7.id) return;
 
-    newMember.removeRole(patrolrole.id);
+//     newMember.removeRole(patrolrole.id);
 
-    if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === Queue.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === ten1.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === RA1.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === RA2.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === RA3.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === RTO.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === nine11.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === Traffic1.id) newMember.addRole(patrolrole.id);;
-    if(newUserChannel.id === Traffic2.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === Traffic3.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === Traffic4.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === Scene1.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === Scene2.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === Scene3.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === Scene4.id) newMember.addRole(patrolrole.id);;
-    if(newUserChannel.id === Civ1.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === Civ2.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === Civ3.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === Civ4.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === Civ5.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === Civ6.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === Civ7.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === Queue.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === ten1.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === RA1.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === RA2.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === RA3.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === RTO.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === nine11.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === Traffic1.id) newMember.addRole(patrolrole.id);;
+//     if(newUserChannel.id === Traffic2.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === Traffic3.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === Traffic4.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === Scene1.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === Scene2.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === Scene3.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === Scene4.id) newMember.addRole(patrolrole.id);;
+//     if(newUserChannel.id === Civ1.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === Civ2.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === Civ3.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === Civ4.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === Civ5.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === Civ6.id) newMember.addRole(patrolrole.id);
+//     if(newUserChannel.id === Civ7.id) newMember.addRole(patrolrole.id);
 
-    }
+//     }
 
-//} catch (err) {
-//   catchErr(err);
-//}
+// //} catch (err) {
+// //   catchErr(err);
+// //}
 
-  });
+//   });
 
 //-—
 //On Patrol Logging event end
