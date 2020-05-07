@@ -823,16 +823,28 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
 
     //const Briefingroom = newMember.guild.channels.fetch('689230310176456753')
     let Briefingroom = mainguild.channels.find(x => x.name === 'Briefing Room');
-    let Generallobby = mainguild.channels.find(x => x.name === 'General Lobby');
-    let Relaxedlobby = mainguild.channels.find(x => x.name === 'Game/Relaxed Lobby');
-    let Helpchannel = mainguild.channels.find(x => x.name === 'Help');
-    let Techsupporthead = mainguild.channels.find(x => x.name === 'Tech Support Head Office');
-    let supportdesk1 = mainguild.channels.find(x => x.name === 'Support Desk #1');
-    let supportdesk2 = mainguild.channels.find(x => x.name === 'Support Desk #2');
-    let waitingsupport = mainguild.channels.find(x => x.name === 'Waiting For Support');
-    let communitymeeting = mainguild.channels.find(x => x.name === 'Community Meeting');
-    let staff1 = mainguild.channels.find(x => x.name === 'Staff Room #1');
-    let staff1wait = mainguild.channels.find(x => x.name === 'Staff Room #1 - Waiting Room');
+    let Queue = mainguild.channels.find(x => x.name === 'Queue');
+    let ten1 = mainguild.channels.find(x => x.name === '10-1 Channel');
+    let RA1 = mainguild.channels.find(x => x.name === 'Ride Along #1');
+    let RA2 = mainguild.channels.find(x => x.name === 'Ride Along #2');
+    let RA3 = mainguild.channels.find(x => x.name === 'Ride Along #3');
+    let RTO = mainguild.channels.find(x => x.name === 'R.T.O.');
+    let nine11 = mainguild.channels.find(x => x.name === '911 Centre');
+    let Traffic1 = mainguild.channels.find(x => x.name === 'Traffic Stop #1');
+    let Traffic2 = mainguild.channels.find(x => x.name === 'Traffic Stop #2');
+    let Traffic3 = mainguild.channels.find(x => x.name === 'Traffic Stop #3');
+    let Traffic4 = mainguild.channels.find(x => x.name === 'Traffic Stop #4');
+    let Scene1 = mainguild.channels.find(x => x.name === 'On Scene #1');
+    let Scene2 = mainguild.channels.find(x => x.name === 'On Scene #2');
+    let Scene3 = mainguild.channels.find(x => x.name === 'On Scene #3');
+    let Scene4 = mainguild.channels.find(x => x.name === 'On Scene #4');
+    let Civ1 = mainguild.channels.find(x => x.name === 'Civ Channel #1');
+    let Civ2 = mainguild.channels.find(x => x.name === 'Civ Channel #2');
+    let Civ3 = mainguild.channels.find(x => x.name === 'Civ Channel #3');
+    let Civ4 = mainguild.channels.find(x => x.name === 'Civ Channel #4');
+    let Civ5 = mainguild.channels.find(x => x.name === 'Civ Channel #5');
+    let Civ6 = mainguild.channels.find(x => x.name === 'Civ Channel #6');
+    let Civ7 = mainguild.channels.find(x => x.name === 'Civ Channel #7');
 
     if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
@@ -843,44 +855,31 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
     if(oldUserChannel.id === Briefingroom.id) newMember.removeRole(patrolrole.id); return;
 
     } else if (oldUserChannel !== null && newUserChannel !== null) {
-
-//General Lobby
-    // if(newUserChannel.id === Generallobby.id) newMember.removeRole(patrolrole.id);
     
     if(newUserChannel.id !== Briefingroom.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
-// // Help Channel
-//     if(newUserChannel.id === Helpchannel.id) newMember.removeRole(patrolrole.id);
-    
-//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
-// //Game/Relaxed Lobby
-//     if(newUserChannel.id === Relaxedlobby.id) newMember.removeRole(patrolrole.id);
-    
-//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
-// //Tech Support Head Office
-//     if(newUserChannel.id === Techsupporthead.id) newMember.removeRole(patrolrole.id);
-    
-//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
-// //Support Desk #1
-//     if(newUserChannel.id === supportdesk1.id) newMember.removeRole(patrolrole.id);
-    
-//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
-// //Support Desk #2
-//     if(newUserChannel.id === supportdesk2.id) newMember.removeRole(patrolrole.id);
-    
-//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
-// //Waiting For Support 
-//     if(newUserChannel.id === waitingsupport.id) newMember.removeRole(patrolrole.id);
-    
-//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
-// //Community Meeting
-//     if(newUserChannel.id === communitymeeting.id) newMember.removeRole(patrolrole.id);
-    
-//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
-// //Staff Room #1
-//     if(newUserChannel.id === staff1.id) newMember.removeRole(patrolrole.id);
-    
-//     if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
+    if(newUserChannel.id !== Queue.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== ten1.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== RA1.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== RA2.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== RA3.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== RTO.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== nine11.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== Traffic1.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== Traffic2.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== Traffic3.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== Traffic4.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== Scene1.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== Scene2.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== Scene3.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== Scene4.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== Civ1.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== Civ2.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== Civ3.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== Civ4.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== Civ5.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== Civ6.id) newMember.removeRole(patrolrole.id);
+    if(newUserChannel.id !== Civ7.id) newMember.removeRole(patrolrole.id);
+
     }
 
 //} catch (err) {
