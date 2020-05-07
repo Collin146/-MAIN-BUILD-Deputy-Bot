@@ -13,7 +13,6 @@ module.exports.run = async (bot, message, args) => {
         }
 
         try {
-        
 
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
     if(args[0] === "help"){
@@ -29,9 +28,13 @@ module.exports.run = async (bot, message, args) => {
 
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783");
-let mentionrole = message.guild.roles.find(x => x.name === 'Recruit');
-let day = args[0];
-let time = args[1];
+//let mentionrole = message.guild.roles.find(x => x.name === 'Recruit');
+let civilianrole = message.guild.roles.find(x => x.name === 'Civilian');
+let bcsorole = message.guild.roles.find(x => x.name === 'BCSO');
+let lsfdrole = message.guild.roles.find(x => x.name === 'LSFD');
+let commsrole = message.guild.roles.find(x => x.name === 'Communications');
+let day = args[1];
+let time = args[2];
 
 let errEmbed = new Discord.RichEmbed()
 .setColor("RED")
@@ -47,15 +50,88 @@ let errEmbed2 = new Discord.RichEmbed()
 
 if (!time) return message.channel.send(errEmbed2);
 
-message.channel.send([
-    `<@&${mentionrole.id}>`,
-    ` `,
-    "**Training on**",
-    `\`${day}\` **at** \`${time}\` **PM BST**`,
-    ` `,
-    "**Say yes to attend**",
-    `(If you say yes or maybe you are required to show up to the training. If you can't show up with a reason inform ${message.author} __before__ the training starts.)`
-  ].join('\n'))
+if(args[0] === "civilian"){
+
+    message.channel.send([
+        `<@&${civilianrole.id}>`,
+        ` `,
+        "**Civilian Basic Training on**",
+        `\`${day}\` **at** \`${time}\` **PM BST**`,
+        ` `,
+        `**To attend, press the ${yes} below.**`,
+        `If you were attending but can't anymore, message ${message.author} before the training starts.`
+        ` `,
+        `If you are attending, please join the Civilian Training Waiting room 5 minutes prior to the announced time above.`
+      ].join('\n'))
+    
+      message.delete().catch(O_o=>{});
+
+      return; 
+      }
+
+      if(args[0] === "bcso"){
+
+        message.channel.send([
+            `<@&${bcsorole.id}>`,
+            ` `,
+            "**BCSO Basic Training on**",
+            `\`${day}\` **at** \`${time}\` **PM BST**`,
+            ` `,
+            `**To attend, press the ${yes} below.**`,
+            `If you were attending but can't anymore, message ${message.author} before the training starts.`,
+            ` `,
+            `If you are attending, please join the BCSO Training Waiting room 5 minutes prior to the announced time above.`
+          ].join('\n'))
+        
+          message.delete().catch(O_o=>{});
+
+          return; 
+          }
+
+        if(args[0] === "lsfd"){
+
+            message.channel.send([
+                `<@&${lsfdrole.id}>`,
+                ` `,
+                "**LSFD Basic Training on**",
+                `\`${day}\` **at** \`${time}\` **PM BST**`,
+                ` `,
+                `**To attend, press the ${yes} below.**`,
+                `If you were attending but can't anymore, message ${message.author} before the training starts.`,
+                ` `,
+                `If you are attending, please join the LSFD Training Waiting room 5 minutes prior to the announced time above.`
+              ].join('\n'))
+            
+              message.delete().catch(O_o=>{});
+
+              return; 
+              }
+
+              if(args[0] === "communications"){
+
+                message.channel.send([
+                    `<@&${commsrole.id}>`,
+                    ` `,
+                    "**Communications Basic Training on**",
+                    `\`${day}\` **at** \`${time}\` **PM BST**`,
+                    ` `,
+                    `**To attend, press the ${yes} below.**`,
+                    `If you were attending but can't anymore, message ${message.author} before the training starts.`,
+                    ` `,
+                    `If you are attending, please join the Communications Training Waiting room 5 minutes prior to the announced time above.`
+                  ].join('\n'))
+                
+                  message.delete().catch(O_o=>{});
+                  
+                  return; 
+                  }
+
+    let errEmbed = new Discord.RichEmbed()
+    .setColor("RED")
+    .setTitle(`${no} **Error!**`)
+    .setDescription(`You didn't provide what type of training!`);
+
+    message.channel.send(errEmbed);
 
   message.delete().catch(O_o=>{});
 
