@@ -809,7 +809,7 @@ modlogchannel.send({embed: cuembed});
 
 bot.on('voiceStateUpdate', (oldMember, newMember) => {
 
-try {
+//try {
 
     let newUserChannel = newMember.voiceChannel
     let oldUserChannel = oldMember.voiceChannel
@@ -828,9 +828,9 @@ try {
   
     }
 
-} catch (err) {
-    catchErr(err);
-}
+//} catch (err) {
+//   catchErr(err);
+//}
 
   })
 
