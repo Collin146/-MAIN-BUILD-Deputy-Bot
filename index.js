@@ -4,6 +4,7 @@ const moment = require('moment');
 const fs = require("fs");
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
+process.setMaxListeners(Infinity);
 
 function catchErr (err, message) {
 
