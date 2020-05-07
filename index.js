@@ -817,10 +817,10 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
     const mainguild = bot.guilds.get('644227663829139466')
     //if(!newMember.guild.id === mainguild) return;
 
-    const patrolrole = mainguild.guild.roles.find(x => x.name === 'On Patrol');
+    const patrolrole = mainguild.roles.find(x => x.name === 'On Patrol');
 
     //const Briefingroom = newMember.guild.channels.fetch('689230310176456753')
-    let Briefingroom = mainguild.guild.channels.find(x => x.name === 'Briefing Room');
+    let Briefingroom = mainguild.channels.find(x => x.name === 'Briefing Room');
 
     if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
