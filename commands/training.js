@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
         
         }
 
-        try {
+        //try {
 
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
     if(args[0] === "help"){
@@ -135,10 +135,10 @@ if(args[0] === "civilian"){
 
   message.delete().catch(O_o=>{});
 
-} catch(err) {
-    catchErr(err)
+//} catch(err) {
+//    catchErr(err)
     
-}
+//}
 
 }
 
