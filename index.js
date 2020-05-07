@@ -805,6 +805,35 @@ modlogchannel.send({embed: cuembed});
 // }
 //   });
 
+
+
+bot.on('voiceStateUpdate', (oldMember, newMember) => {
+
+try {
+
+    let newUserChannel = newMember.voiceChannel
+    let oldUserChannel = oldMember.voiceChannel
+
+    const mainguild = bot.guild.fetch("644227663829139466")
+    const patrolrole = mainguild.roles.find(x => x.name === 'On Patrol');
+
+    const Briefingroom = mainguild.channel.fetch("689230310176456753")
+  
+    if(oldUserChannel === undefined && newUserChannel !== undefined) {
+
+    if (newUserChannel.id === Briefingroom) newMember.addRole(patrolrole); return;
+  
+    } else if(newUserChannel === undefined){
+   
+  
+    }
+
+} catch (err) {
+    catchErr(err);
+}
+
+  })
+
 //-—
 //Modlog events end
 //-—
