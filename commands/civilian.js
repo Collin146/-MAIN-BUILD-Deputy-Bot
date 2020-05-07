@@ -27,7 +27,7 @@ try {
     }
 
 const yes = bot.emojis.get("700713527576625205");
-//const no = bot.emojis.get("700713478578634783"); 
+const no = bot.emojis.get("700713478578634783"); 
 let tociv = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
 let errEmbed = new Discord.RichEmbed()
