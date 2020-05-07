@@ -821,6 +821,7 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
 
     //const Briefingroom = newMember.guild.channels.fetch('689230310176456753')
     let Briefingroom = mainguild.channels.find(x => x.name === 'Briefing Room');
+    let Generallobby = mainguild.channels.find(x => x.name === 'General Lobby');
 
     if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
@@ -829,6 +830,10 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
     } else if(newUserChannel === undefined){
    
     if(oldUserChannel.id === Briefingroom.id) newMember.removeRole(patrolrole.id); return;
+
+    } else if (oldUserChannel !== null && newUserChannel !== null) {
+
+    if(newUserChannel.id === Generallobby.id) newMember.removeRole(patrolrole.id); return;
 
     }
 
