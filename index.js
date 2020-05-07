@@ -857,31 +857,9 @@ bot.on('voiceStateUpdate', (oldMember, newMember) => {
 
     } else if (oldUserChannel !== null && newUserChannel !== null) {
     
-    if(newUserChannel.id === Briefingroom.id, Queue.id, ten1.id, RA1.id, RA2.id, RA3.id, RTO.id, nine11.id, Traffic1.id, Traffic2.id, Traffic3.id, Traffic4.id, Scene1.id, Scene2.id, Scene3.id, Scene4.id, Civ1.id, Civ2.id, Civ3.id, Civ4.id, Civ5.id, Civ6.id, Civ7.id) return;
+    if(newUserChannel.id === Briefingroom.id, Queue.id, ten1.id, RA1.id, RA2.id, RA3.id, RTO.id, nine11.id, Traffic1.id, Traffic2.id, Traffic3.id, Traffic4.id, Scene1.id, Scene2.id, Scene3.id, Scene4.id, Civ1.id, Civ2.id, Civ3.id, Civ4.id, Civ5.id, Civ6.id, Civ7.id)
 
-    if(newUserChannel.id !== Briefingroom.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== Queue.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== ten1.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== RA1.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== RA2.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== RA3.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== RTO.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== nine11.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== Traffic1.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== Traffic2.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== Traffic3.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== Traffic4.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== Scene1.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== Scene2.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== Scene3.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== Scene4.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== Civ1.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== Civ2.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== Civ3.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== Civ4.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== Civ5.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== Civ6.id) newMember.removeRole(patrolrole.id);
-    if(newUserChannel.id !== Civ7.id) newMember.removeRole(patrolrole.id);
+    newMember.removeRole(patrolrole.id);
 
     }
 
