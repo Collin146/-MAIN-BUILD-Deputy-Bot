@@ -51,7 +51,7 @@ if (!time) return message.channel.send(errEmbed2);
 
 if(args[0] === "civilian"){
 
-    message.channel.send([
+    const sentMessage =  await message.channel.send([
         `<@&${civilianrole.id}>`,
         ` `,
         "**Civilian Basic Training on**",
@@ -62,6 +62,8 @@ if(args[0] === "civilian"){
         ` `,
         `If you are attending, please join the Civilian Training Waiting room 5 minutes prior to the announced time above.`
       ].join('\n'))
+
+    await sentMessage.react(yes.id);
     
       message.delete().catch(O_o=>{});
 
