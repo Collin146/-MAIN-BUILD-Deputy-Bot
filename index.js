@@ -209,44 +209,25 @@ try {
 //—
 //Link Detection Start
 //--
-
+//`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`, `https://`, `http://`, `.com/`, `.com`, `www.`, `https://www.`, `http://www.`, `https`, `http`
 
 bot.on(`message`, async message => {
 
     try {
 
-    const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`, `https://`, `http://`, `.com/`, `.com`, `www.`, `https://www.`, `http://www.`, `https`, `http`]
+    const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`, `https://`, `http://`, `.com/`, `.com`, `www.`, `https://www.`, `http://www.`, `https`, `http`] 
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
-
             const warningsign = bot.emojis.get("700843409526620180");
-
-
             if (message.author.id === message.guild.ownerID) return;
-            if (message.member.hasPermission("ADMINISTRATOR")) return;
-            if (message.guild.roles.find(x => x.name === 'Staff Team')) return;
             await message.delete();
-
-            const modembed = new Discord.RichEmbed()
-           .setColor('RED')
-           .setTimestamp()
-           .setTitle("**Link Posted!**")
-           .setDescription([
-               `**Sent By:** ${message.author.tag}`,
-               `**User's ID:** ${message.author.id}`,
-               `**Sent In:** ${message.channel}`,
-               `**Link:** ${message.content}`
-             ].join('\n'))
-       
-       let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
-       modlogchannel.send({embed: modembed});
             
             let linkembed = new Discord.RichEmbed()
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Links are not allowed to be sent!")
-            .setFooter("Spamming links will result in a punishment!");
-
+            .setFooter("Continuing on sending links words will result in disciplinary action!");
+           
             await message.channel.send(linkembed);
         }
     } catch (e) {
@@ -258,6 +239,54 @@ bot.on(`message`, async message => {
 }
 
 });
+
+// bot.on(`message`, async message => {
+
+//     try {
+
+//     const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`, `https://`, `http://`, `.com/`, `.com`, `www.`, `https://www.`, `http://www.`, `https`, `http`]
+//     try {
+//         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
+
+//             const warningsign = bot.emojis.get("700843409526620180");
+
+
+//             if (message.author.id === message.guild.ownerID) return;
+//             if (message.member.hasPermission("ADMINISTRATOR")) return;
+//             if (message.guild.roles.find(x => x.name === 'Staff Team')) return;
+//             await message.delete();
+
+//             const modembed = new Discord.RichEmbed()
+//            .setColor('RED')
+//            .setTimestamp()
+//            .setTitle("**Link Posted!**")
+//            .setDescription([
+//                `**Sent By:** ${message.author.tag}`,
+//                `**User's ID:** ${message.author.id}`,
+//                `**Sent In:** ${message.channel}`,
+//                `**Link:** ${message.content}`
+//              ].join('\n'))
+       
+//        let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+//        modlogchannel.send({embed: modembed});
+            
+//             let linkembed = new Discord.RichEmbed()
+//             .setTitle(`${warningsign} **Notice!**`)
+//             .setColor("RED")
+//             .setDescription("Links are not allowed to be sent!")
+//             .setFooter("Spamming links will result in a punishment!");
+
+//             await message.channel.send(linkembed);
+//         }
+//     } catch (e) {
+//         console.log(e);
+//     }
+
+// } catch (err) {
+//     catchErr(err);
+// }
+
+// });
 
 // // bot.on(`message`, async (message, args) => {
 // //     const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`]
@@ -342,7 +371,7 @@ bot.on(`message`, async message => {
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Do not mention everyone or member!")
-            .setFooter("Mention spam will result in a punishment!");
+            .setFooter("Mention spam will result in disciplinary action!");
            
             await message.channel.send(linkembed);
         }
@@ -379,7 +408,7 @@ bot.on(`message`, async message => {
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Those words are not allowed to be sent!")
-            .setFooter("Continuing on sending those words will result in a punishment!");
+            .setFooter("Continuing on sending those words will result in disciplinary action!");
            
             await message.channel.send(linkembed);
         }
