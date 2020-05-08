@@ -220,6 +220,7 @@ bot.on(`message`, async message => {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
             const warningsign = bot.emojis.get("700843409526620180");
             if (message.author.id === message.guild.ownerID) return;
+            if (message.member.hasPermission("ADMINISTRATOR")) return;
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
