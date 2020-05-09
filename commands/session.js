@@ -51,7 +51,7 @@ message.channel.send([
     `<@&${mentionrole.id}>`,
     ` `,
     "**New Patrol Scheduled For**",
-    `\`${day}\` **at** \`${time}\` **PM BST**`,
+    `\`${day}\` **at** \`${time}\` **BST**`,
     ` `,
     "**Say yes to attend**",
     `(If you say yes you are required to show up to the patrol. If you can't show up with a reason inform ${message.author} __before__ the patrol starts. Please note that you will have to show up to briefing room. This starts 30 minutes prior to the time announced above.).`
