@@ -227,7 +227,7 @@ bot.on(`message`, async message => {
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Links are not allowed to be sent!")
-            .setFooter("Continuing on sending links words will result in disciplinary action!");
+            .setFooter("This is to be considered as a warning!");
            
             await message.channel.send(linkembed);
         }
@@ -409,7 +409,7 @@ bot.on(`message`, async message => {
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Those words are not allowed to be sent!")
-            .setFooter("Continuing on sending those words will result in disciplinary action!");
+            .setFooter("This is to be considered as a warning!");
            
             await message.channel.send(linkembed);
         }
