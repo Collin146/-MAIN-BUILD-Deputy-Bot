@@ -28,6 +28,9 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783");  
+
     if (talkedRecently.has(message.author.id)) {
 
         let errEmbed2 = new Discord.RichEmbed()
