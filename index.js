@@ -20,7 +20,7 @@ const no = bot.emojis.get("561106624757104640");
 // const warningsign = bot.emojis.get("572176403907215360");
 
 //--
-//Cmd handler end
+//Cmd handler begin
 //--
 
 fs.readdir("./commands/", (err, files) => {
@@ -227,7 +227,7 @@ bot.on(`message`, async message => {
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Links are not allowed to be sent!")
-            .setFooter("This is to be considered as a warning!");
+            .setFooter("Continuing on sending links words will result in disciplinary action!");
            
             await message.channel.send(linkembed);
         }
@@ -409,7 +409,7 @@ bot.on(`message`, async message => {
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Those words are not allowed to be sent!")
-            .setFooter("This is to be considered as a warning!");
+            .setFooter("Continuing on sending those words will result in disciplinary action!");
            
             await message.channel.send(linkembed);
         }
@@ -859,6 +859,7 @@ try {
     let RA1 = mainguild.channels.find(x => x.name === 'Ride Along #1');
     let RA2 = mainguild.channels.find(x => x.name === 'Ride Along #2');
     let RA3 = mainguild.channels.find(x => x.name === 'Ride Along #3');
+    let fireops = mainguild.channels.find(x => x.name === 'Fire Operations');
     let RTO = mainguild.channels.find(x => x.name === 'R.T.O.');
     let nine11 = mainguild.channels.find(x => x.name === '911 Centre');
     let Traffic1 = mainguild.channels.find(x => x.name === 'Traffic Stop #1');
@@ -885,6 +886,7 @@ try {
     if(newUserChannel.id === RA1.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === RA2.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === RA3.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === fireops.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === RTO.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === nine11.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Traffic1.id) newMember.addRole(patrolrole.id); 
@@ -911,6 +913,7 @@ try {
     if(oldUserChannel.id === RA1.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === RA2.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === RA3.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === fireops.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === RTO.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === nine11.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Traffic1.id) newMember.removeRole(patrolrole.id); 
@@ -937,6 +940,7 @@ try {
         if(newUserChannel.id === RA1.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === RA2.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === RA3.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === fireops.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === RTO.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === nine11.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Traffic1.id) newMember.addRole(patrolrole.id);;
@@ -961,6 +965,7 @@ try {
     if(newUserChannel.id === RA1.id) return;
     if(newUserChannel.id === RA2.id) return;
     if(newUserChannel.id === RA3.id) return;
+    if(newUserChannel.id === fireops.id) return;
     if(newUserChannel.id === RTO.id) return;
     if(newUserChannel.id === nine11.id) return;
     if(newUserChannel.id === Traffic1.id) return;
