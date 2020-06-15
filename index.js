@@ -859,6 +859,7 @@ try {
     let RA1 = mainguild.channels.find(x => x.name === 'Ride Along #1');
     let RA2 = mainguild.channels.find(x => x.name === 'Ride Along #2');
     let RA3 = mainguild.channels.find(x => x.name === 'Ride Along #3');
+    let srutac = mainguild.channels.find(x => x.name === 'SRU Tactical Channel');
     let fireops = mainguild.channels.find(x => x.name === 'Fire Operations');
     let RTO = mainguild.channels.find(x => x.name === 'R.T.O.');
     let nine11 = mainguild.channels.find(x => x.name === '911 Centre');
@@ -886,6 +887,7 @@ try {
     if(newUserChannel.id === RA1.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === RA2.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === RA3.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === srutac.id) newMember.addRole(patrolrole.id);
     if(newUserChannel.id === fireops.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === RTO.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === nine11.id) newMember.addRole(patrolrole.id); 
@@ -913,6 +915,7 @@ try {
     if(oldUserChannel.id === RA1.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === RA2.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === RA3.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === srutac.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === fireops.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === RTO.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === nine11.id) newMember.removeRole(patrolrole.id); 
@@ -940,6 +943,7 @@ try {
         if(newUserChannel.id === RA1.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === RA2.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === RA3.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === srutac.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === fireops.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === RTO.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === nine11.id) newMember.addRole(patrolrole.id);
@@ -965,6 +969,7 @@ try {
     if(newUserChannel.id === RA1.id) return;
     if(newUserChannel.id === RA2.id) return;
     if(newUserChannel.id === RA3.id) return;
+    if(newUserChannel.id === srutac.id) return;
     if(newUserChannel.id === fireops.id) return;
     if(newUserChannel.id === RTO.id) return;
     if(newUserChannel.id === nine11.id) return;
