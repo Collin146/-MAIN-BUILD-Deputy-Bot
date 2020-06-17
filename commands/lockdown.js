@@ -41,34 +41,23 @@ try {
       .setDescription(`Lockdown lifted.`)
 
     // if (message.member.hasPermission("MANAGE_MESSAGES")) {
-         if (!bot.lockit) bot.lockit = [];
-        //  let time = args.join(' ');
+    //  let time = args.join(' ');
     //let memberrole = message.guild.roles.find(x => x.name === 'Member');
     let permsmember = message.channel.permissionOverwrites.get(message.guild.id);
     if (permsmember && permsmember.SEND_MESSAGES === false) {
       message.channel.overwritePermissions(message.guild.id, {
-        SEND_MESSAGES: null
-      }).then(() => {
-        message.channel.send(geluktEmbed2);
-        clearTimeout(bot.lockit[message.channel.id]);
-        delete bot.lockit[message.channel.id];
-      }).catch(error => {
-        console.log(error);
+        SEND_MESSAGES: true
       });
+      message.channel.send(geluktEmbed2);
       return;
      }
 
      if (permsmember && permsmember.SEND_MESSAGES === true) {
       message.channel.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: false
-      }).then(() => {
-        message.channel.send(geluktEmbed).then(() => {
-   
-        }).catch(error => {
-          console.log(error);
-        });
-      });
-    }
+      })
+      message.channel.send(geluktEmbed)
+    };
     // }
 
   } catch(err) {
