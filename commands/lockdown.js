@@ -43,8 +43,8 @@ try {
     // if (message.member.hasPermission("MANAGE_MESSAGES")) {
          if (!bot.lockit) bot.lockit = [];
         //  let time = args.join(' ');
-    let memberrole = message.guild.roles.find(x => x.name === 'Member');
-    let permsmember = message.channel.permissionOverwrites.get(memberrole);
+    //let memberrole = message.guild.roles.find(x => x.name === 'Member');
+    let permsmember = message.channel.permissionOverwrites.get(message.guild.id);
     if (permsmember && permsmember.SEND_MESSAGES === false) {
       message.channel.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: null
