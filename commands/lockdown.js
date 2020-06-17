@@ -55,7 +55,10 @@ try {
       }).catch(error => {
         console.log(error);
       });
-     } else {
+      return;
+     }
+
+     if (permsmember && permsmember.SEND_MESSAGES === true) {
       message.channel.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: false
       }).then(() => {
