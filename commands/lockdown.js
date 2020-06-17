@@ -42,9 +42,8 @@ module.exports.run = async (bot, message, args) => {
 
     // if (message.member.hasPermission("MANAGE_MESSAGES")) {
     //  let time = args.join(' ');
-    //let memberrole = message.guild.roles.find(x => x.name === 'Member');
-    let permsmember = message.channel.permissionOverwrites.get(message.guild.id);
-    if (permsmember && permsmember.SEND_MESSAGES === false) {
+    ow = message.channel.permissionOverwrites.get(message.guild.id);
+    if (ow && ow.SEND_MESSAGES === false) {
       message.channel.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: true
       });
@@ -52,7 +51,7 @@ module.exports.run = async (bot, message, args) => {
       return;
      }
 
-     if (permsmember && permsmember.SEND_MESSAGES === true) {
+     if (ow && ow.SEND_MESSAGES === true) {
       message.channel.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: false
       })
