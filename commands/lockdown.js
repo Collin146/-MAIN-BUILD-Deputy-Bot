@@ -40,11 +40,12 @@ try {
       .setTitle(`${yes} **Done!**`)
       .setDescription(`Lockdown lifted.`)
 
-    if (message.member.hasPermission("MANAGE_MESSAGES")) {
+    // if (message.member.hasPermission("MANAGE_MESSAGES")) {
          if (!bot.lockit) bot.lockit = [];
-         let time = args.join(' ');
-    let validUnlocks = ['release', 'unlock'];
-    if (validUnlocks.includes(time)) {
+        //  let time = args.join(' ');
+    let memberrole = message.guild.roles.find(x => x.name === 'Member');
+    let permsmember = message.channel.permissionOverwrites.get(memberrole);
+    if (permsmember && permsmember.SEND_MESSAGES === false) {
       message.channel.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: null
       }).then(() => {
@@ -65,7 +66,7 @@ try {
         });
       });
     }
-    }
+    // }
 
   } catch(err) {
     catchErr(err)
