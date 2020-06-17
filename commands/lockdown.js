@@ -4,16 +4,16 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
-//   function catchErr (err, message) {
+  function catchErr (err, message) {
 
-//     let errchannel = bot.channels.find(x => x.name === 'errors');
-//     const warningsign = bot.emojis.get("700843409526620180");
+    let errchannel = bot.channels.find(x => x.name === 'errors');
+    const warningsign = bot.emojis.get("700843409526620180");
     
-//     errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`lockdown.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
+    errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`lockdown.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
     
-//     }
+    }
 
-// try {
+try {
     
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
     if(args[0] === "help"){
@@ -40,29 +40,37 @@ module.exports.run = async (bot, message, args) => {
       .setTitle(`${yes} **Done!**`)
       .setDescription(`Lockdown lifted.`)
 
-    // if (message.member.hasPermission("MANAGE_MESSAGES")) {
-    //  let time = args.join(' ');
-    ow = message.channel.permissionOverwrites.get(message.guild.id);
-    if (ow && ow.SEND_MESSAGES === false) {
+    if (message.member.hasPermission("MANAGE_MESSAGES")) {
+         if (!bot.lockit) bot.lockit = [];
+         let time = args.join(' ');
+    let validUnlocks = ['release', 'unlock'];
+    if (validUnlocks.includes(time)) {
       message.channel.overwritePermissions(message.guild.id, {
-        SEND_MESSAGES: true
+        SEND_MESSAGES: null
+      }).then(() => {
+        message.channel.send(geluktEmbed2);
+        clearTimeout(bot.lockit[message.channel.id]);
+        delete bot.lockit[message.channel.id];
+      }).catch(error => {
+        console.log(error);
       });
-      message.channel.send(geluktEmbed2);
-      return;
-     }
-
-     if (ow && ow.SEND_MESSAGES === true) {
+     } else {
       message.channel.overwritePermissions(message.guild.id, {
         SEND_MESSAGES: false
-      })
-      message.channel.send(geluktEmbed)
-    };
-    // }
+      }).then(() => {
+        message.channel.send(geluktEmbed).then(() => {
+   
+        }).catch(error => {
+          console.log(error);
+        });
+      });
+    }
+    }
 
-//   } catch(err) {
-//     catchErr(err)
+  } catch(err) {
+    catchErr(err)
 
-//   }
+  }
 
 }
 
