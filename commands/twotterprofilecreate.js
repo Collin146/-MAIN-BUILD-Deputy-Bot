@@ -13,7 +13,7 @@ let profiles = JSON.parse(fs.readFileSync("./profiles.json", "utf8"));
         firstname: args[0],
         lastname: args[1],
         age: args[2],
-        bio: args.join(" ").slice(2);
+        bio: args.join(" ").slice(2)
         
     };
 
