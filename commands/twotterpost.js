@@ -16,9 +16,10 @@ let errEmbed = new Discord.RichEmbed()
 if(!postcontent) return message.channel.send(errEmbed);
 
 let usertag = message.author.username;
+let postauthor = message.guild.author
 
 let postembed = new Discord.RichEmbed()
-.setAuthor(`${message.author.displayName} @${usertag}`, message.author.avatarURL)
+.setAuthor(`${postauthor.displayName} @${usertag}`, message.author.avatarURL)
 .setColor("0173ce")
 .setDescription(`${postcontent}`);
 
