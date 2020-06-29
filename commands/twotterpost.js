@@ -23,9 +23,10 @@ let member = guild.member(message.author);
 let nickname = member ? member.displayName : null;
 
 let postembed = new Discord.RichEmbed()
-.setAuthor(`${nickname} @${usertag}`, message.author.avatarURL)
+.setAuthor(`${nickname} • @${usertag}`, message.author.avatarURL)
 .setColor("0173ce")
-.setDescription(`${postcontent}`);
+.setDescription(`${postcontent}`)
+.setTimestamp(message.createdAt);
 
 
 message.channel.send(postembed);
