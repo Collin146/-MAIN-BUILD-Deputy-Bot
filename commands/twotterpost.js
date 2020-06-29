@@ -23,5 +23,5 @@ const postimage = ("https://media.discordapp.net/attachments/511913643923996683/
 }
 
 module.exports.help = {
-    name: "twotter post"
+    name: "twotterpost"
 }
