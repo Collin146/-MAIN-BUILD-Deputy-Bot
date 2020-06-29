@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+   const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => {
@@ -22,14 +22,10 @@ let guild = bot.guilds.get('644227663829139466');
 let member = guild.member(message.author);
 let nickname = member ? member.displayName : null;
 
-const currentdate = new Date(); 
-const datetime = "• " + currentdate.getDate() + "/"
-    + (currentdate.getMonth()+1)  + "/" 
-    + currentdate.getHours() + ":"  
-    + currentdate.getMinutes() + ":" 
+const d = new Date();
 
 let postembed = new Discord.RichEmbed()
-.setAuthor(`${nickname} @${usertag} ${datetime}`, message.author.avatarURL)
+.setAuthor(`${nickname} @${usertag} ${d.toLocaleTimeString()}`, message.author.avatarURL)
 .setColor("0173ce")
 .setDescription(`${postcontent}`);
 
