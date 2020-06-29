@@ -16,10 +16,14 @@ let errEmbed = new Discord.RichEmbed()
 if(!postcontent) return message.channel.send(errEmbed);
 
 let usertag = message.author.username;
-let postauthor = message.guild.author
+//let postauthor = message.guild.author
+
+let guild = client.guilds.get('serverID');
+let member = guild.member(message.author);
+let nickname = member ? member.displayName : null;
 
 let postembed = new Discord.RichEmbed()
-.setAuthor(`${postauthor.displayName} @${usertag}`, message.author.avatarURL)
+.setAuthor(`${nickname} @${usertag}`, message.author.avatarURL)
 .setColor("0173ce")
 .setDescription(`${postcontent}`);
 
