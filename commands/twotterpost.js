@@ -15,10 +15,12 @@ let errEmbed = new Discord.RichEmbed()
 
 if(!postcontent) return message.channel.send(errEmbed);
 
+let usertag = author.user.tag;
 const postimage = ("https://media.discordapp.net/attachments/511913643923996683/727158652888154163/image1.png")
 
 let postembed = new Discord.RichEmbed()
-.setTitle(`<@${message.author.id}> @${message.author.username}`, message.author.avatarURL)
+.setAuthor(message.author.avatarURL)
+.setTitle(`${message.author.nickname} @${usertag}`)
 .setColor("0173ce")
 .setDescription(`${postcontent}`);
 
