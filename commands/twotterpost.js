@@ -20,7 +20,7 @@ const postimage = ("https://media.discordapp.net/attachments/511913643923996683/
 
 let postembed = new Discord.RichEmbed()
 .setAuthor(message.author.avatarURL)
-.setTitle(`${message.author.nickname} @${usertag}`)
+.setTitle(`${message.author.displayName} @${usertag}`)
 .setColor("0173ce")
 .setDescription(`${postcontent}`);
 
