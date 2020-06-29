@@ -3,6 +3,9 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
+
+const twotter = bot.emojis.get("727159498686595072");
+
 if(args[0] === "post"){
 
 let messagecont = args.slice(1).join(" ");
@@ -14,7 +17,7 @@ const postimage = ("https://media.discordapp.net/attachments/511913643923996683/
     let postembed = new Discord.RichEmbed()
       .setTitle("**New Twotter Post**")
       .setColor("#0173ce")
-      .setDescription(`${messagecont}`)
+      .setDescription(`${twotter} ${messagecont}`)
       .setImage(`${postimage}`);
       
   message.channel.send({postembed});
