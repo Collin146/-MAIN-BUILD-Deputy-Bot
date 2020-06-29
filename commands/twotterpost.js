@@ -1,4 +1,4 @@
-   const Discord = require("discord.js");
+const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => {
@@ -25,7 +25,7 @@ let nickname = member ? member.displayName : null;
 const d = new Date();
 
 let postembed = new Discord.RichEmbed()
-.setAuthor(`${nickname} @${usertag} ${d.toLocaleTimeString()}`, message.author.avatarURL)
+.setAuthor(`${nickname} • @${usertag}`, message.author.avatarURL)
 .setColor("0173ce")
 .setDescription(`${postcontent}`);
 
