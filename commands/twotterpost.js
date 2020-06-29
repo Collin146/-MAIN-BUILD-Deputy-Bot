@@ -18,7 +18,7 @@ if(!postcontent) return message.channel.send(errEmbed);
 let usertag = message.author.username;
 //let postauthor = message.guild.author
 
-let guild = client.guilds.get('serverID');
+let guild = bot.guilds.get('644227663829139466');
 let member = guild.member(message.author);
 let nickname = member ? member.displayName : null;
 
