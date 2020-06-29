@@ -10,9 +10,9 @@ const twotter = bot.emojis.get("727159498686595072");
 let profiles = JSON.parse(fs.readFileSync("./profiles.json", "utf8"));
 
     profiles[message.author.id] = {
-        firstname: args[0]
-        lastname: args[1]
-        age: args[2]
+        firstname: args[0],
+        lastname: args[1],
+        age: args[2],
         bio: args.join(" ").slice(2);
         
     };
