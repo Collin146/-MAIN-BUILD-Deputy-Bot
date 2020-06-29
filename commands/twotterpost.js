@@ -22,10 +22,16 @@ let guild = bot.guilds.get('644227663829139466');
 let member = guild.member(message.author);
 let nickname = member ? member.displayName : null;
 
-//const timecreated = moment().format(‘MMMM Do YYYY, h:mm:ss a’);
+const currentdate = new Date(); 
+const datetime = "• " + currentdate.getDate() + "/"
+    + (currentdate.getMonth()+1)  + "/" 
+    + currentdate.getFullYear() + " @ "  
+    + currentdate.getHours() + ":"  
+    + currentdate.getMinutes() + ":" 
+    + currentdate.getSeconds();
 
 let postembed = new Discord.RichEmbed()
-.setAuthor(`${nickname} @${usertag}`, message.author.avatarURL)
+.setAuthor(`${nickname} @${usertag} ${datetime}`, message.author.avatarURL)
 .setColor("0173ce")
 .setDescription(`${postcontent}`);
 
