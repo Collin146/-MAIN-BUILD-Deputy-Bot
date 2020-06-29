@@ -15,7 +15,7 @@ const postimage = ("https://media.discordapp.net/attachments/511913643923996683/
     let postembed = new Discord.RichEmbed()
       .setTitle("**New Twotter Post**")
       .setColor("#0173ce")
-      .setDescription(`${twotter} ${messagecont}`)
+      .setDescription(`${twotter} > ${messagecont}`)
       .setImage(`${postimage}`);
       
   message.channel.send({postembed});
