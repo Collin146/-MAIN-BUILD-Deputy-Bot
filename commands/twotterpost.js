@@ -25,10 +25,8 @@ let nickname = member ? member.displayName : null;
 const currentdate = new Date(); 
 const datetime = "• " + currentdate.getDate() + "/"
     + (currentdate.getMonth()+1)  + "/" 
-    + currentdate.getFullYear() + " @ "  
     + currentdate.getHours() + ":"  
     + currentdate.getMinutes() + ":" 
-    + currentdate.getSeconds();
 
 let postembed = new Discord.RichEmbed()
 .setAuthor(`${nickname} @${usertag} ${datetime}`, message.author.avatarURL)
