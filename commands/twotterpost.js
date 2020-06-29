@@ -26,7 +26,7 @@ let postembed = new Discord.RichEmbed()
 .setAuthor(`${nickname} • @${usertag}`, message.author.avatarURL)
 .setColor("0173ce")
 .setDescription(`${postcontent}`)
-.setTimestamp(message.createdAt);
+.setTimestamp();
 
 
 message.channel.send(postembed);
