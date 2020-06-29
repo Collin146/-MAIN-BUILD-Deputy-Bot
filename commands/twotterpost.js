@@ -22,8 +22,10 @@ let guild = bot.guilds.get('644227663829139466');
 let member = guild.member(message.author);
 let nickname = member ? member.displayName : null;
 
+const timecreated = moment().format(‘MMMM Do YYYY, h:mm:ss a’);
+
 let postembed = new Discord.RichEmbed()
-.setAuthor(`${nickname} @${usertag} • ${moment().format(‘MMMM Do YYYY, h:mm:ss a’)}`, message.author.avatarURL)
+.setAuthor(`${nickname} @${usertag} • ${timecreated}`, message.author.avatarURL)
 .setColor("0173ce")
 .setDescription(`${postcontent}`);
 
