@@ -18,10 +18,9 @@ if(!postcontent) return message.channel.send(errEmbed);
 const postimage = ("https://media.discordapp.net/attachments/511913643923996683/727158652888154163/image1.png")
 
 let postembed = new Discord.RichEmbed()
-.setTitle("**New Twotter Post!**")
+.setAuthor(`<@${message.author.id}> @${message.author.username}`, message.author.avatarURL)
 .setColor("0173ce")
-.setDescription(`${twotter} ${postcontent}`)
-.setImage(`${postimage}`);
+.setDescription(`${postcontent}`);
 
 
 message.channel.send(postembed);
