@@ -3,8 +3,8 @@ const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => {
 
-const yes = client.emojis.get("700713527576625205");
-const no = client.emojis.get("700713478578634783"); 
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
 const twotter = bot.emojis.get("727159498686595072");
 let postcontent = args.join(" ").slice(0);
 
