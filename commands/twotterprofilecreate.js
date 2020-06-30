@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const fs = require("fs");
 const errors = require("../utils/errors.js");
-const Enmap = require("enmap");
+//const Enmap = require("enmap");
 bot.profiles = new Enmap({name: "profiles"});
 
 module.exports.run = async (bot, message, args) => {
