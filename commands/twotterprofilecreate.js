@@ -1,4 +1,4 @@
-   const Discord = require("discord.js");
+ const Discord = require("discord.js");
  const fs = require("fs");
  const errors = require("../utils/errors.js");
 
@@ -31,12 +31,10 @@ const profile = {
 }
 
 jsonReader("./profiles.json", (err, profile) => {
-  if (err) {
-    console.log("Error reading file:", err);
-    return;
-  }
   
-  fs.writeFile("./profiles.json", JSON.stringify(profile), err => {
+  const profilefinal = JSON.stringify (profile, null, 4)
+  
+  fs.writeFile("./profiles.json", profilefinal, err => {
     if (err) console.log("Error writing file:", err);
   });
 });
