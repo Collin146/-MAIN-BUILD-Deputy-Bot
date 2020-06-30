@@ -37,7 +37,9 @@ const profile = {
     bio: args.join(" ").slice(2),
 }
 
-const jsonString = JSON.stringify(profile).fs.writeFileSync('./profiles.json', jsonString, err => {
+const jsonString = JSON.stringify(profile)
+
+fs.writeFileSync('./profiles.json', jsonString, err => {
     if (err) {
         console.log('Error writing file', err)
     } else {
