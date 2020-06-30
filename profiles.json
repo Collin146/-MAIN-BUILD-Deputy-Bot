@@ -1,2 +1,7 @@
-{    
+{ 
+    username: "Collin A.",
+    civfn: "Ryan",
+    civln: "Slee",
+    age: "27",
+    bio: "This bio is a test",
 }
