@@ -1,4 +1,4 @@
-const Discord = require("discord.js");
+ const Discord = require("discord.js");
  const fs = require("fs");
  const errors = require("../utils/errors.js");
  const profiles = require("./profiles.json");
@@ -17,7 +17,7 @@ const profile = {
     bio: args.join(" ").slice(2),
 }
 
-const jsonString = JSON.stringify(profile)fs.writeFile('./profiles.json', jsonString, err => {
+const jsonString = JSON.stringify(profile)fs.writeFileSync('./profiles.json', jsonString, err => {
     if (err) {
         console.log('Error writing file', err)
     } else {
