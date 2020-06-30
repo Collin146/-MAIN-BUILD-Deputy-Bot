@@ -1,8 +1,7 @@
  const Discord = require("discord.js");
  const fs = require("fs");
  const errors = require("../utils/errors.js");
- const profiles = require("./profiles.json");
-
+ 
  module.exports.run = async (bot, message, args) => {
 
  const yes = bot.emojis.get("700713527576625205");
