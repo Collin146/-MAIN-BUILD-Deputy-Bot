@@ -35,7 +35,7 @@ money[message.author.id] = {
   
 };
 
-fs.writeFileSync('../money.json', JSON.stringify(money));
+fs.writeFile('./money.json', JSON.stringify(money));
 
 
  }
