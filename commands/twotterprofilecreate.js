@@ -1,4 +1,4 @@
- const Discord = require("discord.js");
+  const Discord = require("discord.js");
  const fs = require("fs");
  const errors = require("../utils/errors.js");
 
@@ -22,23 +22,19 @@
   });
 }
 
-const profile = { 
-    username: message.author.username,
-    civfn: args[0],
-    civln: args[1],
-    age: args[2],
-    bio: args.join(" ").slice(2),
+const customer = {
+    name: "Newbie Co.",
+    order_count: 0,
+    address: "Po Box City",
 }
+const jsonString = JSON.stringify(customer)fs.writeFile('./newCustomer.json', jsonString, err => {
+    if (err) {
+        console.log('Error writing file', err)
+    } else {
+        console.log('Successfully wrote file')
+    }
+})
 
-jsonReader("./profiles.json", (err, profile) => {
-  
-  const profilefinal = JSON.stringify (profile, null, 4)
-  
-  fs.writeFile("./profiles.json", profilefinal, err => {
-    if (err) console.log("Error writing file:", err);
-  });
-});
- 
  }
 
  module.exports.help = {
