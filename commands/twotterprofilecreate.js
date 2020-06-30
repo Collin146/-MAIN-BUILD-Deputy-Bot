@@ -1,4 +1,4 @@
-  const Discord = require("discord.js");
+   const Discord = require("discord.js");
  const fs = require("fs");
  const errors = require("../utils/errors.js");
 
@@ -27,15 +27,17 @@ const customer = {
     order_count: 0,
     address: "Po Box City",
 }
-const jsonString = JSON.stringify(customer)
 
-fs.writeFile('./newCustomer.json', jsonString, err => {
-    if (err) {
-        console.log('Error writing file', err)
-    } else {
-        console.log('Successfully wrote file')
-    }
-})
+const money = {};
+const message = {author: {id: 0}};
+money[message.author.id] = {
+  bank: 1000,
+  cash: 0,
+  
+};
+
+fs.writeFileSync('../money.json', JSON.stringify(money));
+
 
  }
 
