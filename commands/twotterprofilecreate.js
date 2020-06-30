@@ -17,7 +17,7 @@ let profile = {
 };
  
 let data = JSON.stringify(profile);
-fs.writeFileSync('profiles.json', data);
+fs.writeFileSync('./profiles.json', data);
 
  }
 
