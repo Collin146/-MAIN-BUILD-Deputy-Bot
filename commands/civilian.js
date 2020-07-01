@@ -78,16 +78,13 @@ tociv.addRole(civilianrole.id);
 tociv.addRole(civ1role.id);
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("**Moderation Command Used!**")
+.setTitle("**Command Used!**")
 .setTimestamp()
 .setColor("BLACK")
 .setDescription([
-    `**The moderation command** !civilian **has been used**`,
-    ` `,
+    `**Command:** !civilian`,
     `**Used On:** <@${tociv.id}>`,
-    ` `,
     `**Used In:** ${message.channel}`,
-    ` `,
     `**Used By:** ${message.author.username}`
   ].join('\n'))
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
@@ -113,4 +110,5 @@ geluktEmbed = new Discord.RichEmbed()
 
 module.exports.help = {
     name: "civilian"
+
 }
