@@ -90,6 +90,21 @@ try{
  }
  message.delete().catch(_O_o=>{})
 
+let ModEmbed = new Discord.RichEmbed()
+.setTitle("**Command Used!**")
+.setTimestamp()
+.setColor("BLACK")
+.setDescription([
+    `**Command:** !briefing`,
+    `**Used In:** ${message.channel}`,
+    `**Used By:** ${message.author.username}`,
+    `**Timer:** ${mutetime}`,
+  ].join('\n'))
+.setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+
+let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ModEmbed});
+
 } catch(err){
     catchErr(err)
 
