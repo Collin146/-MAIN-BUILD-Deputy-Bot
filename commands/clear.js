@@ -1,4 +1,4 @@
-    const Discord = require("discord.js");
+const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
@@ -69,6 +69,8 @@ module.exports.run = async (bot, message, args) => {
 
     if(!args[0]) return message.channel.send(errEmbed);
 
+message.channel.bulkDelete(1);
+
     let geluktEmbed = new Discord.RichEmbed()
     .setColor("GREEN")
     .setTitle(`${yes} **Done!**`)
@@ -78,7 +80,7 @@ module.exports.run = async (bot, message, args) => {
     
     //bulknum = bulknum + 1;
 
-    message.channel.bulkDelete(1).then(message.channel.bulkDelete(args[0])).then(() => {
+    message.channel.bulkDelete(args[0].then(() => {
         message.channel.send(geluktEmbed).then(msg => msg.delete(5000));
 
     });
