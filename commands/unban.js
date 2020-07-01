@@ -57,18 +57,14 @@ let geluktEmbed = new Discord.RichEmbed()
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
-    .setTitle("**Administration Command Used!**")
+    .setTitle("**Command Used!**")
     .setTimestamp()
     .setColor("BLACK")
     .setDescription([
-        `**The administration command** !unban **has been used**`,
-        ` `,
+        `**Command:** !unban`,
         `**Unbanned User:** <@${user}>`,
-        ` `,
         `**Used In:** ${message.channel}`,
-        ` `,
         `**Used By:** ${message.author.username}`,
-        ` `,
         `**Reason For Unban:** ${bReason || "None"}`
       ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
