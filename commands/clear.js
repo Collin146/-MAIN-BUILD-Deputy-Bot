@@ -1,16 +1,16 @@
-const Discord = require("discord.js");
+    const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
 module.exports.run = async (bot, message, args) => { 
 
-  //  function catchErr (err, message) {
+    //function catchErr (err, message) {
 
-  //      let errchannel = bot.channels.find(x => x.name === 'errors');
-    //    const warningsign = bot.emojis.get("700843409526620180");
+        //let errchannel = bot.channels.find(x => x.name === 'errors');
+        //const warningsign = bot.emojis.get("700843409526620180");
         
-    //    errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`clear.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
+        //errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`clear.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
         
-    //    }
+        //}
 
 //try {
 
@@ -74,11 +74,11 @@ module.exports.run = async (bot, message, args) => {
     .setTitle(`${yes} **Done!**`)
     .setDescription(`Cleared ${args[0]} messages.`)
     
-    const bulknum = args[0]
+    //const bulknum = args[0]
     
-    bulknum = bulknum + 1;
+    //bulknum = bulknum + 1;
 
-    message.channel.bulkDelete(bulknum).then(() => {
+    message.channel.bulkDelete(1).then(message.channel.bulkdelete(args[0]).then(() => {
         message.channel.send(geluktEmbed).then(msg => msg.delete(5000));
 
     });
@@ -102,7 +102,7 @@ module.exports.run = async (bot, message, args) => {
     modlogchannel.send({embed: ModEmbed});
 
 //} catch(err) {
-//    catchErr(err)
+    //catchErr(err)
 
 //}
     
