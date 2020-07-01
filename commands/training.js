@@ -49,6 +49,22 @@ let errEmbed2 = new Discord.RichEmbed()
 
 if (!time) return message.channel.send(errEmbed2);
 
+let ModEmbed = new Discord.RichEmbed()
+.setTitle("**Command Used!**")
+.setTimestamp()
+.setColor("BLACK")
+.setDescription([
+    `**Command:** !training`,
+    `**Used In:** ${message.channel}`,
+    `**Used By:** ${message.author.username}`,
+    `**Training Type:** ${args[0]}`,
+    `**Day & Time:** ${args[1]} at ${args[2]}`,
+  ].join('\n'))
+.setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+
+let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ModEmbed});
+
 if(args[0] === "civilian"){
 
     const sentMessage =  await message.channel.send([
