@@ -61,16 +61,13 @@ rUser.removeRole(approle.id);
 rUser.addRole(accrole.id);
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("**Moderation Command Used!**")
+.setTitle("**Command Used!**")
 .setTimestamp()
 .setColor("BLACK")
 .setDescription([
-    `**The moderation command** !accept **has been used**`,
-    ` `,
+    `**Command:** !accept`,
     `**Used On:** <@${rUser.id}>`,
-    ` `,
     `**Used In:** ${message.channel}`,
-    ` `,
     `**Used By:** ${message.author.username}`,
   ].join('\n'))
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
