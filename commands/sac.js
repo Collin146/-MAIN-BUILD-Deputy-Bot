@@ -63,7 +63,7 @@ let errEmbed4 = new Discord.RichEmbed()
       .setTitle(`${no} **Error!**`)
       .setDescription("The role \"SAC\" doesn't exist.");
 
-   if(!lsfdrole) return message.channel.send(errEmbed4);
+   if(!sacrole) return message.channel.send(errEmbed4);
 
 let errEmbed5 = new Discord.RichEmbed()
    .setColor("RED")
