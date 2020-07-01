@@ -26,6 +26,8 @@ try {
         return;
     }
     
+message.delete().catch(_O_o=>{})
+    
 //     if (args[0] > 100) {
 
 //         let args100 = args[0] - 100
@@ -73,13 +75,6 @@ try {
     .setColor("GREEN")
     .setTitle(`${yes} **Done!**`)
     .setDescription(`Cleared ${args[0]} messages.`)
-    
-message.delete().catch(_O_o=>{})
-
-await message.channel.bulkDelete(args[0]).then(() => {
-        message.channel.send(geluktEmbed).then(msg => msg.delete(5000));
-
-    });
 
 //message.channel.bulkDelete(1);
     
@@ -104,6 +99,12 @@ await message.channel.bulkDelete(args[0]).then(() => {
 
     let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
     modlogchannel.send({embed: ModEmbed});
+    
+    await message.channel.bulkDelete(args[0]).then(() => {
+        message.channel.send(geluktEmbed).then(msg => msg.delete(5000));
+
+    });
+
 
 } catch(err) {
     catchErr(err)
