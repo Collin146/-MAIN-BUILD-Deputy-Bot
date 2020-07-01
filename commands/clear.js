@@ -78,7 +78,7 @@ module.exports.run = async (bot, message, args) => {
     
     //bulknum = bulknum + 1;
 
-    message.channel.bulkDelete(1).then(message.channel.bulkdelete(args[0]).then(() => {
+    message.channel.bulkDelete(1).then(message.channel.bulkdelete(args[0])).then(() => {
         message.channel.send(geluktEmbed).then(msg => msg.delete(5000));
 
     });
