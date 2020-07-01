@@ -1,3 +1,4 @@
+
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
 
@@ -69,7 +70,8 @@ try {
 
     if(!args[0]) return message.channel.send(errEmbed);
 
-message.channel.bulkDelete(1);
+message.delete().catch(_O_o=>{})
+//message.channel.bulkDelete(1);
 
     let geluktEmbed = new Discord.RichEmbed()
     .setColor("GREEN")
