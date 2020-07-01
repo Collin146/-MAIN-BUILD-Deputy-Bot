@@ -67,6 +67,21 @@ try {
     }
     }
 
+let ModEmbed = new Discord.RichEmbed()
+    .setTitle("**Command Used!**")
+    .setTimestamp()
+    .setColor("BLACK")
+    .setDescription([
+        `**Command:** !lockdown`,
+        `**Used In:** ${message.channel}`,
+        `**Used By:** ${message.author.username}`,
+        `**Status:** ${args[0] || lock}`
+      ].join('\n'))
+    .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+    
+let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ModEmbed});
+
   } catch(err) {
     catchErr(err)
 
