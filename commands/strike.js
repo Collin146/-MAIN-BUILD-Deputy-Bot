@@ -77,18 +77,14 @@ if(args[0] === "1"){
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
-    .setTitle("**Moderation Command Used!**")
+    .setTitle("**Command Used!**")
     .setTimestamp()
     .setColor("BLACK")
     .setDescription([
-        `**The moderation command** !strike 1 **has been used**`,
-        ` `,
+        `**Command:** !strike 1`,
         `**Used On:** <@${tostrike.id}>`,
-        ` `,
         `**Used In:** ${message.channel}`,
-        ` `,
         `**Used By:** ${message.author.username}`,
-        ` `,
         `**Reason For Strike** ${kReason}`
       ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
@@ -120,18 +116,14 @@ let DMembed = new Discord.RichEmbed()
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
-    .setTitle("**Moderation Command Used!**")
+    .setTitle("**Command Used!**")
     .setTimestamp()
     .setColor("BLACK")
     .setDescription([
-        `**The moderation command** !strike 2 **has been used**`,
-        ` `,
+        `**Command:** !strike 2`,
         `**Used On:** <@${tostrike.id}>`,
-        ` `,
         `**Used In:** ${message.channel}`,
-        ` `,
         `**Used By:** ${message.author.username}`,
-        ` `,
         `**Reason For Strike** ${kReason}`
       ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
