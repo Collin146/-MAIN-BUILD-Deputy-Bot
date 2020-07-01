@@ -78,16 +78,13 @@ tobcso.addRole(bcsorole.id);
 tobcso.addRole(probrole.id);
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("**Moderation Command Used!**")
+.setTitle("**Command Used!**")
 .setTimestamp()
 .setColor("BLACK")
 .setDescription([
-    `**The moderation command** !bcso **has been used**`,
-    ` `,
+    `**Command:** !bcso`,
     `**Used On:** <@${tobcso.id}>`,
-    ` `,
     `**Used In:** ${message.channel}`,
-    ` `,
     `**Used By:** ${message.author.username}`
   ].join('\n'))
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
