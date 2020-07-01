@@ -69,18 +69,14 @@ module.exports.run = async (bot, message, args) => {
   message.channel.send(geluktEmbed);
 
   let ModEmbed = new Discord.RichEmbed()
-  .setTitle("**Moderation Command Used!**")
+  .setTitle("**Command Used!**")
   .setTimestamp()
   .setColor("BLACK")
   .setDescription([
-      `**The moderation command** !warn **has been used**`,
-      ` `,
+      `**Command:** !warn`,
       `**Used On:** <@${wUser.id}>`,
-      ` `,
       `**Used In:** ${message.channel}`,
-      ` `,
       `**Used By:** ${message.author.username}`,
-      ` `,
       `**Reason For Warning:** ${reason}`
     ].join('\n'))
   .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
