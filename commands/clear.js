@@ -80,7 +80,7 @@ message.channel.bulkDelete(1);
     
     //bulknum = bulknum + 1;
 
-    message.channel.bulkDelete(args[0].then(() => {
+    message.channel.bulkDelete(args[0]).then(() => {
         message.channel.send(geluktEmbed).then(msg => msg.delete(5000));
 
     });
