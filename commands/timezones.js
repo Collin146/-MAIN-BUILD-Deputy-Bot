@@ -26,10 +26,23 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
+let ModEmbed = new Discord.RichEmbed()
+.setTitle("**Command Used!**")
+.setTimestamp()
+.setColor("BLACK")
+.setDescription([
+    `**Command:** !timezones`,
+    `**Used In:** ${message.channel}`,
+    `**Used By:** ${message.author.username}`,
+    `**Time Defined:** ${args[0]}`
+  ].join('\n'))
+.setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+
+let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ModEmbed});
+
     if(args[0] === "6:30"){
-    
-        //let time = args[0];
-        
+            
 message.channel.send([
     "**Other Timezones:**",
     "PDT: 10:30 AM",
@@ -62,8 +75,6 @@ message.channel.send([
 
 
 if(args[0] === "7:30"){
-    
-//let time = args[0];
 
 message.channel.send([
     "**Other Timezones:**",
