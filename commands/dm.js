@@ -54,16 +54,13 @@ let doneembed = new Discord.RichEmbed()
 message.channel.send(doneembed);
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("**Administration Command Used!**")
+.setTitle("**Command Used!**")
 .setTimestamp()
 .setColor("BLACK")
 .setDescription([
-    `**The administration command** !dm **has been used**`,
-    ` `,
+    `**Command:** !dm`,
     `**Used In:** ${message.channel}`,
-    ` `,
     `**Used By:** ${message.author.username}`,
-    ` `,
     `**Message:** ${reason}`
   ].join('\n'))
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
