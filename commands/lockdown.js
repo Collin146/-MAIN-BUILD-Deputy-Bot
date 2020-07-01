@@ -75,7 +75,7 @@ let ModEmbed = new Discord.RichEmbed()
         `**Command:** !lockdown`,
         `**Used In:** ${message.channel}`,
         `**Used By:** ${message.author.username}`,
-        `**Status:** ${args[0] || lock}`
+        `**Status:** ${args[0] || "lock"}`
       ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
     
