@@ -55,17 +55,14 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send(sEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
-    .setTitle("**Administration Command Used!**")
+    .setTitle("**Command Used!**")
     .setTimestamp()
     .setColor("BLACK")
     .setDescription([
-        `**The administration command** !prefix **has been used**`,
-        ` `,
-        `**Changed To** ${args[0]}`,
-        ` `,
+        `**Command:** !prefix`,
         `**Used In:** ${message.channel}`,
-        ` `,
         `**Used By:** ${message.author.username}`,
+        `**Changed To:** ${args[0]}`,
       ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
     
