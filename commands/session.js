@@ -59,6 +59,21 @@ message.channel.send([
 
   message.delete().catch(O_o=>{});
     
+    let ModEmbed = new Discord.RichEmbed()
+.setTitle("**Command Used!**")
+.setTimestamp()
+.setColor("BLACK")
+.setDescription([
+    `**Command:** !session`,
+    `**Used In:** ${message.channel}`,
+    `**Used By:** ${message.author.username}`,
+    `**Day & Time:** ${args[0]} at ${args[1]}`,
+  ].join('\n'))
+.setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+
+let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: ModEmbed});
+    
     if(args[1] === "6:30pm"){
             
 message.channel.send([
@@ -142,21 +157,6 @@ message.channel.send([
 
    return;
     }
-    
-let ModEmbed = new Discord.RichEmbed()
-.setTitle("**Command Used!**")
-.setTimestamp()
-.setColor("BLACK")
-.setDescription([
-    `**Command:** !session`,
-    `**Used In:** ${message.channel}`,
-    `**Used By:** ${message.author.username}`,
-    `**Day & Time:** ${args[0]} at ${args[1]}`,
-  ].join('\n'))
-.setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
-
-let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
-modlogchannel.send({embed: ModEmbed});
 
     } catch(err) {
         catchErr(err)
