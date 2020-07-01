@@ -99,7 +99,10 @@ try {
     let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
     modlogchannel.send({embed: ModEmbed});
     
-message.delete().catch(_O_o=>{})
+message.delete().catch(_O_o=>{}).then(message.channel.bulkDelete(args[0]));
+
+await message.channel.send(geluktEmbed).then(msg => msg.delete(5000));
+
 
 
 } catch(err) {
