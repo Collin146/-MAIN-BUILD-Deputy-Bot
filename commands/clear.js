@@ -69,23 +69,24 @@ try {
     .setDescription("You didn't specify what amount of messages.");
 
     if(!args[0]) return message.channel.send(errEmbed);
-
-message.delete().catch(_O_o=>{})
-//message.channel.bulkDelete(1);
-
+    
     let geluktEmbed = new Discord.RichEmbed()
     .setColor("GREEN")
     .setTitle(`${yes} **Done!**`)
     .setDescription(`Cleared ${args[0]} messages.`)
     
-    //const bulknum = args[0]
-    
-    //bulknum = bulknum + 1;
+message.delete().catch(_O_o=>{})
 
-    message.channel.bulkDelete(args[0]).then(() => {
+await message.channel.bulkDelete(args[0]).then(() => {
         message.channel.send(geluktEmbed).then(msg => msg.delete(5000));
 
     });
+
+//message.channel.bulkDelete(1);
+    
+    //const bulknum = args[0]
+    
+    //bulknum = bulknum + 1;
 
     let ModEmbed = new Discord.RichEmbed()
     .setTitle("**Moderation Command Used!**")
