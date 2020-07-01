@@ -148,18 +148,14 @@ tomute.removeRole(muterole.id);
 }, ms(mutetime));
 
 let ModEmbed = new Discord.RichEmbed()
-.setTitle("**Moderation Command Used!**")
+.setTitle("**Command Used!**")
 .setTimestamp()
 .setColor("BLACK")
 .setDescription([
-    `**The moderation command** !tempmute **has been used**`,
-    ` `,
+    `**Command:** !tempmute`,
     `**Used On:** <@${tomute.id}>`,
-    ` `,
     `**Used In:** ${message.channel}`,
-    ` `,
     `**Used By:** ${message.author.username}`,
-    ` `,
     `**Muted For:** ${mutetime}`
   ].join('\n'))
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
