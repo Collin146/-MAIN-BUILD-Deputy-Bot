@@ -26,7 +26,6 @@ try {
         return;
     }
     
-//message.delete().catch(_O_o=>{})
     
 //     if (args[0] > 100) {
 
@@ -100,7 +99,7 @@ try {
     let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
     modlogchannel.send({embed: ModEmbed});
     
-   message.channel.bulkDelete(args[0 + 1]).then(() => {
+message.delete().catch(_O_o=>{}).then(message.channel.bulkDelete(args[0])).then(() => {
         message.channel.send(geluktEmbed).then(msg => msg.delete(5000));
 
     });
