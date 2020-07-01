@@ -63,18 +63,14 @@ rUser.send(rejectembed);
       message.channel.send(geluktEmbed);
 
       let ModEmbed = new Discord.RichEmbed()
-      .setTitle("**Moderation Command Used!**")
+      .setTitle("**Command Used!**")
       .setTimestamp()
       .setColor("BLACK")
       .setDescription([
-          `**The moderation command** !reject **has been used**`,
-          ` `,
+          `**Command:** !reject`,
           `**Used On:** <@${rUser.id}>`,
-          ` `,
           `**Used In:** ${message.channel}`,
-          ` `,
           `**Used By:** ${message.author.username}`,
-          ` `,
           `**Rejected For:** ${kReason}`,
         ].join('\n'))
       .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
