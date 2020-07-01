@@ -82,16 +82,13 @@ try {
     //bulknum = bulknum + 1;
 
     let ModEmbed = new Discord.RichEmbed()
-    .setTitle("**Moderation Command Used!**")
+    .setTitle("**Command Used!**")
     .setTimestamp()
     .setColor("BLACK")
     .setDescription([
-        `**The moderation command** !clear **has been used**`,
-        ` `,
+        `**Command:** !clear`,
         `**Cleared Amount:** ${args}`,
-        ` `,
         `**Used In:** ${message.channel}`,
-        ` `,
         `**Used By:** ${message.author.username}`
       ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
