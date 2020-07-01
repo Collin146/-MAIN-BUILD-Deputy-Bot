@@ -56,18 +56,14 @@ geluktEmbed = new Discord.RichEmbed()
     message.channel.send(geluktEmbed);
 
     let ModEmbed = new Discord.RichEmbed()
-    .setTitle("**Moderation Command Used!**")
+    .setTitle("**Command Used!**")
     .setTimestamp()
     .setColor("BLACK")
     .setDescription([
-        `**The moderation command** !kick **has been used**`,
-        ` `,
+        `**Command:** !kick`,
         `**Used On:** <@${kUser.id}>`,
-        ` `,
         `**Used In:** ${message.channel}`,
-        ` `,
         `**Used By:** ${message.author.username}`,
-        ` `,
         `**Reason For Kick:** ${kReason || "None"}`
       ].join('\n'))
     .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
