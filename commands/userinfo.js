@@ -27,7 +27,7 @@ let errEmbed = new Discord.RichEmbed()
       .setTitle(`${no} **Error!**`)
       .setDescription("Was not able to find that user!");
 
-if(!user) return message.channel.send(errEmbed);
+if(!iuser) return message.channel.send(errEmbed);
 let uicon = iduser.displayAvatarURL;
 
 let d = new Date,
