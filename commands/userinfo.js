@@ -55,7 +55,7 @@ let userembed = new Discord.RichEmbed()
        `**Guild Related Information**`,
        `Joined: ${iuser.joinedTimestamp}`,
        ` `,
-       `Roles: ${iuser.roles.join(" | ")}`,
+       `Roles: ${iuser.roles`,
        ].join('\n'))
 
 message.channel.send(userembed)
