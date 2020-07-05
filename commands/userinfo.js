@@ -50,10 +50,10 @@ let userembed = new Discord.RichEmbed()
        ` `,
        `ID: ${iuser.id}`,
        ` `,
-       `Registered: ${iduser.createdTimestamp(dformat)}`,
+       `Registered: ${iduser.createdTimestamp}`,
        ` `,
        `**Guild Related Information**`,
-       `Joined: ${iuser.joinedTimestamp(dformat)}`,
+       `Joined: ${iuser.joinedTimestamp}`,
        ` `,
        `Roles: ${iuser.roles().join(" | ")}`,
        ].join('\n'))
