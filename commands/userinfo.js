@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
+const moment = require("moment");
 
 module.exports.run = async (bot, message, args) => { 
 
@@ -53,7 +54,7 @@ let userembed = new Discord.RichEmbed()
        `Registered: ${iduser.createdAt}`,
        ` `,
        `**Guild Related Information**`,
-       `Joined: ${iuser.joinedAt}`,
+       `Joined: ${moment.utc(iuser.joinedAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
        ` `,
        `Roles: ${iuser.roles.map(r => `${r}`).join(' | ')}`,
        ].join('\n'))
