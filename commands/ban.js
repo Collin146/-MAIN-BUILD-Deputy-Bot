@@ -37,6 +37,7 @@ let errEmbed = new Discord.RichEmbed()
 
 const user = message.mentions.users.first() || await bot.fetchUser(args[0]);
 
+if(!user) return message.channel.send(errEmbed);
 let bReason = args.slice(1).join(" ");
 // const username = bot.fetchUser(user)
 
