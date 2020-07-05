@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-const iuser = message.mentions.users.first() || await bot.fetchUser(args[0]);
+const iuser = message.guild.member(message.mentions.users.first()) || await bot.fetchUser(args[0]);
 
 const iduser = bot.fetchUser(iuser.id);
 
