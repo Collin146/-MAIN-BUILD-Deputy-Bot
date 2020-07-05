@@ -28,7 +28,7 @@ let errEmbed = new Discord.RichEmbed()
       .setDescription("Was not able to find that user!");
 
 if(!iuser) return message.channel.send(errEmbed);
-let uicon = iduser.displayAvatarURL;
+let uicon = iuser.displayAvatarURL;
 
 let d = new Date,
 dformat = [d.getMonth()+1,
@@ -50,12 +50,12 @@ let userembed = new Discord.RichEmbed()
        ` `,
        `ID: ${iuser.id}`,
        ` `,
-       `Registered: ${iuser.createdAt}`,
+       `Registered: ${iduser.createdAt}`,
        ` `,
        `**Guild Related Information**`,
        `Joined: ${iuser.joinedAt}`,
        ` `,
-       `Roles: ${iuser.roles}`,
+       `Roles: ${iuser.roles.map(r => `${r}`).join(' | '), true)}`,
        ].join('\n'))
 
 message.channel.send(userembed)
