@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const moment = require("moment");
 
 module.exports.run = async (bot, message, args) => {
 
@@ -16,12 +17,18 @@ try {
     let bicon = bot.user.displayAvatarURL;
     let botembed = new Discord.RichEmbed()
     .setTitle("**Bot Information**")
-    .setColor("#ff6a00")
+    .setColor("BLACK")
     .setThumbnail(bicon)
-    .addField("Bot Name", bot.user.username)
-    .addField("Created On", bot.user.createdAt)
-    .addField("This bot was created and developed by:", "Collin A.#6966")
-    return message.channel.send(botembed);
+    .setDescription([
+       `**General Information**`,
+       `Bot Name:: ${bot.user.username}`,
+       ` `,
+       `Created On: ${moment.utc(bot.user.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+       ` `,
+       `Created & Developed By: Collin A.#6966`,
+       ].join('\n'))
+       
+    message.channel.send(botembed);
 
 
 } catch (err) {
