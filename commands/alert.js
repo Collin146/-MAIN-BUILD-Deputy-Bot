@@ -27,7 +27,7 @@ let errEmbed = new Discord.RichEmbed()
     if(args[0] === "silentalarm"){
     
     let mentionrole = message.guild.roles.find(x => x.name === 'On Patrol');
-    const provinfo = args.join(" ").slice(1);
+    const provinfo = args.join(" ").slice(12);
     
     let errEmbed2 = new Discord.RichEmbed()
       .setColor("RED")
@@ -48,7 +48,7 @@ let errEmbed = new Discord.RichEmbed()
     if(args[0] === "firealarm"){
     
     let mentionrole = message.guild.roles.find(x => x.name === 'On Patrol');
-    const provinfo2 = args.join(" ").slice(1);
+    const provinfo2 = args.join(" ").slice(10);
     
     let errEmbed2 = new Discord.RichEmbed()
       .setColor("RED")
