@@ -4,6 +4,17 @@ const moment = require("moment");
 
 module.exports.run = async (bot, message, args) => { 
 
+function catchErr (err, message) {
+
+        let errchannel = bot.channels.find(x => x.name === 'errors');
+        const warningsign = bot.emojis.get("700843409526620180");
+        
+        errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`unmute.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
+        
+        }
+        
+        try {
+
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "ADMINISTRATOR");
     if(args[0] === "help"){
         message.reply("Usage: !userinfo <user>");
@@ -16,7 +27,9 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
-const iuser = message.guild.member(message.mentions.users.first()) || await bot.fetchUser(args[0]);
+try {
+
+const iuser = message.guild.member(message.mentions.users.first())
 
 const iduser = message.mentions.users.first()
 
@@ -29,7 +42,6 @@ let errEmbed = new Discord.RichEmbed()
       .setDescription("Was not able to find that user!");
 
 if(!iuser) return message.channel.send(errEmbed);
-//let uicon = iduser.displayAvatarURL;
 
 let d = new Date,
 dformat = [d.getMonth()+1,
@@ -60,6 +72,57 @@ let userembed = new Discord.RichEmbed()
        ].join('\n'))
 
 message.channel.send(userembed)
+
+} catch (err) {
+    catchErr(err);
+
+}
+
+try {
+
+const leftuser = bot.fetchUser(args[0]);
+
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
+
+let errEmbed = new Discord.RichEmbed()
+      .setColor("RED")
+      .setTitle(`${no} **Error!**`)
+      .setDescription("Was not able to find that user!");
+
+let d = new Date,
+dformat = [d.getMonth()+1,
+       d.getDate(),
+       d.getFullYear()].join('/')+' '+
+      [d.getHours(),
+       d.getMinutes(),
+       d.getSeconds()].join(':');
+
+let leftuserembed = new Discord.RichEmbed()
+      .setColor("BLACK")
+      .setTitle(`**User Information**`)
+      .setThumbnail(`${leftuser.displayAvatarURL}`)
+      .setDescription([
+       `**General Information**`,
+       `Username: ${leftuser.tag}`,
+       ` `,
+       `ID: ${leftuser.id}`,
+       ` `,
+       `Registered: ${moment.utc(leftuser.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+       ].join('\n'))
+
+message.channel.send(leftuserembed)
+
+
+} catch (err) {
+    catchErr(err);
+
+}
+
+} catch(err) {
+     catchErr(err)
+            
+       }
 
 }
 
