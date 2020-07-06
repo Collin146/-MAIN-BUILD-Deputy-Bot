@@ -41,7 +41,7 @@ let errEmbed = new Discord.RichEmbed()
       .setTitle(`${no} **Error!**`)
       .setDescription("Was not able to find that user!");
 
-if(!iuser) return message.channel.send(errEmbed);
+//if(!iuser) return message.channel.send(errEmbed);
 
 let d = new Date,
 dformat = [d.getMonth()+1,
