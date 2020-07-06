@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
        
         try {
 
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "ADMINISTRATOR");
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
     if(args[0] === "help"){
         message.reply("Usage: !userinfo <user>");
         return;
