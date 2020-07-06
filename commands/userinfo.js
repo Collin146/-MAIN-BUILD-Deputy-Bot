@@ -18,6 +18,8 @@ module.exports.run = async (bot, message, args) => {
         return;
     }
 
+try {
+
 const iuser = message.guild.member(message.mentions.users.first()) || await bot.fetchUser(args[0]);
 
 const iduser = message.mentions.users.first() || await bot.fetchUser(args[0]);
@@ -30,7 +32,7 @@ let errEmbed = new Discord.RichEmbed()
       .setTitle(`${no} **Error!**`)
       .setDescription("Was not able to find that user!");
 
-if(!iuser) return message.channel.send(errEmbed);
+//if(!iuser) return message.channel.send(errEmbed);
 
 let d = new Date,
 dformat = [d.getMonth()+1,
@@ -55,12 +57,57 @@ let userembed = new Discord.RichEmbed()
        `Registered: ${moment.utc(iduser.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
        ` `,
        `**Guild Related Information**`,
-       `Joined: ${moment.utc(iuser.joinedAt).format('dddd, MMMM Do YYYY, HH:mm:ss') || "Unknown, the user has left the guild!"}`,
+       `Joined: ${moment.utc(iuser.joinedAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
        ` `,
-       `Roles: ${"None" || iuser.roles.map(r => `${r}`).join(' | ')}`,
+       `Roles: ${iuser.roles.map(r => `${r}`).join(' | ')}`,
        ].join('\n'))
 
 message.channel.send(userembed)
+
+} catch(err) {
+
+const leftuser = bot.fetchUser(args[0]);
+
+const yes = bot.emojis.get("700713527576625205");
+const no = bot.emojis.get("700713478578634783"); 
+
+let errEmbed = new Discord.RichEmbed()
+      .setColor("RED")
+      .setTitle(`${no} **Error!**`)
+      .setDescription("Was not able to find that user!");
+
+let d = new Date,
+dformat = [d.getMonth()+1,
+       d.getDate(),
+       d.getFullYear()].join('/')+' '+
+      [d.getHours(),
+       d.getMinutes(),
+       d.getSeconds()].join(':');
+
+let leftuserembed = new Discord.RichEmbed()
+      .setColor("BLACK")
+      .setTitle(`**User Information**`)
+      .setThumbnail(`${leftuser.displayAvatarURL}`)
+      .setDescription([
+       `**General Information**`,
+       `Username: ${leftuser.tag}`,
+       ` `,
+       `Nickname: None`,
+       ` `,
+       `ID: ${leftuser.id}`,
+       ` `,
+       `Registered: ${moment.utc(leftuser.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+       ` `,
+       `**Guild Related Information**`,
+       `Joined: Unknown, the user is not in this guild!`,
+       ` `,
+       `Roles: None`,
+       ].join('\n'))
+
+message.channel.send(leftuserembed)
+
+
+}
 
 } catch(err) {
      console.log(err)
