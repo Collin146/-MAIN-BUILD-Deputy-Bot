@@ -225,7 +225,7 @@ bot.on(`message`, async message => {
     const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`, `https://`, `http://`, `.com/`, `.com`, `www.`, `https://www.`, `http://www.`, `https`, `http`] 
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
-            const warningsign = bot.emojis.get("700843409526620180");
+            const warningsign = bot.emojis.get("729725849343098900");
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
             await message.delete();
@@ -366,7 +366,7 @@ bot.on(`message`, async message => {
 
     try {
             if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
-            const warningsign = bot.emojis.get("700843409526620180");
+            const warningsign = bot.emojis.get("729725849343098900");
 
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
@@ -408,7 +408,7 @@ bot.on(`message`, async message => {
     const bannedWords = [`niggers`, `n  i  g  g  e  r`, `n i g g e r`, `niggercoon`, `nigger`, `nigg`, `nogger`, `nagger`, `kanker`, `negro`, `negger`, `nigro`, `nignog`, `nig ger`, `nig  ger`, `ni99er`, `nog ger`, `n1gger`, `neger`, `nigga`, `nigge`, `n1gg3r`, `nigg3r`, `Nigger`, `Nigg`, `Nogger`, `Nagger`, `Kanker`, `Negro`, `Negger`, `Nigro`, `Nignog`, `Nig ger`, `Nig  ger`, `Ni99er`, `Nog ger`, `N1gger`, `Neger`, `Nigga`, `Nigge`, `N1gg3r`, `Nigg3r`, `Nibba`, `nibba`] 
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
-            const warningsign = bot.emojis.get("700843409526620180");
+            const warningsign = bot.emojis.get("729725849343098900");
             if (message.author.id === message.guild.ownerID) return;
             await message.delete();
             
