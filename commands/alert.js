@@ -38,7 +38,7 @@ let errEmbed = new Discord.RichEmbed()
         message.channel.send([
         `<@&${mentionrole.id}>`,
         ` `,
-        `${lightbar} **Silent Alarm!** ${lightbar}`
+        `${lightbar} **Silent Alarm!** ${lightbar}`,
         `A silent alarm has been received from ${provinfo}. Please notify dispatch if active!`,
       ].join('\n'))
         
@@ -59,7 +59,7 @@ let errEmbed = new Discord.RichEmbed()
         message.channel.send([
         `<@&${mentionrole.id}>`,
         ` `,
-        `${firebot} **Fire Alarm!** ${firebot}`
+        `${firebot} **Fire Alarm!** ${firebot}`,
         `A fire alarm has been received from ${provinfo2}. Please notify dispatch if active!`,
       ].join('\n'))
         
