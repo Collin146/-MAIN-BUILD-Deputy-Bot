@@ -65,7 +65,8 @@ let userembed = new Discord.RichEmbed()
 message.channel.send(userembed)
 
 } catch(err) {
-
+console.log(err)
+       
 const iuser = message.guild.member(message.mentions.users.first()) || await bot.fetchUser(args[0]);
 
 const iduser = message.mentions.users.first() || await bot.fetchUser(args[0]);
