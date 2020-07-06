@@ -17,25 +17,24 @@ module.exports.run = async (bot, message, args) => {
 
     let serverembed = new Discord.RichEmbed()
     .setTitle("**Server Information**")
-    .setColor("#00fff6")
+    .setColor("BLACK")
     .setThumbnail(sicon)
     .setDescription([
-        `**Server Name:** ${message.guild.name}`,
+        `**General Information**`,
+        `Server Name: ${message.guild.name}`,
         ` `,
-        `**Server ID:** ${message.guild.id}`,
+        `Server ID: ${message.guild.id}`,
         ` `,
-        `**Created On:** ${message.guild.createdAt}`,
+        `Created On: ${moment.utc(message.guild.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
         ` `,
-        `**Created By:** ${message.guild.owner}`,
+        `Created By: ${message.guild.owner}`,
         ` `,
-        `**You Joined At:** ${message.guild.joinedAt}`,
+        `Total Members: ${message.guild.memberCount}`,
         ` `,
-        `**Total Members:** ${message.guild.memberCount}`,
-        ` `,
-        `**Region:** ${message.guild.region}`
+        `Region: ${message.guild.region}`
       ].join('\n'))
 
-    return message.channel.send(serverembed);
+    message.channel.send(serverembed);
 
     } catch(err) {
         catchErr(err)
