@@ -20,9 +20,9 @@ module.exports.run = async (bot, message, args) => {
 
 try {
 
-const iuser = message.guild.member(message.mentions.users.first()) || await bot.fetchUser(args[0]);
+const iuser = message.guild.member(message.mentions.users.first()) || await message.guild.members.get(args[0]);
 
-const iduser = message.mentions.users.first() || await message.guild.members.get(args[0]);
+const iduser = message.mentions.users.first() || await bot.fetchUser(args[0]);
 
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
