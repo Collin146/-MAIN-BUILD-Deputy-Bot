@@ -29,7 +29,7 @@ let errEmbed = new Discord.RichEmbed()
       .setDescription("Was not able to find that user!");
 
 if(!iuser) return message.channel.send(errEmbed);
-let uicon = iduser.displayAvatarURL;
+//let uicon = iduser.displayAvatarURL;
 
 let d = new Date,
 dformat = [d.getMonth()+1,
@@ -42,10 +42,10 @@ dformat = [d.getMonth()+1,
 let userembed = new Discord.RichEmbed()
       .setColor("BLACK")
       .setTitle(`**User Information**`)
-      .setThumbnail(uicon)
+      .setThumbnail(iduser.avatar)
       .setDescription([
        `**General Information**`,
-       `Username: ${iduser.username}`,
+       `Username: ${iduser.tag}`,
        ` `,
        `Nickname: ${iuser.nickname || "None"}`,
        ` `,
