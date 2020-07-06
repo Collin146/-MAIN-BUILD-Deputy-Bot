@@ -42,7 +42,7 @@ dformat = [d.getMonth()+1,
 let userembed = new Discord.RichEmbed()
       .setColor("BLACK")
       .setTitle(`**User Information**`)
-      .setThumbnail(iduser.avatar)
+      .setThumbnail(${iduser.displayAvatarURL})
       .setDescription([
        `**General Information**`,
        `Username: ${iduser.tag}`,
