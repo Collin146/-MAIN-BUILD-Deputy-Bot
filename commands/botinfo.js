@@ -21,7 +21,7 @@ try {
     .setThumbnail(bicon)
     .setDescription([
        `**General Information**`,
-       `Bot Name:: ${bot.user.username}`,
+       `Bot Name: ${bot.user.username}`,
        ` `,
        `Created On: ${moment.utc(bot.user.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
        ` `,
