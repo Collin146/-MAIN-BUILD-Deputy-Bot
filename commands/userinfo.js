@@ -3,7 +3,7 @@ const errors = require("../utils/errors.js");
 const moment = require("moment");
 
 module.exports.run = async (bot, message, args) => { 
-        
+       
         try {
 
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "ADMINISTRATOR");
@@ -32,7 +32,7 @@ let errEmbed = new Discord.RichEmbed()
       .setTitle(`${no} **Error!**`)
       .setDescription("Was not able to find that user!");
 
-//if(!iuser) return message.channel.send(errEmbed);
+if(!iuser) return message.channel.send(errEmbed);
 
 let d = new Date,
 dformat = [d.getMonth()+1,
@@ -65,11 +65,6 @@ let userembed = new Discord.RichEmbed()
 message.channel.send(userembed)
 
 } catch (err) {
-    console.log(err);
-
-}
-
-try {
 
 const leftuser = bot.fetchUser(args[0]);
 
@@ -103,10 +98,6 @@ let leftuserembed = new Discord.RichEmbed()
        ].join('\n'))
 
 message.channel.send(leftuserembed)
-
-
-} catch (err) {
-    console.log(err);
 
 }
 
