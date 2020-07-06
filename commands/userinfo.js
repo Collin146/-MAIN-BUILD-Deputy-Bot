@@ -65,7 +65,7 @@ let userembed = new Discord.RichEmbed()
 message.channel.send(userembed)
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 
 }
 
@@ -106,12 +106,12 @@ message.channel.send(leftuserembed)
 
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 
 }
 
 } catch(err) {
-     catchErr(err)
+     console.log(err)
             
        }
 
