@@ -66,7 +66,9 @@ message.channel.send(userembed)
 
 } catch(err) {
 
-const leftuser = bot.fetchUser(args[0]);
+const iuser = message.guild.member(message.mentions.users.first()) || await bot.fetchUser(args[0]);
+
+const iduser = message.mentions.users.first() || await bot.fetchUser(args[0]);
 
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
@@ -87,16 +89,16 @@ dformat = [d.getMonth()+1,
 let leftuserembed = new Discord.RichEmbed()
       .setColor("BLACK")
       .setTitle(`**User Information**`)
-      .setThumbnail(`${leftuser.displayAvatarURL}`)
+      .setThumbnail(`${iduser.displayAvatarURL}`)
       .setDescription([
        `**General Information**`,
-       `Username: ${leftuser.tag}`,
+       `Username: ${iuser.tag}`,
        ` `,
        `Nickname: None`,
        ` `,
-       `ID: ${leftuser.id}`,
+       `ID: ${iuser.id}`,
        ` `,
-       `Registered: ${moment.utc(leftuser.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+       `Registered: ${moment.utc(iduser.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
        ` `,
        `**Guild Related Information**`,
        `Joined: Unknown, the user is not in this guild!`,
