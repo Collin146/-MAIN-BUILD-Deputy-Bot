@@ -57,7 +57,7 @@ let userembed = new Discord.RichEmbed()
        `**Guild Related Information**`,
        `Joined: ${moment.utc(iuser.joinedAt).format('dddd, MMMM Do YYYY, HH:mm:ss') || "Unknown, the user has left the guild!"}`,
        ` `,
-       `Roles: ${iuser.roles.map(r => `${r}`).join(' | ') || "None"}`,
+       `Roles: ${"None" || iuser.roles.map(r => `${r}`).join(' | ')}`,
        ].join('\n'))
 
 message.channel.send(userembed)
