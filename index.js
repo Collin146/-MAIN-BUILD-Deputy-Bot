@@ -29,15 +29,19 @@ if(err) console.log(err);
 
 let jsfile = files.filter(f => f.split(".").pop() === "js")
 if(jsfile.length <= 0){
+let consolechannel = bot.channels.find(x => x.name === 'console-log');
     console.log("Couldn't find commands.");
+    consolechannel.send("Couldn't find commands. Changed status from up to crashed");
     return;
 
 
 }
 
 jsfile.forEach((f, i) =>{
+let consolechannel = bot.channels.find(x => x.name === 'console-log');
     let props = require(`./commands/${f}`);
     console.log(`${f} loaded!`);
+    consolechannel.send(`${f} loaded!`);
     bot.commands.set(props.help.name, props);
 
 });
@@ -50,15 +54,19 @@ fs.readdir("./charges/", (err, files) => {
     
     let jsfile = files.filter(f => f.split(".").pop() === "js")
     if(jsfile.length <= 0){
+    let consolechannel = bot.channels.find(x => x.name === 'console-log');
         console.log("Couldn't find commands.");
+        consolechannel.send("Couldn't find commands. Changed status from up to crashed");
         return;
     
     
     }
     
     jsfile.forEach((f, i) =>{
+    let consolechannel = bot.channels.find(x => x.name === 'console-log');
         let props2= require(`./charges/${f}`);
         console.log(`${f} loaded!`);
+        consolechannel.send(`${f} loaded!`);
         bot.commands.set(props2.help.name, props2);
     
     });
@@ -160,7 +168,9 @@ let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
 //--
 
 bot.on("ready", async () => {
+let consolechannel = bot.channels.find(x => x.name === 'console-log');
 console.log(`${bot.user.username} is online!`);
+consolechannel.send(`${bot.user.username} is online!`)
 bot.user.setActivity("!help | Status: Online");
 
 });
@@ -1008,3 +1018,4 @@ try {
 //-—
 
 bot.login(botconfig.token);
+        
