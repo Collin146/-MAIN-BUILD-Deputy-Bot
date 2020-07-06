@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
 
 const iuser = message.guild.member(message.mentions.users.first()) || await bot.fetchUser(args[0]);
 
-const iduser = message.mentions.members.first()
+const iduser = message.mentions.users.first()
 
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
