@@ -5,7 +5,7 @@ module.exports.run = async (client, message, args, guild) => {
   function catchErr (err, message) {
 
     let errchannel = client.channels.find(x => x.name === 'errors');
-    const warningsign = client.emojis.get("700843409526620180");
+    const warningsign = client.emojis.get("729725849343098900");
     
     errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`ticket.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
     
