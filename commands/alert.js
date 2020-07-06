@@ -107,6 +107,8 @@ let errEmbed = new Discord.RichEmbed()
       .setTitle(`${no} **Error!**`)
       .setDescription("Please provide a type of alert! This can either be \"silentalarm\", \"firealarm\", or \"patrol\".");
     
+    message.channel.send(errEmbed4); 
+    
     }
 
  module.exports.help = {
