@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
+const moment = require("moment");
 
 module.exports.run = async (bot, message, args) => { 
 
@@ -47,10 +48,15 @@ let errEmbed = new Discord.RichEmbed()
     if(rUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You cannot reject a Moderator or higher.");
     
 let rejectembed = new Discord.RichEmbed()
-.setTitle(`**Your application for ${message.guild.name} has been rejected!**`)
-.setColor("RED")
-.addField("Reason", kReason)
-.addField("What To Do", "You can reapply by filling out the application form again, however make sure you improve on the things you did wrong in the first try, otherwise it can/will be rejected again.");
+      .setTitle("**Application Form Results**")
+      .setColor("RED")
+      .setDescription([
+          `**From:** ${message.guild.name}`,
+          `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+          `**Status:** Rejected`,
+          `**Reason:** ${kReason}`,
+          `**What To Do:** You can reapply by filling out the application form again, however, make sure you improve on the mistakes you made in the previous try, otherwise your application form will be rejected again!`,
+        ].join('\n'))
     
 rUser.send(rejectembed);
     
