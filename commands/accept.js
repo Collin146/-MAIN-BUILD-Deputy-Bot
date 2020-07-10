@@ -62,7 +62,7 @@ let acceptembed = new Discord.RichEmbed()
           `**From:** ${message.guild.name}`,
           `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
           `**Status:** Approved`,
-          `**Message:** Your application has been approved! You have taken your first step into the community. The next step is to wait for an interview to be announced/scheduled. We wish you good luck!`,
+          `**Message:** Your application has been approved! You have taken your first step into the community. The next step is to wait for an interview to be announced/scheduled in <#644273618011815946>. We wish you good luck!`,
         ].join('\n'))
     
 rUser.send(acceptembed);
