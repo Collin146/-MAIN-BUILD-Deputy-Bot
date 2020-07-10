@@ -609,7 +609,7 @@ bot.on("messageDelete", async message => {
           ` `,
           `**Channel:** ${message.channel}`,
           ` `,
-          `**Message:** ${message.content || message.embeds}`
+          `**Message:** ${message.content || "Embed"}`
         ].join('\n'));
   
     let channel = message.guild.channels.find(x => x.name === 'deleted-messages-log');
