@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
+const = moment = require("moment");
 
 module.exports.run = async (bot, message, args) => { 
 
@@ -53,6 +54,18 @@ geluktEmbed2 = new Discord.RichEmbed()
 .setFooter(`Mentioned User ID: ${rUser.id}`);
 
 message.channel.send(geluktEmbed2);
+
+let acceptembed = new Discord.RichEmbed()
+      .setTitle("**Application Form Results**")
+      .setColor("GREEN")
+      .setDescription([
+          `**From:** ${message.guild.name}`,
+          `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+          `**Status:** Approved`,
+          `**Message:** Your application has been approved! You have taken your first step into the community. The next step is to wait for an interview to be announced/scheduled. We wish you good luck!`,
+        ].join('\n'))
+    
+rUser.send(acceptembed);
 
 let approle = message.guild.roles.find(x => x.name === 'Applicant');
 let accrole = message.guild.roles.find(x => x.name === 'Approved For Interview');
