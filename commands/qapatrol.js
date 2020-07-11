@@ -51,9 +51,10 @@ let patrolembed = new Discord.RichEmbed()
       .setTitle("**New Patrol Scheduled!**")
       .setColor("BLACK")
       .setDescription([
-          `**Date & Time:** ${day}, &{time} BST`,
-          `**Announced By:** ${message.author}`,
+          `**Date & Time:** ${day}, ${time} BST`,
+          ` `,
           `**What To Do:** To confirm your attendance, press the reaction below.`,
+          ` `,
           `**Notice:** If you say yes you are required to show up to the patrol. If you can't show up with a reason inform ${message.author} __before__ the patrol starts. Please note that you will have to show up to briefing room. This starts 30 minutes prior to the time announced above).`,
         ].join('\n'))
 
@@ -61,7 +62,8 @@ let patrolembed = new Discord.RichEmbed()
   
   await message.channel.send(patrolembed);
   
-  await patrolembed.react(yes.id);
+  const sentMessage =  await message.channel.send(patrolembed);
+  await sentMessage.react(yes.id);
 
   message.delete().catch(O_o=>{});
     
