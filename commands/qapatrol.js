@@ -46,24 +46,6 @@ let errEmbed2 = new Discord.RichEmbed()
 .setDescription(`You didn't provide a time!`);
 
 if (!time) return message.channel.send(errEmbed2);
-
-let patrolembed = new Discord.RichEmbed()
-      .setTitle("**New Patrol Scheduled!**")
-      .setColor("BLACK")
-      .setDescription([
-          `**Date & Time:** ${day}, ${time} BST`,
-          ` `,
-          `**What To Do:** To confirm your attendance, press the reaction below.`,
-          ` `,
-          `**Notice:** If you say yes you are required to show up to the patrol. If you can't show up with a reason inform ${message.author} __before__ the patrol starts. Please note that you will have to show up to briefing room. This starts 30 minutes prior to the time announced above).`,
-        ].join('\n'))
-
-  message.channel.send(`<@&${mentionrole.id}>`);
-  
-  const sentMessage =  await message.channel.send(patrolembed);
-  await sentMessage.react(yes.id);
-
-  message.delete().catch(O_o=>{});
     
     let ModEmbed = new Discord.RichEmbed()
 .setTitle("**Command Used!**")
@@ -81,89 +63,202 @@ let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ModEmbed});
     
     if(args[1] === "6:30pm"){
-            
-message.channel.send([
-    "**Other Timezones:**",
-    "PDT: 10:30 AM",
-    "EDT: 1:30 PM",
-    "CEST: 7:30 PM",
-    "MDT: 11:30 AM",
-    "CDT: 12:30 PM"
-   ].join('\n'))
 
-   return;
+let patrolembed1 = new Discord.RichEmbed()
+      .setTitle("**New Patrol Scheduled!**")
+      .setColor("BLACK")
+      .setDescription([
+          `**Date & Time:** ${day}, ${time} BST`,
+          ` `,
+          `**What To Do:** To confirm your attendance, press the reaction below.`,
+          ` `,
+          `**Notice:** If you say yes you are required to show up to the patrol. If you can't show up with a reason inform ${message.author} __before__ the patrol starts. Please note that you will have to show up to briefing room. This starts 30 minutes prior to the time announced above).`,
+          `**Other Timezones:**`,
+          `PDT: 10:30 AM`,
+          `EDT: 1:30 PM`,
+          `CEST: 7:30 PM`,
+          `MDT: 11:30 AM`,
+          `CDT: 12:30 PM`,
+        ].join('\n'))
+
+  message.channel.send(`<@&${mentionrole.id}>`);
+  
+  const sentMessage =  await message.channel.send(patrolembed1);
+  await sentMessage.react(yes.id);
+
+  message.delete().catch(O_o=>{});
+
+return;
     }
     
     if(args[1] === "7:00pm"){
 
-message.channel.send([
-    "**Other Timezones:**",
-    "PDT: 11:00 AM",
-    "EDT: 2:00 PM",
-    "CEST: 8:00 PM",
-    "MDT: 12:00 PM",
-    "CDT: 1:00 PM"
-   ].join('\n'))
+let patrolembed2 = new Discord.RichEmbed()
+      .setTitle("**New Patrol Scheduled!**")
+      .setColor("BLACK")
+      .setDescription([
+          `**Date & Time:** ${day}, ${time} BST`,
+          ` `,
+          `**What To Do:** To confirm your attendance, press the reaction below.`,
+          ` `,
+          `**Notice:** If you say yes you are required to show up to the patrol. If you can't show up with a reason inform ${message.author} __before__ the patrol starts. Please note that you will have to show up to briefing room. This starts 30 minutes prior to the time announced above).`,
+          ` `,
+          `**Other Timezones:**`,
+          `PDT: 11:00 AM`,
+          `EDT: 2:00 PM`,
+          `CEST: 8:00 PM`,
+          `MDT: 12:00 PM`,
+          `CDT: 1:00 PM`,
+        ].join('\n'))
 
-   return;
+  message.channel.send(`<@&${mentionrole.id}>`);
+  
+  const sentMessage =  await message.channel.send(patrolembed2);
+  await sentMessage.react(yes.id);
+
+  message.delete().catch(O_o=>{});
+
+return;
     }
 
     if(args[1] === "7:30pm"){
 
-message.channel.send([
-    "**Other Timezones:**",
-    "PDT: 11:30 AM",
-    "EDT: 2:30 PM",
-    "CEST: 8:30 PM",
-    "MDT: 12:30 PM",
-    "CDT: 1:30 PM"
-   ].join('\n'))
+let patrolembed3 = new Discord.RichEmbed()
+      .setTitle("**New Patrol Scheduled!**")
+      .setColor("BLACK")
+      .setDescription([
+          `**Date & Time:** ${day}, ${time} BST`,
+          ` `,
+          `**What To Do:** To confirm your attendance, press the reaction below.`,
+          ` `,
+          `**Notice:** If you say yes you are required to show up to the patrol. If you can't show up with a reason inform ${message.author} __before__ the patrol starts. Please note that you will have to show up to briefing room. This starts 30 minutes prior to the time announced above).`,
+          ` `,
+          `**Other Timezones:**`,
+          `PDT: 11:30 AM`,
+          `EDT: 2:30 PM`,
+          `CEST: 8:30 PM`,
+          `MDT: 12:30 PM`,
+          `CDT: 1:30 PM`,
+        ].join('\n'))
 
-  return;
+  message.channel.send(`<@&${mentionrole.id}>`);
+  
+  const sentMessage =  await message.channel.send(patrolembed3);
+  await sentMessage.react(yes.id);
+
+  message.delete().catch(O_o=>{});
+
+return;
     }
 
     if(args[1] === "8:00pm"){
 
-message.channel.send([
-    "**Other Timezones:**",
-    "PDT: 12:00 PM",
-    "EDT: 3:00 PM",
-    "CEST: 9:00 PM",
-    "MDT: 1:00 PM",
-    "CDT: 2:00 PM"
-   ].join('\n'))
+let patrolembed4 = new Discord.RichEmbed()
+      .setTitle("**New Patrol Scheduled!**")
+      .setColor("BLACK")
+      .setDescription([
+          `**Date & Time:** ${day}, ${time} BST`,
+          ` `,
+          `**What To Do:** To confirm your attendance, press the reaction below.`,
+          ` `,
+          `**Notice:** If you say yes you are required to show up to the patrol. If you can't show up with a reason inform ${message.author} __before__ the patrol starts. Please note that you will have to show up to briefing room. This starts 30 minutes prior to the time announced above).`,
+          ` `,
+          `**Other Timezones:**`,
+          `PDT: 12:00 PM`,
+          `EDT: 3:00 PM`,
+          `CEST: 9:00 PM`,
+          `MDT: 1:00 PM`,
+          `CDT: 2:00 PM`,
+        ].join('\n'))
 
-   return;
+  message.channel.send(`<@&${mentionrole.id}>`);
+  
+  const sentMessage =  await message.channel.send(patrolembed4);
+  await sentMessage.react(yes.id);
+
+  message.delete().catch(O_o=>{});
+
+return;
     }
 
     if(args[1] === "8:30pm"){
 
-message.channel.send([
-    "**Other Timezones:**",
-    "PDT: 12:30 PM",
-    "EDT: 3:30 PM",
-    "CEST: 9:30 PM",
-    "MDT: 1:30 PM",
-    "CDT: 2:30 PM"
-   ].join('\n'))
+let patrolembed5 = new Discord.RichEmbed()
+      .setTitle("**New Patrol Scheduled!**")
+      .setColor("BLACK")
+      .setDescription([
+          `**Date & Time:** ${day}, ${time} BST`,
+          ` `,
+          `**What To Do:** To confirm your attendance, press the reaction below.`,
+          ` `,
+          `**Notice:** If you say yes you are required to show up to the patrol. If you can't show up with a reason inform ${message.author} __before__ the patrol starts. Please note that you will have to show up to briefing room. This starts 30 minutes prior to the time announced above).`,
+          ` `,
+          `**Other Timezones:**`,
+          `PDT: 12:30 PM`,
+          `EDT: 3:30 PM`,
+          `CEST: 9:30 PM`,
+          `MDT: 1:30 PM`,
+          `CDT: 2:30 PM`,
+        ].join('\n'))
 
-   return;
+  message.channel.send(`<@&${mentionrole.id}>`);
+  
+  const sentMessage =  await message.channel.send(patrolembed5);
+  await sentMessage.react(yes.id);
+
+  message.delete().catch(O_o=>{});
+
+return;
     }
 
      if(args[1] === "9:00pm"){
 
- message.channel.send([
-    "**Other Timezones:**",
-    "PDT: 1:00 PM",
-    "EDT: 4:00 PM",
-    "CEST: 10:00 PM",
-    "MDT: 2:00 PM",
-    "CDT: 3:00 PM"
-   ].join('\n'))
+let patrolembed6 = new Discord.RichEmbed()
+      .setTitle("**New Patrol Scheduled!**")
+      .setColor("BLACK")
+      .setDescription([
+          `**Date & Time:** ${day}, ${time} BST`,
+          ` `,
+          `**What To Do:** To confirm your attendance, press the reaction below.`,
+          ` `,
+          `**Notice:** If you say yes you are required to show up to the patrol. If you can't show up with a reason inform ${message.author} __before__ the patrol starts. Please note that you will have to show up to briefing room. This starts 30 minutes prior to the time announced above).`,
+          ` `,
+          `**Other Timezones:**`,
+          `PDT: 1:00 PM`,
+          `EDT: 4:00 PM`,
+          `CEST: 10:00 PM`,
+          `MDT: 2:00 PM`,
+          `CDT: 3:00 PM`,
+        ].join('\n'))
 
-   return;
+  message.channel.send(`<@&${mentionrole.id}>`);
+  
+  const sentMessage =  await message.channel.send(patrolembed6);
+  await sentMessage.react(yes.id);
+
+  message.delete().catch(O_o=>{});
+
+return;
     }
+    
+    let patrolembed7 = new Discord.RichEmbed()
+      .setTitle("**New Patrol Scheduled!**")
+      .setColor("BLACK")
+      .setDescription([
+          `**Date & Time:** ${day}, ${time} BST`,
+          ` `,
+          `**What To Do:** To confirm your attendance, press the reaction below.`,
+          ` `,
+          `**Notice:** If you say yes you are required to show up to the patrol. If you can't show up with a reason inform ${message.author} __before__ the patrol starts. Please note that you will have to show up to briefing room. This starts 30 minutes prior to the time announced above).`,
+        ].join('\n'))
 
+  message.channel.send(`<@&${mentionrole.id}>`);
+  
+  const sentMessage =  await message.channel.send(patrolembed7);
+  await sentMessage.react(yes.id);
+
+  message.delete().catch(O_o=>{});
+    
     } catch(err) {
         //catchErr(err)
         
