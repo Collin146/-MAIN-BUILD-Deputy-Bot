@@ -60,8 +60,6 @@ let patrolembed = new Discord.RichEmbed()
 
   message.channel.send(`<@&${mentionrole.id}>`);
   
-  await message.channel.send(patrolembed);
-  
   const sentMessage =  await message.channel.send(patrolembed);
   await sentMessage.react(yes.id);
 
