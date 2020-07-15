@@ -34,7 +34,6 @@ let consolechannel = bot.channels.find(x => x.name === 'console-log');
     consolechannel.send("Couldn't find commands. Changed status from up to crashed");
     return;
 
-
 }
 
 jsfile.forEach((f, i) =>{
