@@ -31,7 +31,7 @@ const no = bot.emojis.get("700713478578634783");
 let civilianrole = message.guild.roles.find(x => x.name === 'Civilian');
 let bcsorole = message.guild.roles.find(x => x.name === 'BCSO');
 let lsfdrole = message.guild.roles.find(x => x.name === 'LSFD');
-let commsrole = message.guild.roles.find(x => x.name === 'Communications');
+let commsrole = message.guild.roles.find(x => x.name === 'SAC');
 let day = args[1];
 let time = args[2];
 
@@ -128,7 +128,7 @@ if(args[0] === "civilian"){
               return; 
               }
 
-              if(args[0] === "communications"){
+              if(args[0] === "sac"){
 
                 const sentMessage4 =  await message.channel.send([
                     `<@&${commsrole.id}>`,
