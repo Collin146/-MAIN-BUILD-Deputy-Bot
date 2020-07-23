@@ -873,10 +873,12 @@ try {
     let Traffic2 = mainguild.channels.find(x => x.name === 'Traffic Stop #2');
     let Traffic3 = mainguild.channels.find(x => x.name === 'Traffic Stop #3');
     let Traffic4 = mainguild.channels.find(x => x.name === 'Traffic Stop #4');
+    let Traffic5 = mainguild.channels.find(x => x.name === 'Traffic Stop #5');
     let Scene1 = mainguild.channels.find(x => x.name === 'On Scene #1');
     let Scene2 = mainguild.channels.find(x => x.name === 'On Scene #2');
     let Scene3 = mainguild.channels.find(x => x.name === 'On Scene #3');
     let Scene4 = mainguild.channels.find(x => x.name === 'On Scene #4');
+    let Scene5 = mainguild.channels.find(x => x.name === 'On Scene #5');
     let Civ1 = mainguild.channels.find(x => x.name === 'Civ Channel #1');
     let Civ2 = mainguild.channels.find(x => x.name === 'Civ Channel #2');
     let Civ3 = mainguild.channels.find(x => x.name === 'Civ Channel #3');
@@ -884,6 +886,7 @@ try {
     let Civ5 = mainguild.channels.find(x => x.name === 'Civ Channel #5');
     let Civ6 = mainguild.channels.find(x => x.name === 'Civ Channel #6');
     let Civ7 = mainguild.channels.find(x => x.name === 'Civ Channel #7');
+    let Civ8 = mainguild.channels.find(x => x.name === 'Civ Channel #8');
 
     if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
@@ -901,10 +904,12 @@ try {
     if(newUserChannel.id === Traffic2.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Traffic3.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Traffic4.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Traffic5.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Scene1.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Scene2.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Scene3.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Scene4.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Scene5.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Civ1.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Civ2.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Civ3.id) newMember.addRole(patrolrole.id); 
@@ -912,6 +917,7 @@ try {
     if(newUserChannel.id === Civ5.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Civ6.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Civ7.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Civ8.id) newMember.addRole(patrolrole.id); 
     
     } else if(newUserChannel === undefined){
    
@@ -929,10 +935,12 @@ try {
     if(oldUserChannel.id === Traffic2.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Traffic3.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Traffic4.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Traffic5.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Scene1.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Scene2.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Scene3.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Scene4.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Scene5.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Civ1.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Civ2.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Civ3.id) newMember.removeRole(patrolrole.id); 
@@ -940,6 +948,7 @@ try {
     if(oldUserChannel.id === Civ5.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Civ6.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Civ7.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Civ8.id) newMember.removeRole(patrolrole.id); 
 
     } else if (oldUserChannel !== null && newUserChannel !== null) {
 
@@ -953,14 +962,16 @@ try {
         if(newUserChannel.id === fireops.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === RTO.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === nine11.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Traffic1.id) newMember.addRole(patrolrole.id);;
+        if(newUserChannel.id === Traffic1.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Traffic2.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Traffic3.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Traffic4.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Traffic5.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Scene1.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Scene2.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Scene3.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Scene4.id) newMember.addRole(patrolrole.id);;
+        if(newUserChannel.id === Scene4.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Scene5.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Civ1.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Civ2.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Civ3.id) newMember.addRole(patrolrole.id);
@@ -968,6 +979,7 @@ try {
         if(newUserChannel.id === Civ5.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Civ6.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Civ7.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Civ8.id) newMember.addRole(patrolrole.id);
 
     if(newUserChannel.id === Briefingroom.id) return;
     if(newUserChannel.id === Queue.id) return;
@@ -983,10 +995,12 @@ try {
     if(newUserChannel.id === Traffic2.id) return;
     if(newUserChannel.id === Traffic3.id) return;
     if(newUserChannel.id === Traffic4.id) return;
+    if(newUserChannel.id === Traffic5.id) return;
     if(newUserChannel.id === Scene1.id) return;
     if(newUserChannel.id === Scene2.id) return;
     if(newUserChannel.id === Scene3.id) return;
     if(newUserChannel.id === Scene4.id) return;
+    if(newUserChannel.id === Scene5.id) return;
     if(newUserChannel.id === Civ1.id) return;
     if(newUserChannel.id === Civ2.id) return;
     if(newUserChannel.id === Civ3.id) return;
@@ -994,6 +1008,7 @@ try {
     if(newUserChannel.id === Civ5.id) return;
     if(newUserChannel.id === Civ6.id) return;
     if(newUserChannel.id === Civ7.id) return;
+    if(newUserChannel.id === Civ8.id) return;
 
     newMember.removeRole(patrolrole.id);
 
