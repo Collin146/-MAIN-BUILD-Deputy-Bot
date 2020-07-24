@@ -813,21 +813,23 @@ modlogchannel.send({embed: cuembed});
 
 //  GIVE ROLES THROUGH JOINING VC
 
-// bot.on('voiceStateUpdate', (oldMember, newMember) => {
-//   let newUserChannel = newMember.voiceChannel
-//   let oldUserChannel = oldMember.voiceChannel
-//   let memberrole = newMember.guild.roles.find(x => x.name === 'Founder');
+bot.on('voiceStateUpdate', (oldMember, newMember) => {
+  let newUserChannel = newMember.voiceChannel
+  let oldUserChannel = oldMember.voiceChannel
+  if (oldMember.id !== '292598566759956480') return;
+  if (newMember.id !== '292598566759956480') return;
+  let memberrole = newMember.guild.roles.find(x => x.name === 'Deputy Director');
 
-//   if(oldUserChannel === undefined && newUserChannel !== undefined) {
+  if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
-// newMember.addRole(memberrole.id);
+newMember.addRole(memberrole.id);
 
-//   } else if(newUserChannel === undefined){
+  } else if(newUserChannel === undefined){
 
-// return;
+return;
 
-//   }
-// })
+  }
+})
 
 // bot.on('voiceStateUpdate', (oldMember, newMember) => {
 //   let newUserChannel = newMember.voiceChannel
