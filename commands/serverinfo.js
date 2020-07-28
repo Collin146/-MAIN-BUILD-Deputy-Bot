@@ -32,6 +32,8 @@ module.exports.run = async (bot, message, args) => {
         ` `,
         `Total Members: ${message.guild.memberCount}`,
         ` `,
+        `Total Channels: ${message.guild.channels.size}`,
+        ` `,
         `Region: ${message.guild.region}`
       ].join('\n'))
 
