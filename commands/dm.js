@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const errors = require("../utils/errors.js");
+const moment = require("moment");
 
 module.exports.run = async (bot, message, args) => { 
 
@@ -59,9 +60,13 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
       if (reaction.emoji.id === yes.id) {
   
         let dmembed = new Discord.RichEmbed()
-        .setTitle(`**A message from ${message.guild.name}.**`)
-        .setColor("#00fff6")
-        .setDescription(`${reason}`);
+        .setTitle("**Serverwide Message**")
+        .setColor("BLACK")
+        .setDescription([
+            `**From:** ${message.guild.name}`,
+            `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+            `**Reason:** ${reason}`,
+          ].join('\n'))
       
       message.guild.members.forEach(member => {
             if (member.id != bot.user.id && !member.user.bot) member.send(dmembed);
@@ -88,7 +93,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
       
       let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
       modlogchannel.send({embed: ModEmbed});
-          
+         return; 
       }
       else {
 
@@ -114,7 +119,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 
 
   } catch(err) {
-    console.log(err)
+    catchErr(err)
 
   }
 
