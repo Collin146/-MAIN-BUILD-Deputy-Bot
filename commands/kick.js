@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args) => {
     .setTitle(`${no} **Error!**`)
     .setDescription(`You cannot kick a Moderator or higher.`)
 
-    if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send(errEmbed2);
+    //if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send(errEmbed2);
     // if(!kReason) return message.reply("Please give a reason.")
 
 geluktEmbed = new Discord.RichEmbed()
