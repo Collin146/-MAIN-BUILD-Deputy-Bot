@@ -2,6 +2,8 @@ const botconfig = require("./Botconfig.json");
 const Discord = require("discord.js");
 const moment = require('moment');
 const fs = require("fs");
+const ms = require("ms");
+const AntiSpam = require('discord-anti-spam');
 const bot = new Discord.Client({disableEveryone: false});
 bot.commands = new Discord.Collection();
 process.setMaxListeners(Infinity);
@@ -233,9 +235,24 @@ bot.on(`message`, async message => {
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Links are not allowed to be sent!")
-            .setFooter("Continuing on sending links words will result in disciplinary action!");
+            .setFooter("Continuing with sending links words will result in disciplinary action!");
            
             await message.channel.send(linkembed);
+
+            const modloglinkEmbed = new Discord.RichEmbed()
+            .setColor('RED')
+            .setTimestamp()
+            .setTitle("**Link Detected!**")
+            .setDescription([
+            `**User:** <@${message.author.id}>`,
+            `**Channel:** ${message.channel}`,
+            `**Action Taken:** Deleted & Warned`,
+            `**Link:** ${message.content}`
+            ].join('\n'))
+
+            let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+            modlogchannel.send({embed: modloglinkEmbed});
+
         }
     } catch (e) {
         console.log(e);
@@ -378,9 +395,24 @@ bot.on(`message`, async message => {
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Do not mention everyone or member!")
-            .setFooter("Mention spam will result in disciplinary action!");
+            .setFooter("Mentioning these roles can/will result in disciplinary action!");
            
             await message.channel.send(linkembed);
+
+            const mentionEmbed = new Discord.RichEmbed()
+            .setColor('RED')
+            .setTimestamp()
+            .setTitle("**Unauthorized Role Mention Detected!**")
+            .setDescription([
+            `**User:** <@${message.author.id}>`,
+            `**Channel:** ${message.channel}`,
+            `**Action Taken:** Deleted & Warned`,
+            `**Message Contents:** ${message.content}`
+            ].join('\n'))
+
+            let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+            modlogchannel.send({embed: mentionEmbed});
+
         }
     } catch (e) {
         console.log(e);
@@ -414,10 +446,24 @@ bot.on(`message`, async message => {
             let linkembed = new Discord.RichEmbed()
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
-            .setDescription("Those words are not allowed to be sent!")
-            .setFooter("Continuing on sending those words will result in disciplinary action!");
+            .setDescription("Please refrain from using offensive language!")
+            .setFooter("Continuing on using offensive language will result in disciplinary action!");
            
             await message.channel.send(linkembed);
+
+            const offlangEmbed = new Discord.RichEmbed()
+            .setColor('RED')
+            .setTimestamp()
+            .setTitle("**Offensive Language Detected!**")
+            .setDescription([
+            `**User:** <@${message.author.id}>`,
+            `**Channel:** ${message.channel}`,
+            `**Action Taken:** Deleted & Warned`,
+            `**Message Contents:** ${message.content}`
+            ].join('\n'))
+
+            let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+            modlogchannel.send({embed: offlangEmbed});
         }
     } catch (e) {
         console.log(e);
@@ -805,6 +851,236 @@ let modlogchannel = oldChannel.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: cuembed});
 
     }
+} catch (err) {
+    catchErr(err);
+}
+
+});
+
+const antiSpam = new AntiSpam({
+    warnThreshold: 3, // Amount of messages sent in a row that will cause a warning.
+    kickThreshold: 3, // Amount of messages sent in a row that will cause a ban.
+    banThreshold: 7, // Amount of messages sent in a row that will cause a ban.
+    maxInterval: 2000, // Amount of time (in milliseconds) in which messages are considered spam.
+    warnMessage: '{@user}', // Message that will be sent in chat upon warning a user.
+    kickMessage: '**{user_tag}** has been kicked for spamming.', // Message that will be sent in chat upon kicking a user.
+    banMessage: '**{user_tag}** has been banned for spamming.', // Message that will be sent in chat upon banning a user.
+    maxDuplicatesWarning: 7, // Amount of duplicate messages that trigger a warning.
+    maxDuplicatesKick: 10, // Amount of duplicate messages that trigger a warning.
+    maxDuplicatesBan: 12, // Amount of duplicate messages that trigger a warning.
+    exemptPermissions: [ 'ADMINISTRATOR'], // Bypass users with any of these permissions.
+    ignoreBots: true, // Ignore bot messages.
+    verbose: true, // Extended Logs from module.
+    ignoredUsers: [], // Array of User IDs that get ignored.
+    warnEnabled: true,
+    kickEnabled: false,
+    banEnabled: false
+
+});
+
+bot.on('message', (message) => antiSpam.message(message)); 
+ 
+antiSpam.on("warnAdd", async member => { 
+
+    try {
+
+    member.lastMessage.channel.fetchMessages({
+        limit: 80,
+       }).then((messages) => {
+    const filterBy = member ? member.id : bot.member.id;
+    const amount = ("8");
+    messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
+
+    member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+    });
+
+    const warningsign = bot.emojis.get("729725849343098900");
+
+    let spamEmbed = new Discord.RichEmbed()
+    .setTitle(`${warningsign} **Notice!**`)
+    .setColor("RED")
+    .setDescription("Please refrain from spamming within the server!")
+    .setFooter("Continuing with spamming will result in an automatic mute!");
+
+    await member.lastMessage.channel.send(spamEmbed);
+
+    member.lastMessage.channel.fetchMessages({
+        limit: 80,
+       }).then((messages) => {
+    const filterBy = member ? member.id : bot.member.id;
+    const amount = ("8");
+    messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
+
+    member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+    });
+
+    const modlogspamEmbed = new Discord.RichEmbed()
+    .setColor('RED')
+    .setTimestamp()
+    .setTitle("**Message Spam Detected!**")
+    .setDescription([
+        `**User:** <@${member.id}>`,
+        `**Channel:** ${member.lastMessage.channel}`,
+        `**Action Taken:** Warning`
+      ].join('\n'))
+
+let modlogchannel = member.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: modlogspamEmbed});
+
+} catch (err) {
+    catchErr(err);
+}
+
+});
+
+const antiSpamMute = new AntiSpam({
+    warnThreshold: 7, // Amount of messages sent in a row that will cause a warning.
+    kickThreshold: 3, // Amount of messages sent in a row that will cause a ban.
+    banThreshold: 7, // Amount of messages sent in a row that will cause a ban.
+    maxInterval: 5000, // Amount of time (in milliseconds) in which messages are considered spam.
+    warnMessage: '{@user}', // Message that will be sent in chat upon warning a user.
+    kickMessage: '**{user_tag}** has been kicked for spamming.', // Message that will be sent in chat upon kicking a user.
+    banMessage: '**{user_tag}** has been banned for spamming.', // Message that will be sent in chat upon banning a user.
+    maxDuplicatesWarning: 7, // Amount of duplicate messages that trigger a warning.
+    maxDuplicatesKick: 10, // Amount of duplicate messages that trigger a warning.
+    maxDuplicatesBan: 12, // Amount of duplicate messages that trigger a warning.
+    exemptPermissions: [ 'ADMINISTRATOR'], // Bypass users with any of these permissions.
+    ignoreBots: true, // Ignore bot messages.
+    verbose: true, // Extended Logs from module.
+    ignoredUsers: [], // Array of User IDs that get ignored.
+    warnEnabled: true,
+    kickEnabled: false,
+    banEnabled: false
+
+});
+
+bot.on('message', (message) => antiSpamMute.message(message)); 
+ 
+antiSpamMute.on("warnAdd", async member => { 
+
+    try {
+
+    member.lastMessage.channel.fetchMessages({
+        limit: 80,
+       }).then((messages) => {
+    const filterBy = member ? member.id : bot.member.id;
+    const amount = ("8");
+    messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
+
+    member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+    });
+
+    member.lastMessage.channel.fetchMessages({
+        limit: 80,
+       }).then((messages) => {
+    const filterBy = member ? member.id : bot.member.id;
+    const amount = ("8");
+    messages = messages.filter(m => m.author.id === filterBy).array().slice(0, amount);
+
+    member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+    });
+
+const warningsign = bot.emojis.get("729725849343098900");
+
+let muterole = member.guild.roles.find(x => x.name === 'Muted');
+let memberrole = member.guild.roles.find(x => x.name === 'Member');
+let approle = member.guild.roles.find(x => x.name === 'Applicant');
+let recrole = member.guild.roles.find(x => x.name === 'Recruit');
+//start of create role
+if (!muterole){
+    try{
+        muterole = await member.guild.createRole({
+            name: "Muted",
+            color: "#000000",
+            permissions: []
+        })
+        member.guild.channels.forEach(async (channel, id) => {
+            await channel.overwritePermissions(muterole, {
+                SEND_MESSAGES: false,
+                ADD_REACTIONS: false
+            });
+        });
+
+    }catch(e){
+        console.log(e.stack);
+    }
+}
+//end of create role
+
+try {
+
+await(member.addRole(muterole.id));
+await(member.removeRole(memberrole.id));
+
+} catch(err) {
+}
+
+try {
+
+await(member.addRole(muterole.id));
+await(member.removeRole(approle.id));
+
+} catch(err) {
+}
+
+try {
+
+await(member.addRole(muterole.id));
+await(member.removeRole(recrole.id));
+    
+} catch(err) {  
+}
+
+geluktEmbed55 = new Discord.RichEmbed()
+      .setColor("RED")
+      .setTitle(`${warningsign} **Automatic Mute!**`)
+      .setDescription(`<@${member.id}> has been muted for 4h due to spamming.`)
+      .setFooter(`Mentioned User ID: ${member.id}`);
+
+member.lastMessage.channel.send(geluktEmbed55);
+
+if(!member.roles.find(r => r.name === "Muted"))
+    
+setTimeout(function(){
+
+member.removeRole(muterole.id);
+
+    try {
+     
+    member.addRole(memberrole.id);
+
+    } catch(err) {
+    }
+
+    try {
+     
+    member.addRole(approle.id);
+    
+    } catch(err) {
+    }
+
+    try {
+     
+    member.addRole(recrole.id);
+        
+    } catch(err) {
+    }        
+
+}, ms("4h"));
+
+const modlogspamEmbed2 = new Discord.RichEmbed()
+.setColor('RED')
+.setTimestamp()
+.setTitle("**Message Spam Detected!**")
+.setDescription([
+    `**User:** <@${member.id}>`,
+    `**Channel:** ${member.lastMessage.channel}`,
+    `**Action Taken:** Muted for 4 hours`
+  ].join('\n'))
+
+let modlogchannel = member.guild.channels.find(x => x.name === 'modlog');
+modlogchannel.send({embed: modlogspamEmbed2});
+
 } catch (err) {
     catchErr(err);
 }
