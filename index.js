@@ -235,7 +235,7 @@ bot.on(`message`, async message => {
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Links are not allowed to be sent!")
-            .setFooter("Continuing with sending links words will result in disciplinary action!");
+            .setFooter("Continuing with sending links will result in disciplinary action!");
            
             await message.channel.send(linkembed);
 
