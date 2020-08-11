@@ -17,10 +17,13 @@ module.exports.run = async (bot, message, args) => {
 
     try {
 
+        if (message.channel.id === "737831284390363177") {
+
     const yes = bot.emojis.get("700713527576625205");
     const no = bot.emojis.get("700713478578634783"); 
     const warningsign = bot.emojis.get("729725849343098900");
     let mentionrole = message.guild.roles.find(x => x.name === 'On Patrol');
+    let civrole = message.guild.roles.find(x => x.name === 'Civilian');
 
     let priorityEmbed = new Discord.RichEmbed()
     .setTitle(`${warningsign} **Priority Active!**`)
@@ -34,6 +37,10 @@ module.exports.run = async (bot, message, args) => {
     await sentMessage.react(no.id);
 
     message.delete().catch(O_o=>{});
+
+    message.channel.overwritePermissions(civrole.id, {
+        SEND_MESSAGES: false
+      });
 
 const filter = (reaction, user) => {
     return [no.id].includes(reaction.emoji.id) && user.id === message.author.id;
@@ -67,6 +74,10 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
                 .setDescription(`The priority cooldown has ended! You are now authorized to create another priority. When doing so, please use the \`!priority\` command!`);
         
                 message.channel.send(cooldownendEmbed);
+
+                message.channel.overwritePermissions(civrole.id, {
+                    SEND_MESSAGES: true
+                  });
             }, ms("20m"));
             
         }
@@ -75,6 +86,18 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
     })
     .catch(collected => {
     });
+
+    return;
+        }
+
+        const no = bot.emojis.get("700713478578634783"); 
+
+        let errEmbed = new Discord.RichEmbed()
+        .setColor("RED")
+        .setTitle(`${no} **Error!**`)
+        .setDescription("You can only use this command within the <#737831284390363177> channel.");
+
+        message.channel.send(errEmbed);
 
     } catch(err) {
          catchErr(err)
