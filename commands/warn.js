@@ -91,10 +91,10 @@ modlogchannel.send({embed: ModEmbed});
   .addField("Punishment Type", "Warning")
   .addField("Reason", reason);
  
-mentioned.send(DMembed);
+wUser.send(DMembed);
 
   } catch(err) {
-    console.log(err)
+    catchErr(err)
     
   }
 
