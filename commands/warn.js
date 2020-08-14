@@ -94,7 +94,7 @@ modlogchannel.send({embed: ModEmbed});
 mentioned.send(DMembed);
 
   } catch(err) {
-    catchErr(err)
+    console.log(err)
     
   }
 
