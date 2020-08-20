@@ -45,6 +45,14 @@ const no = bot.emojis.get("700713478578634783");
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 let mentionrole = message.guild.roles.find(x => x.name === 'Member');
 
+message.channel.fetchMessages({ limit: 100 })
+
+  .then(fetchedMessages => {
+    const messagesToDelete = fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('Reminder!')));
+
+    return message.channel.bulkDelete(messagesToDelete, true);
+  })
+
 
     message.channel.send([
         `<@&${mentionrole.id}>`,
