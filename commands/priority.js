@@ -43,22 +43,22 @@ module.exports.run = async (bot, message, args) => {
       });
 
 const filter = (reaction, user) => {
-    gmember = message.guild.members.get(user.id)
-    if (user.bot) return;
-    let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+//     gmember = message.guild.members.get(user.id)
+//     if (user.bot) return;
+//     let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 
-    const priocancel = new Discord.RichEmbed()
-    .setColor('RED')
-    .setTimestamp()
-    .setTitle("**Priority Admin Cancel!**")
-    .setDescription([
-        `**Cancelled By:** <@${user.id}>`,
-        `**Priority By:** ${message.author}`,
-        `**Channel:** ${message.channel}`
-      ].join('\n'))
+//     const priocancel = new Discord.RichEmbed()
+//     .setColor('RED')
+//     .setTimestamp()
+//     .setTitle("**Priority Admin Cancel!**")
+//     .setDescription([
+//         `**Cancelled By:** <@${user.id}>`,
+//         `**Priority By:** ${message.author}`,
+//         `**Channel:** ${message.channel}`
+//       ].join('\n'))
 
-    if (gmember.hasPermission("ADMINISTRATOR") && gmember.id !== message.author.id) modlogchannel.send({embed: priocancel});
-    return [no.id].includes(reaction.emoji.id) && user.id === message.author.id, gmember.hasPermission("ADMINISTRATOR");
+//     if (gmember.hasPermission("ADMINISTRATOR") && gmember.id !== message.author.id) modlogchannel.send({embed: priocancel});
+    return [no.id].includes(reaction.emoji.id) && user.id === message.author.id; //gmember.hasPermission("ADMINISTRATOR");
 };
 
 
