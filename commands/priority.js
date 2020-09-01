@@ -3,6 +3,7 @@ const fs = require("fs");
 const errors = require("../utils/errors.js");
 const ms = require("ms");
 const { time } = require("console");
+const { userInfo } = require("os");
 
 module.exports.run = async (bot, message, args) => { 
 
@@ -43,22 +44,22 @@ module.exports.run = async (bot, message, args) => {
       });
 
 const filter = (reaction, user) => {
-//     gmember = message.guild.members.get(user.id)
-//     if (user.bot) return;
-//     let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+    gmember = message.guild.members.get(user.id)
 
-//     const priocancel = new Discord.RichEmbed()
-//     .setColor('RED')
-//     .setTimestamp()
-//     .setTitle("**Priority Admin Cancel!**")
-//     .setDescription([
-//         `**Cancelled By:** <@${user.id}>`,
-//         `**Priority By:** ${message.author}`,
-//         `**Channel:** ${message.channel}`
-//       ].join('\n'))
+    let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 
-//     if (gmember.hasPermission("ADMINISTRATOR") && gmember.id !== message.author.id) modlogchannel.send({embed: priocancel});
-    return [no.id].includes(reaction.emoji.id) && user.id === message.author.id; //gmember.hasPermission("ADMINISTRATOR");
+    const priocancel = new Discord.RichEmbed()
+    .setColor('RED')
+    .setTimestamp()
+    .setTitle("**Priority Admin Cancel!**")
+    .setDescription([
+        `**Cancelled By:** <@${user.id}>`,
+        `**Priority By:** ${message.author}`,
+        `**Channel:** ${message.channel}`
+      ].join('\n'))
+
+    if (user.id !== message.author.id && user.id === '724991641932267612' || user.id !== message.author.id && user.id === '292598566759956480' || user.id !== message.author.id && user.id === '385777873581113344') modlogchannel.send({embed: priocancel});
+    return [no.id].includes(reaction.emoji.id) && user.id === message.author.id || user.id === '724991641932267612' || user.id === '292598566759956480' || user.id === '385777873581113344'; 
 };
 
 
@@ -115,7 +116,7 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
         message.channel.send(errEmbed);
 
     } catch(err) {
-         catchErr(err)
+         console.log(err)
 
     }    
 
