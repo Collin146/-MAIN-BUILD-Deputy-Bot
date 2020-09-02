@@ -229,6 +229,7 @@ bot.on(`message`, async message => {
             const warningsign = bot.emojis.get("729725849343098900");
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
+            if (message.channel.id === '750827004525281430') return;
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
