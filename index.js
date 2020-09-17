@@ -1103,7 +1103,7 @@ bot.on("ready", async () => {
     
     try {
     
-    if (messageReaction.message.id === "756167039592431709") {
+    if (messageReaction.message.id === "756167437489275043") {
     
         gMember = messageReaction.message.guild.members.get(user.id);
     
@@ -1135,7 +1135,8 @@ bot.on("ready", async () => {
             let mainguild = bot.guilds.get('644227663829139466');
           
           if (mainguild.members.has(user.id)) {
-            gMember.addRole(roledrpmember.id);
+            gMember.addRole(roledrpmember.id)
+            return;
           }
 
           user.send(dmerrEmbed)
@@ -1153,6 +1154,7 @@ bot.on("ready", async () => {
           
             if (trainguild.members.has(user.id)) {
                 gMember.addRole(roledrprecruit.id);
+                return;
             }
 
           user.send(dmerrEmbed2)
@@ -1170,6 +1172,7 @@ bot.on("ready", async () => {
           
           if (interviewguild.members.has(user.id)) {
             gMember.addRole(roledrpapplicant.id);
+            return;
           }
 
           user.send(dmerrEmbed3)
@@ -1202,7 +1205,7 @@ bot.on("ready", async () => {
     
         try {
     
-            if (messageReaction.message.id === "756167039592431709") {
+            if (messageReaction.message.id === "756167437489275043") {
     
             gMember = messageReaction.message.guild.members.get(user.id);
         
