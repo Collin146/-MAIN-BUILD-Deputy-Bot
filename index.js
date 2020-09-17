@@ -1126,56 +1126,62 @@ bot.on("ready", async () => {
 
         if (messageReaction.emoji.id === drpmember.id) {
 
+            const yes = bot.emojis.get("700713527576625205");
+            const no = bot.emojis.get("700713478578634783"); 
+
             let dmerrEmbed = new Discord.RichEmbed()
             .setColor("RED")
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be a member of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
-            //let mainguild = bot.guilds.fetch('644227663829139466');
             let mainguild = bot.guilds.get('644227663829139466');
           
           if (mainguild.members.has(user.id)) {
             gMember.addRole(roledrpmember.id)
-            return;
-          }
 
-          user.send(dmerrEmbed)
+          } else {
+            user.send(dmerrEmbed)
+          }
         }
     
         if (messageReaction.emoji.id === drprecruit.id) {
+
+            const yes = bot.emojis.get("700713527576625205");
+            const no = bot.emojis.get("700713478578634783"); 
 
             let dmerrEmbed2 = new Discord.RichEmbed()
             .setColor("RED")
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be a recruit of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
-      //      let trainguild = bot.guilds.get('645035452956540929');
             let trainguild = bot.guilds.get('645035452956540929');
           
             if (trainguild.members.has(user.id)) {
                 gMember.addRole(roledrprecruit.id);
-                return;
-            }
 
-          user.send(dmerrEmbed2)
+            } else {
+                user.send(dmerrEmbed2)
+            }
         }
     
         if (messageReaction.emoji.id === drpapplicant.id) {
+
+            const yes = bot.emojis.get("700713527576625205");
+            const no = bot.emojis.get("700713478578634783"); 
 
             let dmerrEmbed3 = new Discord.RichEmbed()
             .setColor("RED")
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be an applicant of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
-            //let interviewguild = bot.guilds.fetch('604420918634086411');
             let interviewguild = bot.guilds.get('604420918634086411');
           
           if (interviewguild.members.has(user.id)) {
             gMember.addRole(roledrpapplicant.id);
-            return;
-          }
 
-          user.send(dmerrEmbed3)
+          } else {
+            user.send(dmerrEmbed3)
+          }
         }
     
         if (messageReaction.emoji.id === ps4.id) {
