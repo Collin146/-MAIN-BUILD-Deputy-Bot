@@ -1088,6 +1088,174 @@ modlogchannel.send({embed: modlogspamEmbed2});
 
 });
 
+bot.on("ready", async () => {
+
+    let fetchchannel = bot.channels.find(x => x.name === 'self-roles');
+    fetchchannel.fetchMessages({
+        limit: 80,
+       });
+    
+    let onemessage = fetchchannel.fetchMessages("741366961757356104");
+    
+    });
+    
+    bot.on('messageReactionAdd', async (messageReaction, user) => {
+    
+    try {
+    
+    if (messageReaction.message.id === "756167039592431709") {
+    
+        gMember = messageReaction.message.guild.members.get(user.id);
+    
+        const drpmember = bot.emojis.get("756150199348363355");
+        const drprecruit = bot.emojis.get("756148907347542046");
+        const drpapplicant = bot.emojis.get("756149480750841866");
+        const ps4 = bot.emojis.get("756151452870639787");
+        const xbox = bot.emojis.get("756151503865118791");
+        const ninswitch = bot.emojis.get("756151539948716112");
+        const pc = bot.emojis.get("756151593409183836");
+    
+        let roledrpmember = messageReaction.message.guild.roles.find(x => x.name === 'DRP Member');
+        let roledrprecruit = messageReaction.message.guild.roles.find(x => x.name === 'DRP Recruit');
+        let roledrpapplicant = messageReaction.message.guild.roles.find(x => x.name === 'DRP Applicant');
+        let roleps4 = messageReaction.message.guild.roles.find(x => x.name === 'Playstation');
+        let rolexbox = messageReaction.message.guild.roles.find(x => x.name === 'Xbox');
+        let rolepc = messageReaction.message.guild.roles.find(x => x.name === 'PC');
+        let roleninswitch = messageReaction.message.guild.roles.find(x => x.name === 'Nintendo Switch');
+    
+
+        if (messageReaction.emoji.id === drpmember.id) {
+
+            let dmerrEmbed = new Discord.RichEmbed()
+            .setColor("RED")
+            .setTitle(`${no} **Verification Failed!**`)
+            .setDescription("You do not appear to be a member of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
+      
+            //let mainguild = bot.guilds.fetch('644227663829139466');
+            let mainguild = bot.guilds.get('644227663829139466');
+          
+          if (mainguild.members.has(user.id)) {
+            gMember.addRole(roledrpmember.id);
+          }
+
+          user.send(dmerrEmbed)
+        }
+    
+        if (messageReaction.emoji.id === drprecruit.id) {
+
+            let dmerrEmbed2 = new Discord.RichEmbed()
+            .setColor("RED")
+            .setTitle(`${no} **Verification Failed!**`)
+            .setDescription("You do not appear to be a recruit of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
+      
+      //      let trainguild = bot.guilds.get('645035452956540929');
+            let trainguild = bot.guilds.get('645035452956540929');
+          
+            if (trainguild.members.has(user.id)) {
+                gMember.addRole(roledrprecruit.id);
+            }
+
+          user.send(dmerrEmbed2)
+        }
+    
+        if (messageReaction.emoji.id === drpapplicant.id) {
+
+            let dmerrEmbed3 = new Discord.RichEmbed()
+            .setColor("RED")
+            .setTitle(`${no} **Verification Failed!**`)
+            .setDescription("You do not appear to be an applicant of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
+      
+            //let interviewguild = bot.guilds.fetch('604420918634086411');
+            let interviewguild = bot.guilds.get('604420918634086411');
+          
+          if (interviewguild.members.has(user.id)) {
+            gMember.addRole(roledrpapplicant.id);
+          }
+
+          user.send(dmerrEmbed3)
+        }
+    
+        if (messageReaction.emoji.id === ps4.id) {
+            gMember.addRole(roleps4.id);
+        }
+    
+        if (messageReaction.emoji.id === xbox.id) {
+            gMember.addRole(rolexbox.id);
+        }
+    
+        if (messageReaction.emoji.id === pc.id) {
+            gMember.addRole(rolepc.id);
+        }
+    
+        if (messageReaction.emoji.id === ninswitch.id) {
+            gMember.addRole(roleninswitch.id);
+        }
+    }
+    
+    } catch (err) {
+        console.log(err);
+    }
+    
+    });
+    
+    bot.on('messageReactionRemove', async (messageReaction, user) => {
+    
+        try {
+    
+            if (messageReaction.message.id === "756167039592431709") {
+    
+            gMember = messageReaction.message.guild.members.get(user.id);
+        
+            const drpmember = bot.emojis.get("756150199348363355");
+            const drprecruit = bot.emojis.get("756148907347542046");
+            const drpapplicant = bot.emojis.get("756149480750841866");
+            const ps4 = bot.emojis.get("756151452870639787");
+            const xbox = bot.emojis.get("756151503865118791");
+            const ninswitch = bot.emojis.get("756151539948716112");
+            const pc = bot.emojis.get("756151593409183836");
+        
+            let roledrpmember = messageReaction.message.guild.roles.find(x => x.name === 'DRP Member');
+            let roledrprecruit = messageReaction.message.guild.roles.find(x => x.name === 'DRP Recruit');
+            let roledrpapplicant = messageReaction.message.guild.roles.find(x => x.name === 'DRP Applicant');
+            let roleps4 = messageReaction.message.guild.roles.find(x => x.name === 'Playstation');
+            let rolexbox = messageReaction.message.guild.roles.find(x => x.name === 'Xbox');
+            let rolepc = messageReaction.message.guild.roles.find(x => x.name === 'PC');
+            let roleninswitch = messageReaction.message.guild.roles.find(x => x.name === 'Nintendo Switch');
+            
+            if (messageReaction.emoji.id === drpmember.id) {
+                gMember.removeRole(roledrpmember.id);
+            }
+        
+            if (messageReaction.emoji.id === drprecruit.id) {
+                gMember.removeRole(roledrprecruit.id);
+            }
+        
+            if (messageReaction.emoji.id === drpapplicant.id) {
+                gMember.removeRole(roledrpapplicant.id);
+            }
+        
+            if (messageReaction.emoji.id === ps4.id) {
+                gMember.removeRole(roleps4.id);
+            }
+        
+            if (messageReaction.emoji.id === xbox.id) {
+                gMember.removeRole(rolexbox.id);
+            }
+        
+            if (messageReaction.emoji.id === pc.id) {
+                gMember.removeRole(rolepc.id);
+            }
+        
+            if (messageReaction.emoji.id === ninswitch.id) {
+                gMember.removeRole(roleninswitch.id);
+            }
+        }
+    
+    } catch (err) {
+        console.log(err);
+    }
+        });
+
 //  GIVE ROLES THROUGH JOINING VC
 
 // bot.on('voiceStateUpdate', (oldMember, newMember) => {
