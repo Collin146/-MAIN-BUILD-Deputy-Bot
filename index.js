@@ -111,7 +111,7 @@ let memberrole = member.guild.roles.find(x => x.name === 'New Member');
 member.addRole(memberrole);
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 
 let memberrole22 = member.guild.roles.find(x => x.name === 'Member');
 
