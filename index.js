@@ -104,9 +104,20 @@ const imagetouse = ("https://cdn.discordapp.com/attachments/461540254441144326/6
       .setImage(`${imagetouse}`);
   welcomechannel.send({embed});
 
+try {
+
 let memberrole = member.guild.roles.find(x => x.name === 'New Member');
 
 member.addRole(memberrole);
+
+} catch (err) {
+    catchErr(err);
+
+let memberrole22 = member.guild.roles.find(x => x.name === 'Member');
+
+member.addRole(memberrole22);
+
+}
 
 try {
 
