@@ -132,6 +132,8 @@ member.addRole(recruitrole);
 } catch (err) {
     catchErr(err);
 }
+  
+});
 
 //--
 //welcome message end
