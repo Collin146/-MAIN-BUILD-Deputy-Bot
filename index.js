@@ -106,7 +106,7 @@ const imagetouse = ("https://cdn.discordapp.com/attachments/461540254441144326/6
 
 let memberrole = member.guild.roles.find(x => x.name === 'New Member');
 
-member.addRole(memberrole);
+return member.addRole(memberrole);
 
 try {
 
