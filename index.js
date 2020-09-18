@@ -129,6 +129,16 @@ member.addRole(recruitrole);
     catchErr(err);
 }
 
+try {
+
+let memberrole33 = member.guild.roles.find(x => x.name === 'Member');
+
+member.addRole(memberrole33);
+
+}  catch (err) {
+    catchErr(err);
+}
+
 } catch (err) {
     catchErr(err);
 }
