@@ -99,7 +99,7 @@ geluktEmbed = new Discord.RichEmbed()
       message.channel.send(geluktEmbed);
 
 } catch (err) {
-    console.log(err)
+    catchErr(err)
 
 }
 
