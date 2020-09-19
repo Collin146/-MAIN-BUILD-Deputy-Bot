@@ -14,20 +14,18 @@ module.exports.run = async (bot, message, args) => {
 
 try { 
 
-    if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
-    if(args[0] === "help"){
-        message.reply("Usage: !sac <user>");
-        return;
-    }
-    
-    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You don't have permission to do that.");
-    if(args[0] == "help"){
-        message.reply("Usage: !sac <user>");
-        return;
-    }
+    const yes = bot.emojis.get("700713527576625205");
+    const no = bot.emojis.get("700713478578634783"); 
 
-const yes = bot.emojis.get("700713527576625205");
-const no = bot.emojis.get("700713478578634783"); 
+    let ftoRole = message.guild.roles.find(x => x.name === 'FTO Trainer');
+
+    let errEmbedrole = new Discord.RichEmbed()
+    .setColor("RED")
+    .setTitle(`${no} **Error!**`)
+    .setDescription("You do not have permission to use this command!");
+
+    if (!message.member.roles.has(ftoRole.id)) return message.channel.send(errEmbedrole)
+
 let tobcso = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 
 let errEmbed = new Discord.RichEmbed()
