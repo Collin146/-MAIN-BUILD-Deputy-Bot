@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783");  
 let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-let rDuser = bot.users.fetch(args[0]);
+let rDuser = bot.users.get(args[0]);
 
 let errEmbed = new Discord.RichEmbed()
       .setColor("RED")
