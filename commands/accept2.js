@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783");  
 let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-let rDuser = bot.fetchUser(args[0]);
+let rDuser = bot.users.fetch(args[0]);
 
 let errEmbed = new Discord.RichEmbed()
       .setColor("RED")
@@ -98,7 +98,7 @@ let acceptedEmbed = new Discord.RichEmbed()
 .setDescription([
     `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
     `**Applicant Name:** ${rDuser.tag}`,
-    `**Applicant ID:** ${rUser.id}`,,
+    `**Applicant ID:** ${rUser.id}`,
     `**Accepted By:** ${message.author.username}`,
   ].join('\n'))
 .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
