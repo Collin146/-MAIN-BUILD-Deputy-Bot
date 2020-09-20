@@ -30,6 +30,7 @@ module.exports.run = async (bot, message, args) => {
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783");  
 let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+let rDuser = bot.users.get(args[0]);
 
 let errEmbed = new Discord.RichEmbed()
       .setColor("RED")
@@ -87,6 +88,23 @@ let ModEmbed = new Discord.RichEmbed()
 
 let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ModEmbed});
+
+let portalguild = bot.guilds.get('644301808680042506');
+
+let acceptedEmbed = new Discord.RichEmbed()
+.setTitle("**Applicant Accepted!**")
+.setTimestamp()
+.setColor("BLACK")
+.setDescription([
+    `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+    `**Applicant Name:** ${rDuser.tag}`,
+    `**Applicant ID:** ${rUser.id}`,
+    `**Accepted By:** ${message.author.username}`,
+  ].join('\n'))
+.setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+
+let acceptedlog = portalguild.channels.find(x => x.name === 'accepted-log');
+acceptedlog.send({embed: acceptedEmbed});
 
     } catch (err)  {
      catchErr(err);
