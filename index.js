@@ -192,7 +192,9 @@ bot.on("message", async message => {
  
 try {
 
-    if(message.author.bot) return;
+    if(message.author.bot)  {
+        if(message.author.id !== "732901249720254485") return;
+    }
     if(message.channel.type === "dm") return;
 
    let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
