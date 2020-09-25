@@ -1116,7 +1116,7 @@ bot.on("ready", async () => {
     
     try {
     
-    if (messageReaction.message.id === "756167039592431709") {
+    if (messageReaction.message.id === "759132165354160178") {
     
         gMember = messageReaction.message.guild.members.get(user.id);
     
@@ -1224,7 +1224,7 @@ bot.on("ready", async () => {
     
         try {
     
-            if (messageReaction.message.id === "756167039592431709") {
+            if (messageReaction.message.id === "759132165354160178") {
     
             gMember = messageReaction.message.guild.members.get(user.id);
         
