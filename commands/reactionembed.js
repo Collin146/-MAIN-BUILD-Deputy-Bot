@@ -38,7 +38,7 @@ module.exports.run = async (bot, message, args) => {
         `When attempting to obtain any of the Deputy Roleplay membership roles, our bot will verify your position and will not give you the role unless you are in the correct discord server, e.x DRP Members will need to be in the DRP Main Server to obtain the ${drpmemberrole} role, etc. To obtain any of the following roles: ${drpstaff} or ${drpadmin}, reach out to any available Administrator.`
       ].join('\n'))
 
-message.channel.send("https://cdn.discordapp.com/attachments/700641446872612864/756153217452343376/BANNER_DRP.png");
+message.channel.send("https://media.discordapp.net/attachments/700641424516972576/759131532946047029/BANNER_DRP.png");
 
       const sentMessage =  await message.channel.send(reactEmbed);
       await sentMessage.react(drpapplicant.id);
