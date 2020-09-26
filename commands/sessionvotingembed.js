@@ -29,6 +29,7 @@ module.exports.run = async (bot, message, args) => {
 
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783");
+const gno = bot.emojis.get("759495234928902154");
 let mentionrole = message.guild.roles.find(x => x.name === 'Member');
     
 const drp1 = bot.emojis.get("759125897953017857");
@@ -45,7 +46,7 @@ const drp7 = bot.emojis.get("759126083781394444");
 .setTimestamp()
 .setColor("#f5f5f5")
 .setDescription([
-    `This message will include all 7 days of the week to schedule sessions on. Each member has the ability to vote for a or multiple days they can attend a session on. This is done by reacting to this message with the appropriate reaction signifying the day you are available on. Which reaction signifies which day can be seen below. The time of the sessions will be the standard \`7:30 PM BST\``,
+    `This message will include all 7 days of the week to schedule sessions on. Each member has the ability to vote for a or multiple days they can attend a session on. This is done by reacting to this message with the appropriate reaction signifying the day you are available on. Which reaction signifies which day can be seen below. The time of the sessions will be the standard \`7:30 PM BST\`.`,
     ` `,
     `${drp1} - Monday`,
     `${drp2} - Tuesday`,
@@ -57,7 +58,7 @@ const drp7 = bot.emojis.get("759126083781394444");
     ` `,
     `The system will automatically check if one or multiple reactions have reached 8+ reactions, including one from the Administrators (or higher). If this is the case, a session for that specific day will automatically be announced and all members that voted for that day will be expected to attend.`,
     ` `,
-    `For Administrators+ only, to disable the session voting system, press the ${no} below. To enable the system again, press the ${yes}.`
+    `For Administrators+ only, to reset the reactions, press the ${gno}. To disable the session voting system, press the ${no}. To enable the system again, press the ${yes}.`
   ].join('\n'))
 
 const sentMessage =  await message.channel.send(sessionEmbed);
@@ -68,6 +69,7 @@ await sentMessage.react(drp4.id);
 await sentMessage.react(drp5.id);
 await sentMessage.react(drp6.id);
 await sentMessage.react(drp7.id);
+await sentMessage.react(gno.id);
 await sentMessage.react(no.id);
 await sentMessage.react(yes.id);
 
