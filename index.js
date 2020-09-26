@@ -1109,18 +1109,22 @@ bot.on("ready", async () => {
         limit: 80,
        });
 
-    fetchchannel.fetchMessages("759172995855679488");
+    const fetchedMessage = fetchchannel.fetchMessage("759497458018418691");
 
     });
+    
 
     bot.on('messageReactionAdd', async (messageReaction, user) => {
-    
+
         try {
+
+        if (user.bot) return;
         
-        if (messageReaction.message.id === "759172995855679488") {
+        if (messageReaction.message.id === "759497458018418691") {
 
             const yes = bot.emojis.get("700713527576625205");
             const no = bot.emojis.get("700713478578634783");
+            const gno = bot.emojis.get("759495234928902154");
             const drp1 = bot.emojis.get("759125897953017857");
             const drp2 = bot.emojis.get("759125936586883072");
             const drp3 = bot.emojis.get("759125984967393330");
@@ -1128,10 +1132,15 @@ bot.on("ready", async () => {
             const drp5 = bot.emojis.get("759126035215810592");
             const drp6 = bot.emojis.get("759126060355813376");
             const drp7 = bot.emojis.get("759126083781394444");
-        
+
+            const reactionLimit = 7;
+
             if (messageReaction.emoji.id === drp1.id) {
 
-                if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.count > reactionLimit) {
+
+                    messageReaction.fetchUsers()
+                    .then(users => {  
 
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
@@ -1139,7 +1148,9 @@ bot.on("ready", async () => {
                votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
                   const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Monday')));
 
-                  if (!messagesToCheck) {
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
+                   
+                    if (!messagesToCheck) {
 
                     votingChannel.send([
                         `<@&${mentionrole.id}>`,
@@ -1147,7 +1158,7 @@ bot.on("ready", async () => {
                         "**New Patrol Scheduled For**",
                         `\`Monday\` **at** \`7:30 PM\` **BST**`,
                         ` `,
-                        `**React to the ${drp1} on the voting message above to confirm your attendance**`,
+                        `**React to the ${drp1} on the voting message above to confirm your attendance.**`,
                         `(This patrol was automatically scheduled as the vote for Monday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
                         ` `,
                         "**Other Timezones:**",
@@ -1157,228 +1168,257 @@ bot.on("ready", async () => {
                         `MDT: 12:30 PM`,
                         `CDT: 1:30 PM`
                       ].join('\n'))
-
+                    }
                    }
+                });
                });
-
-                }
+            }
 
             }
 
             if (messageReaction.emoji.id === drp2.id) {
 
-                if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.count > reactionLimit) {
 
-                    let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
-                    let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+                    messageReaction.fetchUsers()
+                    .then(users => {  
 
-                    votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                        const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Tuesday')));
-      
-                        if (!messagesToCheck) {
+                let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                    votingChannel.send([
-                        `<@&${mentionrole.id}>`,
-                        ` `,
-                        "**New Patrol Scheduled For**",
-                        `\`Tuesday\` **at** \`7:30 PM\` **BST**`,
-                        ` `,
-                        `**React to the ${drp2} on the voting message above to confirm your attendance**`,
-                        `(This patrol was automatically scheduled as the vote for Tuesday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
-                        ` `,
-                        "**Other Timezones:**",
-                        `PDT: 11:30 AM`,
-                        `EDT: 2:30 PM`,
-                        `CEST: 8:30 PM`,
-                        `MDT: 12:30 PM`,
-                        `CDT: 1:30 PM`
-                      ].join('\n'))
+               votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
+                  const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Tuesday')));
 
-                    }
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
+                   
+                    if (!messagesToCheck) {
+
+                        votingChannel.send([
+                            `<@&${mentionrole.id}>`,
+                            ` `,
+                            "**New Patrol Scheduled For**",
+                            `\`Tuesday\` **at** \`7:30 PM\` **BST**`,
+                            ` `,
+                            `**React to the ${drp2} on the voting message above to confirm your attendance.**`,
+                            `(This patrol was automatically scheduled as the vote for Tuesday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
+                            ` `,
+                            "**Other Timezones:**",
+                            `PDT: 11:30 AM`,
+                            `EDT: 2:30 PM`,
+                            `CEST: 8:30 PM`,
+                            `MDT: 12:30 PM`,
+                            `CDT: 1:30 PM`
+                          ].join('\n'))                   
+                        }
+                   }
                 });
- 
-                }
+               });
+            }
 
             }
 
             if (messageReaction.emoji.id === drp3.id) {
 
-                if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.count > reactionLimit) {
 
-                    let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
-                    let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+                    messageReaction.fetchUsers()
+                    .then(users => {  
 
-                    votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                        const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Wednesday')));
-      
-                        if (!messagesToCheck) {
+                let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                    votingChannel.send([
-                        `<@&${mentionrole.id}>`,
-                        ` `,
-                        "**New Patrol Scheduled For**",
-                        `\`Wednesday\` **at** \`7:30 PM\` **BST**`,
-                        ` `,
-                        `**React to the ${drp3} on the voting message above to confirm your attendance**`,
-                        `(This patrol was automatically scheduled as the vote for Wednesday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
-                        ` `,
-                        "**Other Timezones:**",
-                        `PDT: 11:30 AM`,
-                        `EDT: 2:30 PM`,
-                        `CEST: 8:30 PM`,
-                        `MDT: 12:30 PM`,
-                        `CDT: 1:30 PM`
-                      ].join('\n'))
+               votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
+                  const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Wednesday')));
 
-                      
-                    }
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
+                   
+                    if (!messagesToCheck) {
+
+                        votingChannel.send([
+                            `<@&${mentionrole.id}>`,
+                            ` `,
+                            "**New Patrol Scheduled For**",
+                            `\`Wednesday\` **at** \`7:30 PM\` **BST**`,
+                            ` `,
+                            `**React to the ${drp3} on the voting message above to confirm your attendance.**`,
+                            `(This patrol was automatically scheduled as the vote for Wednesday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
+                            ` `,
+                            "**Other Timezones:**",
+                            `PDT: 11:30 AM`,
+                            `EDT: 2:30 PM`,
+                            `CEST: 8:30 PM`,
+                            `MDT: 12:30 PM`,
+                            `CDT: 1:30 PM`
+                          ].join('\n'))                        
+                        }
+                   }
                 });
-
-                }
+               });
+            }
 
             }
 
             if (messageReaction.emoji.id === drp4.id) {
 
-                if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.count > reactionLimit) {
 
-                    let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
-                    let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+                    messageReaction.fetchUsers()
+                    .then(users => {  
 
-                    votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                        const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Thursday')));
-      
-                        if (!messagesToCheck) {
+                let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                    votingChannel.send([
-                        `<@&${mentionrole.id}>`,
-                        ` `,
-                        "**New Patrol Scheduled For**",
-                        `\`Thursday\` **at** \`7:30 PM\` **BST**`,
-                        ` `,
-                        `**React to the ${drp4} on the voting message above to confirm your attendance**`,
-                        `(This patrol was automatically scheduled as the vote for Thursday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
-                        ` `,
-                        "**Other Timezones:**",
-                        `PDT: 11:30 AM`,
-                        `EDT: 2:30 PM`,
-                        `CEST: 8:30 PM`,
-                        `MDT: 12:30 PM`,
-                        `CDT: 1:30 PM`
-                      ].join('\n'))
+               votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
+                  const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Thursday')));
 
-                    }
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
+                   
+                    if (!messagesToCheck) {
+
+                        votingChannel.send([
+                            `<@&${mentionrole.id}>`,
+                            ` `,
+                            "**New Patrol Scheduled For**",
+                            `\`Thursday\` **at** \`7:30 PM\` **BST**`,
+                            ` `,
+                            `**React to the ${drp4} on the voting message above to confirm your attendance.**`,
+                            `(This patrol was automatically scheduled as the vote for Thursday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
+                            ` `,
+                            "**Other Timezones:**",
+                            `PDT: 11:30 AM`,
+                            `EDT: 2:30 PM`,
+                            `CEST: 8:30 PM`,
+                            `MDT: 12:30 PM`,
+                            `CDT: 1:30 PM`
+                          ].join('\n'))                      
+                        }
+                   }
                 });
-
-                }
+               });
+            }
 
             }
 
             if (messageReaction.emoji.id === drp5.id) {
 
-                if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
-                 
-                    let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
-                    let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
-                    
-                    votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                        const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Friday')));
-      
-                        if (!messagesToCheck) {
+                if (messageReaction.count > reactionLimit) {
 
-                    votingChannel.send([
-                        `<@&${mentionrole.id}>`,
-                        ` `,
-                        "**New Patrol Scheduled For**",
-                        `\`Friday\` **at** \`7:30 PM\` **BST**`,
-                        ` `,
-                        `**React to the ${drp5} on the voting message above to confirm your attendance**`,
-                        `(This patrol was automatically scheduled as the vote for Friday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
-                        ` `,
-                        "**Other Timezones:**",
-                        `PDT: 11:30 AM`,
-                        `EDT: 2:30 PM`,
-                        `CEST: 8:30 PM`,
-                        `MDT: 12:30 PM`,
-                        `CDT: 1:30 PM`
-                      ].join('\n'))
+                    messageReaction.fetchUsers()
+                    .then(users => {  
 
-                    }
+                let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+
+               votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
+                  const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Friday')));
+
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
+                   
+                    if (!messagesToCheck) {
+
+                        votingChannel.send([
+                            `<@&${mentionrole.id}>`,
+                            ` `,
+                            "**New Patrol Scheduled For**",
+                            `\`Friday\` **at** \`7:30 PM\` **BST**`,
+                            ` `,
+                            `**React to the ${drp5} on the voting message above to confirm your attendance.**`,
+                            `(This patrol was automatically scheduled as the vote for Friday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
+                            ` `,
+                            "**Other Timezones:**",
+                            `PDT: 11:30 AM`,
+                            `EDT: 2:30 PM`,
+                            `CEST: 8:30 PM`,
+                            `MDT: 12:30 PM`,
+                            `CDT: 1:30 PM`
+                          ].join('\n'))                        
+                        }
+                   }
                 });
-
-                }
+               });
+            }
 
             }
 
             if (messageReaction.emoji.id === drp6.id) {
 
-                if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.count > reactionLimit) {
 
-                    let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
-                    let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+                    messageReaction.fetchUsers()
+                    .then(users => {  
 
-                    votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                        const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Saturday')));
-      
-                        if (!messagesToCheck) {
+                let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                    votingChannel.send([
-                        `<@&${mentionrole.id}>`,
-                        ` `,
-                        "**New Patrol Scheduled For**",
-                        `\`Saturday\` **at** \`7:30 PM\` **BST**`,
-                        ` `,
-                        `**React to the ${drp6} on the voting message above to confirm your attendance**`,
-                        `(This patrol was automatically scheduled as the vote for Saturday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
-                        ` `,
-                        "**Other Timezones:**",
-                        `PDT: 11:30 AM`,
-                        `EDT: 2:30 PM`,
-                        `CEST: 8:30 PM`,
-                        `MDT: 12:30 PM`,
-                        `CDT: 1:30 PM`
-                      ].join('\n'))
+               votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
+                  const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Saturday')));
 
-                    }
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
+                   
+                    if (!messagesToCheck) {
+
+                        votingChannel.send([
+                            `<@&${mentionrole.id}>`,
+                            ` `,
+                            "**New Patrol Scheduled For**",
+                            `\`Saturday\` **at** \`7:30 PM\` **BST**`,
+                            ` `,
+                            `**React to the ${drp6} on the voting message above to confirm your attendance.**`,
+                            `(This patrol was automatically scheduled as the vote for Saturday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
+                            ` `,
+                            "**Other Timezones:**",
+                            `PDT: 11:30 AM`,
+                            `EDT: 2:30 PM`,
+                            `CEST: 8:30 PM`,
+                            `MDT: 12:30 PM`,
+                            `CDT: 1:30 PM`
+                          ].join('\n'))                        
+                        }
+                   }
                 });
-
-                }
+               });
+            }
 
             }
 
             if (messageReaction.emoji.id === drp7.id) {
 
-                if (messageReaction.count > 1 && messageReaction.users.has('385777873581113344') || messageReaction.users.has('292598566759956480') || messageReaction.users.has('724991641932267612')) {
+                if (messageReaction.count > reactionLimit) {
+
+                    messageReaction.fetchUsers()
+                    .then(users => {  
+
+                let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+
+               votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
+                  const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Sunday')));
+
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
-                    let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+                    if (!messagesToCheck) {
 
-                    votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                        const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Sunday')));
-      
-                        if (!messagesToCheck) {
-
-                    votingChannel.send([
-                        `<@&${mentionrole.id}>`,
-                        ` `,
-                        "**New Patrol Scheduled For**",
-                        `\`Sunday\` **at** \`7:30 PM\` **BST**`,
-                        ` `,
-                        `**React to the ${drp7} on the voting message above to confirm your attendance**`,
-                        `(This patrol was automatically scheduled as the vote for Sunday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
-                        ` `,
-                        "**Other Timezones:**",
-                        `PDT: 11:30 AM`,
-                        `EDT: 2:30 PM`,
-                        `CEST: 8:30 PM`,
-                        `MDT: 12:30 PM`,
-                        `CDT: 1:30 PM`
-                      ].join('\n'))
-
-                    }
+                        votingChannel.send([
+                            `<@&${mentionrole.id}>`,
+                            ` `,
+                            "**New Patrol Scheduled For**",
+                            `\`Sunday\` **at** \`7:30 PM\` **BST**`,
+                            ` `,
+                            `**React to the ${drp7} on the voting message above to confirm your attendance.**`,
+                            `(This patrol was automatically scheduled as the vote for Sunday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
+                            ` `,
+                            "**Other Timezones:**",
+                            `PDT: 11:30 AM`,
+                            `EDT: 2:30 PM`,
+                            `CEST: 8:30 PM`,
+                            `MDT: 12:30 PM`,
+                            `CDT: 1:30 PM`
+                          ].join('\n'))                        
+                        }
+                   }
                 });
-
-                }
+               });
+            }
 
             }
 
@@ -1430,6 +1470,42 @@ bot.on("ready", async () => {
 
             }
 
+            if (messageReaction.emoji.id === gno.id) {
+
+                if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
+            
+                    let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                    let modlogChannel = messageReaction.message.guild.channels.find(x => x.name === 'modlog');
+
+                    let fetchchannel = bot.channels.find(x => x.name === 'session-voting');
+                
+                    fetchchannel.fetchMessage("759497458018418691")
+                    .then(message => {
+                        message.clearReactions() 
+                        .then(() => message.react(drp1.id))
+                        .then(() => message.react(drp2.id))
+                        .then(() => message.react(drp3.id))
+                        .then(() => message.react(drp4.id))
+                        .then(() => message.react(drp5.id))
+                        .then(() => message.react(drp6.id))
+                        .then(() => message.react(drp7.id))
+                        .then(() => message.react(gno.id))
+                        .then(() => message.react(no.id))
+                        .then(() => message.react(yes.id));
+                    });
+
+                      let modlogEmbed3 = new Discord.RichEmbed()
+                      .setColor("RED")
+                      .setTitle(`**Session Voting Reactions Reset!**`)
+                      .setTimestamp()
+                      .setDescription(`<@${user.id}> has reset the reactions of the Session Voting System.`);
+
+                      modlogChannel.send(modlogEmbed3);
+
+                }
+
+            }
+
         }
     
 
@@ -1442,8 +1518,10 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
     try {
 
+        messageReaction.fetchUsers()
+        .then(users => {  
 
-        if (messageReaction.message.id === "759172995855679488") {
+        if (messageReaction.message.id === "759497458018418691") {
     
             const drp1 = bot.emojis.get("759125897953017857");
             const drp2 = bot.emojis.get("759125936586883072");
@@ -1458,16 +1536,16 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
         
         if (messageReaction.emoji.id === drp1.id) {
 
-            let voteEmbed1 = new Discord.RichEmbed()
-            .setColor("RED")
-            .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
-            .setDescription([
-                `**User:** <@${user.id}>`,
-                `**User's ID:** ${user.id}`,
-                `**Vote of:** Monday`
-              ].join('\n'))
-
-              logChannel.send(voteEmbed1);
+                    let voteEmbed1 = new Discord.RichEmbed()
+                    .setColor("RED")
+                    .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
+                    .setDescription([
+                        `**User:** <@${user.id}>`,
+                        `**User's ID:** ${user.id}`,
+                        `**Vote of:** Monday`
+                      ].join('\n'))
+        
+                      logChannel.send(voteEmbed1);
 
         }
     
@@ -1561,6 +1639,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
 
         }
     }
+});
 
 } catch (err) {
     console.log(err);
