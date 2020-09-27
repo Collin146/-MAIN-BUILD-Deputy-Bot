@@ -79,14 +79,14 @@ sentMessage.awaitReactions(filter, {max: 1, time: 60000, errors: ['time'] })
           .setColor("GREEN")
           .setDescription("A message has been sent to everyone in this server.");
       
+          let sentmessage4 = await message.channel.send(loadembed)
+          let deleteID = sentmessage4.id
+
       message.guild.members.forEach(async member => {
         
         if (member.id != bot.user.id && !member.user.bot) member.send(dmembed)
         
         });
-
-          let sentmessage4 = await message.channel.send(loadembed)
-          let deleteID = sentmessage4.id
 
         await message.channel.fetchMessage(deleteID).then(async msg => {
             await message.channel.send(doneembed);
