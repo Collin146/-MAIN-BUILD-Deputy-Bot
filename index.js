@@ -111,16 +111,16 @@ try {
 //]
 
 //const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
-let memberTag = member.user.tag;
+// let memberTag = member.user.tag;
 
-//let welcuser = member.guild.member(member) || member.guild.fetchMember(member)
+let welcuser = member.guild.fetchMember(member.id)
 
 const imagetouse = ("https://cdn.discordapp.com/attachments/461540254441144326/689179495000703063/TRANSP_WELCOME-cutout.png")
     
     let embed = new Discord.RichEmbed()
       .setTitle("**A new user has joined!**")
       .setColor("#00f4ef")
-      .setDescription(`Welcome **${memberTag}**, To Deputy Roleplay, the best Roleplay Community for PS4!`)
+      .setDescription(`Welcome **<@${welcuser}>, To Deputy Roleplay, the best Roleplay Community for PS4!`)
       .setImage(`${imagetouse}`);
   welcomechannel.send({embed});
 
