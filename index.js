@@ -120,7 +120,7 @@ const imagetouse = ("https://cdn.discordapp.com/attachments/461540254441144326/6
     let embed = new Discord.RichEmbed()
       .setTitle("**A new user has joined!**")
       .setColor("#00f4ef")
-      .setDescription(`Welcome **<@${welcuser}>, To Deputy Roleplay, the best Roleplay Community for PS4!`)
+      .setDescription(`Welcome <@${welcuser.id}>, To Deputy Roleplay, the best Roleplay Community for PS4!`)
       .setImage(`${imagetouse}`);
   welcomechannel.send({embed});
 
