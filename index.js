@@ -2069,6 +2069,36 @@ try {
 //On Patrol Logging event end
 //-—
 
+bot.on('message', message => {
+
+    if (message.channel.type == "dm") {
+
+      if (message.author.bot) return;
+
+      message.author.send("I cannot reply to DM's. If you require support, please reach out to a staff member in any of the Deputy Roleplay servers.");
+
+      let staffguild2 = bot.guilds.get('644254160019128320');
+
+      let dmmodlogembed = new Discord.RichEmbed()
+      .setTitle("**Direct Message Received!**")
+      .setTimestamp()
+      .setColor("BLACK")
+      .setDescription([
+          `**User:** ${message.author}, ${message.author.tag}`,
+          `**User ID:** ${message.author.id}`,
+          `**Date & Time:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY, HH:mm:ss')}`,
+          `**Message:** ${message.content}`
+        ].join('\n'))
+      .setFooter(`Message ID: ${message.id} | Author ID: ${message.author.id}`);
+      
+      let fetchchannelstaff = staffguild2.channels.find(x => x.name === 'bot-dms-log');
+      fetchchannelstaff.send({embed: dmmodlogembed});
+
+      return;
+    }
+
+  });
+
 //-—
 //Modlog events end
 //-—
