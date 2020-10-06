@@ -74,6 +74,26 @@ fs.readdir("./charges/", (err, files) => {
 //Cmd handler end
 //--
 
+  bot.on("ready", async () => {
+
+    let communityguild = bot.guilds.get('669938084888182814');
+    let testingguild = bot.guilds.get('700639523272523776');
+    let staffguild = bot.guilds.get('644254160019128320');
+    let portalguild = bot.guilds.get('644301808680042506');
+    let interviewguild = bot.guilds.get('604420918634086411');
+    let trainingguild = bot.guilds.get('645035452956540929');
+    let mainguild = bot.guilds.get('644227663829139466');
+
+    communityguild.fetchMembers();
+    testingguild.fetchMembers();
+    staffguild.fetchMembers();
+    portalguild.fetchMembers();
+    interviewguild.fetchMembers();
+    trainingguild.fetchMembers();
+    mainguild.fetchMembers();
+
+    });
+
 //--
 //welcome message begin
 //--
