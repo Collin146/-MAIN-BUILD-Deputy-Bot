@@ -56,9 +56,9 @@ const drp7 = bot.emojis.get("759126083781394444");
     `${drp6} - Saturday`,
     `${drp7} - Sunday`,
     ` `,
-    `The system will automatically check if one or multiple reactions have reached 8+ reactions, including one from the Administrators (or higher). If this is the case, a session for that specific day will automatically be announced and all members that voted for that day will be expected to attend.`,
+    `Below this message, you will be able to view a list of all 7 days of the week and whether there is a session scheduled for that day or not. This is signified with the ${no}, meaning a session is not scheduled, and ${yes}, meaning one is scheduled for that day. The system will automatically check if any of the reactions have reached a total of 8 or more, including one from an Administrator+. If this is the case, that specific day will show a ${yes} instead of a ${no} and all members that voted for that day will be expected to attend.`,
     ` `,
-    `For Administrators+ only, to reset the reactions, press the ${gno}. To disable the session voting system, press the ${no}. To enable the system again, press the ${yes}.`
+    `For Administrators+ only, to reset the reactions & scheduled sessions list, press the ${gno}. To disable the session voting system, press the ${no}. To enable the system again, press the ${yes}.`
   ].join('\n'))
 
 const sentMessage =  await message.channel.send(sessionEmbed);
@@ -72,6 +72,19 @@ await sentMessage.react(drp7.id);
 await sentMessage.react(gno.id);
 await sentMessage.react(no.id);
 await sentMessage.react(yes.id);
+
+await message.channel.send([
+    "⠀⠀",
+    "**Current days patrol sessions are scheduled for:**"
+   ].join('\n'))
+
+await message.channel.send(`${no} - Monday`)
+await message.channel.send(`${no} - Tuesday`)
+await message.channel.send(`${no} - Wednesday`)
+await message.channel.send(`${no} - Thursday`)
+await message.channel.send(`${no} - Friday`)
+await message.channel.send(`${no} - Saturday`)
+await message.channel.send(`${no} - Sunday`)
 
 
     } catch(err) {
