@@ -1141,7 +1141,7 @@ bot.on("ready", async () => {
         limit: 80,
        });
 
-    const fetchedMessage = fetchchannel.fetchMessage("759540095559925810");
+    const fetchedMessage = fetchchannel.fetchMessage("764866967420928000");
 
     });
     
@@ -1152,7 +1152,7 @@ bot.on("ready", async () => {
 
         if (user.bot) return;
         
-        if (messageReaction.message.id === "759540095559925810") {
+        if (messageReaction.message.id === "764866967420928000") {
 
             const yes = bot.emojis.get("700713527576625205");
             const no = bot.emojis.get("700713478578634783");
@@ -1165,7 +1165,7 @@ bot.on("ready", async () => {
             const drp6 = bot.emojis.get("759126060355813376");
             const drp7 = bot.emojis.get("759126083781394444");
 
-            const reactionLimit = 7;
+            const reactionLimit = 1;
 
             if (messageReaction.emoji.id === drp1.id) {
 
@@ -1177,32 +1177,14 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-               votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                  const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Monday')));
-
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
-                   
-                    if (!messagesToCheck) {
+                    
+                    votingChannel.fetchMessage("764867003173175326")
+                    .then(message => {
+                        message.edit(`${yes} - Monday`);
 
-                    votingChannel.send([
-                        `<@&${mentionrole.id}>`,
-                        ` `,
-                        "**New Patrol Scheduled For**",
-                        `\`Monday\` **at** \`7:30 PM\` **BST**`,
-                        ` `,
-                        `**React to the ${drp1} on the voting message above to confirm your attendance.**`,
-                        `(This patrol was automatically scheduled as the vote for Monday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
-                        ` `,
-                        "**Other Timezones:**",
-                        `PDT: 11:30 AM`,
-                        `EDT: 2:30 PM`,
-                        `CEST: 8:30 PM`,
-                        `MDT: 12:30 PM`,
-                        `CDT: 1:30 PM`
-                      ].join('\n'))
-                    }
+                    });
                    }
-                });
                });
             }
 
@@ -1218,32 +1200,14 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-               votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                  const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Tuesday')));
-
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    if (!messagesToCheck) {
+                    votingChannel.fetchMessage("764867003554463765")
+                    .then(message => {
+                        message.edit(`${yes} - Tuesday`);
 
-                        votingChannel.send([
-                            `<@&${mentionrole.id}>`,
-                            ` `,
-                            "**New Patrol Scheduled For**",
-                            `\`Tuesday\` **at** \`7:30 PM\` **BST**`,
-                            ` `,
-                            `**React to the ${drp2} on the voting message above to confirm your attendance.**`,
-                            `(This patrol was automatically scheduled as the vote for Tuesday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
-                            ` `,
-                            "**Other Timezones:**",
-                            `PDT: 11:30 AM`,
-                            `EDT: 2:30 PM`,
-                            `CEST: 8:30 PM`,
-                            `MDT: 12:30 PM`,
-                            `CDT: 1:30 PM`
-                          ].join('\n'))                   
-                        }
+                    });
                    }
-                });
                });
             }
 
@@ -1259,32 +1223,14 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-               votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                  const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Wednesday')));
-
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    if (!messagesToCheck) {
+                    votingChannel.fetchMessage("764867004737519656")
+                    .then(message => {
+                        message.edit(`${yes} - Wednesday`);
 
-                        votingChannel.send([
-                            `<@&${mentionrole.id}>`,
-                            ` `,
-                            "**New Patrol Scheduled For**",
-                            `\`Wednesday\` **at** \`7:30 PM\` **BST**`,
-                            ` `,
-                            `**React to the ${drp3} on the voting message above to confirm your attendance.**`,
-                            `(This patrol was automatically scheduled as the vote for Wednesday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
-                            ` `,
-                            "**Other Timezones:**",
-                            `PDT: 11:30 AM`,
-                            `EDT: 2:30 PM`,
-                            `CEST: 8:30 PM`,
-                            `MDT: 12:30 PM`,
-                            `CDT: 1:30 PM`
-                          ].join('\n'))                        
-                        }
+                    });
                    }
-                });
                });
             }
 
@@ -1300,32 +1246,14 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-               votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                  const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Thursday')));
-
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    if (!messagesToCheck) {
+                    votingChannel.fetchMessage("764867005344907305")
+                    .then(message => {
+                        message.edit(`${yes} - Thursday`);
 
-                        votingChannel.send([
-                            `<@&${mentionrole.id}>`,
-                            ` `,
-                            "**New Patrol Scheduled For**",
-                            `\`Thursday\` **at** \`7:30 PM\` **BST**`,
-                            ` `,
-                            `**React to the ${drp4} on the voting message above to confirm your attendance.**`,
-                            `(This patrol was automatically scheduled as the vote for Thursday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
-                            ` `,
-                            "**Other Timezones:**",
-                            `PDT: 11:30 AM`,
-                            `EDT: 2:30 PM`,
-                            `CEST: 8:30 PM`,
-                            `MDT: 12:30 PM`,
-                            `CDT: 1:30 PM`
-                          ].join('\n'))                      
-                        }
+                    });
                    }
-                });
                });
             }
 
@@ -1341,32 +1269,14 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-               votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                  const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Friday')));
-
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    if (!messagesToCheck) {
+                    votingChannel.fetchMessage("764867029387051018")
+                    .then(message => {
+                        message.edit(`${yes} - Friday`);
 
-                        votingChannel.send([
-                            `<@&${mentionrole.id}>`,
-                            ` `,
-                            "**New Patrol Scheduled For**",
-                            `\`Friday\` **at** \`7:30 PM\` **BST**`,
-                            ` `,
-                            `**React to the ${drp5} on the voting message above to confirm your attendance.**`,
-                            `(This patrol was automatically scheduled as the vote for Friday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
-                            ` `,
-                            "**Other Timezones:**",
-                            `PDT: 11:30 AM`,
-                            `EDT: 2:30 PM`,
-                            `CEST: 8:30 PM`,
-                            `MDT: 12:30 PM`,
-                            `CDT: 1:30 PM`
-                          ].join('\n'))                        
-                        }
+                    });
                    }
-                });
                });
             }
 
@@ -1382,32 +1292,15 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-               votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                  const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Saturday')));
-
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    if (!messagesToCheck) {
+                    votingChannel.fetchMessage("764867030129049651")
+                    .then(message => {
+                        message.edit(`${yes} - Saturday`);
 
-                        votingChannel.send([
-                            `<@&${mentionrole.id}>`,
-                            ` `,
-                            "**New Patrol Scheduled For**",
-                            `\`Saturday\` **at** \`7:30 PM\` **BST**`,
-                            ` `,
-                            `**React to the ${drp6} on the voting message above to confirm your attendance.**`,
-                            `(This patrol was automatically scheduled as the vote for Saturday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
-                            ` `,
-                            "**Other Timezones:**",
-                            `PDT: 11:30 AM`,
-                            `EDT: 2:30 PM`,
-                            `CEST: 8:30 PM`,
-                            `MDT: 12:30 PM`,
-                            `CDT: 1:30 PM`
-                          ].join('\n'))                        
-                        }
+                    });
+                    
                    }
-                });
                });
             }
 
@@ -1423,32 +1316,15 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-               votingChannel.fetchMessages({ limit: 100 }).then(fetchedMessages => {
-                  const messagesToCheck = fetchedMessages.some(msg => (msg.content.includes('as the vote for Sunday')));
-
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    if (!messagesToCheck) {
+                    votingChannel.fetchMessage("764867030875766794")
+                    .then(message => {
+                        message.edit(`${yes} - Sunday`);
 
-                        votingChannel.send([
-                            `<@&${mentionrole.id}>`,
-                            ` `,
-                            "**New Patrol Scheduled For**",
-                            `\`Sunday\` **at** \`7:30 PM\` **BST**`,
-                            ` `,
-                            `**React to the ${drp7} on the voting message above to confirm your attendance.**`,
-                            `(This patrol was automatically scheduled as the vote for Sunday has reached a total of 8 or more votes. Everyone that has voted will be expected to attend.).`,
-                            ` `,
-                            "**Other Timezones:**",
-                            `PDT: 11:30 AM`,
-                            `EDT: 2:30 PM`,
-                            `CEST: 8:30 PM`,
-                            `MDT: 12:30 PM`,
-                            `CDT: 1:30 PM`
-                          ].join('\n'))                        
-                        }
+                    });
+
                    }
-                });
                });
             }
 
@@ -1511,7 +1387,7 @@ bot.on("ready", async () => {
 
                     let fetchchannel = bot.channels.find(x => x.name === 'session-voting');
                 
-                    fetchchannel.fetchMessage("759540095559925810")
+                    fetchchannel.fetchMessage("764866967420928000")
                     .then(message => {
                         message.clearReactions() 
                         .then(() => message.react(drp1.id))
@@ -1526,11 +1402,46 @@ bot.on("ready", async () => {
                         .then(() => message.react(yes.id));
                     });
 
+                    fetchchannel.fetchMessage("764867003173175326")
+                    .then(message => {
+                        message.edit(`${no} - Monday`);
+                    });
+
+                    fetchchannel.fetchMessage("764867003554463765")
+                    .then(message => {
+                        message.edit(`${no} - Tuesday`);
+                    });
+                    
+                    fetchchannel.fetchMessage("764867004737519656")
+                    .then(message => {
+                        message.edit(`${no} - Wednesday`);
+                    });
+
+                    fetchchannel.fetchMessage("764867005344907305")
+                    .then(message => {
+                        message.edit(`${no} - Thursday`);
+                    });
+
+                    fetchchannel.fetchMessage("764867029387051018")
+                    .then(message => {
+                        message.edit(`${no} - Friday`);
+                    });
+                    
+                    fetchchannel.fetchMessage("764867030129049651")
+                    .then(message => {
+                        message.edit(`${no} - Saturday`);
+                    });
+
+                    fetchchannel.fetchMessage("764867030875766794")
+                    .then(message => {
+                        message.edit(`${no} - Sunday`);
+                    });
+
                       let modlogEmbed3 = new Discord.RichEmbed()
                       .setColor("RED")
-                      .setTitle(`**Session Voting Reactions Reset!**`)
+                      .setTitle(`**Session Voting System Reset!**`)
                       .setTimestamp()
-                      .setDescription(`<@${user.id}> has reset the reactions of the Session Voting System.`);
+                      .setDescription(`<@${user.id}> has reset the reactions & scheduling list of the Session Voting System.`);
 
                       modlogChannel.send(modlogEmbed3);
 
@@ -1553,7 +1464,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
         messageReaction.fetchUsers()
         .then(users => {  
 
-        if (messageReaction.message.id === "759540095559925810") {
+        if (messageReaction.message.id === "764866967420928000") {
     
             const drp1 = bot.emojis.get("759125897953017857");
             const drp2 = bot.emojis.get("759125936586883072");
@@ -1677,7 +1588,6 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     console.log(err);
 }
     });
-
 
 bot.on("ready", async () => {
 
