@@ -45,12 +45,12 @@ const no = bot.emojis.get("700713478578634783");
 if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
 let mentionrole = message.guild.roles.find(x => x.name === 'Member');
 
-message.channel.fetchMessages({ limit: 100 })
+message.channel.fetchMessages({ limit: 80 })
 
   .then(fetchedMessages => {
-    const messagesToDelete = fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('Reminder!')));
+    const messagesToDelete = fetchedMessages.filter(msg => (msg.author.id === '732901249720254485' && msg.content.includes('⚠ **Reminder!** ⚠')));
 
-    return message.channel.bulkDelete(messagesToDelete, true);
+    return message.channel.bulkDelete(messagesToDelete, 80);
   })
 
 
@@ -65,8 +65,10 @@ message.channel.fetchMessages({ limit: 100 })
  talkedRecently.add(message.author.id);
  setTimeout(() => {
    talkedRecently.delete(message.author.id);
- }, 18000000);
+ }, 1);
 }
+
+//18000000
 
 let ModEmbed = new Discord.RichEmbed()
     .setTitle("**Command Used!**")
