@@ -65,10 +65,8 @@ message.channel.fetchMessages({ limit: 80 })
  talkedRecently.add(message.author.id);
  setTimeout(() => {
    talkedRecently.delete(message.author.id);
- }, 1);
+ }, 18000000);
 }
-
-//18000000
 
 let ModEmbed = new Discord.RichEmbed()
     .setTitle("**Command Used!**")
