@@ -1165,7 +1165,7 @@ bot.on("ready", async () => {
             const drp6 = bot.emojis.get("759126060355813376");
             const drp7 = bot.emojis.get("759126083781394444");
 
-            const reactionLimit = 2;
+            const reactionLimit = 1;
 
             if (messageReaction.emoji.id === drp1.id) {
 
