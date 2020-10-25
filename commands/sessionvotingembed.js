@@ -46,7 +46,7 @@ const drp7 = bot.emojis.get("759126083781394444");
 .setTimestamp()
 .setColor("#f5f5f5")
 .setDescription([
-    `This message will include all 7 days of the week to schedule sessions on. Each member has the ability to vote for a or multiple days they can attend a session on. This is done by reacting to this message with the appropriate reaction signifying the day you are available on. Which reaction signifies which day can be seen below. The time of the sessions will be the standard \`7:30 PM BST\`.`,
+    `This message will include all 7 days of the week to schedule sessions on. Each member has the ability to vote for a or multiple days they can attend a session on. This is done by reacting to this message with the appropriate reaction signifying the day you are available on. Which reaction signifies which day can be seen below. The time of the sessions will be the standard \`7:30 PM GMT\`.`,
     ` `,
     `${drp1} - Monday`,
     `${drp2} - Tuesday`,
