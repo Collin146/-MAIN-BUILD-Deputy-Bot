@@ -11,15 +11,15 @@ process.setMaxListeners(Infinity);
 function catchErr (err, message) {
 
 let errchannel = bot.channels.find(x => x.name === 'errors');
-const warningsign = bot.emojis.get("729725849343098900");
+const warningsign = bot.emojis.cache.get("729725849343098900");
 
 errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`index.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
 
 }
 
-const yes = bot.emojis.get("561106357131018273");
-const no = bot.emojis.get("561106624757104640");
-// const warningsign = bot.emojis.get("572176403907215360");
+const yes = bot.emojis.cache.get("561106357131018273");
+const no = bot.emojis.cache.get("561106624757104640");
+// const warningsign = bot.emojis.cache.get("572176403907215360");
 
 //--
 //Cmd handler begin
@@ -76,13 +76,13 @@ fs.readdir("./charges/", (err, files) => {
 
   bot.on("ready", async () => {
 
-    let communityguild = bot.guilds.get('669938084888182814');
-    let testingguild = bot.guilds.get('700639523272523776');
-    let staffguild = bot.guilds.get('644254160019128320');
-    let portalguild = bot.guilds.get('644301808680042506');
-    let interviewguild = bot.guilds.get('604420918634086411');
-    let trainingguild = bot.guilds.get('645035452956540929');
-    let mainguild = bot.guilds.get('644227663829139466');
+    let communityguild = bot.guildsemojis.cache.get('669938084888182814');
+    let testingguild = bot.guildsemojis.cache.get('700639523272523776');
+    let staffguild = bot.guildsemojis.cache.get('644254160019128320');
+    let portalguild = bot.guildsemojis.cache.get('644301808680042506');
+    let interviewguild = bot.guildsemojis.cache.get('604420918634086411');
+    let trainingguild = bot.guildsemojis.cache.get('645035452956540929');
+    let mainguild = bot.guildsemojis.cache.get('644227663829139466');
 
     communityguild.fetchMembers();
     testingguild.fetchMembers();
@@ -242,7 +242,7 @@ try {
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
     if(message.content.startsWith(prefix)){
-    let commandfile = bot.commands.get(cmd.slice(prefix.length));
+    let commandfile = bot.commandsemojis.cache.get(cmd.slice(prefix.length));
     if(commandfile) commandfile.run(bot,message,args);
     if(!message.content.startsWith(prefix))return;
 
@@ -271,7 +271,7 @@ bot.on(`message`, async message => {
     const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`, `https://`, `http://`, `.com/`, `.com`, `www.`, `https://www.`, `http://www.`, `https`, `http`] 
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
-            const warningsign = bot.emojis.get("729725849343098900");
+            const warningsign = bot.emojis.cache.get("729725849343098900");
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
             if (message.channel.id === '750827004525281430') return;
@@ -318,7 +318,7 @@ bot.on(`message`, async message => {
 //     try {
 //         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
 
-//             const warningsign = bot.emojis.get("700843409526620180");
+//             const warningsign = bot.emojis.cache.get("700843409526620180");
 
 
 //             if (message.author.id === message.guild.ownerID) return;
@@ -428,7 +428,7 @@ bot.on(`message`, async message => {
 
     try {
             if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
-            const warningsign = bot.emojis.get("729725849343098900");
+            const warningsign = bot.emojis.cache.get("729725849343098900");
 
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
@@ -485,7 +485,7 @@ bot.on(`message`, async message => {
     const bannedWords = [`niggers`, `n  i  g  g  e  r`, `n i g g e r`, `niggercoon`, `nigger`, `nigg`, `nogger`, `nagger`, `kanker`, `negro`, `negger`, `nigro`, `nignog`, `nig ger`, `nig  ger`, `ni99er`, `nog ger`, `n1gger`, `neger`, `nigga`, `nigge`, `n1gg3r`, `nigg3r`, `Nigger`, `Nigg`, `Nogger`, `Nagger`, `Kanker`, `Negro`, `Negger`, `Nigro`, `Nignog`, `Nig ger`, `Nig  ger`, `Ni99er`, `Nog ger`, `N1gger`, `Neger`, `Nigga`, `Nigge`, `N1gg3r`, `Nigg3r`, `Nibba`, `nibba`] 
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
-            const warningsign = bot.emojis.get("729725849343098900");
+            const warningsign = bot.emojis.cache.get("729725849343098900");
             if (message.author.id === message.guild.ownerID) return;
             await message.delete();
             
@@ -652,7 +652,7 @@ modlogchannel.send({embed: nickembed});
         for (const role of newMember.roles.map(x => x.id)) {
 			if (!oldMember.roles.has(role)) {
         roleminembed.setDescription([
-           `<@${newMember.id}> has been given the \`${oldMember.guild.roles.get(role).name}\` role.`
+           `<@${newMember.id}> has been given the \`${oldMember.guild.rolesemojis.cache.get(role).name}\` role.`
          ].join('\n'))
    
    let modlogchannel = newMember.guild.channels.find(x => x.name === 'modlog');
@@ -671,7 +671,7 @@ modlogchannel.send({embed: nickembed});
         for (const role of oldMember.roles.map(x => x.id)) {
 			if (!newMember.roles.has(role)) {
         rolemaxembed.setDescription([
-           `<@${newMember.id}> has been removed from the \`${oldMember.guild.roles.get(role).name}\` role.`
+           `<@${newMember.id}> has been removed from the \`${oldMember.guild.rolesemojis.cache.get(role).name}\` role.`
          ].join('\n'))
     
    let modlogchannel = newMember.guild.channels.find(x => x.name === 'modlog');
@@ -917,7 +917,7 @@ const antiSpam = new AntiSpam({
     exemptPermissions: [ 'ADMINISTRATOR'], // Bypass users with any of these permissions.
     ignoreBots: true, // Ignore bot messages.
     verbose: true, // Extended Logs from module.
-    ignoredUsers: [], // Array of User IDs that get ignored.
+    ignoredUsers: [], // Array of User IDs thasemojis.cache.get ignored.
     warnEnabled: true,
     kickEnabled: false,
     banEnabled: false
@@ -940,7 +940,7 @@ antiSpam.on("warnAdd", async member => {
     member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
     });
 
-    const warningsign = bot.emojis.get("729725849343098900");
+    const warningsign = bot.emojis.cache.get("729725849343098900");
 
     let spamEmbed = new Discord.RichEmbed()
     .setTitle(`${warningsign} **Notice!**`)
@@ -993,7 +993,7 @@ const antiSpamMute = new AntiSpam({
     exemptPermissions: [ 'ADMINISTRATOR'], // Bypass users with any of these permissions.
     ignoreBots: true, // Ignore bot messages.
     verbose: true, // Extended Logs from module.
-    ignoredUsers: [], // Array of User IDs that get ignored.
+    ignoredUsers: [], // Array of User IDs thasemojis.cache.get ignored.
     warnEnabled: true,
     kickEnabled: false,
     banEnabled: false
@@ -1026,7 +1026,7 @@ antiSpamMute.on("warnAdd", async member => {
     member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
     });
 
-const warningsign = bot.emojis.get("729725849343098900");
+const warningsign = bot.emojis.cache.get("729725849343098900");
 
 let muterole = member.guild.roles.find(x => x.name === 'Muted');
 let memberrole = member.guild.roles.find(x => x.name === 'Member');
@@ -1154,16 +1154,16 @@ bot.on("ready", async () => {
         
         if (messageReaction.message.id === "770020659929153566") {
 
-            const yes = bot.emojis.get("700713527576625205");
-            const no = bot.emojis.get("700713478578634783");
-            const gno = bot.emojis.get("759495234928902154");
-            const drp1 = bot.emojis.get("759125897953017857");
-            const drp2 = bot.emojis.get("759125936586883072");
-            const drp3 = bot.emojis.get("759125984967393330");
-            const drp4 = bot.emojis.get("759126011265941506");
-            const drp5 = bot.emojis.get("759126035215810592");
-            const drp6 = bot.emojis.get("759126060355813376");
-            const drp7 = bot.emojis.get("759126083781394444");
+            const yes = bot.emojis.cache.get("700713527576625205");
+            const no = bot.emojis.cache.get("700713478578634783");
+            const gno = bot.emojis.cache.get("759495234928902154");
+            const drp1 = bot.emojis.cache.get("759125897953017857");
+            const drp2 = bot.emojis.cache.get("759125936586883072");
+            const drp3 = bot.emojis.cache.get("759125984967393330");
+            const drp4 = bot.emojis.cache.get("759126011265941506");
+            const drp5 = bot.emojis.cache.get("759126035215810592");
+            const drp6 = bot.emojis.cache.get("759126060355813376");
+            const drp7 = bot.emojis.cache.get("759126083781394444");
 
             const reactionLimit = 7;
 
@@ -1466,16 +1466,16 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
 
         if (messageReaction.message.id === "770020659929153566") {
     
-            const drp1 = bot.emojis.get("759125897953017857");
-            const drp2 = bot.emojis.get("759125936586883072");
-            const drp3 = bot.emojis.get("759125984967393330");
-            const drp4 = bot.emojis.get("759126011265941506");
-            const drp5 = bot.emojis.get("759126035215810592");
-            const drp6 = bot.emojis.get("759126060355813376");
-            const drp7 = bot.emojis.get("759126083781394444");
+            const drp1 = bot.emojis.cache.get("759125897953017857");
+            const drp2 = bot.emojis.cache.get("759125936586883072");
+            const drp3 = bot.emojis.cache.get("759125984967393330");
+            const drp4 = bot.emojis.cache.get("759126011265941506");
+            const drp5 = bot.emojis.cache.get("759126035215810592");
+            const drp6 = bot.emojis.cache.get("759126060355813376");
+            const drp7 = bot.emojis.cache.get("759126083781394444");
     
             let logChannel = messageReaction.message.guild.channels.find(x => x.name === 'vote-removal-log');
-            const warningsign = bot.emojis.get("729725849343098900");
+            const warningsign = bot.emojis.cache.get("729725849343098900");
         
         if (messageReaction.emoji.id === drp1.id) {
 
@@ -1606,15 +1606,15 @@ bot.on("ready", async () => {
     
     if (messageReaction.message.id === "759132165354160178") {
     
-        gMember = messageReaction.message.guild.members.get(user.id);
+        gMember = messageReaction.message.guild.membersemojis.cache.get(user.id);
     
-        const drpmember = bot.emojis.get("756150199348363355");
-        const drprecruit = bot.emojis.get("756148907347542046");
-        const drpapplicant = bot.emojis.get("756149480750841866");
-        const ps4 = bot.emojis.get("756151452870639787");
-        const xbox = bot.emojis.get("756151503865118791");
-        const ninswitch = bot.emojis.get("756151539948716112");
-        const pc = bot.emojis.get("756151593409183836");
+        const drpmember = bot.emojis.cache.get("756150199348363355");
+        const drprecruit = bot.emojis.cache.get("756148907347542046");
+        const drpapplicant = bot.emojis.cache.get("756149480750841866");
+        const ps4 = bot.emojis.cache.get("756151452870639787");
+        const xbox = bot.emojis.cache.get("756151503865118791");
+        const ninswitch = bot.emojis.cache.get("756151539948716112");
+        const pc = bot.emojis.cache.get("756151593409183836");
     
         let roledrpmember = messageReaction.message.guild.roles.find(x => x.name === 'DRP Member');
         let roledrprecruit = messageReaction.message.guild.roles.find(x => x.name === 'DRP Recruit');
@@ -1627,15 +1627,15 @@ bot.on("ready", async () => {
 
         if (messageReaction.emoji.id === drpmember.id) {
 
-            const yes = bot.emojis.get("700713527576625205");
-            const no = bot.emojis.get("700713478578634783"); 
+            const yes = bot.emojis.cache.get("700713527576625205");
+            const no = bot.emojis.cache.get("700713478578634783"); 
 
             let dmerrEmbed = new Discord.RichEmbed()
             .setColor("RED")
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be a member of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
-            let mainguild = bot.guilds.get('644227663829139466');
+            let mainguild = bot.guildsemojis.cache.get('644227663829139466');
           
           if (mainguild.members.has(user.id)) {
             gMember.addRole(roledrpmember.id)
@@ -1647,15 +1647,15 @@ bot.on("ready", async () => {
     
         if (messageReaction.emoji.id === drprecruit.id) {
 
-            const yes = bot.emojis.get("700713527576625205");
-            const no = bot.emojis.get("700713478578634783"); 
+            const yes = bot.emojis.cache.get("700713527576625205");
+            const no = bot.emojis.cache.get("700713478578634783"); 
 
             let dmerrEmbed2 = new Discord.RichEmbed()
             .setColor("RED")
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be a recruit of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
-            let trainguild = bot.guilds.get('645035452956540929');
+            let trainguild = bot.guildsemojis.cache.get('645035452956540929');
           
             if (trainguild.members.has(user.id)) {
                 gMember.addRole(roledrprecruit.id);
@@ -1667,15 +1667,15 @@ bot.on("ready", async () => {
     
         if (messageReaction.emoji.id === drpapplicant.id) {
 
-            const yes = bot.emojis.get("700713527576625205");
-            const no = bot.emojis.get("700713478578634783"); 
+            const yes = bot.emojis.cache.get("700713527576625205");
+            const no = bot.emojis.cache.get("700713478578634783"); 
 
             let dmerrEmbed3 = new Discord.RichEmbed()
             .setColor("RED")
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be an applicant of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
-            let interviewguild = bot.guilds.get('604420918634086411');
+            let interviewguild = bot.guildsemojis.cache.get('604420918634086411');
           
           if (interviewguild.members.has(user.id)) {
             gMember.addRole(roledrpapplicant.id);
@@ -1714,15 +1714,15 @@ bot.on("ready", async () => {
     
             if (messageReaction.message.id === "759132165354160178") {
     
-            gMember = messageReaction.message.guild.members.get(user.id);
+            gMember = messageReaction.message.guild.membersemojis.cache.get(user.id);
         
-            const drpmember = bot.emojis.get("756150199348363355");
-            const drprecruit = bot.emojis.get("756148907347542046");
-            const drpapplicant = bot.emojis.get("756149480750841866");
-            const ps4 = bot.emojis.get("756151452870639787");
-            const xbox = bot.emojis.get("756151503865118791");
-            const ninswitch = bot.emojis.get("756151539948716112");
-            const pc = bot.emojis.get("756151593409183836");
+            const drpmember = bot.emojis.cache.get("756150199348363355");
+            const drprecruit = bot.emojis.cache.get("756148907347542046");
+            const drpapplicant = bot.emojis.cache.get("756149480750841866");
+            const ps4 = bot.emojis.cache.get("756151452870639787");
+            const xbox = bot.emojis.cache.get("756151503865118791");
+            const ninswitch = bot.emojis.cache.get("756151539948716112");
+            const pc = bot.emojis.cache.get("756151593409183836");
         
             let roledrpmember = messageReaction.message.guild.roles.find(x => x.name === 'DRP Member');
             let roledrprecruit = messageReaction.message.guild.roles.find(x => x.name === 'DRP Recruit');
@@ -1810,7 +1810,7 @@ try {
     let newUserChannel = newMember.voiceChannel
     let oldUserChannel = oldMember.voiceChannel
 
-    const mainguild = bot.guilds.get('644227663829139466')
+    const mainguild = bot.guildsemojis.cache.get('644227663829139466')
     //if(!newMember.guild.id === mainguild) return;
 
     let patrolrole = mainguild.roles.find(x => x.name === 'On Patrol');
@@ -1989,7 +1989,7 @@ bot.on('message', message => {
 
       message.author.send("I cannot reply to DM's. If you require support, please reach out to a staff member in any of the Deputy Roleplay servers.");
 
-      let staffguild2 = bot.guilds.get('644254160019128320');
+      let staffguild2 = bot.guildsemojis.cache.get('644254160019128320');
 
       let dmmodlogembed = new Discord.RichEmbed()
       .setTitle("**Direct Message Received!**")
