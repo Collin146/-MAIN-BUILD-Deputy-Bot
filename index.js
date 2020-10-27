@@ -4,7 +4,7 @@ const moment = require('moment');
 const fs = require("fs");
 const ms = require("ms");
 const AntiSpam = require('discord-anti-spam');
-const bot = new Discord.Client({disableEveryone: false});
+const bot = new Discord.Client({ disableMentions: 'everyone' });
 bot.commands = new Discord.Collection();
 process.setMaxListeners(Infinity);
 
@@ -119,7 +119,7 @@ let memberTag = member.user.tag;
 
 const imagetouse = ("https://cdn.discordapp.com/attachments/461540254441144326/689179495000703063/TRANSP_WELCOME-cutout.png")
     
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
       .setTitle("**A new user has joined!**")
       .setColor("#00f4ef")
       .setDescription(`Welcome **${memberTag}**, To Deputy Roleplay, the best Roleplay Community for PS4!`)
@@ -277,7 +277,7 @@ bot.on(`message`, async message => {
             if (message.channel.id === '750827004525281430') return;
             await message.delete();
             
-            let linkembed = new Discord.RichEmbed()
+            let linkembed = new Discord.MessageEmbed()
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Links are not allowed to be sent!")
@@ -285,7 +285,7 @@ bot.on(`message`, async message => {
            
             await message.channel.send(linkembed);
 
-            const modloglinkEmbed = new Discord.RichEmbed()
+            const modloglinkEmbed = new Discord.MessageEmbed()
             .setColor('RED')
             .setTimestamp()
             .setTitle("**Link Detected!**")
@@ -326,7 +326,7 @@ bot.on(`message`, async message => {
 //             if (message.guild.roles.find(x => x.name === 'Staff Team')) return;
 //             await message.delete();
 
-//             const modembed = new Discord.RichEmbed()
+//             const modembed = new Discord.MessageEmbed()
 //            .setColor('RED')
 //            .setTimestamp()
 //            .setTitle("**Link Posted!**")
@@ -340,7 +340,7 @@ bot.on(`message`, async message => {
 //        let modlogchannel = message.guild.channels.cache.find(x => x.name === 'modlog');
 //        modlogchannel.send({embed: modembed});
             
-//             let linkembed = new Discord.RichEmbed()
+//             let linkembed = new Discord.MessageEmbed()
 //             .setTitle(`${warningsign} **Notice!**`)
 //             .setColor("RED")
 //             .setDescription("Links are not allowed to be sent!")
@@ -371,7 +371,7 @@ bot.on(`message`, async message => {
 //             // if (message.member.roles.find("name", "Content Creator")) return;
 //             // if (message.member.roles.has(commrole.id)) return;
             
-//             let linkembed2 = new Discord.RichEmbed()
+//             let linkembed2 = new Discord.MessageEmbed()
 //             .setTitle("**Discord Invite!**")
 //             .setTimestamp()
 //             .setColor("RED")
@@ -395,7 +395,7 @@ bot.on(`message`, async message => {
 // const containsDiscordUrl = message.test("/discord.gg\/\w*\d*");
 // if (containsDiscordUrl) { 
 
-//             let linkembed2 = new Discord.RichEmbed()
+//             let linkembed2 = new Discord.MessageEmbed()
 //             .setTitle("**Discord Invite!**")
 //             .setTimestamp()
 //             .setColor("RED")
@@ -437,7 +437,7 @@ bot.on(`message`, async message => {
 //            if (message.member.roles.has(staffrole.id)) return;
             await message.delete();
             
-            let linkembed = new Discord.RichEmbed()
+            let linkembed = new Discord.MessageEmbed()
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Do not mention everyone or member!")
@@ -445,7 +445,7 @@ bot.on(`message`, async message => {
            
             await message.channel.send(linkembed);
 
-            const mentionEmbed = new Discord.RichEmbed()
+            const mentionEmbed = new Discord.MessageEmbed()
             .setColor('RED')
             .setTimestamp()
             .setTitle("**Unauthorized Role Mention Detected!**")
@@ -489,7 +489,7 @@ bot.on(`message`, async message => {
             if (message.author.id === message.guild.ownerID) return;
             await message.delete();
             
-            let linkembed = new Discord.RichEmbed()
+            let linkembed = new Discord.MessageEmbed()
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Please refrain from using offensive language!")
@@ -497,7 +497,7 @@ bot.on(`message`, async message => {
            
             await message.channel.send(linkembed);
 
-            const offlangEmbed = new Discord.RichEmbed()
+            const offlangEmbed = new Discord.MessageEmbed()
             .setColor('RED')
             .setTimestamp()
             .setTitle("**Offensive Language Detected!**")
@@ -535,7 +535,7 @@ bot.on('channelCreate', channel => {
 
    if (channel.type === 'dm') return;
 
-    const ccembed = new Discord.RichEmbed()
+    const ccembed = new Discord.MessageEmbed()
      .setColor('GREEN')
     .setTimestamp()
     .setTitle("**Channel Created!**")
@@ -558,7 +558,7 @@ bot.on('channelDelete', (channel) => {
 
     try {
 
-    const cdembed = new Discord.RichEmbed()
+    const cdembed = new Discord.MessageEmbed()
      .setColor('RED')
     .setTimestamp()
     .setTitle("**Channel Deleted!**")
@@ -581,7 +581,7 @@ bot.on('guildBanAdd', (guild, user) => {
 
     try { 
 
-    const ubembed = new Discord.RichEmbed()
+    const ubembed = new Discord.MessageEmbed()
      .setColor('RED')
     .setTimestamp()
     .setThumbnail((user.displayAvatarURL))
@@ -605,7 +605,7 @@ bot.on('guildBanRemove', (guild, user) => {
 
     try {
     
-    const uuembed = new Discord.RichEmbed()
+    const uuembed = new Discord.MessageEmbed()
      .setColor('GREEN')
     .setTimestamp()
     .setThumbnail((user.displayAvatarURL))
@@ -630,7 +630,7 @@ bot.on('guildMemberUpdate', (oldMember, newMember, member) => {
 
     if (oldMember.nickname !== newMember.nickname) {
 
-    const nickembed = new Discord.RichEmbed()
+    const nickembed = new Discord.MessageEmbed()
     .setColor('BLACK')
     .setTimestamp()
     .setTitle("**Nickname Changed!**")
@@ -645,7 +645,7 @@ modlogchannel.send({embed: nickembed});
 
     if (oldMember.roles.size < newMember.roles.size) {
 
-        const roleminembed = new Discord.RichEmbed()
+        const roleminembed = new Discord.MessageEmbed()
         .setColor('GREEN')
         .setTimestamp()
         .setTitle("**Role Given!**")
@@ -664,7 +664,7 @@ modlogchannel.send({embed: nickembed});
 
 	if (oldMember.roles.size > newMember.roles.size) {
     
-        const rolemaxembed = new Discord.RichEmbed()
+        const rolemaxembed = new Discord.MessageEmbed()
         .setColor('RED')
         .setTimestamp()
         .setTitle("**Role Removed!**")
@@ -691,7 +691,7 @@ bot.on("messageDelete", async message => {
 
     try {
 
-      const delembed = new Discord.RichEmbed()
+      const delembed = new Discord.MessageEmbed()
       .setColor("RED")
       .setTimestamp()
       .setTitle("**Deleted Message!**")
@@ -716,7 +716,7 @@ bot.on('messageUpdate', (oldMessage, newMessage) => {
 
     try {
 
-    const updembed = new Discord.RichEmbed()
+    const updembed = new Discord.MessageEmbed()
      .setColor('BLACK')
     .setTimestamp()
     .setTitle("**Message Edited!**")
@@ -739,7 +739,7 @@ bot.on('roleCreate', (role) => {
 
     try {
 
-    const rcembed = new Discord.RichEmbed()
+    const rcembed = new Discord.MessageEmbed()
      .setColor('GREEN')
     .setTimestamp()
     .setTitle("**Role Created!**")
@@ -762,7 +762,7 @@ bot.on('roleDelete', (role) => {
 
     try {
 
-    const rdembed = new Discord.RichEmbed()
+    const rdembed = new Discord.MessageEmbed()
      .setColor('RED')
     .setTimestamp()
     .setTitle("**Role Deleted!**")
@@ -787,7 +787,7 @@ bot.on('roleUpdate', (oldRole, newRole) => {
 
     if (oldRole.name !== newRole.name) {
 
-    const rnembed = new Discord.RichEmbed()
+    const rnembed = new Discord.MessageEmbed()
      .setColor('BLACK')
     .setTimestamp()
     .setTitle("**Role Name Edited!**")
@@ -802,7 +802,7 @@ bot.on('roleUpdate', (oldRole, newRole) => {
 
     if (oldRole.hexColor !== newRole.hexColor) {
 
-        const rhxembed = new Discord.RichEmbed()
+        const rhxembed = new Discord.MessageEmbed()
         .setColor('BLACK')
         .setTimestamp()
         .setTitle("**Role Color Edited!**")
@@ -830,7 +830,7 @@ bot.on('guildUpdate', (oldGuild, newGuild) => {
 
     if (oldGuild.name !== newGuild.name) {
    
-    const gnembed = new Discord.RichEmbed()
+    const gnembed = new Discord.MessageEmbed()
      .setColor('BLACK')
     .setTimestamp()
     .setTitle("**Guild Name Edited!**")
@@ -845,7 +845,7 @@ modlogchannel.send(gnembed);
 
 	if (oldGuild.iconURL !== newGuild.iconURL) {
 
-        const giembed = new Discord.RichEmbed()
+        const giembed = new Discord.MessageEmbed()
         .setColor('BLACK')
        .setTimestamp()
        .setTitle("**Guild Icon Changed!**")
@@ -860,7 +860,7 @@ modlogchannel.send(gnembed);
 
     if (oldGuild.owner.id !== newGuild.owner.id) {
 
-        const goembed = new Discord.RichEmbed()
+        const goembed = new Discord.MessageEmbed()
         .setColor('BLACK')
        .setTimestamp()
        .setTitle("**Guild Owner Transfership!**")
@@ -885,7 +885,7 @@ bot.on('channelUpdate', (oldChannel, newChannel) => {
 
 	if (oldChannel.name !== newChannel.name) {
 
-    const cuembed = new Discord.RichEmbed()
+    const cuembed = new Discord.MessageEmbed()
      .setColor('BLACK')
     .setTimestamp()
     .setTitle("**Channel Name Edited!**")
@@ -942,7 +942,7 @@ antiSpam.on("warnAdd", async member => {
 
     const warningsign = bot.emojis.cache.get("729725849343098900");
 
-    let spamEmbed = new Discord.RichEmbed()
+    let spamEmbed = new Discord.MessageEmbed()
     .setTitle(`${warningsign} **Notice!**`)
     .setColor("RED")
     .setDescription("Please refrain from spamming within the server!")
@@ -960,7 +960,7 @@ antiSpam.on("warnAdd", async member => {
     member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
     });
 
-    const modlogspamEmbed = new Discord.RichEmbed()
+    const modlogspamEmbed = new Discord.MessageEmbed()
     .setColor('RED')
     .setTimestamp()
     .setTitle("**Message Spam Detected!**")
@@ -1077,7 +1077,7 @@ await(member.removeRole(recrole.id));
 } catch(err) {  
 }
 
-geluktEmbed55 = new Discord.RichEmbed()
+geluktEmbed55 = new Discord.MessageEmbed()
       .setColor("RED")
       .setTitle(`${warningsign} **Automatic Mute!**`)
       .setDescription(`<@${member.id}> has been muted for 4h due to spamming.`)
@@ -1114,7 +1114,7 @@ member.removeRole(muterole.id);
 
 }, ms("4h"));
 
-const modlogspamEmbed2 = new Discord.RichEmbed()
+const modlogspamEmbed2 = new Discord.MessageEmbed()
 .setColor('RED')
 .setTimestamp()
 .setTitle("**Message Spam Detected!**")
@@ -1342,7 +1342,7 @@ bot.on("ready", async () => {
                         READ_MESSAGE_HISTORY: false
                       });
 
-                      let modlogEmbed = new Discord.RichEmbed()
+                      let modlogEmbed = new Discord.MessageEmbed()
                         .setColor("RED")
                         .setTitle(`**Session Voting System Disabled!**`)
                         .setTimestamp()
@@ -1366,7 +1366,7 @@ bot.on("ready", async () => {
                         READ_MESSAGE_HISTORY: true
                       });
 
-                      let modlogEmbed2 = new Discord.RichEmbed()
+                      let modlogEmbed2 = new Discord.MessageEmbed()
                       .setColor("GREEN")
                       .setTitle(`**Session Voting System Enabled!**`)
                       .setTimestamp()
@@ -1437,7 +1437,7 @@ bot.on("ready", async () => {
                         message.edit(`${no} - Sunday`);
                     });
 
-                      let modlogEmbed3 = new Discord.RichEmbed()
+                      let modlogEmbed3 = new Discord.MessageEmbed()
                       .setColor("RED")
                       .setTitle(`**Session Voting System Reset!**`)
                       .setTimestamp()
@@ -1479,7 +1479,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
         
         if (messageReaction.emoji.id === drp1.id) {
 
-                    let voteEmbed1 = new Discord.RichEmbed()
+                    let voteEmbed1 = new Discord.MessageEmbed()
                     .setColor("RED")
                     .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
                     .setDescription([
@@ -1494,7 +1494,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
         if (messageReaction.emoji.id === drp2.id) {
 
-            let voteEmbed2 = new Discord.RichEmbed()
+            let voteEmbed2 = new Discord.MessageEmbed()
             .setColor("RED")
             .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
             .setDescription([
@@ -1509,7 +1509,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
         if (messageReaction.emoji.id === drp3.id) {
 
-            let voteEmbed3 = new Discord.RichEmbed()
+            let voteEmbed3 = new Discord.MessageEmbed()
             .setColor("RED")
             .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
             .setDescription([
@@ -1524,7 +1524,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
         if (messageReaction.emoji.id === drp4.id) {
 
-            let voteEmbed4 = new Discord.RichEmbed()
+            let voteEmbed4 = new Discord.MessageEmbed()
             .setColor("RED")
             .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
             .setDescription([
@@ -1539,7 +1539,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
         if (messageReaction.emoji.id === drp5.id) {
 
-            let voteEmbed5 = new Discord.RichEmbed()
+            let voteEmbed5 = new Discord.MessageEmbed()
             .setColor("RED")
             .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
             .setDescription([
@@ -1554,7 +1554,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
         if (messageReaction.emoji.id === drp6.id) {
 
-            let voteEmbed6 = new Discord.RichEmbed()
+            let voteEmbed6 = new Discord.MessageEmbed()
             .setColor("RED")
             .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
             .setDescription([
@@ -1569,7 +1569,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
         if (messageReaction.emoji.id === drp7.id) {
 
-            let voteEmbed7 = new Discord.RichEmbed()
+            let voteEmbed7 = new Discord.MessageEmbed()
             .setColor("RED")
             .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
             .setDescription([
@@ -1630,7 +1630,7 @@ bot.on("ready", async () => {
             const yes = bot.emojis.cache.get("700713527576625205");
             const no = bot.emojis.cache.get("700713478578634783"); 
 
-            let dmerrEmbed = new Discord.RichEmbed()
+            let dmerrEmbed = new Discord.MessageEmbed()
             .setColor("RED")
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be a member of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
@@ -1650,7 +1650,7 @@ bot.on("ready", async () => {
             const yes = bot.emojis.cache.get("700713527576625205");
             const no = bot.emojis.cache.get("700713478578634783"); 
 
-            let dmerrEmbed2 = new Discord.RichEmbed()
+            let dmerrEmbed2 = new Discord.MessageEmbed()
             .setColor("RED")
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be a recruit of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
@@ -1670,7 +1670,7 @@ bot.on("ready", async () => {
             const yes = bot.emojis.cache.get("700713527576625205");
             const no = bot.emojis.cache.get("700713478578634783"); 
 
-            let dmerrEmbed3 = new Discord.RichEmbed()
+            let dmerrEmbed3 = new Discord.MessageEmbed()
             .setColor("RED")
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be an applicant of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
@@ -1991,7 +1991,7 @@ bot.on('message', message => {
 
       let staffguild2 = bot.guilds.cache.get('644254160019128320');
 
-      let dmmodlogembed = new Discord.RichEmbed()
+      let dmmodlogembed = new Discord.MessageEmbed()
       .setTitle("**Direct Message Received!**")
       .setTimestamp()
       .setColor("BLACK")
