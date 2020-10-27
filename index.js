@@ -76,13 +76,13 @@ fs.readdir("./charges/", (err, files) => {
 
   bot.on("ready", async () => {
 
-    let communityguild = bot.guilds.get('669938084888182814');
-    let testingguild = bot.guilds.get('700639523272523776');
-    let staffguild = bot.guilds.get('644254160019128320');
-    let portalguild = bot.guilds.get('644301808680042506');
-    let interviewguild = bot.guilds.get('604420918634086411');
-    let trainingguild = bot.guilds.get('645035452956540929');
-    let mainguild = bot.guilds.get('644227663829139466');
+    let communityguild = bot.guilds.cache.get('669938084888182814');
+    let testingguild = bot.guilds.cache.get('700639523272523776');
+    let staffguild = bot.guilds.cache.get('644254160019128320');
+    let portalguild = bot.guilds.cache.get('644301808680042506');
+    let interviewguild = bot.guilds.cache.get('604420918634086411');
+    let trainingguild = bot.guilds.cache.get('645035452956540929');
+    let mainguild = bot.guilds.cache.get('644227663829139466');
 
     communityguild.fetchMembers();
     testingguild.fetchMembers();
@@ -1635,7 +1635,7 @@ bot.on("ready", async () => {
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be a member of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
-            let mainguild = bot.guilds.get('644227663829139466');
+            let mainguild = bot.guilds.cache.get('644227663829139466');
           
           if (mainguild.members.has(user.id)) {
             gMember.addRole(roledrpmember.id)
@@ -1655,7 +1655,7 @@ bot.on("ready", async () => {
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be a recruit of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
-            let trainguild = bot.guilds.get('645035452956540929');
+            let trainguild = bot.guilds.cache.get('645035452956540929');
           
             if (trainguild.members.has(user.id)) {
                 gMember.addRole(roledrprecruit.id);
@@ -1675,7 +1675,7 @@ bot.on("ready", async () => {
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be an applicant of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
-            let interviewguild = bot.guilds.get('604420918634086411');
+            let interviewguild = bot.guilds.cache.get('604420918634086411');
           
           if (interviewguild.members.has(user.id)) {
             gMember.addRole(roledrpapplicant.id);
@@ -1810,7 +1810,7 @@ try {
     let newUserChannel = newMember.voiceChannel
     let oldUserChannel = oldMember.voiceChannel
 
-    const mainguild = bot.guilds.get('644227663829139466')
+    const mainguild = bot.guilds.cache.get('644227663829139466')
     //if(!newMember.guild.id === mainguild) return;
 
     let patrolrole = mainguild.roles.find(x => x.name === 'On Patrol');
@@ -1989,7 +1989,7 @@ bot.on('message', message => {
 
       message.author.send("I cannot reply to DM's. If you require support, please reach out to a staff member in any of the Deputy Roleplay servers.");
 
-      let staffguild2 = bot.guilds.get('644254160019128320');
+      let staffguild2 = bot.guilds.cache.get('644254160019128320');
 
       let dmmodlogembed = new Discord.RichEmbed()
       .setTitle("**Direct Message Received!**")
