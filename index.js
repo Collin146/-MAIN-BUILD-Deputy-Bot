@@ -930,7 +930,7 @@ antiSpam.on("warnAdd", async member => {
 
     try {
 
-    member.lastMessage.channel.fetchMessages({
+    member.lastMessage.channel.messages.fetch({
         limit: 80,
        }).then((messages) => {
     const filterBy = member ? member.id : bot.member.id;
@@ -950,7 +950,7 @@ antiSpam.on("warnAdd", async member => {
 
     await member.lastMessage.channel.send(spamEmbed);
 
-    member.lastMessage.channel.fetchMessages({
+    member.lastMessage.channel.messages.fetch({
         limit: 80,
        }).then((messages) => {
     const filterBy = member ? member.id : bot.member.id;
@@ -1006,7 +1006,7 @@ antiSpamMute.on("warnAdd", async member => {
 
     try {
 
-    member.lastMessage.channel.fetchMessages({
+    member.lastMessage.channel.messages.fetch({
         limit: 80,
        }).then((messages) => {
     const filterBy = member ? member.id : bot.member.id;
@@ -1016,7 +1016,7 @@ antiSpamMute.on("warnAdd", async member => {
     member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
     });
 
-    member.lastMessage.channel.fetchMessages({
+    member.lastMessage.channel.messages.fetch({
         limit: 80,
        }).then((messages) => {
     const filterBy = member ? member.id : bot.member.id;
@@ -1137,7 +1137,7 @@ modlogchannel.send({embed: modlogspamEmbed2});
 bot.on("ready", async () => {
 
     let fetchchannel = bot.channels.cache.find(x => x.name === 'session-voting');
-    fetchchannel.fetchMessages({
+    fetchchannel.messages.fetch({
         limit: 80,
        });
 
@@ -1592,11 +1592,11 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
 bot.on("ready", async () => {
 
     let fetchchannel = bot.channels.cache.find(x => x.name === 'self-roles');
-    fetchchannel.fetchMessages({
+    fetchchannel.messages.fetch({
         limit: 80,
        });
     
-    let onemessage = fetchchannel.fetchMessages("741366961757356104");
+    let onemessage = fetchchannel.messages.fetch("741366961757356104");
     
     });
     
