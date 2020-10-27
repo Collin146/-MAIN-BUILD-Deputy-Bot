@@ -137,7 +137,7 @@ let applicantrole = member.guild.roles.find(x => x.name === 'Applicant');
 member.addRole(applicantrole);
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 
 }
 
@@ -148,7 +148,7 @@ let recruitrole = member.guild.roles.find(x => x.name === 'Recruit');
 member.addRole(recruitrole);
 
 }  catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 try {
@@ -159,11 +159,11 @@ if (member.guild.id === "644227663829139466") return;
 member.addRole(memberrole22);
     
 }  catch (err) {
-        catchErr(err);
+        console.log(err);
 }
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
   
 });
@@ -198,7 +198,7 @@ if (member.guild.id === "644227663829139466") {
 }
     
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -249,7 +249,7 @@ try {
     }
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -305,7 +305,7 @@ bot.on(`message`, async message => {
     }
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -353,7 +353,7 @@ bot.on(`message`, async message => {
 //     }
 
 // } catch (err) {
-//     catchErr(err);
+//     console.log(err);
 // }
 
 // });
@@ -465,7 +465,7 @@ bot.on(`message`, async message => {
     }
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -516,7 +516,7 @@ bot.on(`message`, async message => {
     }
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -549,7 +549,7 @@ let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ccembed});
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -572,7 +572,7 @@ let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: cdembed});
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -595,7 +595,7 @@ let modlogchannel = guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ubembed});
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
     });
@@ -619,7 +619,7 @@ let modlogchannel = guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: uuembed});
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -682,7 +682,7 @@ modlogchannel.send({embed: nickembed});
     }
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -707,7 +707,7 @@ bot.on("messageDelete", async message => {
     channel.send({embed: delembed});
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
   });
@@ -730,7 +730,7 @@ let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(updembed);
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -753,7 +753,7 @@ let modlogchannel = role.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(rcembed);
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -776,7 +776,7 @@ let modlogchannel = role.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(rdembed);
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -819,7 +819,7 @@ bot.on('roleUpdate', (oldRole, newRole) => {
     }
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -874,7 +874,7 @@ modlogchannel.send(gnembed);
     }
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -898,7 +898,7 @@ modlogchannel.send({embed: cuembed});
 
     }
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -974,7 +974,7 @@ let modlogchannel = member.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: modlogspamEmbed});
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -1128,7 +1128,7 @@ let modlogchannel = member.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: modlogspamEmbed2});
 
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
@@ -1972,7 +1972,7 @@ try {
     }
 
 } catch (err) {
-  catchErr(err);
+  console.log(err);
 }
 
   });
