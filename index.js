@@ -100,7 +100,7 @@ fs.readdir("./charges/", (err, files) => {
 
  
 bot.on('guildMemberAdd', member => {
-	let welcomechannel = member.guild.channels.find(x => x.name === 'welcome');
+	let welcomechannel = member.guild.channels.cache.find(x => x.name === 'welcome');
  
 try {
 //const rando_imgs = [
@@ -187,12 +187,12 @@ let memberTag = member.user.tag;
 
 if (member.guild.id === "644227663829139466") {
 
-    let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
+    let leftchannel = member.guild.channels.cache.find(x => x.name === 'left-members');
     leftchannel.send(`**${memberTag}**, (${member.nickname}) has left the server.`);
 
 } else {
 
-    let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
+    let leftchannel = member.guild.channels.cache.find(x => x.name === 'left-members');
     leftchannel.send(`**${memberTag}** has left the server.`);
 
 }
@@ -296,7 +296,7 @@ bot.on(`message`, async message => {
             `**Link:** ${message.content}`
             ].join('\n'))
 
-            let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+            let modlogchannel = message.guild.channels.cache.find(x => x.name === 'modlog');
             modlogchannel.send({embed: modloglinkEmbed});
 
         }
@@ -337,7 +337,7 @@ bot.on(`message`, async message => {
 //                `**Link:** ${message.content}`
 //              ].join('\n'))
        
-//        let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+//        let modlogchannel = message.guild.channels.cache.find(x => x.name === 'modlog');
 //        modlogchannel.send({embed: modembed});
             
 //             let linkembed = new Discord.RichEmbed()
@@ -383,7 +383,7 @@ bot.on(`message`, async message => {
 //                 `**Sent By:** ${message.member}`
 //               ].join('\n'))
 
-//             let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+//             let modlogchannel = guild.channels.cache.find(x => x.name === 'modlog');
 //             modlogchannel.send({embed: linkembed2});
 //         }
 //     } catch (e) {
@@ -407,7 +407,7 @@ bot.on(`message`, async message => {
 //                 `**Sent By:** ${containsDiscordUrl.member}`
 //               ].join('\n'))
 
-//             let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+//             let modlogchannel = guild.channels.cache.find(x => x.name === 'modlog');
 //             modlogchannel.send({embed: linkembed2});
 
 // }
@@ -456,7 +456,7 @@ bot.on(`message`, async message => {
             `**Message Contents:** ${message.content}`
             ].join('\n'))
 
-            let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+            let modlogchannel = message.guild.channels.cache.find(x => x.name === 'modlog');
             modlogchannel.send({embed: mentionEmbed});
 
         }
@@ -508,7 +508,7 @@ bot.on(`message`, async message => {
             `**Message Contents:** ${message.content}`
             ].join('\n'))
 
-            let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
+            let modlogchannel = message.guild.channels.cache.find(x => x.name === 'modlog');
             modlogchannel.send({embed: offlangEmbed});
         }
     } catch (e) {
@@ -545,7 +545,7 @@ bot.on('channelCreate', channel => {
         `**Channel Type:** ${channel.type}`
       ].join('\n'))
 
-let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = channel.guild.channels.cache.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ccembed});
 
 } catch (err) {
@@ -568,7 +568,7 @@ bot.on('channelDelete', (channel) => {
         `**Channel Type:** ${channel.type}`
       ].join('\n'))
 
-let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = channel.guild.channels.cache.find(x => x.name === 'modlog');
 modlogchannel.send({embed: cdembed});
 
 } catch (err) {
@@ -591,7 +591,7 @@ bot.on('guildBanAdd', (guild, user) => {
         `**User's ID:** ${user.id}`
       ].join('\n'))
 
-let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = guild.channels.cache.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ubembed});
 
 } catch (err) {
@@ -615,7 +615,7 @@ bot.on('guildBanRemove', (guild, user) => {
         `**User's ID:** ${user.id}`
       ].join('\n'))
 
-let modlogchannel = guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = guild.channels.cache.find(x => x.name === 'modlog');
 modlogchannel.send({embed: uuembed});
 
 } catch (err) {
@@ -638,7 +638,7 @@ bot.on('guildMemberUpdate', (oldMember, newMember, member) => {
     .addField("Before", `${oldMember.nickname || "None"}`)
     .addField("After", `${newMember.nickname || "None"}`);
 
-let modlogchannel = newMember.guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = newMember.guild.channels.cache.find(x => x.name === 'modlog');
 modlogchannel.send({embed: nickembed});
 
     }
@@ -655,7 +655,7 @@ modlogchannel.send({embed: nickembed});
            `<@${newMember.id}> has been given the \`${oldMember.guild.roles.get(role).name}\` role.`
          ].join('\n'))
    
-   let modlogchannel = newMember.guild.channels.find(x => x.name === 'modlog');
+   let modlogchannel = newMember.guild.channels.cache.find(x => x.name === 'modlog');
    modlogchannel.send({embed: roleminembed});
    
         }
@@ -674,7 +674,7 @@ modlogchannel.send({embed: nickembed});
            `<@${newMember.id}> has been removed from the \`${oldMember.guild.roles.get(role).name}\` role.`
          ].join('\n'))
     
-   let modlogchannel = newMember.guild.channels.find(x => x.name === 'modlog');
+   let modlogchannel = newMember.guild.channels.cache.find(x => x.name === 'modlog');
    modlogchannel.send({embed: rolemaxembed});
 
         }
@@ -703,7 +703,7 @@ bot.on("messageDelete", async message => {
           `**Message:** ${message.content || "Embed"}`
         ].join('\n'));
   
-    let channel = message.guild.channels.find(x => x.name === 'deleted-messages-log');
+    let channel = message.guild.channels.cache.find(x => x.name === 'deleted-messages-log');
     channel.send({embed: delembed});
 
 } catch (err) {
@@ -726,7 +726,7 @@ bot.on('messageUpdate', (oldMessage, newMessage) => {
 
     if(oldMessage.author.bot) return;
 
-let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = oldMessage.guild.channels.cache.find(x => x.name === 'modlog');
 modlogchannel.send(updembed);
 
 } catch (err) {
@@ -749,7 +749,7 @@ bot.on('roleCreate', (role) => {
         `**Role Color:** ${role.hexColor}`
       ].join('\n'))
 
-let modlogchannel = role.guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = role.guild.channels.cache.find(x => x.name === 'modlog');
 modlogchannel.send(rcembed);
 
 } catch (err) {
@@ -772,7 +772,7 @@ bot.on('roleDelete', (role) => {
         `**Role Color:** ${role.hexColor}`
       ].join('\n'))
 
-let modlogchannel = role.guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = role.guild.channels.cache.find(x => x.name === 'modlog');
 modlogchannel.send(rdembed);
 
 } catch (err) {
@@ -795,7 +795,7 @@ bot.on('roleUpdate', (oldRole, newRole) => {
     .addField("Before", `${oldRole.name}`)
     .addField("After", `${newRole.name}`);
 
-    let modlogchannel = oldRole.guild.channels.find(x => x.name === 'modlog');
+    let modlogchannel = oldRole.guild.channels.cache.find(x => x.name === 'modlog');
     modlogchannel.send({embed: rnembed});
 
     }
@@ -812,7 +812,7 @@ bot.on('roleUpdate', (oldRole, newRole) => {
             `${oldRole.hexColor} -> ${newRole.hexColor}`
           ].join('\n'));
 
-       let modlogchannel = oldRole.guild.channels.find(x => x.name === 'modlog');
+       let modlogchannel = oldRole.guild.channels.cache.find(x => x.name === 'modlog');
        modlogchannel.send({embed: rhxembed});
    
 
@@ -838,7 +838,7 @@ bot.on('guildUpdate', (oldGuild, newGuild) => {
     .addField("Before", `${oldGuild.name}`)
     .addField("After", `${newGuild.name}`);
 
-let modlogchannel = oldGuild.channels.find(x => x.name === 'modlog');
+let modlogchannel = oldguild.channels.cache.find(x => x.name === 'modlog');
 modlogchannel.send(gnembed);
 
     }
@@ -853,7 +853,7 @@ modlogchannel.send(gnembed);
        .addField("Before", `${oldGuild.iconURL || "None"}`)
        .addField("After", `${newGuild.iconURL || "None"}`);
    
-   let modlogchannel = oldGuild.channels.find(x => x.name === 'modlog');
+   let modlogchannel = oldguild.channels.cache.find(x => x.name === 'modlog');
    modlogchannel.send(giembed);
 
     }
@@ -868,7 +868,7 @@ modlogchannel.send(gnembed);
        .addField("Before", `${oldGuild.owner.user.tag}`)
        .addField("After", `${newGuild.owner.user.tag}`);
    
-   let modlogchannel = oldGuild.channels.find(x => x.name === 'modlog');
+   let modlogchannel = oldguild.channels.cache.find(x => x.name === 'modlog');
    modlogchannel.send(goembed);
 
     }
@@ -893,7 +893,7 @@ bot.on('channelUpdate', (oldChannel, newChannel) => {
     .addField("Before", `${oldChannel.name}`)
     .addField("After", `${newChannel.name}`);
 
-let modlogchannel = oldChannel.guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = oldChannel.guild.channels.cache.find(x => x.name === 'modlog');
 modlogchannel.send({embed: cuembed});
 
     }
@@ -970,7 +970,7 @@ antiSpam.on("warnAdd", async member => {
         `**Action Taken:** Warning`
       ].join('\n'))
 
-let modlogchannel = member.guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = member.guild.channels.cache.find(x => x.name === 'modlog');
 modlogchannel.send({embed: modlogspamEmbed});
 
 } catch (err) {
@@ -1124,7 +1124,7 @@ const modlogspamEmbed2 = new Discord.RichEmbed()
     `**Action Taken:** Muted for 4 hours`
   ].join('\n'))
 
-let modlogchannel = member.guild.channels.find(x => x.name === 'modlog');
+let modlogchannel = member.guild.channels.cache.find(x => x.name === 'modlog');
 modlogchannel.send({embed: modlogspamEmbed2});
 
 } catch (err) {
@@ -1175,7 +1175,7 @@ bot.on("ready", async () => {
                     .then(users => {  
 
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
-                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+                let votingChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'session-voting');
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                     
@@ -1198,7 +1198,7 @@ bot.on("ready", async () => {
                     .then(users => {  
 
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
-                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+                let votingChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'session-voting');
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
@@ -1221,7 +1221,7 @@ bot.on("ready", async () => {
                     .then(users => {  
 
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
-                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+                let votingChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'session-voting');
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
@@ -1244,7 +1244,7 @@ bot.on("ready", async () => {
                     .then(users => {  
 
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
-                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+                let votingChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'session-voting');
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
@@ -1267,7 +1267,7 @@ bot.on("ready", async () => {
                     .then(users => {  
 
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
-                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+                let votingChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'session-voting');
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
@@ -1290,7 +1290,7 @@ bot.on("ready", async () => {
                     .then(users => {  
 
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
-                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+                let votingChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'session-voting');
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
@@ -1314,7 +1314,7 @@ bot.on("ready", async () => {
                     .then(users => {  
 
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
-                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
+                let votingChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'session-voting');
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
@@ -1335,7 +1335,7 @@ bot.on("ready", async () => {
                 if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
             
                     let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
-                    let modlogChannel = messageReaction.message.guild.channels.find(x => x.name === 'modlog');
+                    let modlogChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'modlog');
 
                     messageReaction.message.channel.overwritePermissions(permRole.id, {
                         VIEW_CHANNEL: false,
@@ -1359,7 +1359,7 @@ bot.on("ready", async () => {
                 if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
             
                     let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
-                    let modlogChannel = messageReaction.message.guild.channels.find(x => x.name === 'modlog');
+                    let modlogChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'modlog');
 
                     messageReaction.message.channel.overwritePermissions(permRole.id, {
                         VIEW_CHANNEL: true,
@@ -1383,7 +1383,7 @@ bot.on("ready", async () => {
                 if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
             
                     let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
-                    let modlogChannel = messageReaction.message.guild.channels.find(x => x.name === 'modlog');
+                    let modlogChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'modlog');
 
                     let fetchchannel = bot.channels.cache.find(x => x.name === 'session-voting');
                 
@@ -1474,7 +1474,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
             const drp6 = bot.emojis.cache.get("759126060355813376");
             const drp7 = bot.emojis.cache.get("759126083781394444");
     
-            let logChannel = messageReaction.message.guild.channels.find(x => x.name === 'vote-removal-log');
+            let logChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'vote-removal-log');
             const warningsign = bot.emojis.cache.get("729725849343098900");
         
         if (messageReaction.emoji.id === drp1.id) {
@@ -1816,34 +1816,34 @@ try {
     let patrolrole = mainguild.roles.find(x => x.name === 'On Patrol');
 
     //const Briefingroom = newMember.guild.channels.fetch('689230310176456753')
-    let Briefingroom = mainguild.channels.find(x => x.name === 'Briefing Room');
-    let Queue = mainguild.channels.find(x => x.name === 'Queue');
-    let ten1 = mainguild.channels.find(x => x.name === '10-1 Channel');
-    let RA1 = mainguild.channels.find(x => x.name === 'Ride Along #1');
-    let RA2 = mainguild.channels.find(x => x.name === 'Ride Along #2');
-    let RA3 = mainguild.channels.find(x => x.name === 'Ride Along #3');
-    let srutac = mainguild.channels.find(x => x.name === 'SRU Tactical Channel');
-    let fireops = mainguild.channels.find(x => x.name === 'Fire Operations');
-    let RTO = mainguild.channels.find(x => x.name === 'R.T.O.');
-    let nine11 = mainguild.channels.find(x => x.name === '911 Centre');
-    let Traffic1 = mainguild.channels.find(x => x.name === 'Traffic Stop #1');
-    let Traffic2 = mainguild.channels.find(x => x.name === 'Traffic Stop #2');
-    let Traffic3 = mainguild.channels.find(x => x.name === 'Traffic Stop #3');
-    let Traffic4 = mainguild.channels.find(x => x.name === 'Traffic Stop #4');
-    let Traffic5 = mainguild.channels.find(x => x.name === 'Traffic Stop #5');
-    let Scene1 = mainguild.channels.find(x => x.name === 'On Scene #1');
-    let Scene2 = mainguild.channels.find(x => x.name === 'On Scene #2');
-    let Scene3 = mainguild.channels.find(x => x.name === 'On Scene #3');
-    let Scene4 = mainguild.channels.find(x => x.name === 'On Scene #4');
-    let Scene5 = mainguild.channels.find(x => x.name === 'On Scene #5');
-    let Civ1 = mainguild.channels.find(x => x.name === 'Civ Channel #1');
-    let Civ2 = mainguild.channels.find(x => x.name === 'Civ Channel #2');
-    let Civ3 = mainguild.channels.find(x => x.name === 'Civ Channel #3');
-    let Civ4 = mainguild.channels.find(x => x.name === 'Civ Channel #4');
-    let Civ5 = mainguild.channels.find(x => x.name === 'Civ Channel #5');
-    let Civ6 = mainguild.channels.find(x => x.name === 'Civ Channel #6');
-    let Civ7 = mainguild.channels.find(x => x.name === 'Civ Channel #7');
-    let Civ8 = mainguild.channels.find(x => x.name === 'Civ Channel #8');
+    let Briefingroom = mainguild.channels.cache.find(x => x.name === 'Briefing Room');
+    let Queue = mainguild.channels.cache.find(x => x.name === 'Queue');
+    let ten1 = mainguild.channels.cache.find(x => x.name === '10-1 Channel');
+    let RA1 = mainguild.channels.cache.find(x => x.name === 'Ride Along #1');
+    let RA2 = mainguild.channels.cache.find(x => x.name === 'Ride Along #2');
+    let RA3 = mainguild.channels.cache.find(x => x.name === 'Ride Along #3');
+    let srutac = mainguild.channels.cache.find(x => x.name === 'SRU Tactical Channel');
+    let fireops = mainguild.channels.cache.find(x => x.name === 'Fire Operations');
+    let RTO = mainguild.channels.cache.find(x => x.name === 'R.T.O.');
+    let nine11 = mainguild.channels.cache.find(x => x.name === '911 Centre');
+    let Traffic1 = mainguild.channels.cache.find(x => x.name === 'Traffic Stop #1');
+    let Traffic2 = mainguild.channels.cache.find(x => x.name === 'Traffic Stop #2');
+    let Traffic3 = mainguild.channels.cache.find(x => x.name === 'Traffic Stop #3');
+    let Traffic4 = mainguild.channels.cache.find(x => x.name === 'Traffic Stop #4');
+    let Traffic5 = mainguild.channels.cache.find(x => x.name === 'Traffic Stop #5');
+    let Scene1 = mainguild.channels.cache.find(x => x.name === 'On Scene #1');
+    let Scene2 = mainguild.channels.cache.find(x => x.name === 'On Scene #2');
+    let Scene3 = mainguild.channels.cache.find(x => x.name === 'On Scene #3');
+    let Scene4 = mainguild.channels.cache.find(x => x.name === 'On Scene #4');
+    let Scene5 = mainguild.channels.cache.find(x => x.name === 'On Scene #5');
+    let Civ1 = mainguild.channels.cache.find(x => x.name === 'Civ Channel #1');
+    let Civ2 = mainguild.channels.cache.find(x => x.name === 'Civ Channel #2');
+    let Civ3 = mainguild.channels.cache.find(x => x.name === 'Civ Channel #3');
+    let Civ4 = mainguild.channels.cache.find(x => x.name === 'Civ Channel #4');
+    let Civ5 = mainguild.channels.cache.find(x => x.name === 'Civ Channel #5');
+    let Civ6 = mainguild.channels.cache.find(x => x.name === 'Civ Channel #6');
+    let Civ7 = mainguild.channels.cache.find(x => x.name === 'Civ Channel #7');
+    let Civ8 = mainguild.channels.cache.find(x => x.name === 'Civ Channel #8');
 
     if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
