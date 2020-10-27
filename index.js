@@ -128,13 +128,13 @@ const imagetouse = ("https://cdn.discordapp.com/attachments/461540254441144326/6
 
 let memberrole = member.guild.roles.cache.find(x => x.name === 'New Member');
 
-member.addRole(memberrole);
+member.roles.add(memberrole);
 
 try {
 
 let applicantrole = member.guild.roles.cache.find(x => x.name === 'Applicant');
 
-member.addRole(applicantrole);
+member.roles.add(applicantrole);
 
 } catch (err) {
     console.log(err);
@@ -145,7 +145,7 @@ try {
 
 let recruitrole = member.guild.roles.cache.find(x => x.name === 'Recruit');
 
-member.addRole(recruitrole);
+member.roles.add(recruitrole);
 
 }  catch (err) {
     console.log(err);
@@ -156,7 +156,7 @@ try {
 let memberrole22 = member.guild.roles.cache.find(x => x.name === 'Member');
 if (member.guild.id === "644227663829139466") return;
 
-member.addRole(memberrole22);
+member.roles.add(memberrole22);
     
 }  catch (err) {
         console.log(err);
@@ -1055,24 +1055,24 @@ if (!muterole){
 
 try {
 
-await(member.addRole(muterole.id));
-await(member.removeRole(memberrole.id));
+await(member.roles.add(muterole.id));
+await(member.roles.remove(memberrole.id));
 
 } catch(err) {
 }
 
 try {
 
-await(member.addRole(muterole.id));
-await(member.removeRole(approle.id));
+await(member.roles.add(muterole.id));
+await(member.roles.remove(approle.id));
 
 } catch(err) {
 }
 
 try {
 
-await(member.addRole(muterole.id));
-await(member.removeRole(recrole.id));
+await(member.roles.add(muterole.id));
+await(member.roles.remove(recrole.id));
     
 } catch(err) {  
 }
@@ -1089,25 +1089,25 @@ if(!member.roles.find(r => r.name === "Muted"))
     
 setTimeout(function(){
 
-member.removeRole(muterole.id);
+member.roles.remove(muterole.id);
 
     try {
      
-    member.addRole(memberrole.id);
+    member.roles.add(memberrole.id);
 
     } catch(err) {
     }
 
     try {
      
-    member.addRole(approle.id);
+    member.roles.add(approle.id);
     
     } catch(err) {
     }
 
     try {
      
-    member.addRole(recrole.id);
+    member.roles.add(recrole.id);
         
     } catch(err) {
     }        
@@ -1638,7 +1638,7 @@ bot.on("ready", async () => {
             let mainguild = bot.guilds.cache.get('644227663829139466');
           
           if (mainguild.members.has(user.id)) {
-            gMember.addRole(roledrpmember.id)
+            gMember.roles.add(roledrpmember.id)
 
           } else {
             user.send(dmerrEmbed)
@@ -1658,7 +1658,7 @@ bot.on("ready", async () => {
             let trainguild = bot.guilds.cache.get('645035452956540929');
           
             if (trainguild.members.has(user.id)) {
-                gMember.addRole(roledrprecruit.id);
+                gMember.roles.add(roledrprecruit.id);
 
             } else {
                 user.send(dmerrEmbed2)
@@ -1678,7 +1678,7 @@ bot.on("ready", async () => {
             let interviewguild = bot.guilds.cache.get('604420918634086411');
           
           if (interviewguild.members.has(user.id)) {
-            gMember.addRole(roledrpapplicant.id);
+            gMember.roles.add(roledrpapplicant.id);
 
           } else {
             user.send(dmerrEmbed3)
@@ -1686,19 +1686,19 @@ bot.on("ready", async () => {
         }
     
         if (messageReaction.emoji.id === ps4.id) {
-            gMember.addRole(roleps4.id);
+            gMember.roles.add(roleps4.id);
         }
     
         if (messageReaction.emoji.id === xbox.id) {
-            gMember.addRole(rolexbox.id);
+            gMember.roles.add(rolexbox.id);
         }
     
         if (messageReaction.emoji.id === pc.id) {
-            gMember.addRole(rolepc.id);
+            gMember.roles.add(rolepc.id);
         }
     
         if (messageReaction.emoji.id === ninswitch.id) {
-            gMember.addRole(roleninswitch.id);
+            gMember.roles.add(roleninswitch.id);
         }
     }
     
@@ -1733,31 +1733,31 @@ bot.on("ready", async () => {
             let roleninswitch = messageReaction.message.guild.roles.cache.find(x => x.name === 'Nintendo Switch');
             
             if (messageReaction.emoji.id === drpmember.id) {
-                gMember.removeRole(roledrpmember.id);
+                gMember.roles.remove(roledrpmember.id);
             }
         
             if (messageReaction.emoji.id === drprecruit.id) {
-                gMember.removeRole(roledrprecruit.id);
+                gMember.roles.remove(roledrprecruit.id);
             }
         
             if (messageReaction.emoji.id === drpapplicant.id) {
-                gMember.removeRole(roledrpapplicant.id);
+                gMember.roles.remove(roledrpapplicant.id);
             }
         
             if (messageReaction.emoji.id === ps4.id) {
-                gMember.removeRole(roleps4.id);
+                gMember.roles.remove(roleps4.id);
             }
         
             if (messageReaction.emoji.id === xbox.id) {
-                gMember.removeRole(rolexbox.id);
+                gMember.roles.remove(rolexbox.id);
             }
         
             if (messageReaction.emoji.id === pc.id) {
-                gMember.removeRole(rolepc.id);
+                gMember.roles.remove(rolepc.id);
             }
         
             if (messageReaction.emoji.id === ninswitch.id) {
-                gMember.removeRole(roleninswitch.id);
+                gMember.roles.remove(roleninswitch.id);
             }
         }
     
@@ -1777,7 +1777,7 @@ bot.on("ready", async () => {
 
 //   if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
-// newMember.addRole(memberrole.id);
+// newMember.roles.add(memberrole.id);
 
 //   } else if(newUserChannel === undefined){
 
@@ -1794,7 +1794,7 @@ bot.on("ready", async () => {
 
 // let memberrole = oldMember.guild.roles.cache.find(x => x.name === 'Owner');
 	 
-// oldMember.addRole(memberrole.id);
+// oldMember.roles.add(memberrole.id);
 	
 // }
 //   });
@@ -1847,96 +1847,96 @@ try {
 
     if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
-    if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Queue.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === ten1.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === RA1.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === RA2.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === RA3.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === srutac.id) newMember.addRole(patrolrole.id);
-    if(newUserChannel.id === fireops.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === RTO.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === nine11.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Traffic1.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Traffic2.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Traffic3.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Traffic4.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Traffic5.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Scene1.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Scene2.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Scene3.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Scene4.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Scene5.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Civ1.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Civ2.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Civ3.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Civ4.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Civ5.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Civ6.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Civ7.id) newMember.addRole(patrolrole.id); 
-    if(newUserChannel.id === Civ8.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Briefingroom.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Queue.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === ten1.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === RA1.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === RA2.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === RA3.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === srutac.id) newMember.roles.add(patrolrole.id);
+    if(newUserChannel.id === fireops.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === RTO.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === nine11.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Traffic1.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Traffic2.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Traffic3.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Traffic4.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Traffic5.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Scene1.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Scene2.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Scene3.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Scene4.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Scene5.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Civ1.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Civ2.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Civ3.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Civ4.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Civ5.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Civ6.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Civ7.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Civ8.id) newMember.roles.add(patrolrole.id); 
     
     } else if(newUserChannel === undefined){
    
-    if(oldUserChannel.id === Briefingroom.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Queue.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === ten1.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === RA1.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === RA2.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === RA3.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === srutac.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === fireops.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === RTO.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === nine11.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Traffic1.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Traffic2.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Traffic3.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Traffic4.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Traffic5.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Scene1.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Scene2.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Scene3.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Scene4.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Scene5.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Civ1.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Civ2.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Civ3.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Civ4.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Civ5.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Civ6.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Civ7.id) newMember.removeRole(patrolrole.id); 
-    if(oldUserChannel.id === Civ8.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Briefingroom.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Queue.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === ten1.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === RA1.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === RA2.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === RA3.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === srutac.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === fireops.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === RTO.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === nine11.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Traffic1.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Traffic2.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Traffic3.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Traffic4.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Traffic5.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Scene1.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Scene2.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Scene3.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Scene4.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Scene5.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Civ1.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Civ2.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Civ3.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Civ4.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Civ5.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Civ6.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Civ7.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Civ8.id) newMember.roles.remove(patrolrole.id); 
 
     } else if (oldUserChannel !== null && newUserChannel !== null) {
 
-        if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Queue.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === ten1.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === RA1.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === RA2.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === RA3.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === srutac.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === fireops.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === RTO.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === nine11.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Traffic1.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Traffic2.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Traffic3.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Traffic4.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Traffic5.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Scene1.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Scene2.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Scene3.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Scene4.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Scene5.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Civ1.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Civ2.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Civ3.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Civ4.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Civ5.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Civ6.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Civ7.id) newMember.addRole(patrolrole.id);
-        if(newUserChannel.id === Civ8.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Briefingroom.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Queue.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === ten1.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === RA1.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === RA2.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === RA3.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === srutac.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === fireops.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === RTO.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === nine11.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Traffic1.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Traffic2.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Traffic3.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Traffic4.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Traffic5.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Scene1.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Scene2.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Scene3.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Scene4.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Scene5.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Civ1.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Civ2.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Civ3.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Civ4.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Civ5.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Civ6.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Civ7.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Civ8.id) newMember.roles.add(patrolrole.id);
 
     if(newUserChannel.id === Briefingroom.id) return;
     if(newUserChannel.id === Queue.id) return;
@@ -1967,7 +1967,7 @@ try {
     if(newUserChannel.id === Civ7.id) return;
     if(newUserChannel.id === Civ8.id) return;
 
-    newMember.removeRole(patrolrole.id);
+    newMember.roles.remove(patrolrole.id);
 
     }
 
