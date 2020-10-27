@@ -84,13 +84,13 @@ fs.readdir("./charges/", (err, files) => {
     let trainingguild = bot.guilds.cache.get('645035452956540929');
     let mainguild = bot.guilds.cache.get('644227663829139466');
 
-    communityguild.fetchMembers();
-    testingguild.fetchMembers();
-    staffguild.fetchMembers();
-    portalguild.fetchMembers();
-    interviewguild.fetchMembers();
-    trainingguild.fetchMembers();
-    mainguild.fetchMembers();
+    communityguild.members.fetch();
+    testingguild.members.fetch();
+    staffguild.members.fetch();
+    portalguild.members.fetch();
+    interviewguild.members.fetch();
+    trainingguild.members.fetch();
+    mainguild.members.fetch();
 
     });
 
@@ -110,7 +110,7 @@ try {
 //'https://cdn.discordapp.com/attachments/461540254441144326/575060528708190272/3eC2G8r4GEKQjjvQ4-FTWw_0_0.jpg',
 //]
 
-member.guild.fetchMembers()
+member.guild.members.fetch()
 
 //const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
 let memberTag = member.user.tag;
