@@ -1141,7 +1141,7 @@ bot.on("ready", async () => {
         limit: 80,
        });
 
-    const fetchedMessage = fetchchannel.fetchMessage("770020659929153566");
+    const fetchedMessage = fetchchannel.messages.fetch("770020659929153566");
 
     });
     
@@ -1179,7 +1179,7 @@ bot.on("ready", async () => {
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                     
-                    votingChannel.fetchMessage("770020695647846509")
+                    votingChannel.messages.fetch("770020695647846509")
                     .then(message => {
                         message.edit(`${yes} - Monday`);
 
@@ -1202,7 +1202,7 @@ bot.on("ready", async () => {
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    votingChannel.fetchMessage("770020696125603881")
+                    votingChannel.messages.fetch("770020696125603881")
                     .then(message => {
                         message.edit(`${yes} - Tuesday`);
 
@@ -1225,7 +1225,7 @@ bot.on("ready", async () => {
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    votingChannel.fetchMessage("770020697232900116")
+                    votingChannel.messages.fetch("770020697232900116")
                     .then(message => {
                         message.edit(`${yes} - Wednesday`);
 
@@ -1248,7 +1248,7 @@ bot.on("ready", async () => {
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    votingChannel.fetchMessage("770020697949863976")
+                    votingChannel.messages.fetch("770020697949863976")
                     .then(message => {
                         message.edit(`${yes} - Thursday`);
 
@@ -1271,7 +1271,7 @@ bot.on("ready", async () => {
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    votingChannel.fetchMessage("770020721766039591")
+                    votingChannel.messages.fetch("770020721766039591")
                     .then(message => {
                         message.edit(`${yes} - Friday`);
 
@@ -1294,7 +1294,7 @@ bot.on("ready", async () => {
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    votingChannel.fetchMessage("770020722445516880")
+                    votingChannel.messages.fetch("770020722445516880")
                     .then(message => {
                         message.edit(`${yes} - Saturday`);
 
@@ -1318,7 +1318,7 @@ bot.on("ready", async () => {
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    votingChannel.fetchMessage("770020723376259073")
+                    votingChannel.messages.fetch("770020723376259073")
                     .then(message => {
                         message.edit(`${yes} - Sunday`);
 
@@ -1387,7 +1387,7 @@ bot.on("ready", async () => {
 
                     let fetchchannel = bot.channels.cache.find(x => x.name === 'session-voting');
                 
-                    fetchchannel.fetchMessage("770020659929153566")
+                    fetchchannel.messages.fetch("770020659929153566")
                     .then(message => {
                         message.clearReactions() 
                         .then(() => message.react(drp1.id))
@@ -1402,37 +1402,37 @@ bot.on("ready", async () => {
                         .then(() => message.react(yes.id));
                     });
 
-                    fetchchannel.fetchMessage("770020695647846509")
+                    fetchchannel.messages.fetch("770020695647846509")
                     .then(message => {
                         message.edit(`${no} - Monday`);
                     });
 
-                    fetchchannel.fetchMessage("770020696125603881")
+                    fetchchannel.messages.fetch("770020696125603881")
                     .then(message => {
                         message.edit(`${no} - Tuesday`);
                     });
                     
-                    fetchchannel.fetchMessage("770020697232900116")
+                    fetchchannel.messages.fetch("770020697232900116")
                     .then(message => {
                         message.edit(`${no} - Wednesday`);
                     });
 
-                    fetchchannel.fetchMessage("770020697949863976")
+                    fetchchannel.messages.fetch("770020697949863976")
                     .then(message => {
                         message.edit(`${no} - Thursday`);
                     });
 
-                    fetchchannel.fetchMessage("770020721766039591")
+                    fetchchannel.messages.fetch("770020721766039591")
                     .then(message => {
                         message.edit(`${no} - Friday`);
                     });
                     
-                    fetchchannel.fetchMessage("770020722445516880")
+                    fetchchannel.messages.fetch("770020722445516880")
                     .then(message => {
                         message.edit(`${no} - Saturday`);
                     });
 
-                    fetchchannel.fetchMessage("770020723376259073")
+                    fetchchannel.messages.fetch("770020723376259073")
                     .then(message => {
                         message.edit(`${no} - Sunday`);
                     });
