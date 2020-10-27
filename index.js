@@ -10,7 +10,7 @@ process.setMaxListeners(Infinity);
 
 function catchErr (err, message) {
 
-let errchannel = bot.channels.find(x => x.name === 'errors');
+let errchannel = bot.channels.cache.find(x => x.name === 'errors');
 const warningsign = bot.emojis.cache.get("729725849343098900");
 
 errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`index.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
@@ -31,7 +31,7 @@ if(err) console.log(err);
 
 let jsfile = files.filter(f => f.split(".").pop() === "js")
 if(jsfile.length <= 0){
-let consolechannel = bot.channels.find(x => x.name === 'console-log');
+let consolechannel = bot.channels.cache.find(x => x.name === 'console-log');
     console.log("Couldn't find commands.");
     consolechannel.send("Couldn't find commands. Changed status from up to crashed");
     return;
@@ -53,7 +53,7 @@ fs.readdir("./charges/", (err, files) => {
     
     let jsfile = files.filter(f => f.split(".").pop() === "js")
     if(jsfile.length <= 0){
-    let consolechannel = bot.channels.find(x => x.name === 'console-log');
+    let consolechannel = bot.channels.cache.find(x => x.name === 'console-log');
         console.log("Couldn't find commands.");
         consolechannel.send("Couldn't find commands. Changed status from up to crashed");
         return;
@@ -208,7 +208,7 @@ if (member.guild.id === "644227663829139466") {
 //--
 
 bot.on("ready", async () => {
-let consolechannel = bot.channels.find(x => x.name === 'console-log');
+let consolechannel = bot.channels.cache.find(x => x.name === 'console-log');
 console.log(`${bot.user.username} is online!`);
 consolechannel.send(`Successfully loaded all files and detected ${bot.users.size} user(s), ${bot.channels.size} channel(s), & ${bot.guilds.size} guild(s).`)
 consolechannel.send(`${bot.user.username} is online!`)
@@ -1136,7 +1136,7 @@ modlogchannel.send({embed: modlogspamEmbed2});
 
 bot.on("ready", async () => {
 
-    let fetchchannel = bot.channels.find(x => x.name === 'session-voting');
+    let fetchchannel = bot.channels.cache.find(x => x.name === 'session-voting');
     fetchchannel.fetchMessages({
         limit: 80,
        });
@@ -1385,7 +1385,7 @@ bot.on("ready", async () => {
                     let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let modlogChannel = messageReaction.message.guild.channels.find(x => x.name === 'modlog');
 
-                    let fetchchannel = bot.channels.find(x => x.name === 'session-voting');
+                    let fetchchannel = bot.channels.cache.find(x => x.name === 'session-voting');
                 
                     fetchchannel.fetchMessage("770020659929153566")
                     .then(message => {
@@ -1591,7 +1591,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
 
 bot.on("ready", async () => {
 
-    let fetchchannel = bot.channels.find(x => x.name === 'self-roles');
+    let fetchchannel = bot.channels.cache.find(x => x.name === 'self-roles');
     fetchchannel.fetchMessages({
         limit: 80,
        });
