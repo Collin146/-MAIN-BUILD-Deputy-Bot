@@ -844,7 +844,7 @@ modlogchannel.send(gnembed);
 
     }
 
-	if (oldGuild.iconURL !== newGuild.iconURL) {
+	if (oldGuild.iconURL() !== newGuild.iconURL()) {
 
         const giembed = new Discord.MessageEmbed()
         .setColor('BLACK')
