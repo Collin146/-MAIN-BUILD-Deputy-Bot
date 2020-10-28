@@ -30,9 +30,9 @@ module.exports.run = async (bot, message, args) => {
     const no = bot.emojis.get("700713478578634783");  
     let fetchchannel = message.guild.channels.find(x => x.name === 'session-voting');
     
-    fetchchannel.fetchMessage("764867003173175326")
+    fetchchannel.fetchMessage("770020722445516880")
       .then(message => {
-       message.edit(`${no} - Monday`);
+       message.edit(`${no} - Saturday`);
     });
     
         } catch(err) {
