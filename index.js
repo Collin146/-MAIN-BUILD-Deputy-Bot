@@ -4,22 +4,22 @@ const moment = require('moment');
 const fs = require("fs");
 const ms = require("ms");
 const AntiSpam = require('discord-anti-spam');
-const bot = new Discord.Client({ disableMentions: 'everyone' });
+const bot = new Discord.Client({disableEveryone: false});
 bot.commands = new Discord.Collection();
 process.setMaxListeners(Infinity);
 
 function catchErr (err, message) {
 
-let errchannel = bot.channels.cache.find(x => x.name === 'errors');
-const warningsign = bot.emojis.cache.get("729725849343098900");
+let errchannel = bot.channels.find(x => x.name === 'errors');
+const warningsign = bot.emojis.get("729725849343098900");
 
 errchannel.send(`**<@292598566759956480> ${warningsign} Error Detected in \`index.js\` ${warningsign}** \`\`\`` + err + `\`\`\``);
 
 }
 
-const yes = bot.emojis.cache.get("561106357131018273");
-const no = bot.emojis.cache.get("561106624757104640");
-// const warningsign = bot.emojis.cache.get("572176403907215360");
+const yes = bot.emojis.get("561106357131018273");
+const no = bot.emojis.get("561106624757104640");
+// const warningsign = bot.emojis.get("572176403907215360");
 
 //--
 //Cmd handler begin
@@ -31,7 +31,7 @@ if(err) console.log(err);
 
 let jsfile = files.filter(f => f.split(".").pop() === "js")
 if(jsfile.length <= 0){
-let consolechannel = bot.channels.cache.find(x => x.name === 'console-log');
+let consolechannel = bot.channels.find(x => x.name === 'console-log');
     console.log("Couldn't find commands.");
     consolechannel.send("Couldn't find commands. Changed status from up to crashed");
     return;
@@ -53,7 +53,7 @@ fs.readdir("./charges/", (err, files) => {
     
     let jsfile = files.filter(f => f.split(".").pop() === "js")
     if(jsfile.length <= 0){
-    let consolechannel = bot.channels.cache.find(x => x.name === 'console-log');
+    let consolechannel = bot.channels.find(x => x.name === 'console-log');
         console.log("Couldn't find commands.");
         consolechannel.send("Couldn't find commands. Changed status from up to crashed");
         return;
@@ -76,21 +76,21 @@ fs.readdir("./charges/", (err, files) => {
 
   bot.on("ready", async () => {
 
-    let communityguild = bot.guilds.cache.get('669938084888182814');
-    let testingguild = bot.guilds.cache.get('700639523272523776');
-    let staffguild = bot.guilds.cache.get('644254160019128320');
-    let portalguild = bot.guilds.cache.get('644301808680042506');
-    let interviewguild = bot.guilds.cache.get('604420918634086411');
-    let trainingguild = bot.guilds.cache.get('645035452956540929');
-    let mainguild = bot.guilds.cache.get('644227663829139466');
+    let communityguild = bot.guilds.get('669938084888182814');
+    let testingguild = bot.guilds.get('700639523272523776');
+    let staffguild = bot.guilds.get('644254160019128320');
+    let portalguild = bot.guilds.get('644301808680042506');
+    let interviewguild = bot.guilds.get('604420918634086411');
+    let trainingguild = bot.guilds.get('645035452956540929');
+    let mainguild = bot.guilds.get('644227663829139466');
 
-    communityguild.members.fetch();
-    testingguild.members.fetch();
-    staffguild.members.fetch();
-    portalguild.members.fetch();
-    interviewguild.members.fetch();
-    trainingguild.members.fetch();
-    mainguild.members.fetch();
+    communityguild.fetchMembers();
+    testingguild.fetchMembers();
+    staffguild.fetchMembers();
+    portalguild.fetchMembers();
+    interviewguild.fetchMembers();
+    trainingguild.fetchMembers();
+    mainguild.fetchMembers();
 
     });
 
@@ -100,7 +100,7 @@ fs.readdir("./charges/", (err, files) => {
 
  
 bot.on('guildMemberAdd', member => {
-	let welcomechannel = member.guild.channels.cache.find(channel => channel.name === 'welcome');
+	let welcomechannel = member.guild.channels.find(x => x.name === 'welcome');
  
 try {
 //const rando_imgs = [
@@ -110,7 +110,7 @@ try {
 //'https://cdn.discordapp.com/attachments/461540254441144326/575060528708190272/3eC2G8r4GEKQjjvQ4-FTWw_0_0.jpg',
 //]
 
-member.guild.members.fetch()
+member.guild.fetchMembers()
 
 //const image = rando_imgs[Math.floor(Math.random() * rando_imgs.length)];
 let memberTag = member.user.tag;
@@ -119,51 +119,51 @@ let memberTag = member.user.tag;
 
 const imagetouse = ("https://cdn.discordapp.com/attachments/461540254441144326/689179495000703063/TRANSP_WELCOME-cutout.png")
     
-    let embed = new Discord.MessageEmbed()
+    let embed = new Discord.RichEmbed()
       .setTitle("**A new user has joined!**")
       .setColor("#00f4ef")
       .setDescription(`Welcome **${memberTag}**, To Deputy Roleplay, the best Roleplay Community for PS4!`)
       .setImage(`${imagetouse}`);
   welcomechannel.send({embed});
 
-let memberrole = member.guild.roles.cache.find(role => role.name === 'New Member');
+let memberrole = member.guild.roles.find(x => x.name === 'New Member');
 
-member.roles.add(memberrole.id);
+member.addRole(memberrole);
 
 try {
 
-let applicantrole = member.guild.roles.cache.find(role => role.name === 'Applicant');
+let applicantrole = member.guild.roles.find(x => x.name === 'Applicant');
 
-member.roles.add(applicantrole.id);
+member.addRole(applicantrole);
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 
 }
 
 try {
 
-let recruitrole = member.guild.roles.cache.find(role => role.name === 'Recruit');
+let recruitrole = member.guild.roles.find(x => x.name === 'Recruit');
 
-member.roles.add(recruitrole.id);
+member.addRole(recruitrole);
 
 }  catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 try {
 
-let memberrole22 = member.guild.roles.cache.find(role => role.name === 'Member');
+let memberrole22 = member.guild.roles.find(x => x.name === 'Member');
 if (member.guild.id === "644227663829139466") return;
 
-member.roles.add(memberrole22.id);
+member.addRole(memberrole22);
     
 }  catch (err) {
-        console.log(err);
+        catchErr(err);
 }
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
   
 });
@@ -187,18 +187,18 @@ let memberTag = member.user.tag;
 
 if (member.guild.id === "644227663829139466") {
 
-    let leftchannel = member.guild.channels.cache.find(channel => channel.name === 'left-members');
+    let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
     leftchannel.send(`**${memberTag}**, (${member.nickname}) has left the server.`);
 
 } else {
 
-    let leftchannel = member.guild.channels.cache.find(channel => channel.name === 'left-members');
+    let leftchannel = member.guild.channels.find(x => x.name === 'left-members');
     leftchannel.send(`**${memberTag}** has left the server.`);
 
 }
     
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -208,11 +208,11 @@ if (member.guild.id === "644227663829139466") {
 //--
 
 bot.on("ready", async () => {
-let consolechannel = bot.channels.cache.find(x => x.name === 'console-log');
+let consolechannel = bot.channels.find(x => x.name === 'console-log');
 console.log(`${bot.user.username} is online!`);
-consolechannel.send(`Successfully loaded all files and detected ${bot.users.cache.size} user(s), ${bot.channels.cache.size} channel(s), & ${bot.guilds.cache.size} guild(s).`)
+consolechannel.send(`Successfully loaded all files and detected ${bot.users.size} user(s), ${bot.channels.size} channel(s), & ${bot.guilds.size} guild(s).`)
 consolechannel.send(`${bot.user.username} is online!`)
-bot.user.setActivity(`${bot.users.cache.size} users | !help`, { type: 'WATCHING' });
+bot.user.setActivity(`${bot.users.size} users | !help`, { type: 'WATCHING' });
 
 });
 
@@ -249,7 +249,7 @@ try {
     }
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -271,13 +271,13 @@ bot.on(`message`, async message => {
     const bannedWords = [`discord.gg`, `.gg/`, `.gg /`, `. gg /`, `. gg/`, `discord .gg /`, `discord.gg /`, `discord .gg/`, `discord .gg`, `discord . gg`, `discord. gg`, `discord gg`, `discordgg`, `discord gg /`, `https://`, `http://`, `.com/`, `.com`, `www.`, `https://www.`, `http://www.`, `https`, `http`] 
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
-            const warningsign = bot.emojis.cache.get("729725849343098900");
+            const warningsign = bot.emojis.get("729725849343098900");
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
             if (message.channel.id === '750827004525281430') return;
             await message.delete();
             
-            let linkembed = new Discord.MessageEmbed()
+            let linkembed = new Discord.RichEmbed()
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Links are not allowed to be sent!")
@@ -285,7 +285,7 @@ bot.on(`message`, async message => {
            
             await message.channel.send(linkembed);
 
-            const modloglinkEmbed = new Discord.MessageEmbed()
+            const modloglinkEmbed = new Discord.RichEmbed()
             .setColor('RED')
             .setTimestamp()
             .setTitle("**Link Detected!**")
@@ -296,7 +296,7 @@ bot.on(`message`, async message => {
             `**Link:** ${message.content}`
             ].join('\n'))
 
-            let modlogchannel = message.guild.channels.cache.find(channel => channel.name === 'modlog');
+            let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
             modlogchannel.send({embed: modloglinkEmbed});
 
         }
@@ -305,7 +305,7 @@ bot.on(`message`, async message => {
     }
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -318,15 +318,15 @@ bot.on(`message`, async message => {
 //     try {
 //         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
 
-//             const warningsign = bot.emojis.cache.get("700843409526620180");
+//             const warningsign = bot.emojis.get("700843409526620180");
 
 
 //             if (message.author.id === message.guild.ownerID) return;
 //             if (message.member.hasPermission("ADMINISTRATOR")) return;
-//             if (message.guild.roles.cache.find(role => role.name === 'Staff Team')) return;
+//             if (message.guild.roles.find(x => x.name === 'Staff Team')) return;
 //             await message.delete();
 
-//             const modembed = new Discord.MessageEmbed()
+//             const modembed = new Discord.RichEmbed()
 //            .setColor('RED')
 //            .setTimestamp()
 //            .setTitle("**Link Posted!**")
@@ -337,10 +337,10 @@ bot.on(`message`, async message => {
 //                `**Link:** ${message.content}`
 //              ].join('\n'))
        
-//        let modlogchannel = message.guild.channels.cache.find(channel => channel.name === 'modlog');
+//        let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 //        modlogchannel.send({embed: modembed});
             
-//             let linkembed = new Discord.MessageEmbed()
+//             let linkembed = new Discord.RichEmbed()
 //             .setTitle(`${warningsign} **Notice!**`)
 //             .setColor("RED")
 //             .setDescription("Links are not allowed to be sent!")
@@ -353,7 +353,7 @@ bot.on(`message`, async message => {
 //     }
 
 // } catch (err) {
-//     console.log(err);
+//     catchErr(err);
 // }
 
 // });
@@ -364,14 +364,14 @@ bot.on(`message`, async message => {
 //     if (containsDiscordUrl) { 
 //    // try {
 //         //if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
-//            // let commrole = message.guild.roles.cache.find('name', 'Community Manager'); 
+//            // let commrole = message.guild.roles.find('name', 'Community Manager'); 
 
 //             // if (message.author.id === message.guild.ownerID) return;
 //             // if (message.member.hasPermission("ADMINISTRATOR")) return;
 //             // if (message.member.roles.find("name", "Content Creator")) return;
 //             // if (message.member.roles.has(commrole.id)) return;
             
-//             let linkembed2 = new Discord.MessageEmbed()
+//             let linkembed2 = new Discord.RichEmbed()
 //             .setTitle("**Discord Invite!**")
 //             .setTimestamp()
 //             .setColor("RED")
@@ -383,7 +383,7 @@ bot.on(`message`, async message => {
 //                 `**Sent By:** ${message.member}`
 //               ].join('\n'))
 
-//             let modlogchannel = guild.channels.cache.find(channel => channel.name === 'modlog');
+//             let modlogchannel = guild.channels.find(x => x.name === 'modlog');
 //             modlogchannel.send({embed: linkembed2});
 //         }
 //     } catch (e) {
@@ -395,7 +395,7 @@ bot.on(`message`, async message => {
 // const containsDiscordUrl = message.test("/discord.gg\/\w*\d*");
 // if (containsDiscordUrl) { 
 
-//             let linkembed2 = new Discord.MessageEmbed()
+//             let linkembed2 = new Discord.RichEmbed()
 //             .setTitle("**Discord Invite!**")
 //             .setTimestamp()
 //             .setColor("RED")
@@ -407,7 +407,7 @@ bot.on(`message`, async message => {
 //                 `**Sent By:** ${containsDiscordUrl.member}`
 //               ].join('\n'))
 
-//             let modlogchannel = guild.channels.cache.find(channel => channel.name === 'modlog');
+//             let modlogchannel = guild.channels.find(x => x.name === 'modlog');
 //             modlogchannel.send({embed: linkembed2});
 
 // }
@@ -419,17 +419,16 @@ bot.on(`message`, async message => {
 //--
 //mention detection begin
 //--
-
 bot.on(`message`, async message => {
 
     try {
 
     const bannedWords = [`@everyone`, `@Member`]
-//    let staffrole = message.guild.roles.cache.find(role => role.name === 'Staff Team');
+//    let staffrole = message.guild.roles.find(x => x.name === 'Staff Team');
 
     try {
             if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
-            const warningsign = bot.emojis.cache.get("729725849343098900");
+            const warningsign = bot.emojis.get("729725849343098900");
 
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
@@ -438,7 +437,7 @@ bot.on(`message`, async message => {
 //            if (message.member.roles.has(staffrole.id)) return;
             await message.delete();
             
-            let linkembed = new Discord.MessageEmbed()
+            let linkembed = new Discord.RichEmbed()
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Do not mention everyone or member!")
@@ -446,7 +445,7 @@ bot.on(`message`, async message => {
            
             await message.channel.send(linkembed);
 
-            const mentionEmbed = new Discord.MessageEmbed()
+            const mentionEmbed = new Discord.RichEmbed()
             .setColor('RED')
             .setTimestamp()
             .setTitle("**Unauthorized Role Mention Detected!**")
@@ -457,7 +456,7 @@ bot.on(`message`, async message => {
             `**Message Contents:** ${message.content}`
             ].join('\n'))
 
-            let modlogchannel = message.guild.channels.cache.find(channel => channel.name === 'modlog');
+            let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
             modlogchannel.send({embed: mentionEmbed});
 
         }
@@ -466,7 +465,7 @@ bot.on(`message`, async message => {
     }
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -486,11 +485,11 @@ bot.on(`message`, async message => {
     const bannedWords = [`niggers`, `n  i  g  g  e  r`, `n i g g e r`, `niggercoon`, `nigger`, `nigg`, `nogger`, `nagger`, `kanker`, `negro`, `negger`, `nigro`, `nignog`, `nig ger`, `nig  ger`, `ni99er`, `nog ger`, `n1gger`, `neger`, `nigga`, `nigge`, `n1gg3r`, `nigg3r`, `Nigger`, `Nigg`, `Nogger`, `Nagger`, `Kanker`, `Negro`, `Negger`, `Nigro`, `Nignog`, `Nig ger`, `Nig  ger`, `Ni99er`, `Nog ger`, `N1gger`, `Neger`, `Nigga`, `Nigge`, `N1gg3r`, `Nigg3r`, `Nibba`, `nibba`] 
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
-            const warningsign = bot.emojis.cache.get("729725849343098900");
+            const warningsign = bot.emojis.get("729725849343098900");
             if (message.author.id === message.guild.ownerID) return;
             await message.delete();
             
-            let linkembed = new Discord.MessageEmbed()
+            let linkembed = new Discord.RichEmbed()
             .setTitle(`${warningsign} **Notice!**`)
             .setColor("RED")
             .setDescription("Please refrain from using offensive language!")
@@ -498,7 +497,7 @@ bot.on(`message`, async message => {
            
             await message.channel.send(linkembed);
 
-            const offlangEmbed = new Discord.MessageEmbed()
+            const offlangEmbed = new Discord.RichEmbed()
             .setColor('RED')
             .setTimestamp()
             .setTitle("**Offensive Language Detected!**")
@@ -509,7 +508,7 @@ bot.on(`message`, async message => {
             `**Message Contents:** ${message.content}`
             ].join('\n'))
 
-            let modlogchannel = message.guild.channels.cache.find(channel => channel.name === 'modlog');
+            let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
             modlogchannel.send({embed: offlangEmbed});
         }
     } catch (e) {
@@ -517,7 +516,7 @@ bot.on(`message`, async message => {
     }
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -536,7 +535,7 @@ bot.on('channelCreate', channel => {
 
    if (channel.type === 'dm') return;
 
-    const ccembed = new Discord.MessageEmbed()
+    const ccembed = new Discord.RichEmbed()
      .setColor('GREEN')
     .setTimestamp()
     .setTitle("**Channel Created!**")
@@ -546,11 +545,11 @@ bot.on('channelCreate', channel => {
         `**Channel Type:** ${channel.type}`
       ].join('\n'))
 
-let modlogchannel = channel.guild.channels.cache.find(channel => channel.name === 'modlog');
+let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ccembed});
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -559,7 +558,7 @@ bot.on('channelDelete', (channel) => {
 
     try {
 
-    const cdembed = new Discord.MessageEmbed()
+    const cdembed = new Discord.RichEmbed()
      .setColor('RED')
     .setTimestamp()
     .setTitle("**Channel Deleted!**")
@@ -569,11 +568,11 @@ bot.on('channelDelete', (channel) => {
         `**Channel Type:** ${channel.type}`
       ].join('\n'))
 
-let modlogchannel = channel.guild.channels.cache.find(channel => channel.name === 'modlog');
+let modlogchannel = channel.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: cdembed});
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -582,21 +581,21 @@ bot.on('guildBanAdd', (guild, user) => {
 
     try { 
 
-    const ubembed = new Discord.MessageEmbed()
+    const ubembed = new Discord.RichEmbed()
      .setColor('RED')
     .setTimestamp()
-    .setThumbnail((user.displayAvatarURL()))
+    .setThumbnail((user.displayAvatarURL))
     .setTitle("**User Banned!**")
     .setDescription([
         `**User's Name:** <@${user.id}>`,
         `**User's ID:** ${user.id}`
       ].join('\n'))
 
-let modlogchannel = guild.channels.cache.find(channel => channel.name === 'modlog');
+let modlogchannel = guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ubembed});
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
     });
@@ -606,21 +605,21 @@ bot.on('guildBanRemove', (guild, user) => {
 
     try {
     
-    const uuembed = new Discord.MessageEmbed()
+    const uuembed = new Discord.RichEmbed()
      .setColor('GREEN')
     .setTimestamp()
-    .setThumbnail((user.displayAvatarURL()))
+    .setThumbnail((user.displayAvatarURL))
     .setTitle("**User Unbanned!**")
     .setDescription([
         `**User's Name:** <@${user.id}>`,
         `**User's ID:** ${user.id}`
       ].join('\n'))
 
-let modlogchannel = guild.channels.cache.find(channel => channel.name === 'modlog');
+let modlogchannel = guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: uuembed});
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -631,7 +630,7 @@ bot.on('guildMemberUpdate', (oldMember, newMember, member) => {
 
     if (oldMember.nickname !== newMember.nickname) {
 
-    const nickembed = new Discord.MessageEmbed()
+    const nickembed = new Discord.RichEmbed()
     .setColor('BLACK')
     .setTimestamp()
     .setTitle("**Nickname Changed!**")
@@ -639,43 +638,43 @@ bot.on('guildMemberUpdate', (oldMember, newMember, member) => {
     .addField("Before", `${oldMember.nickname || "None"}`)
     .addField("After", `${newMember.nickname || "None"}`);
 
-let modlogchannel = newMember.guild.channels.cache.find(channel => channel.name === 'modlog');
+let modlogchannel = newMember.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: nickembed});
 
     }
 
-    if (oldMember.roles.cache.size < newMember.roles.cache.size) {
+    if (oldMember.roles.size < newMember.roles.size) {
 
-        const roleminembed = new Discord.MessageEmbed()
+        const roleminembed = new Discord.RichEmbed()
         .setColor('GREEN')
         .setTimestamp()
         .setTitle("**Role Given!**")
-        for (const role of newMember.roles.cache.map(x => x.id)) {
-			if (!oldMember.roles.cache.has(role)) {
+        for (const role of newMember.roles.map(x => x.id)) {
+			if (!oldMember.roles.has(role)) {
         roleminembed.setDescription([
-           `<@${newMember.id}> has been given the \`${oldMember.guild.roles.cache.get(role).name}\` role.`
+           `<@${newMember.id}> has been given the \`${oldMember.guild.roles.get(role).name}\` role.`
          ].join('\n'))
    
-   let modlogchannel = newMember.guild.channels.cache.find(channel => channel.name === 'modlog');
+   let modlogchannel = newMember.guild.channels.find(x => x.name === 'modlog');
    modlogchannel.send({embed: roleminembed});
    
         }
         }
     }
 
-	if (oldMember.roles.cache.size > newMember.roles.cache.size) {
+	if (oldMember.roles.size > newMember.roles.size) {
     
-        const rolemaxembed = new Discord.MessageEmbed()
+        const rolemaxembed = new Discord.RichEmbed()
         .setColor('RED')
         .setTimestamp()
         .setTitle("**Role Removed!**")
-        for (const role of oldMember.roles.cache.map(x => x.id)) {
-			if (!newMember.roles.cache.has(role)) {
+        for (const role of oldMember.roles.map(x => x.id)) {
+			if (!newMember.roles.has(role)) {
         rolemaxembed.setDescription([
-           `<@${newMember.id}> has been removed from the \`${oldMember.guild.roles.cache.get(role).name}\` role.`
+           `<@${newMember.id}> has been removed from the \`${oldMember.guild.roles.get(role).name}\` role.`
          ].join('\n'))
     
-   let modlogchannel = newMember.guild.channels.cache.find(channel => channel.name === 'modlog');
+   let modlogchannel = newMember.guild.channels.find(x => x.name === 'modlog');
    modlogchannel.send({embed: rolemaxembed});
 
         }
@@ -683,7 +682,7 @@ modlogchannel.send({embed: nickembed});
     }
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -692,7 +691,7 @@ bot.on("messageDelete", async message => {
 
     try {
 
-      const delembed = new Discord.MessageEmbed()
+      const delembed = new Discord.RichEmbed()
       .setColor("RED")
       .setTimestamp()
       .setTitle("**Deleted Message!**")
@@ -704,11 +703,11 @@ bot.on("messageDelete", async message => {
           `**Message:** ${message.content || "Embed"}`
         ].join('\n'));
   
-    let channel = message.guild.channels.cache.find(channel => channel.name === 'deleted-messages-log');
+    let channel = message.guild.channels.find(x => x.name === 'deleted-messages-log');
     channel.send({embed: delembed});
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
   });
@@ -717,7 +716,7 @@ bot.on('messageUpdate', (oldMessage, newMessage) => {
 
     try {
 
-    const updembed = new Discord.MessageEmbed()
+    const updembed = new Discord.RichEmbed()
      .setColor('BLACK')
     .setTimestamp()
     .setTitle("**Message Edited!**")
@@ -727,11 +726,11 @@ bot.on('messageUpdate', (oldMessage, newMessage) => {
 
     if(oldMessage.author.bot) return;
 
-let modlogchannel = oldMessage.guild.channels.cache.find(channel => channel.name === 'modlog');
+let modlogchannel = oldMessage.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(updembed);
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -740,7 +739,7 @@ bot.on('roleCreate', (role) => {
 
     try {
 
-    const rcembed = new Discord.MessageEmbed()
+    const rcembed = new Discord.RichEmbed()
      .setColor('GREEN')
     .setTimestamp()
     .setTitle("**Role Created!**")
@@ -750,11 +749,11 @@ bot.on('roleCreate', (role) => {
         `**Role Color:** ${role.hexColor}`
       ].join('\n'))
 
-let modlogchannel = role.guild.channels.cache.find(channel => channel.name === 'modlog');
+let modlogchannel = role.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(rcembed);
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -763,7 +762,7 @@ bot.on('roleDelete', (role) => {
 
     try {
 
-    const rdembed = new Discord.MessageEmbed()
+    const rdembed = new Discord.RichEmbed()
      .setColor('RED')
     .setTimestamp()
     .setTitle("**Role Deleted!**")
@@ -773,11 +772,11 @@ bot.on('roleDelete', (role) => {
         `**Role Color:** ${role.hexColor}`
       ].join('\n'))
 
-let modlogchannel = role.guild.channels.cache.find(channel => channel.name === 'modlog');
+let modlogchannel = role.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(rdembed);
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -788,7 +787,7 @@ bot.on('roleUpdate', (oldRole, newRole) => {
 
     if (oldRole.name !== newRole.name) {
 
-    const rnembed = new Discord.MessageEmbed()
+    const rnembed = new Discord.RichEmbed()
      .setColor('BLACK')
     .setTimestamp()
     .setTitle("**Role Name Edited!**")
@@ -796,14 +795,14 @@ bot.on('roleUpdate', (oldRole, newRole) => {
     .addField("Before", `${oldRole.name}`)
     .addField("After", `${newRole.name}`);
 
-    let modlogchannel = oldRole.guild.channels.cache.find(channel => channel.name === 'modlog');
+    let modlogchannel = oldRole.guild.channels.find(x => x.name === 'modlog');
     modlogchannel.send({embed: rnembed});
 
     }
 
     if (oldRole.hexColor !== newRole.hexColor) {
 
-        const rhxembed = new Discord.MessageEmbed()
+        const rhxembed = new Discord.RichEmbed()
         .setColor('BLACK')
         .setTimestamp()
         .setTitle("**Role Color Edited!**")
@@ -813,14 +812,14 @@ bot.on('roleUpdate', (oldRole, newRole) => {
             `${oldRole.hexColor} -> ${newRole.hexColor}`
           ].join('\n'));
 
-       let modlogchannel = oldRole.guild.channels.cache.find(channel => channel.name === 'modlog');
+       let modlogchannel = oldRole.guild.channels.find(x => x.name === 'modlog');
        modlogchannel.send({embed: rhxembed});
    
 
     }
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -831,7 +830,7 @@ bot.on('guildUpdate', (oldGuild, newGuild) => {
 
     if (oldGuild.name !== newGuild.name) {
    
-    const gnembed = new Discord.MessageEmbed()
+    const gnembed = new Discord.RichEmbed()
      .setColor('BLACK')
     .setTimestamp()
     .setTitle("**Guild Name Edited!**")
@@ -839,29 +838,29 @@ bot.on('guildUpdate', (oldGuild, newGuild) => {
     .addField("Before", `${oldGuild.name}`)
     .addField("After", `${newGuild.name}`);
 
-let modlogchannel = oldGuild.channels.cache.find(channel => channel.name === 'modlog');
+let modlogchannel = oldGuild.channels.find(x => x.name === 'modlog');
 modlogchannel.send(gnembed);
 
     }
 
-	if (oldGuild.iconURL() !== newGuild.iconURL()) {
+	if (oldGuild.iconURL !== newGuild.iconURL) {
 
-        const giembed = new Discord.MessageEmbed()
+        const giembed = new Discord.RichEmbed()
         .setColor('BLACK')
        .setTimestamp()
        .setTitle("**Guild Icon Changed!**")
        .setDescription(`**This guild's icon has been edited**`)
-       .addField("Before", `${oldGuild.iconURL() || "None"}`)
-       .addField("After", `${newGuild.iconURL() || "None"}`);
+       .addField("Before", `${oldGuild.iconURL || "None"}`)
+       .addField("After", `${newGuild.iconURL || "None"}`);
    
-   let modlogchannel = oldGuild.channels.cache.find(channel => channel.name === 'modlog');
+   let modlogchannel = oldGuild.channels.find(x => x.name === 'modlog');
    modlogchannel.send(giembed);
 
     }
 
     if (oldGuild.owner.id !== newGuild.owner.id) {
 
-        const goembed = new Discord.MessageEmbed()
+        const goembed = new Discord.RichEmbed()
         .setColor('BLACK')
        .setTimestamp()
        .setTitle("**Guild Owner Transfership!**")
@@ -869,13 +868,13 @@ modlogchannel.send(gnembed);
        .addField("Before", `${oldGuild.owner.user.tag}`)
        .addField("After", `${newGuild.owner.user.tag}`);
    
-   let modlogchannel = oldGuild.channels.cache.find(channel => channel.name === 'modlog');
+   let modlogchannel = oldGuild.channels.find(x => x.name === 'modlog');
    modlogchannel.send(goembed);
 
     }
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -886,7 +885,7 @@ bot.on('channelUpdate', (oldChannel, newChannel) => {
 
 	if (oldChannel.name !== newChannel.name) {
 
-    const cuembed = new Discord.MessageEmbed()
+    const cuembed = new Discord.RichEmbed()
      .setColor('BLACK')
     .setTimestamp()
     .setTitle("**Channel Name Edited!**")
@@ -894,12 +893,12 @@ bot.on('channelUpdate', (oldChannel, newChannel) => {
     .addField("Before", `${oldChannel.name}`)
     .addField("After", `${newChannel.name}`);
 
-let modlogchannel = oldChannel.guild.channels.cache.find(channel => channel.name === 'modlog');
+let modlogchannel = oldChannel.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: cuembed});
 
     }
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -931,7 +930,7 @@ antiSpam.on("warnAdd", async member => {
 
     try {
 
-    member.lastMessage.channel.messages.fetch({
+    member.lastMessage.channel.fetchMessages({
         limit: 80,
        }).then((messages) => {
     const filterBy = member ? member.id : bot.member.id;
@@ -941,9 +940,9 @@ antiSpam.on("warnAdd", async member => {
     member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
     });
 
-    const warningsign = bot.emojis.cache.get("729725849343098900");
+    const warningsign = bot.emojis.get("729725849343098900");
 
-    let spamEmbed = new Discord.MessageEmbed()
+    let spamEmbed = new Discord.RichEmbed()
     .setTitle(`${warningsign} **Notice!**`)
     .setColor("RED")
     .setDescription("Please refrain from spamming within the server!")
@@ -951,7 +950,7 @@ antiSpam.on("warnAdd", async member => {
 
     await member.lastMessage.channel.send(spamEmbed);
 
-    member.lastMessage.channel.messages.fetch({
+    member.lastMessage.channel.fetchMessages({
         limit: 80,
        }).then((messages) => {
     const filterBy = member ? member.id : bot.member.id;
@@ -961,7 +960,7 @@ antiSpam.on("warnAdd", async member => {
     member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
     });
 
-    const modlogspamEmbed = new Discord.MessageEmbed()
+    const modlogspamEmbed = new Discord.RichEmbed()
     .setColor('RED')
     .setTimestamp()
     .setTitle("**Message Spam Detected!**")
@@ -971,11 +970,11 @@ antiSpam.on("warnAdd", async member => {
         `**Action Taken:** Warning`
       ].join('\n'))
 
-let modlogchannel = member.guild.channels.cache.find(channel => channel.name === 'modlog');
+let modlogchannel = member.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: modlogspamEmbed});
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -1007,7 +1006,7 @@ antiSpamMute.on("warnAdd", async member => {
 
     try {
 
-    member.lastMessage.channel.messages.fetch({
+    member.lastMessage.channel.fetchMessages({
         limit: 80,
        }).then((messages) => {
     const filterBy = member ? member.id : bot.member.id;
@@ -1017,7 +1016,7 @@ antiSpamMute.on("warnAdd", async member => {
     member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
     });
 
-    member.lastMessage.channel.messages.fetch({
+    member.lastMessage.channel.fetchMessages({
         limit: 80,
        }).then((messages) => {
     const filterBy = member ? member.id : bot.member.id;
@@ -1027,12 +1026,12 @@ antiSpamMute.on("warnAdd", async member => {
     member.lastMessage.channel.bulkDelete(messages).catch(error => console.log(error.stack));
     });
 
-const warningsign = bot.emojis.cache.get("729725849343098900");
+const warningsign = bot.emojis.get("729725849343098900");
 
-let muterole = member.guild.roles.cache.find(role => role.name === 'Muted');
-let memberrole = member.guild.roles.cache.find(role => role.name === 'Member');
-let approle = member.guild.roles.cache.find(role => role.name === 'Applicant');
-let recrole = member.guild.roles.cache.find(role => role.name === 'Recruit');
+let muterole = member.guild.roles.find(x => x.name === 'Muted');
+let memberrole = member.guild.roles.find(x => x.name === 'Member');
+let approle = member.guild.roles.find(x => x.name === 'Applicant');
+let recrole = member.guild.roles.find(x => x.name === 'Recruit');
 //start of create role
 if (!muterole){
     try{
@@ -1056,29 +1055,29 @@ if (!muterole){
 
 try {
 
-await(member.roles.add(muterole.id));
-await(member.roles.remove(memberrole.id));
+await(member.addRole(muterole.id));
+await(member.removeRole(memberrole.id));
 
 } catch(err) {
 }
 
 try {
 
-await(member.roles.add(muterole.id));
-await(member.roles.remove(approle.id));
+await(member.addRole(muterole.id));
+await(member.removeRole(approle.id));
 
 } catch(err) {
 }
 
 try {
 
-await(member.roles.add(muterole.id));
-await(member.roles.remove(recrole.id));
+await(member.addRole(muterole.id));
+await(member.removeRole(recrole.id));
     
 } catch(err) {  
 }
 
-geluktEmbed55 = new Discord.MessageEmbed()
+geluktEmbed55 = new Discord.RichEmbed()
       .setColor("RED")
       .setTitle(`${warningsign} **Automatic Mute!**`)
       .setDescription(`<@${member.id}> has been muted for 4h due to spamming.`)
@@ -1086,36 +1085,36 @@ geluktEmbed55 = new Discord.MessageEmbed()
 
 member.lastMessage.channel.send(geluktEmbed55);
 
-if(!member.roles.cache.find(role => role.name === "Muted"))
+if(!member.roles.find(r => r.name === "Muted"))
     
 setTimeout(function(){
 
-member.roles.remove(muterole.id);
+member.removeRole(muterole.id);
 
     try {
      
-    member.roles.add(memberrole.id);
+    member.addRole(memberrole.id);
 
     } catch(err) {
     }
 
     try {
      
-    member.roles.add(approle.id);
+    member.addRole(approle.id);
     
     } catch(err) {
     }
 
     try {
      
-    member.roles.add(recrole.id);
+    member.addRole(recrole.id);
         
     } catch(err) {
     }        
 
 }, ms("4h"));
 
-const modlogspamEmbed2 = new Discord.MessageEmbed()
+const modlogspamEmbed2 = new Discord.RichEmbed()
 .setColor('RED')
 .setTimestamp()
 .setTitle("**Message Spam Detected!**")
@@ -1125,11 +1124,11 @@ const modlogspamEmbed2 = new Discord.MessageEmbed()
     `**Action Taken:** Muted for 4 hours`
   ].join('\n'))
 
-let modlogchannel = member.guild.channels.cache.find(channel => channel.name === 'modlog');
+let modlogchannel = member.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: modlogspamEmbed2});
 
 } catch (err) {
-    console.log(err);
+    catchErr(err);
 }
 
 });
@@ -1137,12 +1136,12 @@ modlogchannel.send({embed: modlogspamEmbed2});
 
 bot.on("ready", async () => {
 
-    let fetchchannel = bot.channels.cache.find(channel => channel.name === 'session-voting');
-    fetchchannel.messages.fetch({
+    let fetchchannel = bot.channels.find(x => x.name === 'session-voting');
+    fetchchannel.fetchMessages({
         limit: 80,
        });
 
-    const fetchedMessage = fetchchannel.messages.fetch("764864883404832769");
+    const fetchedMessage = fetchchannel.fetchMessage("770020659929153566");
 
     });
     
@@ -1153,34 +1152,34 @@ bot.on("ready", async () => {
 
         if (user.bot) return;
         
-        if (messageReaction.message.id === "764864883404832769") {
+        if (messageReaction.message.id === "770020659929153566") {
 
-            const yes = bot.emojis.cache.get("700713527576625205");
-            const no = bot.emojis.cache.get("700713478578634783");
-            const gno = bot.emojis.cache.get("759495234928902154");
-            const drp1 = bot.emojis.cache.get("759125897953017857");
-            const drp2 = bot.emojis.cache.get("759125936586883072");
-            const drp3 = bot.emojis.cache.get("759125984967393330");
-            const drp4 = bot.emojis.cache.get("759126011265941506");
-            const drp5 = bot.emojis.cache.get("759126035215810592");
-            const drp6 = bot.emojis.cache.get("759126060355813376");
-            const drp7 = bot.emojis.cache.get("759126083781394444");
+            const yes = bot.emojis.get("700713527576625205");
+            const no = bot.emojis.get("700713478578634783");
+            const gno = bot.emojis.get("759495234928902154");
+            const drp1 = bot.emojis.get("759125897953017857");
+            const drp2 = bot.emojis.get("759125936586883072");
+            const drp3 = bot.emojis.get("759125984967393330");
+            const drp4 = bot.emojis.get("759126011265941506");
+            const drp5 = bot.emojis.get("759126035215810592");
+            const drp6 = bot.emojis.get("759126060355813376");
+            const drp7 = bot.emojis.get("759126083781394444");
 
-            const reactionLimit = 2;
+            const reactionLimit = 7;
 
             if (messageReaction.emoji.id === drp1.id) {
 
                 if (messageReaction.count > reactionLimit) {
 
-                    messageReaction.users.fetch()
+                    messageReaction.fetchUsers()
                     .then(users => {  
 
-                let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
-                let votingChannel = messageReaction.message.guild.channels.cache.find(channel => channel.name === 'session-voting');
+                let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                  if (messageReaction.users.cache.has('385777873581113344') || messageReaction.users.cache.has('292598566759956480') || messageReaction.users.cache.has('724991641932267612')) {
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                     
-                    votingChannel.messages.fetch("764864919312531467")
+                    votingChannel.fetchMessage("770020695647846509")
                     .then(message => {
                         message.edit(`${yes} - Monday`);
 
@@ -1195,15 +1194,15 @@ bot.on("ready", async () => {
 
                 if (messageReaction.count > reactionLimit) {
 
-                    messageReaction.users.fetch()
+                    messageReaction.fetchUsers()
                     .then(users => {  
 
-                let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
-                let votingChannel = messageReaction.message.guild.channels.cache.find(channel => channel.name === 'session-voting');
+                let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                  if (messageReaction.users.cache.has('385777873581113344') || messageReaction.users.cache.has('292598566759956480') || messageReaction.users.cache.has('724991641932267612')) {
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    votingChannel.messages.fetch("764864919858053151")
+                    votingChannel.fetchMessage("770020696125603881")
                     .then(message => {
                         message.edit(`${yes} - Tuesday`);
 
@@ -1218,15 +1217,15 @@ bot.on("ready", async () => {
 
                 if (messageReaction.count > reactionLimit) {
 
-                    messageReaction.users.fetch()
+                    messageReaction.fetchUsers()
                     .then(users => {  
 
-                let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
-                let votingChannel = messageReaction.message.guild.channels.cache.find(channel => channel.name === 'session-voting');
+                let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                  if (messageReaction.users.cache.has('385777873581113344') || messageReaction.users.cache.has('292598566759956480') || messageReaction.users.cache.has('724991641932267612')) {
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    votingChannel.messages.fetch("764864920881463326")
+                    votingChannel.fetchMessage("770020697232900116")
                     .then(message => {
                         message.edit(`${yes} - Wednesday`);
 
@@ -1241,15 +1240,15 @@ bot.on("ready", async () => {
 
                 if (messageReaction.count > reactionLimit) {
 
-                    messageReaction.users.fetch()
+                    messageReaction.fetchUsers()
                     .then(users => {  
 
-                let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
-                let votingChannel = messageReaction.message.guild.channels.cache.find(channel => channel.name === 'session-voting');
+                let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                  if (messageReaction.users.cache.has('385777873581113344') || messageReaction.users.cache.has('292598566759956480') || messageReaction.users.cache.has('724991641932267612')) {
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    votingChannel.messages.fetch("764864921607208970")
+                    votingChannel.fetchMessage("770020697949863976")
                     .then(message => {
                         message.edit(`${yes} - Thursday`);
 
@@ -1264,15 +1263,15 @@ bot.on("ready", async () => {
 
                 if (messageReaction.count > reactionLimit) {
 
-                    messageReaction.users.fetch()
+                    messageReaction.fetchUsers()
                     .then(users => {  
 
-                let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
-                let votingChannel = messageReaction.message.guild.channels.cache.find(channel => channel.name === 'session-voting');
+                let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                  if (messageReaction.users.cache.has('385777873581113344') || messageReaction.users.cache.has('292598566759956480') || messageReaction.users.cache.has('724991641932267612')) {
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    votingChannel.messages.fetch("764864949465907232")
+                    votingChannel.fetchMessage("770020721766039591")
                     .then(message => {
                         message.edit(`${yes} - Friday`);
 
@@ -1287,15 +1286,15 @@ bot.on("ready", async () => {
 
                 if (messageReaction.count > reactionLimit) {
 
-                    messageReaction.users.fetch()
+                    messageReaction.fetchUsers()
                     .then(users => {  
 
-                let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
-                let votingChannel = messageReaction.message.guild.channels.cache.find(channel => channel.name === 'session-voting');
+                let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                  if (messageReaction.users.cache.has('385777873581113344') || messageReaction.users.cache.has('292598566759956480') || messageReaction.users.cache.has('724991641932267612')) {
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    votingChannel.messages.fetch("764864950606757908")
+                    votingChannel.fetchMessage("770020722445516880")
                     .then(message => {
                         message.edit(`${yes} - Saturday`);
 
@@ -1311,15 +1310,15 @@ bot.on("ready", async () => {
 
                 if (messageReaction.count > reactionLimit) {
 
-                    messageReaction.users.fetch()
+                    messageReaction.fetchUsers()
                     .then(users => {  
 
-                let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
-                let votingChannel = messageReaction.message.guild.channels.cache.find(channel => channel.name === 'session-voting');
+                let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                  if (messageReaction.users.cache.has('385777873581113344') || messageReaction.users.cache.has('292598566759956480') || messageReaction.users.cache.has('724991641932267612')) {
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
                    
-                    votingChannel.messages.fetch("764864951479042088")
+                    votingChannel.fetchMessage("770020723376259073")
                     .then(message => {
                         message.edit(`${yes} - Sunday`);
 
@@ -1335,15 +1334,15 @@ bot.on("ready", async () => {
 
                 if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
             
-                    let permRole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
-                    let modlogChannel = messageReaction.message.guild.channels.cache.find(channel => channel.name === 'modlog');
+                    let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                    let modlogChannel = messageReaction.message.guild.channels.find(x => x.name === 'modlog');
 
                     messageReaction.message.channel.overwritePermissions(permRole.id, {
                         VIEW_CHANNEL: false,
                         READ_MESSAGE_HISTORY: false
                       });
 
-                      let modlogEmbed = new Discord.MessageEmbed()
+                      let modlogEmbed = new Discord.RichEmbed()
                         .setColor("RED")
                         .setTitle(`**Session Voting System Disabled!**`)
                         .setTimestamp()
@@ -1359,15 +1358,15 @@ bot.on("ready", async () => {
 
                 if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
             
-                    let permRole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
-                    let modlogChannel = messageReaction.message.guild.channels.cache.find(channel => channel.name === 'modlog');
+                    let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                    let modlogChannel = messageReaction.message.guild.channels.find(x => x.name === 'modlog');
 
                     messageReaction.message.channel.overwritePermissions(permRole.id, {
                         VIEW_CHANNEL: true,
                         READ_MESSAGE_HISTORY: true
                       });
 
-                      let modlogEmbed2 = new Discord.MessageEmbed()
+                      let modlogEmbed2 = new Discord.RichEmbed()
                       .setColor("GREEN")
                       .setTitle(`**Session Voting System Enabled!**`)
                       .setTimestamp()
@@ -1383,12 +1382,12 @@ bot.on("ready", async () => {
 
                 if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
             
-                    let permRole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
-                    let modlogChannel = messageReaction.message.guild.channels.cache.find(channel => channel.name === 'modlog');
+                    let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
+                    let modlogChannel = messageReaction.message.guild.channels.find(x => x.name === 'modlog');
 
-                    let fetchchannel = bot.channels.cache.find(x => x.name === 'session-voting');
+                    let fetchchannel = bot.channels.find(x => x.name === 'session-voting');
                 
-                    fetchchannel.messages.fetch("764864883404832769")
+                    fetchchannel.fetchMessage("770020659929153566")
                     .then(message => {
                         message.clearReactions() 
                         .then(() => message.react(drp1.id))
@@ -1403,42 +1402,42 @@ bot.on("ready", async () => {
                         .then(() => message.react(yes.id));
                     });
 
-                    fetchchannel.messages.fetch("764864919312531467")
+                    fetchchannel.fetchMessage("770020695647846509")
                     .then(message => {
                         message.edit(`${no} - Monday`);
                     });
 
-                    fetchchannel.messages.fetch("764864919858053151")
+                    fetchchannel.fetchMessage("770020696125603881")
                     .then(message => {
                         message.edit(`${no} - Tuesday`);
                     });
                     
-                    fetchchannel.messages.fetch("764864920881463326")
+                    fetchchannel.fetchMessage("770020697232900116")
                     .then(message => {
                         message.edit(`${no} - Wednesday`);
                     });
 
-                    fetchchannel.messages.fetch("764864921607208970")
+                    fetchchannel.fetchMessage("770020697949863976")
                     .then(message => {
                         message.edit(`${no} - Thursday`);
                     });
 
-                    fetchchannel.messages.fetch("764864949465907232")
+                    fetchchannel.fetchMessage("770020721766039591")
                     .then(message => {
                         message.edit(`${no} - Friday`);
                     });
                     
-                    fetchchannel.messages.fetch("764864950606757908")
+                    fetchchannel.fetchMessage("770020722445516880")
                     .then(message => {
                         message.edit(`${no} - Saturday`);
                     });
 
-                    fetchchannel.messages.fetch("764864951479042088")
+                    fetchchannel.fetchMessage("770020723376259073")
                     .then(message => {
                         message.edit(`${no} - Sunday`);
                     });
 
-                      let modlogEmbed3 = new Discord.MessageEmbed()
+                      let modlogEmbed3 = new Discord.RichEmbed()
                       .setColor("RED")
                       .setTitle(`**Session Voting System Reset!**`)
                       .setTimestamp()
@@ -1462,25 +1461,25 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
     try {
 
-        messageReaction.users.fetch()
+        messageReaction.fetchUsers()
         .then(users => {  
 
-        if (messageReaction.message.id === "764864883404832769") {
+        if (messageReaction.message.id === "770020659929153566") {
     
-            const drp1 = bot.emojis.cache.get("759125897953017857");
-            const drp2 = bot.emojis.cache.get("759125936586883072");
-            const drp3 = bot.emojis.cache.get("759125984967393330");
-            const drp4 = bot.emojis.cache.get("759126011265941506");
-            const drp5 = bot.emojis.cache.get("759126035215810592");
-            const drp6 = bot.emojis.cache.get("759126060355813376");
-            const drp7 = bot.emojis.cache.get("759126083781394444");
+            const drp1 = bot.emojis.get("759125897953017857");
+            const drp2 = bot.emojis.get("759125936586883072");
+            const drp3 = bot.emojis.get("759125984967393330");
+            const drp4 = bot.emojis.get("759126011265941506");
+            const drp5 = bot.emojis.get("759126035215810592");
+            const drp6 = bot.emojis.get("759126060355813376");
+            const drp7 = bot.emojis.get("759126083781394444");
     
-            let logChannel = messageReaction.message.guild.channels.cache.find(channel => channel.name === 'vote-removal-log');
-            const warningsign = bot.emojis.cache.get("729725849343098900");
+            let logChannel = messageReaction.message.guild.channels.find(x => x.name === 'vote-removal-log');
+            const warningsign = bot.emojis.get("729725849343098900");
         
         if (messageReaction.emoji.id === drp1.id) {
 
-                    let voteEmbed1 = new Discord.MessageEmbed()
+                    let voteEmbed1 = new Discord.RichEmbed()
                     .setColor("RED")
                     .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
                     .setDescription([
@@ -1495,7 +1494,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
         if (messageReaction.emoji.id === drp2.id) {
 
-            let voteEmbed2 = new Discord.MessageEmbed()
+            let voteEmbed2 = new Discord.RichEmbed()
             .setColor("RED")
             .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
             .setDescription([
@@ -1510,7 +1509,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
         if (messageReaction.emoji.id === drp3.id) {
 
-            let voteEmbed3 = new Discord.MessageEmbed()
+            let voteEmbed3 = new Discord.RichEmbed()
             .setColor("RED")
             .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
             .setDescription([
@@ -1525,7 +1524,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
         if (messageReaction.emoji.id === drp4.id) {
 
-            let voteEmbed4 = new Discord.MessageEmbed()
+            let voteEmbed4 = new Discord.RichEmbed()
             .setColor("RED")
             .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
             .setDescription([
@@ -1540,7 +1539,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
         if (messageReaction.emoji.id === drp5.id) {
 
-            let voteEmbed5 = new Discord.MessageEmbed()
+            let voteEmbed5 = new Discord.RichEmbed()
             .setColor("RED")
             .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
             .setDescription([
@@ -1555,7 +1554,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
         if (messageReaction.emoji.id === drp6.id) {
 
-            let voteEmbed6 = new Discord.MessageEmbed()
+            let voteEmbed6 = new Discord.RichEmbed()
             .setColor("RED")
             .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
             .setDescription([
@@ -1570,7 +1569,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
         if (messageReaction.emoji.id === drp7.id) {
 
-            let voteEmbed7 = new Discord.MessageEmbed()
+            let voteEmbed7 = new Discord.RichEmbed()
             .setColor("RED")
             .setTitle(`${warningsign} **Vote/Reaction Removed!**`)
             .setDescription([
@@ -1592,12 +1591,12 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
 
 bot.on("ready", async () => {
 
-    let fetchchannel = bot.channels.cache.find(x => x.name === 'self-roles');
-    fetchchannel.messages.fetch({
+    let fetchchannel = bot.channels.find(x => x.name === 'self-roles');
+    fetchchannel.fetchMessages({
         limit: 80,
        });
     
-    let onemessage = fetchchannel.messages.fetch("741366961757356104");
+    let onemessage = fetchchannel.fetchMessages("741366961757356104");
     
     });
     
@@ -1609,37 +1608,37 @@ bot.on("ready", async () => {
     
         gMember = messageReaction.message.guild.members.get(user.id);
     
-        const drpmember = bot.emojis.cache.get("756150199348363355");
-        const drprecruit = bot.emojis.cache.get("756148907347542046");
-        const drpapplicant = bot.emojis.cache.get("756149480750841866");
-        const ps4 = bot.emojis.cache.get("756151452870639787");
-        const xbox = bot.emojis.cache.get("756151503865118791");
-        const ninswitch = bot.emojis.cache.get("756151539948716112");
-        const pc = bot.emojis.cache.get("756151593409183836");
+        const drpmember = bot.emojis.get("756150199348363355");
+        const drprecruit = bot.emojis.get("756148907347542046");
+        const drpapplicant = bot.emojis.get("756149480750841866");
+        const ps4 = bot.emojis.get("756151452870639787");
+        const xbox = bot.emojis.get("756151503865118791");
+        const ninswitch = bot.emojis.get("756151539948716112");
+        const pc = bot.emojis.get("756151593409183836");
     
-        let roledrpmember = messageReaction.message.guild.roles.cache.find(role => role.name === 'DRP Member');
-        let roledrprecruit = messageReaction.message.guild.roles.cache.find(role => role.name === 'DRP Recruit');
-        let roledrpapplicant = messageReaction.message.guild.roles.cache.find(role => role.name === 'DRP Applicant');
-        let roleps4 = messageReaction.message.guild.roles.cache.find(role => role.name === 'Playstation');
-        let rolexbox = messageReaction.message.guild.roles.cache.find(role => role.name === 'Xbox');
-        let rolepc = messageReaction.message.guild.roles.cache.find(role => role.name === 'PC');
-        let roleninswitch = messageReaction.message.guild.roles.cache.find(role => role.name === 'Nintendo Switch');
+        let roledrpmember = messageReaction.message.guild.roles.find(x => x.name === 'DRP Member');
+        let roledrprecruit = messageReaction.message.guild.roles.find(x => x.name === 'DRP Recruit');
+        let roledrpapplicant = messageReaction.message.guild.roles.find(x => x.name === 'DRP Applicant');
+        let roleps4 = messageReaction.message.guild.roles.find(x => x.name === 'Playstation');
+        let rolexbox = messageReaction.message.guild.roles.find(x => x.name === 'Xbox');
+        let rolepc = messageReaction.message.guild.roles.find(x => x.name === 'PC');
+        let roleninswitch = messageReaction.message.guild.roles.find(x => x.name === 'Nintendo Switch');
     
 
         if (messageReaction.emoji.id === drpmember.id) {
 
-            const yes = bot.emojis.cache.get("700713527576625205");
-            const no = bot.emojis.cache.get("700713478578634783"); 
+            const yes = bot.emojis.get("700713527576625205");
+            const no = bot.emojis.get("700713478578634783"); 
 
-            let dmerrEmbed = new Discord.MessageEmbed()
+            let dmerrEmbed = new Discord.RichEmbed()
             .setColor("RED")
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be a member of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
-            let mainguild = bot.guilds.cache.get('644227663829139466');
+            let mainguild = bot.guilds.get('644227663829139466');
           
           if (mainguild.members.has(user.id)) {
-            gMember.roles.add(roledrpmember.id)
+            gMember.addRole(roledrpmember.id)
 
           } else {
             user.send(dmerrEmbed)
@@ -1648,18 +1647,18 @@ bot.on("ready", async () => {
     
         if (messageReaction.emoji.id === drprecruit.id) {
 
-            const yes = bot.emojis.cache.get("700713527576625205");
-            const no = bot.emojis.cache.get("700713478578634783"); 
+            const yes = bot.emojis.get("700713527576625205");
+            const no = bot.emojis.get("700713478578634783"); 
 
-            let dmerrEmbed2 = new Discord.MessageEmbed()
+            let dmerrEmbed2 = new Discord.RichEmbed()
             .setColor("RED")
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be a recruit of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
-            let trainguild = bot.guilds.cache.get('645035452956540929');
+            let trainguild = bot.guilds.get('645035452956540929');
           
             if (trainguild.members.has(user.id)) {
-                gMember.roles.add(roledrprecruit.id);
+                gMember.addRole(roledrprecruit.id);
 
             } else {
                 user.send(dmerrEmbed2)
@@ -1668,18 +1667,18 @@ bot.on("ready", async () => {
     
         if (messageReaction.emoji.id === drpapplicant.id) {
 
-            const yes = bot.emojis.cache.get("700713527576625205");
-            const no = bot.emojis.cache.get("700713478578634783"); 
+            const yes = bot.emojis.get("700713527576625205");
+            const no = bot.emojis.get("700713478578634783"); 
 
-            let dmerrEmbed3 = new Discord.MessageEmbed()
+            let dmerrEmbed3 = new Discord.RichEmbed()
             .setColor("RED")
             .setTitle(`${no} **Verification Failed!**`)
             .setDescription("You do not appear to be an applicant of Deputy Roleplay. Please reach out to any available Administrator if you believe this is a mistake.");
       
-            let interviewguild = bot.guilds.cache.get('604420918634086411');
+            let interviewguild = bot.guilds.get('604420918634086411');
           
           if (interviewguild.members.has(user.id)) {
-            gMember.roles.add(roledrpapplicant.id);
+            gMember.addRole(roledrpapplicant.id);
 
           } else {
             user.send(dmerrEmbed3)
@@ -1687,19 +1686,19 @@ bot.on("ready", async () => {
         }
     
         if (messageReaction.emoji.id === ps4.id) {
-            gMember.roles.add(roleps4.id);
+            gMember.addRole(roleps4.id);
         }
     
         if (messageReaction.emoji.id === xbox.id) {
-            gMember.roles.add(rolexbox.id);
+            gMember.addRole(rolexbox.id);
         }
     
         if (messageReaction.emoji.id === pc.id) {
-            gMember.roles.add(rolepc.id);
+            gMember.addRole(rolepc.id);
         }
     
         if (messageReaction.emoji.id === ninswitch.id) {
-            gMember.roles.add(roleninswitch.id);
+            gMember.addRole(roleninswitch.id);
         }
     }
     
@@ -1717,48 +1716,48 @@ bot.on("ready", async () => {
     
             gMember = messageReaction.message.guild.members.get(user.id);
         
-            const drpmember = bot.emojis.cache.get("756150199348363355");
-            const drprecruit = bot.emojis.cache.get("756148907347542046");
-            const drpapplicant = bot.emojis.cache.get("756149480750841866");
-            const ps4 = bot.emojis.cache.get("756151452870639787");
-            const xbox = bot.emojis.cache.get("756151503865118791");
-            const ninswitch = bot.emojis.cache.get("756151539948716112");
-            const pc = bot.emojis.cache.get("756151593409183836");
+            const drpmember = bot.emojis.get("756150199348363355");
+            const drprecruit = bot.emojis.get("756148907347542046");
+            const drpapplicant = bot.emojis.get("756149480750841866");
+            const ps4 = bot.emojis.get("756151452870639787");
+            const xbox = bot.emojis.get("756151503865118791");
+            const ninswitch = bot.emojis.get("756151539948716112");
+            const pc = bot.emojis.get("756151593409183836");
         
-            let roledrpmember = messageReaction.message.guild.roles.cache.find(role => role.name === 'DRP Member');
-            let roledrprecruit = messageReaction.message.guild.roles.cache.find(role => role.name === 'DRP Recruit');
-            let roledrpapplicant = messageReaction.message.guild.roles.cache.find(role => role.name === 'DRP Applicant');
-            let roleps4 = messageReaction.message.guild.roles.cache.find(role => role.name === 'Playstation');
-            let rolexbox = messageReaction.message.guild.roles.cache.find(role => role.name === 'Xbox');
-            let rolepc = messageReaction.message.guild.roles.cache.find(role => role.name === 'PC');
-            let roleninswitch = messageReaction.message.guild.roles.cache.find(role => role.name === 'Nintendo Switch');
+            let roledrpmember = messageReaction.message.guild.roles.find(x => x.name === 'DRP Member');
+            let roledrprecruit = messageReaction.message.guild.roles.find(x => x.name === 'DRP Recruit');
+            let roledrpapplicant = messageReaction.message.guild.roles.find(x => x.name === 'DRP Applicant');
+            let roleps4 = messageReaction.message.guild.roles.find(x => x.name === 'Playstation');
+            let rolexbox = messageReaction.message.guild.roles.find(x => x.name === 'Xbox');
+            let rolepc = messageReaction.message.guild.roles.find(x => x.name === 'PC');
+            let roleninswitch = messageReaction.message.guild.roles.find(x => x.name === 'Nintendo Switch');
             
             if (messageReaction.emoji.id === drpmember.id) {
-                gMember.roles.remove(roledrpmember.id);
+                gMember.removeRole(roledrpmember.id);
             }
         
             if (messageReaction.emoji.id === drprecruit.id) {
-                gMember.roles.remove(roledrprecruit.id);
+                gMember.removeRole(roledrprecruit.id);
             }
         
             if (messageReaction.emoji.id === drpapplicant.id) {
-                gMember.roles.remove(roledrpapplicant.id);
+                gMember.removeRole(roledrpapplicant.id);
             }
         
             if (messageReaction.emoji.id === ps4.id) {
-                gMember.roles.remove(roleps4.id);
+                gMember.removeRole(roleps4.id);
             }
         
             if (messageReaction.emoji.id === xbox.id) {
-                gMember.roles.remove(rolexbox.id);
+                gMember.removeRole(rolexbox.id);
             }
         
             if (messageReaction.emoji.id === pc.id) {
-                gMember.roles.remove(rolepc.id);
+                gMember.removeRole(rolepc.id);
             }
         
             if (messageReaction.emoji.id === ninswitch.id) {
-                gMember.roles.remove(roleninswitch.id);
+                gMember.removeRole(roleninswitch.id);
             }
         }
     
@@ -1774,11 +1773,11 @@ bot.on("ready", async () => {
 //   let oldUserChannel = oldMember.voiceChannel
 //   if (oldMember.id !== '292598566759956480') return;
 //   if (newMember.id !== '292598566759956480') return;
-//   let memberrole = newMember.guild.roles.cache.find(role => role.name === 'Deputy Director');
+//   let memberrole = newMember.guild.roles.find(x => x.name === 'Deputy Director');
 
 //   if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
-// newMember.roles.add(memberrole.id);
+// newMember.addRole(memberrole.id);
 
 //   } else if(newUserChannel === undefined){
 
@@ -1793,9 +1792,9 @@ bot.on("ready", async () => {
 
 // if(newUserChannel === undefined){
 
-// let memberrole = oldMember.guild.roles.cache.find(role => role.name === 'Owner');
+// let memberrole = oldMember.guild.roles.find(x => x.name === 'Owner');
 	 
-// oldMember.roles.add(memberrole.id);
+// oldMember.addRole(memberrole.id);
 	
 // }
 //   });
@@ -1811,133 +1810,133 @@ try {
     let newUserChannel = newMember.voiceChannel
     let oldUserChannel = oldMember.voiceChannel
 
-    const mainguild = bot.guilds.cache.get('644227663829139466')
+    const mainguild = bot.guilds.get('644227663829139466')
     //if(!newMember.guild.id === mainguild) return;
 
-    let patrolrole = mainguild.roles.cache.find(role => role.name === 'On Patrol');
+    let patrolrole = mainguild.roles.find(x => x.name === 'On Patrol');
 
     //const Briefingroom = newMember.guild.channels.fetch('689230310176456753')
-    let Briefingroom = mainguild.channels.cache.find(channel => channel.name === 'Briefing Room');
-    let Queue = mainguild.channels.cache.find(channel => channel.name === 'Queue');
-    let ten1 = mainguild.channels.cache.find(channel => channel.name === '10-1 Channel');
-    let RA1 = mainguild.channels.cache.find(channel => channel.name === 'Ride Along #1');
-    let RA2 = mainguild.channels.cache.find(channel => channel.name === 'Ride Along #2');
-    let RA3 = mainguild.channels.cache.find(channel => channel.name === 'Ride Along #3');
-    let srutac = mainguild.channels.cache.find(channel => channel.name === 'SRU Tactical Channel');
-    let fireops = mainguild.channels.cache.find(channel => channel.name === 'Fire Operations');
-    let RTO = mainguild.channels.cache.find(channel => channel.name === 'R.T.O.');
-    let nine11 = mainguild.channels.cache.find(channel => channel.name === '911 Centre');
-    let Traffic1 = mainguild.channels.cache.find(channel => channel.name === 'Traffic Stop #1');
-    let Traffic2 = mainguild.channels.cache.find(channel => channel.name === 'Traffic Stop #2');
-    let Traffic3 = mainguild.channels.cache.find(channel => channel.name === 'Traffic Stop #3');
-    let Traffic4 = mainguild.channels.cache.find(channel => channel.name === 'Traffic Stop #4');
-    let Traffic5 = mainguild.channels.cache.find(channel => channel.name === 'Traffic Stop #5');
-    let Scene1 = mainguild.channels.cache.find(channel => channel.name === 'On Scene #1');
-    let Scene2 = mainguild.channels.cache.find(channel => channel.name === 'On Scene #2');
-    let Scene3 = mainguild.channels.cache.find(channel => channel.name === 'On Scene #3');
-    let Scene4 = mainguild.channels.cache.find(channel => channel.name === 'On Scene #4');
-    let Scene5 = mainguild.channels.cache.find(channel => channel.name === 'On Scene #5');
-    let Civ1 = mainguild.channels.cache.find(channel => channel.name === 'Civ Channel #1');
-    let Civ2 = mainguild.channels.cache.find(channel => channel.name === 'Civ Channel #2');
-    let Civ3 = mainguild.channels.cache.find(channel => channel.name === 'Civ Channel #3');
-    let Civ4 = mainguild.channels.cache.find(channel => channel.name === 'Civ Channel #4');
-    let Civ5 = mainguild.channels.cache.find(channel => channel.name === 'Civ Channel #5');
-    let Civ6 = mainguild.channels.cache.find(channel => channel.name === 'Civ Channel #6');
-    let Civ7 = mainguild.channels.cache.find(channel => channel.name === 'Civ Channel #7');
-    let Civ8 = mainguild.channels.cache.find(channel => channel.name === 'Civ Channel #8');
+    let Briefingroom = mainguild.channels.find(x => x.name === 'Briefing Room');
+    let Queue = mainguild.channels.find(x => x.name === 'Queue');
+    let ten1 = mainguild.channels.find(x => x.name === '10-1 Channel');
+    let RA1 = mainguild.channels.find(x => x.name === 'Ride Along #1');
+    let RA2 = mainguild.channels.find(x => x.name === 'Ride Along #2');
+    let RA3 = mainguild.channels.find(x => x.name === 'Ride Along #3');
+    let srutac = mainguild.channels.find(x => x.name === 'SRU Tactical Channel');
+    let fireops = mainguild.channels.find(x => x.name === 'Fire Operations');
+    let RTO = mainguild.channels.find(x => x.name === 'R.T.O.');
+    let nine11 = mainguild.channels.find(x => x.name === '911 Centre');
+    let Traffic1 = mainguild.channels.find(x => x.name === 'Traffic Stop #1');
+    let Traffic2 = mainguild.channels.find(x => x.name === 'Traffic Stop #2');
+    let Traffic3 = mainguild.channels.find(x => x.name === 'Traffic Stop #3');
+    let Traffic4 = mainguild.channels.find(x => x.name === 'Traffic Stop #4');
+    let Traffic5 = mainguild.channels.find(x => x.name === 'Traffic Stop #5');
+    let Scene1 = mainguild.channels.find(x => x.name === 'On Scene #1');
+    let Scene2 = mainguild.channels.find(x => x.name === 'On Scene #2');
+    let Scene3 = mainguild.channels.find(x => x.name === 'On Scene #3');
+    let Scene4 = mainguild.channels.find(x => x.name === 'On Scene #4');
+    let Scene5 = mainguild.channels.find(x => x.name === 'On Scene #5');
+    let Civ1 = mainguild.channels.find(x => x.name === 'Civ Channel #1');
+    let Civ2 = mainguild.channels.find(x => x.name === 'Civ Channel #2');
+    let Civ3 = mainguild.channels.find(x => x.name === 'Civ Channel #3');
+    let Civ4 = mainguild.channels.find(x => x.name === 'Civ Channel #4');
+    let Civ5 = mainguild.channels.find(x => x.name === 'Civ Channel #5');
+    let Civ6 = mainguild.channels.find(x => x.name === 'Civ Channel #6');
+    let Civ7 = mainguild.channels.find(x => x.name === 'Civ Channel #7');
+    let Civ8 = mainguild.channels.find(x => x.name === 'Civ Channel #8');
 
     if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
-    if(newUserChannel.id === Briefingroom.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Queue.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === ten1.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === RA1.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === RA2.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === RA3.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === srutac.id) newMember.roles.add(patrolrole.id);
-    if(newUserChannel.id === fireops.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === RTO.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === nine11.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Traffic1.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Traffic2.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Traffic3.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Traffic4.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Traffic5.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Scene1.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Scene2.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Scene3.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Scene4.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Scene5.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Civ1.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Civ2.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Civ3.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Civ4.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Civ5.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Civ6.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Civ7.id) newMember.roles.add(patrolrole.id); 
-    if(newUserChannel.id === Civ8.id) newMember.roles.add(patrolrole.id); 
+    if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Queue.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === ten1.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === RA1.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === RA2.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === RA3.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === srutac.id) newMember.addRole(patrolrole.id);
+    if(newUserChannel.id === fireops.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === RTO.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === nine11.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Traffic1.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Traffic2.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Traffic3.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Traffic4.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Traffic5.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Scene1.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Scene2.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Scene3.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Scene4.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Scene5.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Civ1.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Civ2.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Civ3.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Civ4.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Civ5.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Civ6.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Civ7.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Civ8.id) newMember.addRole(patrolrole.id); 
     
     } else if(newUserChannel === undefined){
    
-    if(oldUserChannel.id === Briefingroom.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Queue.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === ten1.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === RA1.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === RA2.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === RA3.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === srutac.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === fireops.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === RTO.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === nine11.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Traffic1.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Traffic2.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Traffic3.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Traffic4.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Traffic5.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Scene1.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Scene2.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Scene3.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Scene4.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Scene5.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Civ1.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Civ2.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Civ3.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Civ4.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Civ5.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Civ6.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Civ7.id) newMember.roles.remove(patrolrole.id); 
-    if(oldUserChannel.id === Civ8.id) newMember.roles.remove(patrolrole.id); 
+    if(oldUserChannel.id === Briefingroom.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Queue.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === ten1.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === RA1.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === RA2.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === RA3.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === srutac.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === fireops.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === RTO.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === nine11.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Traffic1.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Traffic2.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Traffic3.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Traffic4.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Traffic5.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Scene1.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Scene2.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Scene3.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Scene4.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Scene5.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Civ1.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Civ2.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Civ3.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Civ4.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Civ5.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Civ6.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Civ7.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Civ8.id) newMember.removeRole(patrolrole.id); 
 
     } else if (oldUserChannel !== null && newUserChannel !== null) {
 
-        if(newUserChannel.id === Briefingroom.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Queue.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === ten1.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === RA1.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === RA2.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === RA3.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === srutac.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === fireops.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === RTO.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === nine11.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Traffic1.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Traffic2.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Traffic3.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Traffic4.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Traffic5.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Scene1.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Scene2.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Scene3.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Scene4.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Scene5.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Civ1.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Civ2.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Civ3.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Civ4.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Civ5.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Civ6.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Civ7.id) newMember.roles.add(patrolrole.id);
-        if(newUserChannel.id === Civ8.id) newMember.roles.add(patrolrole.id);
+        if(newUserChannel.id === Briefingroom.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Queue.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === ten1.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === RA1.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === RA2.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === RA3.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === srutac.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === fireops.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === RTO.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === nine11.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Traffic1.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Traffic2.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Traffic3.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Traffic4.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Traffic5.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Scene1.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Scene2.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Scene3.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Scene4.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Scene5.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Civ1.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Civ2.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Civ3.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Civ4.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Civ5.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Civ6.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Civ7.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Civ8.id) newMember.addRole(patrolrole.id);
 
     if(newUserChannel.id === Briefingroom.id) return;
     if(newUserChannel.id === Queue.id) return;
@@ -1968,12 +1967,12 @@ try {
     if(newUserChannel.id === Civ7.id) return;
     if(newUserChannel.id === Civ8.id) return;
 
-    newMember.roles.remove(patrolrole.id);
+    newMember.removeRole(patrolrole.id);
 
     }
 
 } catch (err) {
-  console.log(err);
+  catchErr(err);
 }
 
   });
@@ -1990,9 +1989,9 @@ bot.on('message', message => {
 
       message.author.send("I cannot reply to DM's. If you require support, please reach out to a staff member in any of the Deputy Roleplay servers.");
 
-      let staffguild2 = bot.guilds.cache.get('644254160019128320');
+      let staffguild2 = bot.guilds.get('644254160019128320');
 
-      let dmmodlogembed = new Discord.MessageEmbed()
+      let dmmodlogembed = new Discord.RichEmbed()
       .setTitle("**Direct Message Received!**")
       .setTimestamp()
       .setColor("BLACK")
