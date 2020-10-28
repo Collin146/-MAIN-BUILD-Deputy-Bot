@@ -1086,7 +1086,7 @@ geluktEmbed55 = new Discord.MessageEmbed()
 
 member.lastMessage.channel.send(geluktEmbed55);
 
-if(!member.roles.find(r => r.name === "Muted"))
+if(!member.roles.cache.find(role => role.name === "Muted"))
     
 setTimeout(function(){
 
