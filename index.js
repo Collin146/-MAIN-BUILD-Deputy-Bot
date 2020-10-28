@@ -126,13 +126,13 @@ const imagetouse = ("https://cdn.discordapp.com/attachments/461540254441144326/6
       .setImage(`${imagetouse}`);
   welcomechannel.send({embed});
 
-let memberrole = member.guild.roles.cache.find(x => x.name === 'New Member');
+let memberrole = member.guild.roles.cache.find(role => role.name === 'New Member');
 
 member.roles.add(memberrole.id);
 
 try {
 
-let applicantrole = member.guild.roles.cache.find(x => x.name === 'Applicant');
+let applicantrole = member.guild.roles.cache.find(role => role.name === 'Applicant');
 
 member.roles.add(applicantrole.id);
 
@@ -143,7 +143,7 @@ member.roles.add(applicantrole.id);
 
 try {
 
-let recruitrole = member.guild.roles.cache.find(x => x.name === 'Recruit');
+let recruitrole = member.guild.roles.cache.find(role => role.name === 'Recruit');
 
 member.roles.add(recruitrole.id);
 
@@ -153,7 +153,7 @@ member.roles.add(recruitrole.id);
 
 try {
 
-let memberrole22 = member.guild.roles.cache.find(x => x.name === 'Member');
+let memberrole22 = member.guild.roles.cache.find(role => role.name === 'Member');
 if (member.guild.id === "644227663829139466") return;
 
 member.roles.add(memberrole22.id);
@@ -323,7 +323,7 @@ bot.on(`message`, async message => {
 
 //             if (message.author.id === message.guild.ownerID) return;
 //             if (message.member.hasPermission("ADMINISTRATOR")) return;
-//             if (message.guild.roles.cache.find(x => x.name === 'Staff Team')) return;
+//             if (message.guild.roles.cache.find(role => role.name === 'Staff Team')) return;
 //             await message.delete();
 
 //             const modembed = new Discord.MessageEmbed()
@@ -424,7 +424,7 @@ bot.on(`message`, async message => {
     try {
 
     const bannedWords = [`@everyone`, `@Member`]
-//    let staffrole = message.guild.roles.cache.find(x => x.name === 'Staff Team');
+//    let staffrole = message.guild.roles.cache.find(role => role.name === 'Staff Team');
 
     try {
             if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
@@ -1028,10 +1028,10 @@ antiSpamMute.on("warnAdd", async member => {
 
 const warningsign = bot.emojis.cache.get("729725849343098900");
 
-let muterole = member.guild.roles.cache.find(x => x.name === 'Muted');
-let memberrole = member.guild.roles.cache.find(x => x.name === 'Member');
-let approle = member.guild.roles.cache.find(x => x.name === 'Applicant');
-let recrole = member.guild.roles.cache.find(x => x.name === 'Recruit');
+let muterole = member.guild.roles.cache.find(role => role.name === 'Muted');
+let memberrole = member.guild.roles.cache.find(role => role.name === 'Member');
+let approle = member.guild.roles.cache.find(role => role.name === 'Applicant');
+let recrole = member.guild.roles.cache.find(role => role.name === 'Recruit');
 //start of create role
 if (!muterole){
     try{
@@ -1174,7 +1174,7 @@ bot.on("ready", async () => {
                     messageReaction.fetchUsers()
                     .then(users => {  
 
-                let mentionrole = messageReaction.message.guild.roles.cache.find(x => x.name === 'Member');
+                let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'session-voting');
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
@@ -1197,7 +1197,7 @@ bot.on("ready", async () => {
                     messageReaction.fetchUsers()
                     .then(users => {  
 
-                let mentionrole = messageReaction.message.guild.roles.cache.find(x => x.name === 'Member');
+                let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'session-voting');
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
@@ -1220,7 +1220,7 @@ bot.on("ready", async () => {
                     messageReaction.fetchUsers()
                     .then(users => {  
 
-                let mentionrole = messageReaction.message.guild.roles.cache.find(x => x.name === 'Member');
+                let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'session-voting');
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
@@ -1243,7 +1243,7 @@ bot.on("ready", async () => {
                     messageReaction.fetchUsers()
                     .then(users => {  
 
-                let mentionrole = messageReaction.message.guild.roles.cache.find(x => x.name === 'Member');
+                let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'session-voting');
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
@@ -1266,7 +1266,7 @@ bot.on("ready", async () => {
                     messageReaction.fetchUsers()
                     .then(users => {  
 
-                let mentionrole = messageReaction.message.guild.roles.cache.find(x => x.name === 'Member');
+                let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'session-voting');
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
@@ -1289,7 +1289,7 @@ bot.on("ready", async () => {
                     messageReaction.fetchUsers()
                     .then(users => {  
 
-                let mentionrole = messageReaction.message.guild.roles.cache.find(x => x.name === 'Member');
+                let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'session-voting');
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
@@ -1313,7 +1313,7 @@ bot.on("ready", async () => {
                     messageReaction.fetchUsers()
                     .then(users => {  
 
-                let mentionrole = messageReaction.message.guild.roles.cache.find(x => x.name === 'Member');
+                let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'session-voting');
 
                   if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
@@ -1334,7 +1334,7 @@ bot.on("ready", async () => {
 
                 if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
             
-                    let permRole = messageReaction.message.guild.roles.cache.find(x => x.name === 'Member');
+                    let permRole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
                     let modlogChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'modlog');
 
                     messageReaction.message.channel.overwritePermissions(permRole.id, {
@@ -1358,7 +1358,7 @@ bot.on("ready", async () => {
 
                 if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
             
-                    let permRole = messageReaction.message.guild.roles.cache.find(x => x.name === 'Member');
+                    let permRole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
                     let modlogChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'modlog');
 
                     messageReaction.message.channel.overwritePermissions(permRole.id, {
@@ -1382,7 +1382,7 @@ bot.on("ready", async () => {
 
                 if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
             
-                    let permRole = messageReaction.message.guild.roles.cache.find(x => x.name === 'Member');
+                    let permRole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
                     let modlogChannel = messageReaction.message.guild.channels.cache.find(x => x.name === 'modlog');
 
                     let fetchchannel = bot.channels.cache.find(x => x.name === 'session-voting');
@@ -1616,13 +1616,13 @@ bot.on("ready", async () => {
         const ninswitch = bot.emojis.cache.get("756151539948716112");
         const pc = bot.emojis.cache.get("756151593409183836");
     
-        let roledrpmember = messageReaction.message.guild.roles.cache.find(x => x.name === 'DRP Member');
-        let roledrprecruit = messageReaction.message.guild.roles.cache.find(x => x.name === 'DRP Recruit');
-        let roledrpapplicant = messageReaction.message.guild.roles.cache.find(x => x.name === 'DRP Applicant');
-        let roleps4 = messageReaction.message.guild.roles.cache.find(x => x.name === 'Playstation');
-        let rolexbox = messageReaction.message.guild.roles.cache.find(x => x.name === 'Xbox');
-        let rolepc = messageReaction.message.guild.roles.cache.find(x => x.name === 'PC');
-        let roleninswitch = messageReaction.message.guild.roles.cache.find(x => x.name === 'Nintendo Switch');
+        let roledrpmember = messageReaction.message.guild.roles.cache.find(role => role.name === 'DRP Member');
+        let roledrprecruit = messageReaction.message.guild.roles.cache.find(role => role.name === 'DRP Recruit');
+        let roledrpapplicant = messageReaction.message.guild.roles.cache.find(role => role.name === 'DRP Applicant');
+        let roleps4 = messageReaction.message.guild.roles.cache.find(role => role.name === 'Playstation');
+        let rolexbox = messageReaction.message.guild.roles.cache.find(role => role.name === 'Xbox');
+        let rolepc = messageReaction.message.guild.roles.cache.find(role => role.name === 'PC');
+        let roleninswitch = messageReaction.message.guild.roles.cache.find(role => role.name === 'Nintendo Switch');
     
 
         if (messageReaction.emoji.id === drpmember.id) {
@@ -1724,13 +1724,13 @@ bot.on("ready", async () => {
             const ninswitch = bot.emojis.cache.get("756151539948716112");
             const pc = bot.emojis.cache.get("756151593409183836");
         
-            let roledrpmember = messageReaction.message.guild.roles.cache.find(x => x.name === 'DRP Member');
-            let roledrprecruit = messageReaction.message.guild.roles.cache.find(x => x.name === 'DRP Recruit');
-            let roledrpapplicant = messageReaction.message.guild.roles.cache.find(x => x.name === 'DRP Applicant');
-            let roleps4 = messageReaction.message.guild.roles.cache.find(x => x.name === 'Playstation');
-            let rolexbox = messageReaction.message.guild.roles.cache.find(x => x.name === 'Xbox');
-            let rolepc = messageReaction.message.guild.roles.cache.find(x => x.name === 'PC');
-            let roleninswitch = messageReaction.message.guild.roles.cache.find(x => x.name === 'Nintendo Switch');
+            let roledrpmember = messageReaction.message.guild.roles.cache.find(role => role.name === 'DRP Member');
+            let roledrprecruit = messageReaction.message.guild.roles.cache.find(role => role.name === 'DRP Recruit');
+            let roledrpapplicant = messageReaction.message.guild.roles.cache.find(role => role.name === 'DRP Applicant');
+            let roleps4 = messageReaction.message.guild.roles.cache.find(role => role.name === 'Playstation');
+            let rolexbox = messageReaction.message.guild.roles.cache.find(role => role.name === 'Xbox');
+            let rolepc = messageReaction.message.guild.roles.cache.find(role => role.name === 'PC');
+            let roleninswitch = messageReaction.message.guild.roles.cache.find(role => role.name === 'Nintendo Switch');
             
             if (messageReaction.emoji.id === drpmember.id) {
                 gMember.roles.remove(roledrpmember.id);
@@ -1773,7 +1773,7 @@ bot.on("ready", async () => {
 //   let oldUserChannel = oldMember.voiceChannel
 //   if (oldMember.id !== '292598566759956480') return;
 //   if (newMember.id !== '292598566759956480') return;
-//   let memberrole = newMember.guild.roles.cache.find(x => x.name === 'Deputy Director');
+//   let memberrole = newMember.guild.roles.cache.find(role => role.name === 'Deputy Director');
 
 //   if(oldUserChannel === undefined && newUserChannel !== undefined) {
 
@@ -1792,7 +1792,7 @@ bot.on("ready", async () => {
 
 // if(newUserChannel === undefined){
 
-// let memberrole = oldMember.guild.roles.cache.find(x => x.name === 'Owner');
+// let memberrole = oldMember.guild.roles.cache.find(role => role.name === 'Owner');
 	 
 // oldMember.roles.add(memberrole.id);
 	
@@ -1813,7 +1813,7 @@ try {
     const mainguild = bot.guilds.cache.get('644227663829139466')
     //if(!newMember.guild.id === mainguild) return;
 
-    let patrolrole = mainguild.roles.cache.find(x => x.name === 'On Patrol');
+    let patrolrole = mainguild.roles.cache.find(role => role.name === 'On Patrol');
 
     //const Briefingroom = newMember.guild.channels.fetch('689230310176456753')
     let Briefingroom = mainguild.channels.cache.find(x => x.name === 'Briefing Room');
