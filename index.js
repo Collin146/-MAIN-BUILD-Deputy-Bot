@@ -644,7 +644,7 @@ modlogchannel.send({embed: nickembed});
 
     }
 
-    if (oldMember.roles.size < newMember.roles.size) {
+    if (oldMember.roles.cache.size < newMember.roles.cache.size) {
 
         const roleminembed = new Discord.MessageEmbed()
         .setColor('GREEN')
@@ -663,7 +663,7 @@ modlogchannel.send({embed: nickembed});
         }
     }
 
-	if (oldMember.roles.size > newMember.roles.size) {
+	if (oldMember.roles.cache.size > newMember.roles.cache.size) {
     
         const rolemaxembed = new Discord.MessageEmbed()
         .setColor('RED')
