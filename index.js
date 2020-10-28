@@ -609,7 +609,7 @@ bot.on('guildBanRemove', (guild, user) => {
     const uuembed = new Discord.MessageEmbed()
      .setColor('GREEN')
     .setTimestamp()
-    .setThumbnail((user.displayAvatarURL))
+    .setThumbnail((user.displayAvatarURL()))
     .setTitle("**User Unbanned!**")
     .setDescription([
         `**User's Name:** <@${user.id}>`,
