@@ -210,9 +210,9 @@ if (member.guild.id === "644227663829139466") {
 bot.on("ready", async () => {
 let consolechannel = bot.channels.cache.find(x => x.name === 'console-log');
 console.log(`${bot.user.username} is online!`);
-consolechannel.send(`Successfully loaded all files and detected ${bot.users.size} user(s), ${bot.channels.size} channel(s), & ${bot.guilds.size} guild(s).`)
+consolechannel.send(`Successfully loaded all files and detected ${bot.users.cache.size} user(s), ${bot.channels.cache.size} channel(s), & ${bot.guilds.cache.size} guild(s).`)
 consolechannel.send(`${bot.user.username} is online!`)
-bot.user.setActivity(`${bot.users.size} users | !help`, { type: 'WATCHING' });
+bot.user.setActivity(`${bot.users.cache.size} users | !help`, { type: 'WATCHING' });
 
 });
 
