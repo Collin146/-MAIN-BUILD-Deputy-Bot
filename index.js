@@ -1137,7 +1137,7 @@ modlogchannel.send({embed: modlogspamEmbed2});
 
 bot.on("ready", async () => {
 
-    let fetchchannel = bot.channels.cache.find(x => x.name === 'session-voting');
+    let fetchchannel = bot.channels.cache.find(channel => channel.name === 'session-voting');
     fetchchannel.messages.fetch({
         limit: 80,
        });
