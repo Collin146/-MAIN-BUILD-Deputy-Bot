@@ -419,6 +419,7 @@ bot.on(`message`, async message => {
 //--
 //mention detection begin
 //--
+
 bot.on(`message`, async message => {
 
     try {
@@ -584,7 +585,7 @@ bot.on('guildBanAdd', (guild, user) => {
     const ubembed = new Discord.MessageEmbed()
      .setColor('RED')
     .setTimestamp()
-    .setThumbnail((user.displayAvatarURL))
+    .setThumbnail((user.displayAvatarURL()))
     .setTitle("**User Banned!**")
     .setDescription([
         `**User's Name:** <@${user.id}>`,
