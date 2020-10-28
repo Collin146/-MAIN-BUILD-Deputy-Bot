@@ -1172,7 +1172,7 @@ bot.on("ready", async () => {
 
                 if (messageReaction.count > reactionLimit) {
 
-                    messageReaction.fetchUsers()
+                    messageReaction.users.fetch()
                     .then(users => {  
 
                 let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
@@ -1195,7 +1195,7 @@ bot.on("ready", async () => {
 
                 if (messageReaction.count > reactionLimit) {
 
-                    messageReaction.fetchUsers()
+                    messageReaction.users.fetch()
                     .then(users => {  
 
                 let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
@@ -1218,7 +1218,7 @@ bot.on("ready", async () => {
 
                 if (messageReaction.count > reactionLimit) {
 
-                    messageReaction.fetchUsers()
+                    messageReaction.users.fetch()
                     .then(users => {  
 
                 let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
@@ -1241,7 +1241,7 @@ bot.on("ready", async () => {
 
                 if (messageReaction.count > reactionLimit) {
 
-                    messageReaction.fetchUsers()
+                    messageReaction.users.fetch()
                     .then(users => {  
 
                 let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
@@ -1264,7 +1264,7 @@ bot.on("ready", async () => {
 
                 if (messageReaction.count > reactionLimit) {
 
-                    messageReaction.fetchUsers()
+                    messageReaction.users.fetch()
                     .then(users => {  
 
                 let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
@@ -1287,7 +1287,7 @@ bot.on("ready", async () => {
 
                 if (messageReaction.count > reactionLimit) {
 
-                    messageReaction.fetchUsers()
+                    messageReaction.users.fetch()
                     .then(users => {  
 
                 let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
@@ -1311,7 +1311,7 @@ bot.on("ready", async () => {
 
                 if (messageReaction.count > reactionLimit) {
 
-                    messageReaction.fetchUsers()
+                    messageReaction.users.fetch()
                     .then(users => {  
 
                 let mentionrole = messageReaction.message.guild.roles.cache.find(role => role.name === 'Member');
@@ -1462,7 +1462,7 @@ bot.on('messageReactionRemove', async (messageReaction, user) => {
     
     try {
 
-        messageReaction.fetchUsers()
+        messageReaction.users.fetch()
         .then(users => {  
 
         if (messageReaction.message.id === "764864883404832769") {
