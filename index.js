@@ -272,7 +272,7 @@ bot.on(`message`, async message => {
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
             const warningsign = bot.emojis.get("729725849343098900");
-            if (message.content.includes(`tenor`, `giphy`, `tenor.com`, `giphy.com`)) return;
+            if (message.channel.name === "general-chat" && message.content.includes(`tenor`, `giphy`, `tenor.com`, `giphy.com`)) return;
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
             if (message.channel.id === '750827004525281430') return;
