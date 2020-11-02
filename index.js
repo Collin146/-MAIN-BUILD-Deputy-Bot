@@ -275,7 +275,7 @@ bot.on(`message`, async message => {
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
             if (message.channel.id === '750827004525281430') return;
-            if (message.channel.name === 'general-chat' && message.content.toLowerCase().includes("giphy", "tenor")) return;
+            if (message.channel.name === 'general-chat' && message.content.toLowerCase().includes("giphy" || "tenor")) return;
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
