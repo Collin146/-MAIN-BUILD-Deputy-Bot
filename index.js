@@ -275,7 +275,9 @@ bot.on(`message`, async message => {
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
             if (message.channel.id === '750827004525281430') return;
-            if (message.channel.name === 'general-chat' && message.content.toLowerCase().includes("giphy" || "tenor")) return;
+     
+	    const exemptedWords = [`tenor`, `giphy`, `tenor.com`, `giphy.com`]
+            if (message.channel.name === 'general-chat' && exemptedWords.some(word => message.content.toLowerCase().includes(word))) return;
             await message.delete();
             
             let linkembed = new Discord.RichEmbed()
