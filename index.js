@@ -287,7 +287,7 @@ bot.on(`message`, async message => {
             .setDescription("Links are not allowed to be sent!")
             .setFooter("Continuing with sending links will result in disciplinary action!");
            
-            await message.channel.send(linkembed);
+            await message.channel.send(linkembed).then(msg => msg.delete(10000));
 
             const modloglinkEmbed = new Discord.RichEmbed()
             .setColor('RED')
@@ -301,7 +301,7 @@ bot.on(`message`, async message => {
             ].join('\n'))
 
             let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
-            modlogchannel.send({embed: modloglinkEmbed});
+            await modlogchannel.send({embed: modloglinkEmbed});
 
         }
     } catch (e) {
@@ -423,6 +423,7 @@ bot.on(`message`, async message => {
 //--
 //mention detection begin
 //--
+
 bot.on(`message`, async message => {
 
     try {
@@ -447,7 +448,7 @@ bot.on(`message`, async message => {
             .setDescription("Do not mention everyone or member!")
             .setFooter("Mentioning these roles can/will result in disciplinary action!");
            
-            await message.channel.send(linkembed);
+            await message.channel.send(linkembed).then(msg => msg.delete(10000));
 
             const mentionEmbed = new Discord.RichEmbed()
             .setColor('RED')
@@ -499,7 +500,7 @@ bot.on(`message`, async message => {
             .setDescription("Please refrain from using offensive language!")
             .setFooter("Continuing on using offensive language will result in disciplinary action!");
            
-            await message.channel.send(linkembed);
+            await message.channel.send(linkembed).then(msg => msg.delete(10000));
 
             const offlangEmbed = new Discord.RichEmbed()
             .setColor('RED')
