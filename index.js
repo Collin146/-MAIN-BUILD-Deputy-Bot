@@ -162,6 +162,27 @@ member.addRole(memberrole22);
         catchErr(err);
 }
 
+const drplogo = bot.emojis.get("689681849559023635");
+
+ let welcomedmEmbed = new Discord.RichEmbed()
+.setTitle(`${drplogo} **Welcome to Deputy Roleplay!**`)
+.setTimestamp()
+.setFooter("I am a bot and cannot reply to DM's.")
+.setColor("#00f4ef")
+.setDescription([
+    `We all welcome you and thank you for taking a look into Deputy Roleplay. Here, we strive to achieve both the most realism and professionalism within roleplaying! If you ever have any questions, feel free to reach out to any of our staff members!`,
+    ` `,
+    "**Further below, we will cover step by step how to join our community**",
+    ` `,
+    "● First, you will have to read the Community Requirements to ensure you are eligible to apply for Deputy Roleplay: https://bit.ly/3ahPEUZ",
+    "● Secondly, you will also have to read our Rules & Regulations: https://bit.ly/3e9dbcl",
+    "● Finally, you can apply using the Application Form. When doing so, please make sure to include as many details as possible and also reach the minimum number of sentences required. This is outlined above every open question. If you fail to do so, there is a high possibility you will be declined: https://bit.ly/3koxkOc",
+    ` `,
+    `If you ever need any more help/assistance, feel free to ask in <#697522485100281946>. We wish you good luck and hope to see you soon!`,  
+  ].join('\n'))
+
+member.send(welcomedmEmbed);
+	
 } catch (err) {
     catchErr(err);
 }
