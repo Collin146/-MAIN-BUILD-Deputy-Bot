@@ -162,9 +162,11 @@ member.addRole(memberrole22);
         catchErr(err);
 }
 
+if (member.guild.id === "604420918634086411") {
+
 const drplogo = bot.emojis.get("689681849559023635");
 
- let welcomedmEmbed = new Discord.RichEmbed()
+    let welcomedmEmbed = new Discord.RichEmbed()
 .setTitle(`${drplogo} **Welcome to Deputy Roleplay!**`)
 .setTimestamp()
 .setFooter("I am a bot and cannot reply to DM's.")
@@ -182,6 +184,8 @@ const drplogo = bot.emojis.get("689681849559023635");
   ].join('\n'))
 
 member.send(welcomedmEmbed);
+
+}
 	
 } catch (err) {
     catchErr(err);
