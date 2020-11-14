@@ -1207,7 +1207,7 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612') || users.has('470632586360651777') || users.has('464537564494168083')) {
                     
                     votingChannel.fetchMessage("770020695647846509")
                     .then(message => {
@@ -1230,7 +1230,7 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612') || users.has('470632586360651777') || users.has('464537564494168083')) {
                    
                     votingChannel.fetchMessage("770020696125603881")
                     .then(message => {
@@ -1253,7 +1253,7 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612') || users.has('470632586360651777') || users.has('464537564494168083')) {
                    
                     votingChannel.fetchMessage("770020697232900116")
                     .then(message => {
@@ -1276,7 +1276,7 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612') || users.has('470632586360651777') || users.has('464537564494168083')) {
                    
                     votingChannel.fetchMessage("770020697949863976")
                     .then(message => {
@@ -1299,7 +1299,7 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612') || users.has('470632586360651777') || users.has('464537564494168083')) {
                    
                     votingChannel.fetchMessage("770020721766039591")
                     .then(message => {
@@ -1322,7 +1322,7 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612') || users.has('470632586360651777') || users.has('464537564494168083')) {
                    
                     votingChannel.fetchMessage("770020722445516880")
                     .then(message => {
@@ -1346,7 +1346,7 @@ bot.on("ready", async () => {
                 let mentionrole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                 let votingChannel = messageReaction.message.guild.channels.find(x => x.name === 'session-voting');
 
-                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612')) {
+                  if (users.has('385777873581113344') || users.has('292598566759956480') || users.has('724991641932267612') || users.has('470632586360651777') || users.has('464537564494168083')) {
                    
                     votingChannel.fetchMessage("770020723376259073")
                     .then(message => {
