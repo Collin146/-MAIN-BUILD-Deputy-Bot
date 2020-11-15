@@ -19,6 +19,7 @@ const no = bot.emojis.get("700713478578634783");
 const warningsign = bot.emojis.get("729725849343098900");
 const firebot = bot.emojis.get("729718092560728095");
 const lightbar = bot.emojis.get("729717051488206918");
+const barrier = bot.emojis.get("777341336306712587");
 
 let errEmbed = new Discord.RichEmbed()
       .setColor("RED")
@@ -72,6 +73,54 @@ let errEmbed = new Discord.RichEmbed()
         
         return;
             }
+
+                if(args[0] === "firealarm"){
+    
+    let mentionrole = message.guild.roles.find(x => x.name === 'On Patrol');
+    const provinfo2 = args.join(" ").slice(10);
+    if (!provinfo2) return message.channel.send(errEmbed);
+    
+    let errEmbed2 = new Discord.RichEmbed()
+      .setColor("RED")
+      .setTitle(`${no} **Error!**`)
+      .setDescription("The role \"On Patrol\" doesn't exist.");
+    
+    if (!mentionrole) return message.channel.send(errEmbed2);
+        message.channel.send([
+        `<@&${mentionrole.id}>`,
+        ` `,
+        `${firebot} **Fire Alarm!** ${firebot}`,
+        `A fire alarm has been received from ${provinfo2}. Please notify dispatch if active!`,
+      ].join('\n'))
+        
+        message.delete().catch(O_o=>{});
+        
+        return;
+            }
+
+        if(args[0] === "traffic"){
+
+          let mentionrole = message.guild.roles.find(x => x.name === 'On Patrol');
+          const provinfo4 = args.join(" ").slice(10);
+          if (!provinfo4) return message.channel.send(errEmbed);
+          
+          let errEmbed2 = new Discord.RichEmbed()
+            .setColor("RED")
+            .setTitle(`${no} **Error!**`)
+            .setDescription("The role \"On Patrol\" doesn't exist.");
+          
+          if (!mentionrole) return message.channel.send(errEmbed2);
+              message.channel.send([
+              `<@&${mentionrole.id}>`,
+              ` `,
+              `${barrier} **Traffic Notice!** ${barrier}`,
+              `${provinfo4}`,
+            ].join('\n'))
+              
+              message.delete().catch(O_o=>{});
+              
+              return;
+                      }
     
     if(args[0] === "patrol"){
     
