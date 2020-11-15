@@ -1324,7 +1324,7 @@ bot.on('messageReactionAdd', async (messageReaction, user) => {
 
                     if (messageReaction.emoji.id === drp6.id) {
 
-                        user.send("Please provide your feedback.")
+                        user.send("Please reply with your feedback.")
 
                         const filter = m => m.author.id === user.id;
                 
