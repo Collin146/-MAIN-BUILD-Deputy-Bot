@@ -165,7 +165,7 @@ let errEmbed = new Discord.RichEmbed()
     let errEmbed4 = new Discord.RichEmbed()
       .setColor("RED")
       .setTitle(`${no} **Error!**`)
-      .setDescription("Please provide a type of alert! This can either be \"silentalarm\", \"firealarm\", or \"patrol\".");
+      .setDescription("Please provide a type of alert! This can either be \"silentalarm\", \"firealarm\", \"traffic\", or \"patrol\".");
     
     message.channel.send(errEmbed4);
     
