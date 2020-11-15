@@ -101,7 +101,7 @@ let errEmbed = new Discord.RichEmbed()
         if(args[0] === "traffic"){
 
           let mentionrole = message.guild.roles.find(x => x.name === 'On Patrol');
-          const provinfo4 = args.join(" ").slice(10);
+          const provinfo4 = args.join(" ").slice(8);
           if (!provinfo4) return message.channel.send(errEmbed);
           
           let errEmbed2 = new Discord.RichEmbed()
