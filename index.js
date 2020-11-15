@@ -268,7 +268,7 @@ if (member.guild.id === "604420918634086411") {
 }
     
 } catch (err) {
-    catchErr(err);
+    console.log(err);
 }
 
 });
