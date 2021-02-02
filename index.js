@@ -346,6 +346,9 @@ bot.on(`message`, async message => {
             if (message.channel.name === "general-chat" && message.content.includes(`giphy`)) return;
             if (message.channel.name === "general-chat" && message.content.includes(`youtu.be`)) return;
             if (message.channel.name === "general-chat" && message.content.includes(`youtube`)) return;
+	    if (message.channel.name === "staff-chat") return;
+	    if (message.channel.name === "fto-chat") return;
+	    if (message.channel.name === "botnik") return;
             if (message.author.id === message.guild.ownerID) return;
             if (message.member.hasPermission("ADMINISTRATOR")) return;
             if (message.channel.id === '750827004525281430') return;
