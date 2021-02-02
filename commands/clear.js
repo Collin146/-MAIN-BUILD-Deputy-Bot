@@ -62,6 +62,13 @@ try {
 
     const yes = bot.emojis.get("700713527576625205");
     const no = bot.emojis.get("700713478578634783"); 
+    
+     let errEmbed2 = new Discord.RichEmbed()
+    .setColor("RED")
+    .setTitle(`${no} **Error!**`)
+    .setDescription("You do not have permission to clear this channel.");
+
+    if (message.channel.id === "689230194678038531") return message.channel.send(errEmbed2)
 
     let errEmbed = new Discord.RichEmbed()
     .setColor("RED")
