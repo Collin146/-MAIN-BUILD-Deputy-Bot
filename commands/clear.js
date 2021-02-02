@@ -68,7 +68,7 @@ try {
     .setTitle(`${no} **Error!**`)
     .setDescription("You do not have permission to clear this channel.");
 
-    if (message.channel.id === "689230194678038531") return message.channel.send(errEmbed2)
+    if (message.channel.id === "758485231249391616") return message.channel.send(errEmbed2)
 
     let errEmbed = new Discord.RichEmbed()
     .setColor("RED")
