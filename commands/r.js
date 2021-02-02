@@ -36,7 +36,7 @@ const no = bot.emojis.get("700713478578634783");
         let errEmbed2 = new Discord.RichEmbed()
         .setColor("RED")
         .setTitle(`${no} **Error!**`)
-        .setDescription(`Please wait until the 5 hour cooldown is over!`);
+        .setDescription(`Please wait until the 7 hour cooldown is over!`);
     
         message.channel.send(errEmbed2);
 } else {
@@ -65,8 +65,8 @@ message.channel.fetchMessages({ limit: 80 })
  talkedRecently.add(message.author.id);
  setTimeout(() => {
    talkedRecently.delete(message.author.id);
- }, 18000000);
-}
+ }, 25200000);
+}   
 
 let ModEmbed = new Discord.RichEmbed()
     .setTitle("**Command Used!**")
