@@ -13,6 +13,18 @@ function catchErr (err, message) {
         }
         
 try {
+        
+            if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
+    if(args[0] === "help"){
+        message.reply("Usage: !aop <bc or ss&s>");
+        return;
+    }
+    
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
+    if(args[0] == "help"){
+        message.reply("Usage: !aop <bc or ss&s>");
+        return;
+    }
     
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
