@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
 
 try {
 
-let mentionrole = message.guild.roles.find(x => x.name === 'Staff Team');
+let mentionrole = message.guild.roles.find(x => x.name === 'On Patrol');
 let servernum = args.join(" ");
 const yes = bot.emojis.get("700713527576625205");
 const no = bot.emojis.get("700713478578634783"); 
