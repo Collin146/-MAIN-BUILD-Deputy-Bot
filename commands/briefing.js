@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const ms = require("ms");
 const errors = require("../utils/errors.js");
+const moment = require("moment");
 
 module.exports.run = async (bot, message, args) => { 
 
@@ -104,6 +105,18 @@ let ModEmbed = new Discord.RichEmbed()
 
 let modlogchannel = message.guild.channels.find(x => x.name === 'modlog');
 modlogchannel.send({embed: ModEmbed});
+
+let LogEmbed = new Discord.RichEmbed()
+.setTitle("**Session Logged!**")
+.setTimestamp()
+.setColor("BLACK")
+.setDescription([
+    `**Date:** ${moment.utc(message.createdAt).format('dddd, MMMM Do YYYY')}`,
+    `**Hosted By:** ${message.author}`
+  ].join('\n'))
+
+let logchannel = message.guild.channels.find(x => x.name === 'scheduled-sessions-log');
+logchannel.send({embed: LogEmbed});
 
 } catch(err){
     catchErr(err)
