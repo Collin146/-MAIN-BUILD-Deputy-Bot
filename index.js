@@ -2064,6 +2064,7 @@ try {
     let Scene3 = mainguild.channels.find(x => x.name === 'On Scene #3');
     let Scene4 = mainguild.channels.find(x => x.name === 'On Scene #4');
     let Scene5 = mainguild.channels.find(x => x.name === 'On Scene #5');
+    let Jail = mainguild.channels.find(x => x.name === 'Penitentiary');
     let Civ1 = mainguild.channels.find(x => x.name === 'Civ Channel #1');
     let Civ2 = mainguild.channels.find(x => x.name === 'Civ Channel #2');
     let Civ3 = mainguild.channels.find(x => x.name === 'Civ Channel #3');
@@ -2095,6 +2096,7 @@ try {
     if(newUserChannel.id === Scene3.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Scene4.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Scene5.id) newMember.addRole(patrolrole.id); 
+    if(newUserChannel.id === Jail.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Civ1.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Civ2.id) newMember.addRole(patrolrole.id); 
     if(newUserChannel.id === Civ3.id) newMember.addRole(patrolrole.id); 
@@ -2126,6 +2128,7 @@ try {
     if(oldUserChannel.id === Scene3.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Scene4.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Scene5.id) newMember.removeRole(patrolrole.id); 
+    if(oldUserChannel.id === Jail.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Civ1.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Civ2.id) newMember.removeRole(patrolrole.id); 
     if(oldUserChannel.id === Civ3.id) newMember.removeRole(patrolrole.id); 
@@ -2157,6 +2160,7 @@ try {
         if(newUserChannel.id === Scene3.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Scene4.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Scene5.id) newMember.addRole(patrolrole.id);
+        if(newUserChannel.id === Jail.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Civ1.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Civ2.id) newMember.addRole(patrolrole.id);
         if(newUserChannel.id === Civ3.id) newMember.addRole(patrolrole.id);
@@ -2186,6 +2190,7 @@ try {
     if(newUserChannel.id === Scene3.id) return;
     if(newUserChannel.id === Scene4.id) return;
     if(newUserChannel.id === Scene5.id) return;
+    if(newUserChannel.id === Jail.id) return;
     if(newUserChannel.id === Civ1.id) return;
     if(newUserChannel.id === Civ2.id) return;
     if(newUserChannel.id === Civ3.id) return;
