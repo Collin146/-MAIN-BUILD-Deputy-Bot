@@ -342,10 +342,10 @@ bot.on(`message`, async message => {
     try {
         if (bannedWords.some(word => message.content.toLowerCase().includes(word))) {
             const warningsign = bot.emojis.get("729725849343098900");
-            if (message.channel.name === "general-chat" && message.content.includes(`tenor`)) return;
-            if (message.channel.name === "general-chat" && message.content.includes(`giphy`)) return;
-            if (message.channel.name === "general-chat" && message.content.includes(`youtu.be`)) return;
-            if (message.channel.name === "general-chat" && message.content.includes(`youtube`)) return;
+            if (message.channel.id === "689213058169700552" && message.content.includes(`tenor`)) return;
+            if (message.channel.id === "689213058169700552" && message.content.includes(`giphy`)) return;
+            if (message.channel.id === "689213058169700552" && message.content.includes(`youtu.be`)) return;
+            if (message.channel.id === "689213058169700552" && message.content.includes(`youtube`)) return;
 	    if (message.channel.name === "staff-chat") return;
 	    if (message.channel.name === "fto-chat") return;
 	    if (message.channel.name === "botnik") return;
