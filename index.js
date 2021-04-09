@@ -1560,7 +1560,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === no.id) {
 
-                if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
+                if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612' || user.id === '435071631426060288' || user.id === '279057499791949824' || user.id === '409421412248584194') {
             
                     let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let modlogChannel = messageReaction.message.guild.channels.find(x => x.name === 'modlog');
@@ -1584,7 +1584,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === yes.id) {
 
-                if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
+                if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612' || user.id === '435071631426060288' || user.id === '279057499791949824' || user.id === '409421412248584194') {
             
                     let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let modlogChannel = messageReaction.message.guild.channels.find(x => x.name === 'modlog');
@@ -1608,7 +1608,7 @@ bot.on("ready", async () => {
 
             if (messageReaction.emoji.id === gno.id) {
 
-                if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612') {
+                if (user.id === '385777873581113344' || user.id === '292598566759956480' || user.id === '724991641932267612' || user.id === '435071631426060288' || user.id === '279057499791949824' || user.id === '409421412248584194') {
             
                     let permRole = messageReaction.message.guild.roles.find(x => x.name === 'Member');
                     let modlogChannel = messageReaction.message.guild.channels.find(x => x.name === 'modlog');
@@ -2263,4 +2263,3 @@ bot.on('message', message => {
 //-—
 
 bot.login(botconfig.token);
- 
