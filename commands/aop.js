@@ -32,7 +32,7 @@ const warningsign = bot.emojis.get("729725849343098900");
 
 const mainguild = bot.guilds.get('700639523272523776')
 
-let AOPchannel = mainguild.channels.find(x => x.id === '806224054079324220');
+let AOPchannel = mainguild.channels.find(x => x.id === '806204219321090069');
 
 message.delete().catch(_O_o=>{})
 
