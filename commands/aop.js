@@ -16,13 +16,13 @@ try {
 
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return errors.noPerms(message, "MANAGE_MESSAGES");
     if(args[0] === "help"){
-        message.reply("Usage: !aop <bc or ss&s>");
+        message.reply("Usage: !aop <bc, ss&s, ls, mt, or v&r>");
         return;
     }
     
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don't have permission to do that.");
     if(args[0] == "help"){
-        message.reply("Usage: !aop <bc or ss&s>");
+        message.reply("Usage: !aop <bc, ss&s, ls, mt, or v&r>");
         return;
     }
     
