@@ -39,10 +39,6 @@ module.exports.run = async (bot, message, args) => {
 
     message.delete().catch(O_o=>{});
 
-    message.channel.overwritePermissions(civrole.id, {
-        SEND_MESSAGES: false
-      });
-
 const filter = (reaction, user) => {
     gmember = message.guild.members.get(user.id)
 
@@ -91,9 +87,6 @@ sentMessage.awaitReactions(filter, { max: 1, time: 10800000, errors: ['time'] })
         
                 message.channel.send(cooldownendEmbed);
 
-                message.channel.overwritePermissions(civrole.id, {
-                    SEND_MESSAGES: true
-                  });
             }, ms("20m"));
             
         }
