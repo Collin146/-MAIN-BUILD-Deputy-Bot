@@ -12,19 +12,7 @@ module.exports.run = async (bot, message, args) => {
         }
 
     try {
-
-    if(!message.member.hasPermission("ADMINISTRATOR")) return errors.noPerms(message, "ADMINISTRATOR");
-    if(args[0] === "help"){
-        message.reply("Usage: !ban <user> <reason");
-        return;
-    }
-    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You don't have permission to do that.");
-    if(args[0] == "help"){
-        message.reply("Usage: !ban <user> <reason>");
-        return;
-    }
    
-
     const yes = bot.emojis.get("700713527576625205");
     const no = bot.emojis.get("700713478578634783"); 
 
